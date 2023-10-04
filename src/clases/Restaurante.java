@@ -4,7 +4,7 @@ import java.util.Date;
 
 public abstract class Restaurante {
 	
-    private  String nombre;
+    private static String nombre;
     private String direccion;
     private  int telefono;
     private Date horario;
