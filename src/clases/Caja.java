@@ -8,14 +8,23 @@ public class Caja {
     private int totalEgresos;
     private int totalIngresos;
     private static List<Caja> listadoCajas= new ArrayList<Caja>();
+    
+    
+    public Caja(Sedes sedeAsociada, int dineroCaja, int numeroDeSerie, int totalEgresos, int totalIngresos) {
+        this.sedeAsociada = sedeAsociada;
+        this.dineroCaja = dineroCaja;
+        this.numeroDeSerie = numeroDeSerie;
+        this.totalEgresos = totalEgresos;
+        this.totalIngresos = totalIngresos;
+    }
 
-    public static int propina;
+    
 
 
 
 
-        return sedeAsociada;
-}
+       
+
 
     public void setSedeAsociada(Sedes sedeAsociada) {
         this.sedeAsociada = sedeAsociada;
@@ -61,14 +70,15 @@ public class Caja {
         Caja.listadoCajas = listadoCajas;
     }
     public void venta(Objeto objeto, int precio ){
-    this. dineroCaja-=
+    this.dineroCaja-=precio;
+    
 
 
 
     }
 
 
-    }
+    
 }
 
 
