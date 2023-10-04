@@ -22,6 +22,9 @@ public abstract class Restaurante {
         this.mesas = mesas;
         this.empleados = empleados;
     }
+    public Restaurante() {
+    	
+    }
 
     public String getNombre(){
         return this.nombre;
