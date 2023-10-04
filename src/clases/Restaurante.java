@@ -13,7 +13,7 @@ public abstract class Restaurante {
     private ArrayList<Empleado> empleados;
     private ArrayList<Factura> facturas;
 
-    public Restaurante(String nombre, String direccion, int telefono, Date horario, arrayList<Platos> menu, arrayList<Mesa> mesas, arrayList<Empleado> empleados){
+    public Restaurante(String nombre, String direccion, int telefono, Date horario, ArrayList<Platos> menu, ArrayList<Mesa> mesas, ArrayList<Empleado> empleados){
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
