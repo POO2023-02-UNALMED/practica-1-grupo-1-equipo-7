@@ -74,7 +74,10 @@ public class Inventario  {
                 System.out.println("No hay suficientes " + item.getNombre() + " en el inventario.");
             }
         }
-    }}
+    }
+    
+
+}
 
 	
 	

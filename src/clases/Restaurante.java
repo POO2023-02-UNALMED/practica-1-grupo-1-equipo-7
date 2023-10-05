@@ -8,12 +8,12 @@ public abstract class Restaurante {
     private String direccion;
     private  int telefono;
     private Date horario;
-    private ArrayList<Platos> menu;
+    private ArrayList<Plato>menu;   
     private ArrayList<Mesa> mesas;
     private ArrayList<Empleado> empleados;
     private ArrayList<Factura> facturas;
 
-    public Restaurante(String nombre, String direccion, int telefono, Date horario, ArrayList<Platos> menu, ArrayList<Mesa> mesas, ArrayList<Empleado> empleados){
+    public Restaurante(String nombre, String direccion, int telefono, Date horario, ArrayList<Plato> menu, ArrayList<Mesa> mesas, ArrayList<Empleado> empleados){
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -42,7 +42,7 @@ public abstract class Restaurante {
         return this.horario;
     }
 
-    public arrayList<Platos> getMenu(){
+    public arrayList<Plato> getMenu(){
         return this.menu;
     }
 
@@ -70,7 +70,7 @@ public abstract class Restaurante {
         this.horario = horario;
     }
 
-    public void setMenu(arrayList<Platos> menu){
+    public void setMenu(arrayList<Plato> menu){
         this.menu = menu;
     }
 
@@ -82,7 +82,7 @@ public abstract class Restaurante {
         this.empleados = empleados;
     }
 
-    public void agregarPlato(Platos plato){
+    public void agregarPlato(Plato plato){
         this.menu.add(plato);
     }
 
@@ -94,7 +94,7 @@ public abstract class Restaurante {
         this.empleados.add(empleado);
     }
 
-    public void eliminarPlato(Platos plato){
+    public void eliminarPlato(Plato plato){
         this.menu.remove(plato);
     }
 
@@ -106,7 +106,7 @@ public abstract class Restaurante {
         this.empleados.remove(empleado);
     }
 
-    public void modificarPlato(Platos plato, String nombre, String descripcion, int precio){
+    public void modificarPlato(Plato plato, String nombre, String descripcion, int precio){
         plato.setNombre(nombre);
         plato.setDescripcion(descripcion);
         plato.setPrecio(precio);
