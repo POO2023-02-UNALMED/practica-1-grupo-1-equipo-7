@@ -7,6 +7,7 @@ public class Caja {
     private int numeroDeSerie;
     private int totalEgresos;
     private int totalIngresos;
+    
     private static List<Caja> listadoCajas= new ArrayList<Caja>();
     
     
@@ -16,6 +17,7 @@ public class Caja {
         this.numeroDeSerie = numeroDeSerie;
         this.totalEgresos = totalEgresos;
         this.totalIngresos = totalIngresos;
+        
     }
 
     
@@ -69,18 +71,29 @@ public class Caja {
     public static void setListadoCajas(List<Caja> listadoCajas) {
         Caja.listadoCajas = listadoCajas;
     }
-    public void venta(Objeto objeto, int precio ){
-    this.dineroCaja-=precio;
+   
     
 
 
 
+    
+    public void Compra(Item objeto, int precio, int cantidad) {
+        int costoTotal = precio * cantidad;
+
+        // Verificar si hay suficiente dinero en la caja para realizar la compra
+        if (dineroCaja >= costoTotal) {
+            // Restar el costo total del dinero en la caja
+            dineroCaja -= costoTotal;
+
+            // Registrar los egresos totales
+            totalEgresos += costoTotal;
+
+            // Actualizar el inventario de la sede asociada
+            sedeAsociada.getInventario().añadirItems(objeto, cantidad);
+        } else {
+            System.out.println("No hay suficiente dinero en la caja para realizar la compra.");
+        }
     }
-
-
-    
-}
-
 
 
 

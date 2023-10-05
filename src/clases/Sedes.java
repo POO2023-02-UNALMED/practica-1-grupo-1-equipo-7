@@ -7,16 +7,21 @@ public class Sedes extends Restaurante {
     private String direccion;
     private int capacidad;
     private List<Menu> menuList;
-    private List<Empleado> empleados;
+    private List<Empleado> listadoEmpleados= new ArrayList<>();
     private String horario;
+    private Caja caja;
+    
+    private Inventario inventario;
 
     // Constructor
-    public Sedes(String nombre, String direccion, int capacidad) {
-        this.nombre = nombre;
+    public Sedes(String nombre, String direccion, int capacidad, Inventario inventario, Caja caja) {
+    	this.nombre = nombre;
         this.direccion = direccion;
         this.capacidad = capacidad;
-        this.menuList = new ArrayList<>();
-        this.empleados = new ArrayList<>();
+        this. inventario=inventario;
+        this.caja=caja;
+        
+         
         
     }
 
@@ -57,7 +62,7 @@ public class Sedes extends Restaurante {
 
     // Getter para el atributo "empleados"
     public List<Empleado> getEmpleados() {
-        return empleados;
+        return listadoEmpleados;
     }
 
     // Agregar un menú a la sede
@@ -72,18 +77,18 @@ public class Sedes extends Restaurante {
 
     // Agregar un empleado a la sede
     public void agregarEmpleado(Empleado empleado) {
-        empleados.add(empleado);
+        listadoEmpleados.add(empleado);
     }
 
     // Eliminar un empleado de la sede
     public void eliminarEmpleado(Empleado empleado) {
-        empleados.remove(empleado);
+        listadoEmpleados.remove(empleado);
     }
 
     @Override
     public String toString() {
         return "Nombre de la Sede: " + nombre + "\nDirección: " + direccion + "\nCapacidad: " + capacidad
-                + "\nMenús en la Sede: " + menuList.size() + "\nEmpleados en la Sede: " + empleados.size();
+                + "\nMenús en la Sede: " + menuList.size() + "\nEmpleados en la Sede: " + listadoEmpleados.size();
     }
     public String getHorario() {
         return horario;
@@ -92,5 +97,13 @@ public class Sedes extends Restaurante {
     // Setter para el atributo "horario"
     public void setHorario(String horario) {
         this.horario = horario;
+    }
+    //get inventario 
+    public Inventario getInventario() {
+    	return this.inventario;
+    }
+    // Sett Inventario 
+    public void  setInventario(Inventario inventario ) {
+    	this.inventario=inventario;
     }
 }

@@ -7,7 +7,8 @@ public class Item {
 	    private int cantidad;
 	    private double precio;
 	    private  String numeroSerial;
-	    private static List <Item>listadoItems=new ArrayList<>();
+	    private static int totalItems;
+	    
 	    private Tipo tipo;
 
 	    // Constructor
@@ -15,8 +16,9 @@ public class Item {
 	        this.nombre = nombre;
 	        this.cantidad = cantidad;
 	        this.precio = precio;
-	        listadoItems.add(this);
+	        
 	        this.tipo=tipo;
+	        totalItems++;
 	        
 	    }
 
@@ -60,7 +62,8 @@ public class Item {
 	        return "Nombre: " + nombre + ", Cantidad: " + cantidad + ", Precio: " + precio;
 	    }
 	    public static int totalItems() {
-	    	return listadoItems.size();
+	    	return totalItems;
+	    	
 	    }
 	    
 	}

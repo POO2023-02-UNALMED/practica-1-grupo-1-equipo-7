@@ -1,30 +1,35 @@
 package clases;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 
-public class Inventario {
-	private String tipo;
-	
-	
+public class Inventario  {
 	
 	private static  int cantidadTotal;
-	private Sedes sede;
-	public Inventario(String tipo, String numeroDeSerie, Sedes sede) {
-        this.tipo = tipo;
+	
+	private Map <Item,Integer > listadoItems= new HashMap<>();
+	
+
+	
+	
+	
+//	constructor 
+	public Inventario(  Item item) {
+       
+        cantidadTotal++;
+//   Añadir diccionario, con su valor y clave si la clave se repite, el valor aumenta en uno
         
-        this.sede = sede;
-    }
+        int valorActual = listadoItems.get(item);
+        if (!listadoItems.containsKey(item)) {
+            listadoItems.put(item, 0);
+        } else {
+            
+            listadoItems.put(item, valorActual ++);}
+        }
+        
 
-    // Getter para el atributo "tipo"
-    public String getTipo() {
-        return tipo;
-    }
-
-    // Setter para el atributo "tipo"
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
 
    
 
@@ -38,22 +43,38 @@ public class Inventario {
         Inventario.cantidadTotal = cantidadTotal;
     }
 
-    // Getter para el atributo "sede"
-    public Sedes getSede() {
-        return sede;
+  
+   
+    
+    // metodo para agregar items al invetario.
+    public void añadirItems(Item item, int cantidad) {
+        if (!listadoItems.containsKey(item)) {
+            // Si el item no existe en el diccionario, simplemente establece la cantidad especificada.
+            listadoItems.put(item, cantidad);
+        } else {
+            // Si el item ya existe en el diccionario, suma la cantidad especificada a la cantidad actual.
+            int cantidadActual = listadoItems.get(item);
+            listadoItems.put(item, cantidadActual + cantidad);
+        }
     }
-
-    // Setter para el atributo "sede"
-    public void setSede(Sedes sede) {
-        this.sede = sede;
-    }
-    public void añadirObjeto(Objeto, objeto) {
+    	
+    	
+    
     
     	
-    }
-    public void RetirarDeInventario() {
-    	
-}
+    
+    public void retirarItems(Item item, int cantidad) {
+        if (listadoItems.containsKey(item)) {
+            int cantidadActual = listadoItems.get(item);
+            if (cantidadActual >= cantidad) {
+                listadoItems.put(item, cantidadActual - cantidad);
+                cantidadTotal -= cantidad; // Actualizar la cantidad total en el inventario
+            } else {
+                // Manejar el caso en el que intentas retirar más de lo que hay disponible.
+                System.out.println("No hay suficientes " + item.getNombre() + " en el inventario.");
+            }
+        }
+    }}
 
 	
 	
