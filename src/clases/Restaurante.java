@@ -1,7 +1,7 @@
 package clases;
 import java.util.ArrayList;
 import java.util.Date;
-
+import java.util.HashMap;
 public abstract class Restaurante {
 	
     private  String nombre;
@@ -10,8 +10,8 @@ public abstract class Restaurante {
     private Date horario;
     private ArrayList<Platos> menu;
     private ArrayList<Mesa> mesas;
-    private ArrayList<Empleado> empleados;
-    private ArrayList<Factura> facturas;
+    private static ArrayList<Empleado> empleados;
+    private static HashMap<Integer, String> facturas;
 
     public Restaurante(String nombre, String direccion, int telefono, Date horario, ArrayList<Platos> menu, ArrayList<Mesa> mesas, ArrayList<Empleado> empleados){
         this.nombre = nombre;
