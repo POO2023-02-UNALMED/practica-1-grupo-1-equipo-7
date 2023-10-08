@@ -3,10 +3,10 @@ package clases;
 
 
 public class PedidoOnlinefisico {
-	 int numeroOrden;
-	 int cantidadPlatos;
-	 String direccionPedido;
-	 String tipoPedido = "fisico";
+	 private int numeroOrden;
+	 private int cantidadPlatos;
+	 protected String direccionPedido;
+	 protected String tipoPedido = "fisico";
 	
 	public PedidoOnlinefisico(int numeroOrden, int cantidadPlatos, String direccionPedido, String tipoPedido) {
 		this.numeroOrden = numeroOrden;
@@ -14,6 +14,18 @@ public class PedidoOnlinefisico {
 		this.direccionPedido = direccionPedido;
 		this.tipoPedido= tipoPedido;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public int getNumeroOrden() {
 		return numeroOrden;
 	}

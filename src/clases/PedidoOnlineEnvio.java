@@ -1,10 +1,10 @@
 package clases;
 
 public class PedidoOnlineEnvio {
-	int numeroOrden;
-	int cantidadPlatos;
-	String direccionPedido;
-	String tipoPedido = "Envio";
+	private int numeroOrden;
+	private int cantidadPlatos;
+	private String direccionPedido;
+	protected String tipoPedido = "envio";
 	
 	
 	//Constructor
