@@ -42,15 +42,15 @@ public abstract class Restaurante {
         return this.horario;
     }
 
-    public arrayList<Plato> getMenu(){
+    public ArrayList<Plato> getMenu(){
         return this.menu;
     }
 
-    public arrayList<Mesa> getMesas(){
+    public ArrayList<Mesa> getMesas(){
         return this.mesas;
     }
 
-    public arrayList<Empleado> getEmpleados(){
+    public ArrayList<Empleado> getEmpleados(){
         return this.empleados;
     }
 
@@ -70,15 +70,15 @@ public abstract class Restaurante {
         this.horario = horario;
     }
 
-    public void setMenu(arrayList<Plato> menu){
+    public void setMenu(ArrayList<Plato> menu){
         this.menu = menu;
     }
 
-    public void setMesas(arrayList<Mesa> mesas){
+    public void setMesas(ArrayList<Mesa> mesas){
         this.mesas = mesas;
     }
 
-    public void setEmpleados(arrayList<Empleado> empleados){
+    public void setEmpleados(ArrayList<Empleado> empleados){
         this.empleados = empleados;
     }
 
