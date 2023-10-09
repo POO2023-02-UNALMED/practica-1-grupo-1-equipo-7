@@ -8,12 +8,14 @@ public abstract class Restaurante {
     private String direccion;
     private  int telefono;
     private Date horario;
+    private Inventario inventario;
+    private Caja caja;
     private ArrayList<Plato>menu;   
     private ArrayList<Mesa> mesas;
     private static ArrayList<Empleado> empleados;
     private static HashMap<Integer, String> facturas;
 
-    public Restaurante(String nombre, String direccion, int telefono, Date horario, ArrayList<Plato> menu, ArrayList<Mesa> mesas, ArrayList<Empleado> empleados){
+    public Restaurante(String nombre, String direccion, Inventario inventario, private Caja caja, int telefono, Date horario, ArrayList<Plato> menu, ArrayList<Mesa> mesas, ArrayList<Empleado> empleados){
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -21,6 +23,8 @@ public abstract class Restaurante {
         this.menu = menu;
         this.mesas = mesas;
         this.empleados = empleados;
+        this.inventario = inventario;
+        this.caja = caja;
     }
     public Restaurante() {
     	

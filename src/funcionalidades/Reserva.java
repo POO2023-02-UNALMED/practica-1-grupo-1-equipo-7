@@ -26,13 +26,23 @@ public static void main(String[] args) {
 		case 1:
 			ReservarMesa();
 			break;
+		case 2:
+			
 		}
-		
 		
 		
 	}
 	
 
+	
+}
+
+static void ReservarMesa() {
+	
+	System.out.println("¿Para cuántas personas es la reservación?");
+	String cantidad = in.next();
+	System.out.println("¿Para qué fecha desea hacer la reservaciónS?");
+	
 	
 }
 
