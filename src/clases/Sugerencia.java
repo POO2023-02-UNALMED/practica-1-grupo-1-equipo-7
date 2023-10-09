@@ -13,7 +13,7 @@ public class Sugerencia {
 	protected static List<Sugerencia> SugerenciasSedes = new ArrayList<>();
 	protected static List<Sugerencia> SugerenciasOtros = new ArrayList<>();
 	
-	public Sugerencia(Cliente cliente, String texto, Tipos tipe) {
+	public Sugerencia(Cliente cliente, Tipos tipe, String texto) {
 		this.cliente = cliente;
 		this.sugerencia = texto;
 		count++;
