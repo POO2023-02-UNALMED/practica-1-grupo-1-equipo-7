@@ -11,6 +11,7 @@ public class Inventario  {
 	
 	private Map <Item,Integer > listadoItems= new HashMap<>();
 	
+	
 
 	
 	
@@ -74,6 +75,17 @@ public class Inventario  {
                 System.out.println("No hay suficientes " + item.getNombre() + " en el inventario.");
             }
         }
+    }
+    public void mostrarInventario(Sedes sede) {
+    	System.out.print("inventario de "+ sede.getDireccion());
+    	 System.out.println("Contenido del diccionario:");
+         for (Map.Entry<String, Integer> entry : diccionario.entrySet()) {
+             String clave = entry.getKey();
+             Integer valor = entry.getValue();
+             System.out.println(clave + ": " + valor);
+         }
+     }
+ }
     }
     
 
