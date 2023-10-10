@@ -1,8 +1,10 @@
 package clases;
 import java.util.List;
+
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
+import java.time.LocalDate;
 
 
 public class Inventario  {
@@ -78,18 +80,32 @@ public class Inventario  {
     }
     public void mostrarInventario(Sedes sede) {
     	System.out.print("inventario de "+ sede.getDireccion());
-    	 System.out.println("Contenido del diccionario:");
-         for (Map.Entry<String, Integer> entry : diccionario.entrySet()) {
-             String clave = entry.getKey();
+    	
+         for (Map.Entry<Item, Integer> entry : sede.getInventario().listadoItems.entrySet()) {
+             String  clave = entry.getKey().getNombre();
              Integer valor = entry.getValue();
              System.out.println(clave + ": " + valor);
          }
      }
- }
+    public void revisionNivelesStock(String fecha ) {
+    	List <Item>listadoVencidos=new ArrayList<>();
+    	for (Item objetos: listadoItems.keySet()) {
+    		LocalDate fechaVencimiento=LocalDate.parse(objetos.getFechaVencimiento());
+    		
+    		LocalDate  fechaActual=LocalDate.parse(fecha);
+    		if(fechaActual.compareTo(fechaActual)>0) {
+    			listadoVencidos.add(objetos);
+    			
+    			
+    		}
+    		}
+    	
+    }
+ 
     }
     
 
-}
+
 
 	
 	

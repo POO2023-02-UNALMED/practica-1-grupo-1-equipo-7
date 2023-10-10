@@ -8,14 +8,16 @@ public class Item {
 	    private double precio;
 	    private  String numeroSerial;
 	    private static int totalItems;
+	    private String fechaVencimiento;
 	    
 	    private Tipo tipo;
 
 	    // Constructor
-	    public Item(String nombre, int cantidad, double precio,Tipo tipo) {
+	    public Item(String nombre, int cantidad, double precio,Tipo tipo,String fechaVencimiento) {
 	        this.nombre = nombre;
 	        this.cantidad = cantidad;
 	        this.precio = precio;
+	        this.fechaVencimiento=fechaVencimiento;
 	        
 	        this.tipo=tipo;
 	        totalItems++;
@@ -63,6 +65,13 @@ public class Item {
 	    }
 	    public static int totalItems() {
 	    	return totalItems;
+	    	
+	    }
+	    public String getFechaVencimiento() {
+	    	return this.fechaVencimiento;
+	    }
+	    public void setFechaVencimiento(String fecha) {
+	    	this.fechaVencimiento=fecha;
 	    	
 	    }
 	    
