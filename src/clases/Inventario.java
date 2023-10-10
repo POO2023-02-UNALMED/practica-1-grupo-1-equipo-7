@@ -91,6 +91,7 @@ public class Inventario  {
              System.out.println(clave + ": " + valor);
          }
      }
+    // Acá hay un error , en la noche lo corrijo . // Listado items no puede ser estatico porque debe estar asosciado a una see y a un inventario de la misma
     public void añadirProductosVencidos(Date fecha ) {
     	
     	
@@ -105,6 +106,7 @@ public class Inventario  {
     		
     	}
     	}
+    // esto es lo que en la funcionalidad mostrará la cantidad de productos vencidos 
     public  void imprimirProductosVencidos() {
         Map<String, Integer> productoCantidadMap = new HashMap<>();
 
