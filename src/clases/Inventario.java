@@ -1,15 +1,21 @@
 package clases;
 import java.util.List;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 import java.util.HashMap;
 
 
+
 public class Inventario  {
 	
-	private static  int cantidadTotal;
+	
 	
 	private Map <Item,Integer > listadoItems= new HashMap<>();
+	private List<Item>listadoVencidos=new ArrayList<>();
+	private static  int cantidadTotal;
+	
 	
 
 	public Inventario() {
@@ -20,15 +26,15 @@ public class Inventario  {
 //	constructor 
 	public Inventario(  Item item) {
        
-        cantidadTotal++;
-//   Añadir diccionario, con su valor y clave si la clave se repite, el valor aumenta en uno
+     // Añadir diccionario, con su valor y clave si la clave se repite, el valor aumenta en uno
         
         int valorActual = listadoItems.get(item);
         if (!listadoItems.containsKey(item)) {
             listadoItems.put(item, 0);
         } else {
             
-            listadoItems.put(item, valorActual ++);}
+            listadoItems.put(item, valorActual +=item.getCantidad());}
+        cantidadTotal++;
         }
         
 
@@ -64,22 +70,91 @@ public class Inventario  {
     
     
     	
-    
+    // retirar items del inventario 
     public void retirarItems(Item item, int cantidad) {
         if (listadoItems.containsKey(item)) {
             int cantidadActual = listadoItems.get(item);
             if (cantidadActual >= cantidad) {
                 listadoItems.put(item, cantidadActual - cantidad);
                 cantidadTotal -= cantidad; // Actualizar la cantidad total en el inventario
+                
             } else {
                 // Manejar el caso en el que intentas retirar más de lo que hay disponible.
                 System.out.println("No hay suficientes " + item.getNombre() + " en el inventario.");
             }
         }
     }
+    public void mostrarInventario(Sedes sede) {
+    	System.out.print("inventario de "+ sede.getDireccion());
+    	
+         for (Map.Entry<Item, Integer> entry : sede.getInventario().listadoItems.entrySet()) {
+             String  clave = entry.getKey().getNombre();
+             Integer valor = entry.getValue();
+             System.out.println(clave + ": " + valor);
+         }
+     }
+    // Acá hay un error , en la noche lo corrijo . // Listado items no puede ser estatico porque debe estar asosciado a una see y a un inventario de la misma
+    public void añadirProductosVencidos(Date fecha ) {
+    	
+    	
+    	
+    	for (Item i:Item.getListadoItems()) {
+    		Date fechaVencimiento=i.getFechaVencimiento();
+    		if (fechaVencimiento.compareTo(fecha)<0) {
+    			listadoVencidos.add(i);
+    			
+    		}
+    		
+    		
+    	}
+    	}
+    // esto es lo que en la funcionalidad mostrará la cantidad de productos vencidos 
+    public  void imprimirProductosVencidos() {
+        Map<String, Integer> productoCantidadMap = new HashMap<>();
+
+        // Iterar sobre la lista de productos vencidos
+        for (Item producto : this.listadoVencidos) {
+            String nombre = producto.getNombre();
+            Integer cantidad = producto.getCantidad();
+            Integer cantidadActual=productoCantidadMap.get(nombre);
+
+            // Si el producto ya existe en el mapa, sumar la cantidad
+            if (productoCantidadMap.containsKey(nombre)) {
+            	productoCantidadMap.put(nombre,cantidad+cantidadActual);
+                
+            }
+            else {productoCantidadMap.put(nombre,cantidadActual);
+            	
+            }
+
+            
+        }
+
+        // Imprimir los productos vencidos y la suma de cantidades
+        for (Map.Entry<String, Integer> entry : productoCantidadMap.entrySet()) {
+            String nombreProducto = entry.getKey();
+            int cantidadTotal = entry.getValue();
+
+            System.out.println(nombreProducto + ": " + cantidadTotal);
+        }
+    }
+    public void retirarItemsVencidos() {
+    	for (Item i:listadoVencidos) {
+    		this.retirarItems(i, i.getCantidad());
+    		
+    	}
+    }
+    
+    
+    }
+    	
+    	
+    
+ 
+    
     
 
-}
+
 
 	
 	
