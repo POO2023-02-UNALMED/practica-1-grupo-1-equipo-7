@@ -20,6 +20,7 @@ public class Factura {
         contadorFacturas++;
         this.fecha = fecha;
         facturas.add(this);
+
     }
     static{
         new Factura(1, 1, 1, LocalDate.parse("2020-01-01"), 1000);
@@ -29,17 +30,17 @@ public class Factura {
         new Factura(1, 1, 1, LocalDate.parse("2020-01-05"), 5000);
         new Factura(1, 1, 1, LocalDate.parse("2020-01-06"), 6000);
         new Factura(1, 2, 1, LocalDate.parse("2020-01-07"), 7000);
-        new Factura(1, 1, 1, LocalDate.parse("2020-01-08"), 8000);
-        new Factura(1, 1, 1, LocalDate.parse("2020-01-09"), 9000);
-        new Factura(1, 1, 1, LocalDate.parse("2020-01-10"), 10000);
+        new Factura(1, 2, 1, LocalDate.parse("2020-01-08"), 8000);
+        new Factura(1, 2, 1, LocalDate.parse("2020-01-09"), 9000);
+        new Factura(1, 2, 1, LocalDate.parse("2020-01-10"), 10000);
         new Factura(1, 2, 1, LocalDate.parse("2020-01-11"), 11000);
-        new Factura(1, 1, 1, LocalDate.parse("2020-01-12"), 12000);
-        new Factura(1, 1, 1, LocalDate.parse("2020-01-13"), 13000);
-        new Factura(1, 1, 1, LocalDate.parse("2020-01-14"), 14000);
-        new Factura(1, 1, 1, LocalDate.parse("2020-01-15"), 15000);
+        new Factura(1, 2, 1, LocalDate.parse("2020-01-12"), 12000);
+        new Factura(1, 2, 1, LocalDate.parse("2020-01-13"), 13000);
+        new Factura(1, 2, 1, LocalDate.parse("2020-01-14"), 14000);
+        new Factura(1, 2, 1, LocalDate.parse("2020-01-15"), 15000);
         new Factura(1, 2, 1, LocalDate.parse("2020-01-16"), 16000);
-        new Factura(1, 1, 1, LocalDate.parse("2020-01-17"), 17000);
-        new Factura(1, 1, 1, LocalDate.parse("2020-01-18"), 18000);
+        new Factura(1, 2, 1, LocalDate.parse("2020-01-17"), 17000);
+        new Factura(1, 2, 1, LocalDate.parse("2020-01-18"), 18000);
     }
     public int getCodigo(){
         return codigo;
@@ -105,6 +106,18 @@ public class Factura {
             }
         }
         return facturasFecha;
+    }
+
+    public static ArrayList<Factura> buscarFacturasPorFechaycodigo(int codigoEmpleado,LocalDate fechaInicio, LocalDate fechaFin){
+        ArrayList<Factura> facturasFecha = new ArrayList<>();
+        for(Factura factura : facturas){
+            if(factura.getCodigoEmpleado() == codigoEmpleado && factura.getFecha().isAfter(fechaInicio) && factura.getFecha().isBefore(fechaFin)){
+                facturasFecha.add(factura);
+            }
+        }
+        return facturasFecha;
+
+        
     }
 
 }

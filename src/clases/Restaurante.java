@@ -2,9 +2,18 @@ package clases;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-public abstract class Restaurante {
+public class Restaurante {
 	
-    private static String nombre;
+    private String nombre;
+    static HashMap<Integer, Float> incentivos = new HashMap<Integer, Float>(){
+        {
+            put(10, 0.05f);
+            put(15, 0.06f);
+            put(20, 0.065f);
+            put(25, 0.07f);
+            put(30, 0.072f);
+        }
+    };
     private String direccion;
     private  int telefono;
     private Date horario;
@@ -12,19 +21,28 @@ public abstract class Restaurante {
     private Caja caja;
     private ArrayList<Plato>menu;   
     private ArrayList<Mesa> mesas;
-    private static ArrayList<Empleado> empleados;
+    private static ArrayList<Restaurante> sedes = new ArrayList<Restaurante>();
+    private static ArrayList<Empleado> empleados = new ArrayList<Empleado>();
     private static HashMap<Integer, String> facturas;
+    private int codigoSede;
 
-    public Restaurante(String nombre, String direccion, Inventario inventario, private Caja caja, int telefono, Date horario, ArrayList<Plato> menu, ArrayList<Mesa> mesas, ArrayList<Empleado> empleados){
+    static{
+        new Restaurante("La Casa de Toño", "Calle 1", new Inventario(), new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
+        new Restaurante("La Casa de Toño", "Calle 2", new Inventario(), new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
+        
+    }
+
+    public Restaurante(String nombre, String direccion, Inventario inventario, Caja caja, int telefono, Date horario, ArrayList<Plato> menu, ArrayList<Mesa> mesas){
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.horario = horario;
         this.menu = menu;
         this.mesas = mesas;
-        this.empleados = empleados;
         this.inventario = inventario;
         this.caja = caja;
+        this.codigoSede += 1;
+        sedes.add(this);
     }
     public Restaurante() {
     	
@@ -52,10 +70,6 @@ public abstract class Restaurante {
 
     public ArrayList<Mesa> getMesas(){
         return this.mesas;
-    }
-
-    public ArrayList<Empleado> getEmpleados(){
-        return this.empleados;
     }
 
     public void setNombre(String nombre){
@@ -94,10 +108,6 @@ public abstract class Restaurante {
         this.mesas.add(mesa);
     }
 
-    public void agregarEmpleado(Empleado empleado){
-        this.empleados.add(empleado);
-    }
-
     public void eliminarPlato(Plato plato){
         this.menu.remove(plato);
     }
@@ -129,4 +139,43 @@ public abstract class Restaurante {
         this.facturas.add(factura);
     }
 
+    public static HashMap<Integer, Float>  getIncentivos(){
+        return incentivos;
+    }
+
+    public static void setIncentivos(HashMap<Integer, Float> incentivos){
+        Restaurante.incentivos = incentivos;
+    }
+
+    public int getCodigoSede(){
+        return codigoSede;
+    }
+
+    public static Restaurante buscarSede(int codigoSede){
+        for(Restaurante sede : sedes){
+            if(sede.getCodigoSede() == codigoSede){
+                return sede;
+            }
+        }
+        return null;
+    }
+
+    public float calcularPropinasPorSede(int codigoSede){
+        Restaurante sede = buscarSede(codigoSede);
+        if(sede == null){
+            System.out.println("No existe esa sede");
+            return 0;
+        }
+        else{
+            int totalPropinas = 0;
+            ArrayList<Empleado> empleados = Empleado.getEmpleados(codigoSede);
+            System.out.println(empleados);
+            for(Empleado empleado : empleados){
+                System.out.println(empleado.getNombre());
+                totalPropinas += empleado.calcularPropinas(empleado.getCodigo());
+            }
+            return totalPropinas;  
+    }
+
+    }
 }

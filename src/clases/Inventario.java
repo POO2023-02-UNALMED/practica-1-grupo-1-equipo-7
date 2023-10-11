@@ -12,7 +12,9 @@ public class Inventario  {
 	private Map <Item,Integer > listadoItems= new HashMap<>();
 	
 
-	
+	public Inventario() {
+        
+    }
 	
 	
 //	constructor 

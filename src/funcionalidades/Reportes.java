@@ -1,11 +1,9 @@
 package funcionalidades;
 import clases.*;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.Scanner;
-import java.text.ParseException;
 
 	public class Reportes {
 	    public static void main(String[] args) {
@@ -56,27 +54,36 @@ import java.text.ParseException;
 								System.out.println("No hay facturas en ese rango de fechas");
 							}
 							else{
-								int totalComisiones = 0;
-								for(Factura factura : facturas){
-									if(factura.getCodigoEmpleado() == empleado.getCodigo()){
-										totalComisiones += factura.getTotal() * Empleado.getPorcentajePropinas();
-									}
-								}
-								System.out.println("El total de comisiones es: " + totalComisiones);
+
+								System.out.println("El total de comisiones : " + empleado.calcularPropinas(opcion, fechaInicio, fechaFin));
 							}
-							
-
-
 						}
 	            	break;
 
-	            		
-	            	case 2:
-	            		System.out.println("Reporte de ventas total");
-	            		
-	            		
-	            }
-	            break;
+					case 2:
+	            		System.out.println("Comisiones por sede");
+						System.out.println("Ingrese el codigo de la sede:");
+						opcion = input1.nextInt();
+
+							        
+						if (Restaurante.buscarSede(opcion) == null){
+							System.out.println("No existe ese codigo de Sede");
+						}
+						else{
+							Restaurante sede = Restaurante.buscarSede(opcion);
+							System.out.println("Reporte de Comisiones para la sede: " + sede.getNombre());
+
+							ArrayList<Factura> facturas = Factura.buscarFacturasPorSede(opcion);
+							if(facturas.size() == 0){
+								System.out.println("No hay facturas en ese rango de fechas");
+							}
+							else{
+								System.out.println("El total de comisiones : " + sede.calcularPropinasPorSede(opcion));
+							}
+						}
+					}
+					break;
+	
 	            //Aqui se puede detallar las ventas por sede, por ejemplo, ventas por dia, ventas por mes, ventas por año, etc.
 	        case 2:
 	        	

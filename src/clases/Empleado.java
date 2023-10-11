@@ -1,9 +1,10 @@
 package clases;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Empleado extends Persona {
     private int sueldo;
-    private static float porcentajePropinas = 0.05f;
     private int codigo;
     private int codigoSede;
     private static int contadorEmpleados = 0;
@@ -25,17 +26,23 @@ public class Empleado extends Persona {
     public int getSueldo(){
         return sueldo;
     }
+    public static ArrayList<Empleado> getEmpleados(){
+        return empleados;
+    }
+    public static ArrayList<Empleado> getEmpleados(int codigoSede){
+        ArrayList<Empleado> empleadosSede = new ArrayList<>();
+        for(Empleado empleado : empleados){
+            if(empleado.getCodigoSede() == codigoSede){
+                empleadosSede.add(empleado);
+            }
+        }
+        return empleadosSede;
+    }
     public void setSueldo(int sueldo){
         this.sueldo = sueldo;
     }
     public String toString(){
         return super.toString() + " Sueldo: " + sueldo;
-    }
-    public static float getPorcentajePropinas(){
-        return porcentajePropinas;
-    }
-    public static void setPorcentajePropinas(float porcentajePropinas){
-        Empleado.porcentajePropinas = porcentajePropinas;
     }
     public int getCodigo(){
         return codigo;
@@ -52,6 +59,186 @@ public class Empleado extends Persona {
         return null;
     }
 
+    public float calcularPropinas(int codigo){
+        Empleado empleado = buscarEmpleado(codigo);
+        if(empleado == null){
+            return 0;
+        }
+        else{
+            int totalPropinas = 0;
+            int numeroFacturas = Factura.buscarFacturasPorEmpleado(codigo).size();
+            HashMap <Integer, Float> incentivos = Restaurante.getIncentivos();
+            ArrayList<Factura> facturas = Factura.buscarFacturasPorEmpleado(codigo);
+            if(numeroFacturas <= 10){
+                for (Factura factura : facturas){
+                    totalPropinas += factura.getTotal() * incentivos.get(10);
+                }
+            }
+            else if(numeroFacturas <= 15 && numeroFacturas > 10){
+                for (int i = 0; i < 10; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                }
+                for (int i = 10; i < facturas.size(); i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                }
+            }
+            else if(numeroFacturas <= 20 && numeroFacturas > 15){
+                for (int i = 0; i < 10; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                }
+                for (int i = 10; i < 15; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                }
+                for (int i = 15; i < facturas.size(); i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(15);
+                }
+            }
+            else if(numeroFacturas <= 25 && numeroFacturas > 20){
+                for (int i = 0; i < 10; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                }
+                for (int i = 10; i < 15; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                }
+                for (int i = 15; i < 20; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(15);
+                }
+                for (int i = 20; i < facturas.size(); i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(20);
+                }
+            }
+            else if(numeroFacturas < 30 && numeroFacturas > 25){
+                for (int i = 0; i < 10; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                }
+                for (int i = 10; i < 15; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                }
+                for (int i = 15; i < 20; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(15);
+                }
+                for (int i = 20; i < 25; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(20);
+                }
+                for (int i = 25; i < facturas.size(); i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(25);
+                }
+            }
+                else if(numeroFacturas >= 30){
+                    for (int i = 0; i < 10; i++){
+                        totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                    }
+                    for (int i = 10; i < 15; i++){
+                        totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                    }
+                    for (int i = 15; i < 20; i++){
+                        totalPropinas += facturas.get(i).getTotal() * incentivos.get(15);
+                    }
+                    for (int i = 20; i < 25; i++){
+                        totalPropinas += facturas.get(i).getTotal() * incentivos.get(20);
+                    }
+                    for (int i = 25; i < 30; i++){
+                        totalPropinas += facturas.get(i).getTotal() * incentivos.get(25);
+                    }
+                    for (int i = 30; i < facturas.size(); i++){
+                        totalPropinas += facturas.get(i).getTotal() * incentivos.get(30);
+                    }
+                }
+            return totalPropinas;
 	
 
-}
+        }
+    }
+    public float calcularPropinas(int codigo, LocalDate fechaInicio, LocalDate fechaFin){
+        Empleado empleado = buscarEmpleado(codigo);
+        if(empleado == null){
+            return 0;
+        }
+        else{
+            int totalPropinas = 0;
+            HashMap <Integer, Float> incentivos = Restaurante.getIncentivos();
+            ArrayList<Factura> facturas = Factura.buscarFacturasPorFechaycodigo(codigo, fechaInicio, fechaFin);
+            int numeroFacturas = facturas.size();
+            if(numeroFacturas <= 10){
+                for (Factura factura : facturas){
+                    totalPropinas += factura.getTotal() * incentivos.get(10);
+                }
+            }
+            else if(numeroFacturas <= 15 && numeroFacturas > 10){
+                for (int i = 0; i < 10; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                }
+                for (int i = 10; i < facturas.size(); i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                }
+            }
+            else if(numeroFacturas <= 20 && numeroFacturas > 15){
+                for (int i = 0; i < 10; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                }
+                for (int i = 10; i < 15; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                }
+                for (int i = 15; i < facturas.size(); i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(15);
+                }
+            }
+            else if(numeroFacturas <= 25 && numeroFacturas > 20){
+                for (int i = 0; i < 10; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                }
+                for (int i = 10; i < 15; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                }
+                for (int i = 15; i < 20; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(15);
+                }
+                for (int i = 20; i < facturas.size(); i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(20);
+                }
+            }
+            else if(numeroFacturas < 30 && numeroFacturas > 25){
+                for (int i = 0; i < 10; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                }
+                for (int i = 10; i < 15; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                }
+                for (int i = 15; i < 20; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(15);
+                }
+                for (int i = 20; i < 25; i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(20);
+                }
+                for (int i = 25; i < facturas.size(); i++){
+                    totalPropinas += facturas.get(i).getTotal() * incentivos.get(25);
+                }
+            }
+                else if(numeroFacturas >= 30){
+                    for (int i = 0; i < 10; i++){
+                        totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                    }
+                    for (int i = 10; i < 15; i++){
+                        totalPropinas += facturas.get(i).getTotal() * incentivos.get(10);
+                    }
+                    for (int i = 15; i < 20; i++){
+                        totalPropinas += facturas.get(i).getTotal() * incentivos.get(15);
+                    }
+                    for (int i = 20; i < 25; i++){
+                        totalPropinas += facturas.get(i).getTotal() * incentivos.get(20);
+                    }
+                    for (int i = 25; i < 30; i++){
+                        totalPropinas += facturas.get(i).getTotal() * incentivos.get(25);
+                    }
+                    for (int i = 30; i < facturas.size(); i++){
+                        totalPropinas += facturas.get(i).getTotal() * incentivos.get(30);
+                    }
+                }
+            return totalPropinas;
+        }
+        } 
+}      
+
+
+
+

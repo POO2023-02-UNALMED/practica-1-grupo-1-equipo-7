@@ -10,6 +10,9 @@ public class Caja {
     private int totalIngresos;
     
     private static List<Caja> listadoCajas= new ArrayList<Caja>();
+
+    public Caja() {
+    }
     
     
     public Caja(Sedes sedeAsociada, int dineroCaja, int numeroDeSerie, int totalEgresos, int totalIngresos) {
