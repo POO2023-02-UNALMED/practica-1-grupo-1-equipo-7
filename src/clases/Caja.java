@@ -55,7 +55,7 @@ public class Caja {
     public int getTotalEgresos() {
         return totalEgresos;
     }
-
+// esto debe modificar el dinero total de caja 
     public void setTotalEgresos(int totalEgresos) {
         this.totalEgresos = totalEgresos;
     }
@@ -63,7 +63,7 @@ public class Caja {
     public int getTotalIngresos() {
         return totalIngresos;
     }
-
+// lo mismo que arriba 
     public void setTotalIngresos(int totalIngresos) {
         this.totalIngresos = totalIngresos;
     }
@@ -98,7 +98,66 @@ public class Caja {
             System.out.println("No hay suficiente dinero en la caja para realizar la compra.");
         }
     }
-
+    public void agregarDineroCaja(int monto) {
+        this.totalIngresos += monto;
+        dineroCaja += monto;
+    }
+    public void obtenerResumenCaja() {
+        System.out.println("Número de Serie: " + numeroDeSerie);
+        System.out.println("Sede Asociada: " + sedeAsociada.getNombre()); // Asumiendo que Sedes tiene un atributo nombre
+        System.out.println("Dinero en Caja: " + dineroCaja);
+        System.out.println("Total de Ingresos: " + totalIngresos);
+        System.out.println("Total de Egresos: " + totalEgresos);
+        System.out.println("Saldo Actual: " + this.dineroCaja);
+    }
+    public void cerrarCaja() {
+        totalIngresos = 0;
+        totalEgresos = 0;
+        dineroCaja = 0;
+    }
+    
+    // enlazar este metodo con el de compra***
+    public void registrarEgreso(int monto) {
+        if (monto <= dineroCaja) {
+            totalEgresos += monto;
+            dineroCaja -= monto;
+        } else {
+            System.out.println("Fondos insuficientes en la caja para realizar el egreso.");
+        }
+    }
+    
+    
+    
+    public void transferirDineroACaja(Caja otraCaja, int monto) {
+        if (dineroCaja >= monto) {
+            registrarEgreso(monto);
+            otraCaja.agregarDineroCaja(monto);
+            System.out.println("Transferencia exitosa de $" + monto + " a la caja " + otraCaja.getNumeroDeSerie());
+        } else {
+            System.out.println("Fondos insuficientes para realizar la transferencia.");
+        }
+    }
+    public void verRegistroTransacciones() {
+        System.out.println("Registro de Transacciones de la Caja " + numeroDeSerie);
+        System.out.println("Ingresos totales: " + totalIngresos);
+        System.out.println("Egresos totales: " + totalEgresos);
+    }
+    public void generarInformeCierreDiario() {
+        System.out.println("Informe de Cierre Diario de la Caja " + numeroDeSerie);
+        System.out.println("Saldo Inicial: " + (dineroCaja + totalEgresos - totalIngresos));
+        System.out.println("Ingresos del Día: " + totalIngresos);
+        System.out.println("Egresos del Día: " + totalEgresos);
+        System.out.println("Saldo Actual: " + this.dineroCaja);
+    }
+    public void registrarPropina(int monto) {
+        if (monto > 0) {
+            this.dineroCaja+=monto;
+            System.out.println("Propina registrada exitosamente de $" + monto);
+        } else {
+            System.out.println("Sin propina .");
+        }
+    }
+    
 
 
 

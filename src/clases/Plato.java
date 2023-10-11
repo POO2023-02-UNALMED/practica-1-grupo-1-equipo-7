@@ -35,6 +35,16 @@ public class Plato {
     public List<Item> getIngredientes() {
         return ingredientes;
     }
+    public void mostrarInformacionDetallada() {
+        System.out.println("Nombre del Plato: " + nombre);
+        System.out.println("Ingredientes:");
+        for (Item ingrediente : ingredientes) {
+            System.out.println("- " + ingrediente.getNombre());
+        }
+        System.out.println("Precio Total: " + calcularPrecioTotal());
+        
+    }
+    
 
 }
 
