@@ -172,6 +172,7 @@ public class Restaurante {
             System.out.println(empleados);
             for(Empleado empleado : empleados){
                 System.out.println(empleado.getNombre());
+                System.out.println(empleado.calcularPropinas(empleado.getCodigo()));
                 totalPropinas += empleado.calcularPropinas(empleado.getCodigo());
             }
             return totalPropinas;  

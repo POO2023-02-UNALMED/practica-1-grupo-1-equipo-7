@@ -8,10 +8,11 @@ public class Factura {
     private int codigoEmpleado;
     private int codigoSede;
     private int total;
+    private ArrayList<Plato> platos;
     private LocalDate fecha;
     private static int contadorFacturas = 0;
     private static ArrayList<Factura> facturas = new ArrayList<>();
-    public Factura(int codigoCliente, int codigoEmpleado, int codigoSede, LocalDate fecha, int total){
+    public Factura(int codigoCliente, int codigoEmpleado, int codigoSede, LocalDate fecha, int total, ArrayList<Plato> platos){
         this.codigo = contadorFacturas + 1;
         this.codigoCliente = codigoCliente;
         this.codigoEmpleado = codigoEmpleado;
@@ -20,27 +21,36 @@ public class Factura {
         contadorFacturas++;
         this.fecha = fecha;
         facturas.add(this);
+        this.platos = platos;
 
     }
     static{
-        new Factura(1, 1, 1, LocalDate.parse("2020-01-01"), 1000);
-        new Factura(1, 1, 1, LocalDate.parse("2020-01-02"), 2000);
-        new Factura(1, 1, 1, LocalDate.parse("2020-01-03"), 3000);
-        new Factura(1, 1, 1, LocalDate.parse("2020-01-04"), 4000);
-        new Factura(1, 1, 1, LocalDate.parse("2020-01-05"), 5000);
-        new Factura(1, 1, 1, LocalDate.parse("2020-01-06"), 6000);
-        new Factura(1, 2, 1, LocalDate.parse("2020-01-07"), 7000);
-        new Factura(1, 2, 1, LocalDate.parse("2020-01-08"), 8000);
-        new Factura(1, 2, 1, LocalDate.parse("2020-01-09"), 9000);
-        new Factura(1, 2, 1, LocalDate.parse("2020-01-10"), 10000);
-        new Factura(1, 2, 1, LocalDate.parse("2020-01-11"), 11000);
-        new Factura(1, 2, 1, LocalDate.parse("2020-01-12"), 12000);
-        new Factura(1, 2, 1, LocalDate.parse("2020-01-13"), 13000);
-        new Factura(1, 2, 1, LocalDate.parse("2020-01-14"), 14000);
-        new Factura(1, 2, 1, LocalDate.parse("2020-01-15"), 15000);
-        new Factura(1, 2, 1, LocalDate.parse("2020-01-16"), 16000);
-        new Factura(1, 2, 1, LocalDate.parse("2020-01-17"), 17000);
-        new Factura(1, 2, 1, LocalDate.parse("2020-01-18"), 18000);
+        ArrayList<Plato> platos1 = new ArrayList<>();
+        ArrayList<Plato> platos2 = new ArrayList<>();
+        ArrayList<Plato> platos3 = new ArrayList<>();
+        platos1.add(Plato.buscarPlato("Tacos"));
+        platos1.add(Plato.buscarPlato("Tostadas"));
+        platos2.add(Plato.buscarPlato("Sopes"));
+        platos2.add(Plato.buscarPlato("Enchiladas"));
+        platos3.add(Plato.buscarPlato("Tamales"));
+        Factura factura1 = new Factura(1, 1, 1, LocalDate.parse("2020-01-01"), 1000, platos1);
+        Factura factura2 = new Factura(1, 1, 1, LocalDate.parse("2020-01-02"), 2000, platos1);
+        Factura factura3 = new Factura(1, 1, 1, LocalDate.parse("2020-01-03"), 3000, platos1);
+        Factura factura4 = new Factura(1, 1, 1, LocalDate.parse("2020-01-04"), 4000, platos2);
+        Factura factura5 = new Factura(1, 1, 1, LocalDate.parse("2020-01-05"), 5000, platos2);
+        Factura factura6 = new Factura(1, 1, 1, LocalDate.parse("2020-01-06"), 6000, platos2);
+        Factura factura7 = new Factura(1, 2, 1, LocalDate.parse("2020-01-07"), 7000, platos2);
+        Factura factura8 = new Factura(1, 2, 1, LocalDate.parse("2020-01-08"), 8000, platos2);
+        Factura factura9 = new Factura(1, 2, 1, LocalDate.parse("2020-01-09"), 9000, platos2);
+        Factura factura10 = new Factura(1, 2, 1, LocalDate.parse("2020-01-10"), 10000, platos3);
+        Factura factura11 = new Factura(1, 2, 1, LocalDate.parse("2020-01-11"), 11000, platos3);
+        Factura factura12 = new Factura(1, 2, 1, LocalDate.parse("2020-01-12"), 12000, platos3);
+        Factura factura13 = new Factura(1, 2, 1, LocalDate.parse("2020-01-13"), 13000, platos3);
+        Factura factura14 = new Factura(1, 2, 1, LocalDate.parse("2020-01-14"), 14000, platos3);
+        Factura factura15 = new Factura(1, 2, 1, LocalDate.parse("2020-01-15"), 15000, platos3);
+        Factura factura16 = new Factura(1, 2, 1, LocalDate.parse("2020-01-16"), 16000, platos1);
+        Factura factura17 = new Factura(1, 2, 1, LocalDate.parse("2020-01-17"), 17000, platos1);
+        Factura factura18 = new Factura(1, 2, 1, LocalDate.parse("2020-01-18"), 18000, platos1);
     }
     public int getCodigo(){
         return codigo;
@@ -118,6 +128,9 @@ public class Factura {
         return facturasFecha;
 
         
+    }
+    public ArrayList<Plato> getPlatos(){
+        return platos;
     }
 
 }

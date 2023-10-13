@@ -2,7 +2,6 @@ package clases;
 
 public abstract class Persona {
     private String nombre;
-    private int edad;
     public Persona(String nombre){
         this.nombre = nombre;
     }
@@ -13,7 +12,7 @@ public abstract class Persona {
         this.nombre = nombre;
     }
     public String toString(){
-        return "Nombre: " + nombre + " Edad: " + edad;
+        return "Nombre: " + nombre;
     }
 
 }

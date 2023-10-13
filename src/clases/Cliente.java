@@ -1,22 +1,30 @@
 package clases;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Cliente extends Persona {
     private String direccion;
     private String telefono;
     private String email;
     private String fechaRegistro;
-    private String fechaUltimaCompra;
-    private ArrayList<Factura> compras;
-
-    public Cliente(String nombre, int edad, String direccion, String telefono, String email, String fechaRegistro, String fechaUltimaCompra){
-        super(nombre, edad);
+    private int codigoCliente;
+    private static int contadorClientes = 0;
+    private static ArrayList<Cliente> clientes = new ArrayList<>();
+    public Cliente(String nombre, String direccion, String telefono, String email, String fechaRegistro){
+        super(nombre);
         this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
         this.fechaRegistro = fechaRegistro;
-        this.fechaUltimaCompra = fechaUltimaCompra;
-        this.compras = new ArrayList<Factura>();
+        this.codigoCliente = contadorClientes + 1;
+        contadorClientes++;
+        clientes.add(this);
+    }
+
+    static{
+        new Cliente("Juan Perez", "Calle 1", "12345678", "juan@gmail.com", "2020-01-01");
+        new Cliente("Maria Lopez", "Calle 2", "87654321", "1234", "2020-01-01");
     }
 
     public String getDireccion(){
@@ -35,14 +43,6 @@ public class Cliente extends Persona {
         return this.fechaRegistro;
     }
 
-    public String getFechaUltimaCompra(){
-        return this.fechaUltimaCompra;
-    }
-
-    public ArrayList<Factura> getCompras(){
-        return this.compras;
-    }
-
     public void setDireccion(String direccion){
         this.direccion = direccion;
     }
@@ -54,4 +54,39 @@ public class Cliente extends Persona {
     public void setEmail(String email){
         this.email = email;
     }
+
+    public static ArrayList<Plato> buscarPlatoPreferido(int codigoCliente){
+        ArrayList<Plato> platoPreferido = new ArrayList<>();
+        ArrayList<Factura> facturas = Factura.buscarFacturasPorCliente(codigoCliente);
+        if(facturas.size() < 2){
+            return null;
+        }
+        HashMap<Plato, Integer> platos = new HashMap<>();
+        for(Factura factura : facturas){
+            for(Plato plato : factura.getPlatos()){
+                if (platos.containsKey(plato)) {
+                    // El plato ya está en el mapa, aumentamos su contador en 1
+                    platos.put(plato, platos.get(plato) + 1);
+                } else {
+                    // El plato no está en el mapa, lo agregamos con un valor de 1
+                    platos.put(plato, 1);
+                }
+            }
+        }
+        int mayorValor = 0;
+        for (Plato clave : platos.keySet()) {
+            int valor = platos.get(clave);
+            if (valor > mayorValor) {
+                mayorValor = valor;
+            }
+        }
+        for (Plato clave : platos.keySet()) {
+            if (platos.get(clave) == mayorValor) {
+                platoPreferido.add(clave);
+            }
+        }
+        return platoPreferido;
+    }
+
+    
 }
