@@ -119,7 +119,19 @@ import java.util.Scanner;
 
 	        			break;
 	        		case 2:
-	        			System.out.println("Clientes por fidelizar");
+	        			System.out.println("Platos recomendados");
+						System.out.println("Ingrese el codigo del cliente:");
+						opcion = input1.nextInt();
+						ArrayList<Plato> recomendados = Cliente.buscarPlatoRecomendado(opcion);
+						if(recomendados == null){
+							System.out.println("No hay plato recomendado para ese cliente");
+						}
+						else{
+							System.out.println("El plato recomendado para el cliente es: ");
+							for(Plato plato : recomendados){
+								System.out.println(plato.getNombre());
+							}
+						}
 	        			break;
 	        	}
 	        	break;

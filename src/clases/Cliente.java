@@ -88,5 +88,21 @@ public class Cliente extends Persona {
         return platoPreferido;
     }
 
+    public static ArrayList<Plato> buscarPlatoRecomendado(int codigoCliente){
+        ArrayList<Plato> platoPreferido = buscarPlatoPreferido(codigoCliente);
+        if(platoPreferido == null){
+            return null;
+        }
+        ArrayList<Plato> platosRecomendados = new ArrayList<>();
+        System.out.println(Plato.buscarPlato("Tacos").getIngredientes());
+        for(Plato plato : Plato.getPlatos().keySet()){
+            for(Plato preferido : platoPreferido){
+                if(Plato.getIngredientesSimilares(plato, preferido) >= 3 && !platoPreferido.contains(plato) && !platosRecomendados.contains(plato)){
+                    platosRecomendados.add(plato);
+                }
+            }
     
+        }
+        return platosRecomendados;
+    }
 }

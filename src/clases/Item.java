@@ -20,12 +20,10 @@ public class Item {
 	    private Tipo tipo;
 
 	    // Constructor
-	    public Item(String nombre, int cantidad, double precio,Tipo tipo,String fechaVencimiento) {
+	    public Item(String nombre, int cantidad, double precio,String fechaVencimiento) {
 	        this.nombre = nombre;
 	        this.cantidad = cantidad;
-	        this.precio = precio;
-	        this.tipo=tipo;
-	        
+	        this.precio = precio;	        
 	        
 	        // esto es una prueba, posiblemente lo quitaré.
 	        try {
@@ -35,8 +33,6 @@ public class Item {
 	        System.err.println("Error al analizar la fecha de vencimiento: " + e.getMessage());
 	        this.fechaVencimiento = null; // Opcional: asignar un valor predeterminado en caso de error
 	        }
-	       
-	        
 	        
 	        
 	       // agregar el objeto al listado
@@ -46,6 +42,26 @@ public class Item {
 	        totalItems+=cantidad;
 	        
 	    }
+
+		static{
+			new Item("Tortilla", 100, 0.50,"01/01/2020");
+	        new Item("Carne", 100, 1.00,"01/01/2020");
+	        new Item("Cebolla", 100, 0.25,"01/01/2020");
+	        new Item("Cilantro", 100, 0.25,"01/01/2020");
+	        new Item("Tostada", 100, 0.50,"01/01/2020");
+	        new Item("Queso", 100, 0.50,"01/01/2020");
+	        new Item("Frijoles", 100, 0.50,"01/01/2020");
+	        new Item("Masa", 100, 0.50,"01/01/2020");
+	        new Item("Salsa", 100, 0.50,"01/01/2020");
+	        new Item("Crema", 100, 0.50,"01/01/2020");
+	        new Item("Maiz", 100, 0.50,"01/01/2020");
+				        
+		}
+
+			
+		
+
+	
 
 	    // Getter para el atributo "nombre"
 	    public String getNombre() {
@@ -107,7 +123,20 @@ public class Item {
 	    // Método para calcular el valor total del item
 	    public double calcularValorTotal() {
 	        return cantidad * precio;
-	    }}
+	    }
+
+
+		// Método para buscar un item por su nombre
+		public static Item buscarItem(String nombre) {
+			for (Item item : listadoItems) {
+			    if (item.getNombre().equals(nombre)) {
+			        return item;
+			    }
+			}
+			        return null;
+		}
+		
+}
 	    
 	
 	    

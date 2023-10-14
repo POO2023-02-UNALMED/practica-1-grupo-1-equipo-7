@@ -46,8 +46,8 @@ public class Factura {
         Factura factura11 = new Factura(1, 2, 1, LocalDate.parse("2020-01-11"), 11000, platos3);
         Factura factura12 = new Factura(1, 2, 1, LocalDate.parse("2020-01-12"), 12000, platos3);
         Factura factura13 = new Factura(1, 2, 1, LocalDate.parse("2020-01-13"), 13000, platos3);
-        Factura factura14 = new Factura(1, 2, 1, LocalDate.parse("2020-01-14"), 14000, platos3);
-        Factura factura15 = new Factura(1, 2, 1, LocalDate.parse("2020-01-15"), 15000, platos3);
+        Factura factura14 = new Factura(1, 2, 1, LocalDate.parse("2020-01-14"), 14000, platos1);
+        Factura factura15 = new Factura(1, 2, 1, LocalDate.parse("2020-01-15"), 15000, platos1);
         Factura factura16 = new Factura(1, 2, 1, LocalDate.parse("2020-01-16"), 16000, platos1);
         Factura factura17 = new Factura(1, 2, 1, LocalDate.parse("2020-01-17"), 17000, platos1);
         Factura factura18 = new Factura(1, 2, 1, LocalDate.parse("2020-01-18"), 18000, platos1);
