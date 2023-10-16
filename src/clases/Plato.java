@@ -1,5 +1,6 @@
 package clases;
 import java.util.List;
+
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
@@ -9,15 +10,19 @@ import java.util.HashMap;
 public class Plato {
 	private String nombre;
 	private  final List<Item> ingredientes;
+	private int precio;
+	private boolean disponibilidad=true;// esto es importante para mi funcionalidad :)
+	
 	
 	//plato asociado a ingredientes 
 	private  static Map <Plato, List<Item>> platos=new HashMap<>();
 	
 	//Constructor 
-	public Plato(String nombre, List<Item> ingredientes) {
+	public Plato(String nombre, List<Item> ingredientes, int precio) {
 		this.nombre=nombre;
 		this.ingredientes=ingredientes;
 		platos.put(this, ingredientes);
+		this.precio=precio;
 		
 		
 	}
@@ -55,14 +60,15 @@ public class Plato {
         ingredientesPozol.add(Item.buscarItem("Carne"));
         ingredientesPozol.add(Item.buscarItem("Cebolla"));
         ingredientesPozol.add(Item.buscarItem("Cilantro"));
-
-        new Plato("Tacos", ingredientesTacos);
-        new Plato("Tostadas", ingredientesTostadas);
-        new Plato("Quesadillas", ingredientesQuesadillas);
-        new Plato("Sopes", ingredientesSopes);
-        new Plato("Tamales", ingredientesTamales);
-        new Plato("Enchiladas", ingredientesEnchiladas);
-        new Plato("Pozol", ingredientesPozol);
+     // le agregué los precios a cada plato, se puede cambiar esto:)
+        new Plato("Tacos", ingredientesTacos,2000);
+        new Plato("Tostadas", ingredientesTostadas,2000);
+        new Plato("Quesadillas", ingredientesQuesadillas,5000);
+        new Plato("Sopes", ingredientesSopes,6000);
+        new Plato("Tamales", ingredientesTamales,7000);
+        new Plato("Enchiladas", ingredientesEnchiladas,8000);
+        new Plato("Pozol", ingredientesPozol,4000);
+        
     }
 	 // Getter para el atributo "nombre"
     public String getNombre() {
@@ -73,8 +79,31 @@ public class Plato {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    
+    
+    
+    
+    
+    
+    
 
-    // Getter para el atributo "ingredientes" Arreglar
+    public boolean getDisponibilidad() {
+		return disponibilidad;
+	}
+
+	public void setDisponibilidad(boolean disponibilidad) {
+		this.disponibilidad = disponibilidad;
+	}
+
+	public int getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+
+	// Getter para el atributo "ingredientes" Arreglar
     public List<String> getIngredientes() {
         List<String> ingredientes = new ArrayList<>();
         for (Item ingrediente : this.ingredientes) {
@@ -89,7 +118,7 @@ public class Plato {
         for (Item ingrediente : ingredientes) {
             System.out.println("- " + ingrediente.getNombre());
         }
-        System.out.println("Precio Total: " + calcularPrecioTotal());
+        System.out.println("Precio Total: " + this.precio);// acá hice un cambio del  metodo al this.precio :)
         
     }
     
@@ -123,6 +152,22 @@ public class Plato {
         }
         return ingredientesSimilares;
     }
+    
+    // con esto miramíamos la disponibilidad del plato, no sé si va acá o va en la funcionalidad, si algo lo paso al implementarla :)
+    public void   disponibilidadPlato() {
+    	for(Item i:ingredientes ) {
+    		if (i.getInventario().haySuficienteStock(i, 1)==false) {
+    			this.disponibilidad=false;
+    			
+    		}
+    	}
+    	
+    	
+    	
+    }
+    
+    
+  
 
 }
 

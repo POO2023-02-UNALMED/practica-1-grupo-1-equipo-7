@@ -1,6 +1,7 @@
 package clases;
 import java.util.List;
 
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
@@ -12,8 +13,8 @@ public class Inventario  {
 	
 	
 	
-	private Map <Item,Integer > listadoItems= new HashMap<>();
-	private List<Item>listadoVencidos=new ArrayList<>();
+	private Map <Item,Integer > diccionarioItems= new HashMap<>();
+	private List<Item>listadoItems=new ArrayList<>();
 	private static  int cantidadTotal;
 	
 	
@@ -28,14 +29,19 @@ public class Inventario  {
        
      // Añadir diccionario, con su valor y clave si la clave se repite, el valor aumenta en uno
         
-        int valorActual = listadoItems.get(item);
-        if (!listadoItems.containsKey(item)) {
-            listadoItems.put(item, 0);
+        int valorActual = diccionarioItems.get(item);
+        if (!diccionarioItems.containsKey(item)) {
+            diccionarioItems.put(item, 0);
         } else {
             
-            listadoItems.put(item, valorActual +=item.getCantidad());}
+            diccionarioItems.put(item, valorActual +=item.getCantidad());}
         cantidadTotal++;
+        listadoItems.add(item);
+        
+        
         }
+	
+	
         
 
 
@@ -56,14 +62,17 @@ public class Inventario  {
     
     // metodo para agregar items al invetario.
     public void añadirItems(Item item, int cantidad) {
-        if (!listadoItems.containsKey(item)) {
+        if (!diccionarioItems.containsKey(item)) {
             // Si el item no existe en el diccionario, simplemente establece la cantidad especificada.
-            listadoItems.put(item, cantidad);
+            diccionarioItems.put(item, cantidad);
         } else {
             // Si el item ya existe en el diccionario, suma la cantidad especificada a la cantidad actual.
-            int cantidadActual = listadoItems.get(item);
-            listadoItems.put(item, cantidadActual + cantidad);
+            int cantidadActual = diccionarioItems.get(item);
+            diccionarioItems.put(item, cantidadActual + cantidad);
         }
+    }
+    public void añadirAListadoItems(Item item ) {
+    	this.listadoItems.add(item);
     }
     	
     	
@@ -72,10 +81,10 @@ public class Inventario  {
     	
     // retirar items del inventario 
     public void retirarItems(Item item, int cantidad) {
-        if (listadoItems.containsKey(item)) {
-            int cantidadActual = listadoItems.get(item);
+        if (diccionarioItems.containsKey(item)) {
+            int cantidadActual = diccionarioItems.get(item);
             if (cantidadActual >= cantidad) {
-                listadoItems.put(item, cantidadActual - cantidad);
+                diccionarioItems.put(item, cantidadActual - cantidad);
                 cantidadTotal -= cantidad; // Actualizar la cantidad total en el inventario
                 
             } else {
@@ -84,69 +93,84 @@ public class Inventario  {
             }
         }
     }
+    // mostrar inventario 
     public void mostrarInventario(Sedes sede) {
     	System.out.print("inventario de "+ sede.getDireccion());
     	
-         for (Map.Entry<Item, Integer> entry : sede.getInventario().listadoItems.entrySet()) {
+         for (Map.Entry<Item, Integer> entry : sede.getInventario().diccionarioItems.entrySet()) {
              String  clave = entry.getKey().getNombre();
              Integer valor = entry.getValue();
              System.out.println(clave + ": " + valor);
          }
      }
-    // Acá hay un error , en la noche lo corrijo . // Listado items no puede ser estatico porque debe estar asosciado a una see y a un inventario de la misma
-    public void añadirProductosVencidos(Date fecha ) {
-    	
-    	
-    	
-    	for (Item i:Item.getListadoItems()) {
-    		Date fechaVencimiento=i.getFechaVencimiento();
-    		if (fechaVencimiento.compareTo(fecha)<0) {
+   
+    
+    
+    
+    // metodo para mostrar los items vencidos 
+    public  void mostrarItemsVencidos() {
+    	List <Item>listadoVencidos= new ArrayList<>();
+    	for (Item i:listadoItems) {
+    		
+    		boolean valor=i.estaVencido();
+    		if(valor){
     			listadoVencidos.add(i);
+    			
+    			
     			
     		}
     		
     		
-    	}
-    	}
-    // esto es lo que en la funcionalidad mostrará la cantidad de productos vencidos 
-    public  void imprimirProductosVencidos() {
-        Map<String, Integer> productoCantidadMap = new HashMap<>();
-
-        // Iterar sobre la lista de productos vencidos
-        for (Item producto : this.listadoVencidos) {
-            String nombre = producto.getNombre();
-            Integer cantidad = producto.getCantidad();
-            Integer cantidadActual=productoCantidadMap.get(nombre);
-
-            // Si el producto ya existe en el mapa, sumar la cantidad
-            if (productoCantidadMap.containsKey(nombre)) {
-            	productoCantidadMap.put(nombre,cantidad+cantidadActual);
-                
-            }
-            else {productoCantidadMap.put(nombre,cantidadActual);
-            	
-            }
-
-            
-        }
-
-        // Imprimir los productos vencidos y la suma de cantidades
-        for (Map.Entry<String, Integer> entry : productoCantidadMap.entrySet()) {
-            String nombreProducto = entry.getKey();
-            int cantidadTotal = entry.getValue();
-
-            System.out.println(nombreProducto + ": " + cantidadTotal);
-        }
-    }
-    public void retirarItemsVencidos() {
-    	for (Item i:listadoVencidos) {
-    		this.retirarItems(i, i.getCantidad());
     		
     	}
+    	for (Item p : listadoVencidos) {
+    		System.out.print(p.getNombre()+":"+p.getCantidad());
+    	}
+    	
+    	
+    	
+    	
+    }
+    
+    // eliminar items vencidos del inventario 
+    public void eliminarVencidos() {
+    	for (Item i: listadoItems) {
+    		if (i.estaVencido()) {
+    			listadoItems.remove(i);
+    			this.retirarItems(i, i.getCantidad());
+    		}
+    	}
     }
     
     
+    // metodo que verifica si hay suficiente stock
+    public boolean haySuficienteStock(Item item, int cantidadDeseada) {
+        if (diccionarioItems.containsKey(item)) {
+            int cantidadDisponible = diccionarioItems.get(item);
+            return cantidadDisponible >= cantidadDeseada;
+        } else {
+            return false; // El artículo no está en el inventario, por lo que no hay suficiente stock.
+        }
     }
+    
+    
+    // obtener items sin stock 
+    public List<Item> obtenerItemsSinStock() {
+        List<Item> itemsSinStock = new ArrayList<>();
+        for (Map.Entry<Item, Integer> entry : diccionarioItems.entrySet()) {
+            if (entry.getValue() == 0) {
+                itemsSinStock.add(entry.getKey());
+            }
+        }
+        return itemsSinStock;
+    }
+    	
+    
+   
+    }
+    
+    
+    
     	
     	
     

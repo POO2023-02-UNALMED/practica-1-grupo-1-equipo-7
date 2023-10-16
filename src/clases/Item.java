@@ -1,6 +1,7 @@
 package clases;
 import java.util.List;
 
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -14,16 +15,20 @@ public class Item {
 	    private static int totalItems;
 	    private Date fechaVencimiento;
 	    private static List<Item>listadoItems= new ArrayList<>();
+	    private Inventario inventario;
+	    
 	    // será un listado de los productos vencidos 
 	    
-	    
+	    // pendiente usar el tipo y el numero de serial en el constructor ***************************
 	    private Tipo tipo;
 
 	    // Constructor
-	    public Item(String nombre, int cantidad, double precio,String fechaVencimiento) {
+	    public Item(String nombre, int cantidad, double precio,String fechaVencimiento ) {
 	        this.nombre = nombre;
 	        this.cantidad = cantidad;
-	        this.precio = precio;	        
+	        this.precio = precio;
+	        
+	        
 	        
 	        // esto es una prueba, posiblemente lo quitaré.
 	        try {
@@ -33,6 +38,7 @@ public class Item {
 	        System.err.println("Error al analizar la fecha de vencimiento: " + e.getMessage());
 	        this.fechaVencimiento = null; // Opcional: asignar un valor predeterminado en caso de error
 	        }
+	       ;
 	        
 	        
 	       // agregar el objeto al listado
@@ -72,8 +78,18 @@ public class Item {
 	    public void setNombre(String nombre) {
 	        this.nombre = nombre;
 	    }
+	    
+	    
 
-	    // Getter para el atributo "cantidad"
+	    public Inventario getInventario() {
+			return inventario;
+		}
+
+		public void setInventario(Inventario inventario) {
+			this.inventario = inventario;
+		}
+
+		// Getter para el atributo "cantidad"
 	    public int getCantidad() {
 	        return cantidad;
 	    }
@@ -135,6 +151,20 @@ public class Item {
 			}
 			        return null;
 		}
+		
+		
+		// Definir si un producto está vencido o no.
+		public boolean estaVencido() {
+	        Date fechaActual = new Date(); // Obtener la fecha actual
+
+	        if (this.fechaVencimiento != null && this.fechaVencimiento.before(fechaActual)) {
+	            return true; // El producto está vencido
+	        } else {
+	            
+	        	
+	        	return false; // El producto no está vencido o no tiene fecha de vencimiento
+	        }
+	    }
 		
 }
 	    
