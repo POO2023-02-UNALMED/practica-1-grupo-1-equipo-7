@@ -1,7 +1,9 @@
 package gestorAplicación;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Menu {
     private String nombre;
@@ -77,4 +79,12 @@ public class Menu {
         return "Nombre del Menú: " + nombre + "\nPrecio: " + precio + "\nDisponible: " + disponible
                 + "\nPlatos en el Menú: " + platos;
     }
+    static {
+    	Map <Plato, List<Item>> menu=Plato.getPlatos();
+    	
+    	
+    	
+    	
+    }
+    
 }

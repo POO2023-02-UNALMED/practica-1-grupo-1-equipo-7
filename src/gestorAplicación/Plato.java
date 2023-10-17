@@ -61,13 +61,13 @@ public class Plato {
         ingredientesPozol.add(Item.buscarItem("Cebolla"));
         ingredientesPozol.add(Item.buscarItem("Cilantro"));
      // le agregué los precios a cada plato, se puede cambiar esto:)
-        new Plato("Tacos", ingredientesTacos,2000);
-        new Plato("Tostadas", ingredientesTostadas,2000);
-        new Plato("Quesadillas", ingredientesQuesadillas,5000);
-        new Plato("Sopes", ingredientesSopes,6000);
-        new Plato("Tamales", ingredientesTamales,7000);
-        new Plato("Enchiladas", ingredientesEnchiladas,8000);
-        new Plato("Pozol", ingredientesPozol,4000);
+        Plato tacos = new Plato("Tacos", ingredientesTacos,2000);
+       Plato tostadas =new Plato("Tostadas", ingredientesTostadas,2000);
+        Plato quesadilla=new Plato("Quesadillas", ingredientesQuesadillas,5000);
+        Plato sopes= new Plato("Sopes", ingredientesSopes,6000);
+        Plato tamales= new Plato("Tamales", ingredientesTamales,7000);
+        Plato enchilada=new Plato("Enchiladas", ingredientesEnchiladas,8000);
+        Plato pozol=new Plato("Pozol", ingredientesPozol,4000);
         
     }
 	 // Getter para el atributo "nombre"
