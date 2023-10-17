@@ -1,9 +1,9 @@
 package funcionalidades;
-import clases.*;
-
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.Scanner;
+
+import gestorAplicación.*;
 
 	public class Reportes {
 	    public static void main(String[] args) {

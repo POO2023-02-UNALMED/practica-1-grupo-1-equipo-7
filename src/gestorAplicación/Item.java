@@ -1,12 +1,18 @@
-package clases;
+package gestorAplicación;
 import java.util.List;
+
+
 
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.io.Serializable;
 import java.text.ParseException;
-public class Item {
+
+
+
+public class Item implements Serializable {
 	
 	    private String nombre;
 	    private int cantidad;
@@ -47,6 +53,9 @@ public class Item {
 	      // actualizar la cantidad de items 
 	        totalItems+=cantidad;
 	        
+	    }
+	    public Item() {
+	    	
 	    }
 
 		static{

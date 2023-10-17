@@ -1,4 +1,4 @@
-package clases;
+package gestorAplicación;
 import java.util.*;
 
 public class Reseña {
