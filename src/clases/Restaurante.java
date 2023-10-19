@@ -131,12 +131,12 @@ public class Restaurante {
         mesa.setEstado(estado);
     }
     
-    public ArrayList getFacturas(){
-        return this.facturas;       
+    public HashMap<Integer, String>  getFacturas(){
+        return facturas;       
     }
     
     public void agregarFactura(Factura factura){
-        this.facturas.add(factura);
+        facturas.put(factura.getCodigo(), this.nombre);
     }
 
     public static HashMap<Integer, Float>  getIncentivos(){

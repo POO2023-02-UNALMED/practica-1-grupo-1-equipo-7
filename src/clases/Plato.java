@@ -94,6 +94,14 @@ public class Plato {
     }
     
 
+    private String calcularPrecioTotal() {
+        double precioTotal = 0;
+        for (Item ingrediente : ingredientes) {
+            precioTotal += ingrediente.getPrecio();
+        }
+        return "$" + precioTotal;
+    }
+
     // Getter para el atributo "platos"
     public static Map<Plato, List<Item>> getPlatos() {
         return platos;
