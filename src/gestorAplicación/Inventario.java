@@ -108,7 +108,7 @@ public class Inventario  {
     
     
     // metodo para mostrar los items vencidos 
-    public  void mostrarItemsVencidos() {
+    public  List <Item> mostrarItemsVencidos() {
     	List <Item>listadoVencidos= new ArrayList<>();
     	for (Item i:listadoItems) {
     		
@@ -123,9 +123,8 @@ public class Inventario  {
     		
     		
     	}
-    	for (Item p : listadoVencidos) {
-    		System.out.print(p.getNombre()+":"+p.getCantidad());
-    	}
+    	return listadoVencidos;
+   
     	
     	
     	

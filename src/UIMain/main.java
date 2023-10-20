@@ -7,7 +7,7 @@ public class main {
 	public static void main(String[] args) {
 		System.out.println("1. Ver menú\n2. Registro del restaurante\n3. Inventario\n4. Atención al cliente\n5. Reportes\n6. Salir");
 		Scanner input1 = new Scanner(System.in);
-	    int opcion;
+	    int  opcion;
 	    opcion = input1.nextInt();
 
 		switch(opcion){
@@ -19,6 +19,21 @@ public class main {
 				break;
 			case 3:
 				System.out.println("Inventario");
+				
+				System.out.println("1.Salir");
+				System.out.println("2.Mostrar inventario ");
+				Scanner inputb=new Scanner(System.in);
+				int opcion2;
+				opcion2=inputb.nextInt();
+				switch(opcion) {
+				case 1:
+					break;
+				case 2:
+					
+					
+					
+				}
+				
 				break;
 			case 4:
 				System.out.println("Atención al cliente");
