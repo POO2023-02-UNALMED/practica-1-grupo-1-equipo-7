@@ -70,22 +70,22 @@ public class Item implements Serializable {
 	        new Item("Salsa", 100, 0.50,"01/01/2020");
 	        new Item("Crema", 100, 0.50,"01/01/2020");
 	        new Item("Maiz", 100, 0.50,"01/01/2020");
-	        new Item("Sopa de Tomate", 100, 0.80, "01/01/2020");
-	        new Item("Lasagna", 100, 1.50, "01/01/2020");
-	        new Item("Espárragos", 100, 1.00, "01/01/2020");
-	        new Item("Sándwich de Pavo", 100, 1.20, "01/01/2020");
-	        new Item("Hamburguesa", 100, 1.50, "01/01/2020");
-	        new Item("Pizza Margarita", 100, 1.00, "01/01/2020");
-	        new Item("Pasta Alfredo", 100, 1.20, "01/01/2020");
-	        new Item("Sushi", 100, 2.50, "01/01/2020");
-	        new Item("Tacos de Pescado", 100, 1.25, "01/01/2020");
-	        new Item("Cerveza", 100, 2.00, "01/01/2020");
-	        new Item("Vino Tinto", 100, 3.00, "01/01/2020");
-	        new Item("Café", 100, 0.90, "01/01/2020");
-	        new Item("Té Verde", 100, 0.80, "01/01/2020");
-	        new Item("Refresco de Cola", 100, 1.00, "01/01/2020");
-	        new Item("Helado de Vainilla", 100, 1.20, "01/01/2020");
-	        new Item("Pastel de Chocolate", 100, 1.50, "01/01/2020");
+	        //new Item("Sopa de Tomate", 100, 0.80, "01/01/2020");
+	        //new Item("Lasagna", 100, 1.50, "01/01/2020");
+	        //new Item("Espárragos", 100, 1.00, "01/01/2020");
+	        //new Item("Sándwich de Pavo", 100, 1.20, "01/01/2020");
+	        //new Item("Hamburguesa", 100, 1.50, "01/01/2020");
+	        //new Item("Pizza Margarita", 100, 1.00, "01/01/2020");
+	        //new Item("Pasta Alfredo", 100, 1.20, "01/01/2020");
+	        //new Item("Sushi", 100, 2.50, "01/01/2020");
+	        //new Item("Tacos de Pescado", 100, 1.25, "01/01/2020");
+	        //new Item("Cerveza", 100, 2.00, "01/01/2020");
+	        //new Item("Vino Tinto", 100, 3.00, "01/01/2020");
+	        //new Item("Café", 100, 0.90, "01/01/2020");
+	        //new Item("Té Verde", 100, 0.80, "01/01/2020");
+	        //new Item("Refresco de Cola", 100, 1.00, "01/01/2020");
+	        //new Item("Helado de Vainilla", 100, 1.20, "01/01/2020");
+	        //new Item("Pastel de Chocolate", 100, 1.50, "01/01/2020");
 				        
 		}
 

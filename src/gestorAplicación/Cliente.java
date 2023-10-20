@@ -137,4 +137,21 @@ public class Cliente extends Persona {
         }
         return platosRecomendados;
     }
+
+    public static ArrayList<Plato> buscarPlatoRecomendado(ArrayList<String> ingredientes, String item, String itemAgregar){
+        ArrayList<Plato> platosRecomendados = new ArrayList<>();
+        for(Plato plato : Plato.getPlatos().keySet()){
+            int ingredientesSimilares = 0;
+            for(String ingrediente : ingredientes){
+                if(plato.getIngredientes().contains(ingrediente) && !platosRecomendados.contains(plato) ){
+                    ingredientesSimilares++; 
+                if(ingredientesSimilares >= 3 && !plato.getIngredientes().contains(item) && plato.getIngredientes().contains(itemAgregar)){
+                    platosRecomendados.add(plato);
+                    }
+                }
+            }
+        }
+        return platosRecomendados;
+        
+    }
 }
