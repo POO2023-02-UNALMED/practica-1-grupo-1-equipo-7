@@ -1,4 +1,4 @@
-package clases;
+package gestorAplicación;
 
 public class Reclamo {
 

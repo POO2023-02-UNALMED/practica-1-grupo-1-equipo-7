@@ -1,5 +1,6 @@
-package clases;
+package gestorAplicación;
 import java.util.List;
+
 import java.util.ArrayList;
 
 public class Caja {

@@ -1,4 +1,4 @@
-package clases;
+package gestorAplicación;
 
 public abstract class Persona {
     private String nombre;

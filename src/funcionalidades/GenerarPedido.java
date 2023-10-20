@@ -1,5 +1,5 @@
 package funcionalidades;
-import clases.*;
+import gestorAplicación.*;
 
 public class GenerarPedido {
 	private String TipoPedido;

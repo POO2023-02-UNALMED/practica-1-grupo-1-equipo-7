@@ -1,4 +1,4 @@
-package clases;
+package gestorAplicación;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
