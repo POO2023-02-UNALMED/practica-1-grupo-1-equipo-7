@@ -167,11 +167,49 @@ import gestorAplicación.*;
 							System.out.println("Ingrese el numero del ingrediente que desea eliminar");
 							int ingrediente = input1.nextInt();
 							String eliminar = ingredientes.get(ingrediente - 1);
+							String agregar;
 							ingredientes.remove(ingrediente - 1);
-							System.out.println("Los platos recomendados son: ");
-							for(Plato plato : Cliente.buscarPlatoRecomendado(ingredientes , eliminar)){
-								System.out.println(plato.getNombre());
+							System.out.println("Desea agregar algun ingrediente, para recomendar los platos? (S/N)");
+							respuesta = input1.next();
+							i = 0;
+							ArrayList<String> addingrediente = new ArrayList<>();
+							if(respuesta.equals("S")){
+								for(Item item : Item.getListadoItems()){
+									String ingrediente1 = item.getNombre();
+									if(!ingredientes.contains(ingrediente1)){
+										i++;
+										System.out.println(i + "." + ingrediente1 + " ");
+										addingrediente.add(ingrediente1);
+									}
+								}
+								System.out.println("Ingrese el ingrediente que desea agregar");
+								ingrediente = input1.nextInt();
+								agregar = addingrediente.get(ingrediente - 1);
+								ingredientes.add(agregar);
+
+							if(Cliente.buscarPlatoRecomendado(ingredientes , eliminar, addingrediente.get(ingrediente - 1)).size() == 0){
+									System.out.println("Disculpa, actualmente no hay platos recomendados que contenga " + agregar + " y no contenga " + eliminar + " y que tenga los ingredientes de tus platos preferidos");
+								}
+								else{
+									System.out.println("Los platos recomendados son: ");
+									for(Plato plato : Cliente.buscarPlatoRecomendado(ingredientes , eliminar, addingrediente.get(ingrediente - 1))){
+										System.out.println(plato.getNombre());
+									}
+								}
 							}
+							else{
+								if(Cliente.buscarPlatoRecomendado(ingredientes , eliminar).size() == 0){
+									System.out.println("Disculpa, actualmente no hay platos recomendados que no contenga " + eliminar + " y que tenga los ingredientes de tus platos preferidos");
+								}
+								else{
+									System.out.println("Los platos recomendados son: ");
+									for(Plato plato : Cliente.buscarPlatoRecomendado(ingredientes , eliminar)){
+										System.out.println(plato.getNombre());
+									}
+								}
+							}
+
+							
 
 						}		
 	        			
