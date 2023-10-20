@@ -2,6 +2,7 @@ package gestorAplicación;
 import java.util.List;
 
 
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
@@ -24,7 +25,7 @@ public class Inventario  {
     }
 	
 	
-//	constructor 
+//	constructor creo que esto será cambiado 
 	public Inventario(  Item item) {
        
      // Añadir diccionario, con su valor y clave si la clave se repite, el valor aumenta en uno
