@@ -51,10 +51,10 @@ public class Plato {
         ingredientesTamales.add(Item.buscarItem("Carne"));
         ArrayList<Item> ingredientesEnchiladas = new ArrayList<>();
         ingredientesEnchiladas.add(Item.buscarItem("Tortilla"));
-        ingredientesEnchiladas.add(Item.buscarItem("Salsa"));
+        ingredientesEnchiladas.add(Item.buscarItem("Cilantro"));
         ingredientesEnchiladas.add(Item.buscarItem("Queso"));
         ingredientesEnchiladas.add(Item.buscarItem("Crema"));
-        ingredientesEnchiladas.add(Item.buscarItem("Cebolla"));
+        ingredientesEnchiladas.add(Item.buscarItem("Carne"));
         ArrayList<Item> ingredientesPozol = new ArrayList<>();
         ingredientesPozol.add(Item.buscarItem("Maiz"));
         ingredientesPozol.add(Item.buscarItem("Carne"));
@@ -149,16 +149,18 @@ public class Plato {
         return plato.getNombre();
     }
 
-    public static int getIngredientesSimilares(Plato plato1, Plato plato2){
+    public static Object[] getIngredientesSimilares(Plato plato1, Plato plato2){
         int ingredientesSimilares = 0;
+        ArrayList<String> ingredientes = new ArrayList<>();
         for(String ingrediente1 : plato1.getIngredientes()){
             for(String ingrediente2 : plato2.getIngredientes()){
-                if(ingrediente1.equals(ingrediente2)){
+                if(ingrediente1.equals(ingrediente2) && !ingredientes.contains(ingrediente1)){
+                    ingredientes.add(ingrediente1);
                     ingredientesSimilares++;
                 }
             }
         }
-        return ingredientesSimilares;
+        return new Object[]{ingredientesSimilares, ingredientes};
     }
     
     // con esto miramíamos la disponibilidad del plato, no sé si va acá o va en la funcionalidad, si algo lo paso al implementarla :)

@@ -88,21 +88,29 @@ public class Cliente extends Persona {
         return platoPreferido;
     }
 
-    public static ArrayList<Plato> buscarPlatoRecomendado(int codigoCliente){
+    public static Object[] buscarPlatoRecomendado(int codigoCliente){
         ArrayList<Plato> platoPreferido = buscarPlatoPreferido(codigoCliente);
         if(platoPreferido == null){
             return null;
         }
+        ArrayList<String> ingredientes = new ArrayList<>();
         ArrayList<Plato> platosRecomendados = new ArrayList<>();
+        Object[] ingredientesSimilares = new Object[2];
         for(Plato plato : Plato.getPlatos().keySet()){
             for(Plato preferido : platoPreferido){
-                if(Plato.getIngredientesSimilares(plato, preferido) >= 3 && !platoPreferido.contains(plato) && !platosRecomendados.contains(plato)){
+                ingredientesSimilares = Plato.getIngredientesSimilares(plato, preferido);
+                if((int) ingredientesSimilares[0] >= 3 && !platoPreferido.contains(plato) && !platosRecomendados.contains(plato)){
                     platosRecomendados.add(plato);
+                    for(String ingrediente : (ArrayList<String>) ingredientesSimilares[1]){
+                        if(!ingredientes.contains(ingrediente)){
+                        ingredientes.add(ingrediente);
+                        }
+                    }
                 }
             }
     
         }
-        return platosRecomendados;
+        return new Object[]{platosRecomendados, ingredientes};
     }
 
     public static Cliente buscarCliente(int codigoCliente){
@@ -112,5 +120,21 @@ public class Cliente extends Persona {
             }
         }
         return null;
+    }
+
+    public static ArrayList<Plato> buscarPlatoRecomendado(ArrayList<String> ingredientes, String item){
+        ArrayList<Plato> platosRecomendados = new ArrayList<>();
+        for(Plato plato : Plato.getPlatos().keySet()){
+            int ingredientesSimilares = 0;
+            for(String ingrediente : ingredientes){
+                if(plato.getIngredientes().contains(ingrediente) && !platosRecomendados.contains(plato) ){
+                    ingredientesSimilares++; 
+                if(ingredientesSimilares >= 3 && !plato.getIngredientes().contains(item)){
+                    platosRecomendados.add(plato);
+                    }
+                }
+            }
+        }
+        return platosRecomendados;
     }
 }

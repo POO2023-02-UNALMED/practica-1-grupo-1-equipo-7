@@ -137,17 +137,44 @@ import gestorAplicación.*;
 							Cliente cliente = Cliente.buscarCliente(opcion);
 							System.out.println("El nombre del cliente es: " + cliente.getNombre());
 						}
-						ArrayList<Plato> recomendados = Cliente.buscarPlatoRecomendado(opcion);
+						Object[] recomendados = Cliente.buscarPlatoRecomendado(opcion);
 						if(recomendados == null){
 							System.out.println("No hay plato recomendado para ese cliente");
 						}
 						else{
 							System.out.println("El plato recomendado para el cliente es: ");
-							for(Plato plato : recomendados){
+							for(Plato plato : (ArrayList<Plato>)recomendados[0]){
 								System.out.println(plato.getNombre());
 							}
 						}
-	        			break;
+					
+						System.out.print("Estos platos se recomiendan en base a sus platos preferidos: " );
+						for(Plato plato : Cliente.buscarPlatoPreferido(opcion)){
+							System.out.print(plato.getNombre() + " ");
+						}
+						System.out.println();
+						System.out.println("Los cuales tienen estos ingredientes: ");
+						int i = 0;
+						ArrayList<String> ingredientes = new ArrayList<>();
+						ingredientes.addAll((ArrayList<String>)recomendados[1]);
+						for(String ingrediente : ingredientes){
+							i++;
+							System.out.println(i + "." + ingrediente + " ");
+						}
+						System.out.println("Desea eliminar algun ingrediente, para recomendar los platos? (S/N)");
+						String respuesta = input1.next();
+						if(respuesta.equals("S")){
+							System.out.println("Ingrese el numero del ingrediente que desea eliminar");
+							int ingrediente = input1.nextInt();
+							String eliminar = ingredientes.get(ingrediente - 1);
+							ingredientes.remove(ingrediente - 1);
+							System.out.println("Los platos recomendados son: ");
+							for(Plato plato : Cliente.buscarPlatoRecomendado(ingredientes , eliminar)){
+								System.out.println(plato.getNombre());
+							}
+
+						}		
+	        			
 	        	}
 	        	break;
 	            		
