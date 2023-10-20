@@ -94,7 +94,6 @@ public class Cliente extends Persona {
             return null;
         }
         ArrayList<Plato> platosRecomendados = new ArrayList<>();
-        System.out.println(Plato.buscarPlato("Tacos").getIngredientes());
         for(Plato plato : Plato.getPlatos().keySet()){
             for(Plato preferido : platoPreferido){
                 if(Plato.getIngredientesSimilares(plato, preferido) >= 3 && !platoPreferido.contains(plato) && !platosRecomendados.contains(plato)){

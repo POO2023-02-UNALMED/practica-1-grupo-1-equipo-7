@@ -69,7 +69,6 @@ public class Empleado extends Persona {
             int numeroFacturas = Factura.buscarFacturasPorEmpleado(codigo).size();
             HashMap <Integer, Float> incentivos = Restaurante.getIncentivos();
             ArrayList<Factura> facturas = Factura.buscarFacturasPorEmpleado(codigo);
-            System.out.println(facturas);
             if(numeroFacturas <= 10){
                 for (Factura factura : facturas){
                     totalPropinas += factura.getTotal() * incentivos.get(10);
@@ -159,7 +158,6 @@ public class Empleado extends Persona {
             int totalPropinas = 0;
             HashMap <Integer, Float> incentivos = Restaurante.getIncentivos();
             ArrayList<Factura> facturas = Factura.buscarFacturasPorFechaycodigo(codigo, fechaInicio.plusDays(-1), fechaFin.plusDays(1));
-            System.out.println(facturas);
             int numeroFacturas = facturas.size();
             if(numeroFacturas <= 10){
                 for (Factura factura : facturas){

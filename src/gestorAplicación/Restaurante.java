@@ -163,16 +163,12 @@ public class Restaurante {
     public float calcularPropinasPorSede(int codigoSede){
         Restaurante sede = buscarSede(codigoSede);
         if(sede == null){
-            System.out.println("No existe esa sede");
             return 0;
         }
         else{
             int totalPropinas = 0;
             ArrayList<Empleado> empleados = Empleado.getEmpleados(codigoSede);
-            System.out.println(empleados);
             for(Empleado empleado : empleados){
-                System.out.println(empleado.getNombre());
-                System.out.println(empleado.calcularPropinas(empleado.getCodigo()));
                 totalPropinas += empleado.calcularPropinas(empleado.getCodigo());
             }
             return totalPropinas;  

@@ -8,7 +8,7 @@ import gestorAplicación.*;
 	public class Reportes {
 	    public static void main(String[] args) {
 
-	        System.out.println("¿Qué tipo de reporte desea generar?");
+	        System.out.println("------------¿Qué tipo de reporte desea generar?------------");
 	        System.out.println("1. Reporte de Comisiones");
 	        System.out.println("2.Recomendaciones");
 	        
@@ -20,7 +20,7 @@ import gestorAplicación.*;
 	
 	        case 1:
 	        	
-	            System.out.println("Reporte de Comisiones");
+	            System.out.println("------------Reporte de Comisiones------------");
 		        System.out.println("1.Comisiones por mesero");
 		        System.out.println("2.Comisiones por sede");
 	            opcion = input1.nextInt();
@@ -28,7 +28,7 @@ import gestorAplicación.*;
 	            switch(opcion){
 	            
 	            	case 1:
-	            		System.out.println("Comisiones por mesero");
+	            		System.out.println("------------Comisiones por mesero------------");
 						System.out.println("Ingrese el codigo del mesero:");
 						opcion = input1.nextInt();
 	        
@@ -40,7 +40,7 @@ import gestorAplicación.*;
 							Empleado empleado = Empleado.buscarEmpleado(opcion);
 
 							System.out.println("Reporte de Comisiones para el mesero: " + empleado.getNombre());
-							System.out.println("Rango de fechas para el calculo de comisiones");
+							System.out.println("------------Rango de fechas para el calculo de comisiones------------");
 							System.out.println("Ingrese la fecha de inicio");
 							String fecha = input1.next();
 							LocalDate fechaInicio = LocalDate.parse(fecha);
