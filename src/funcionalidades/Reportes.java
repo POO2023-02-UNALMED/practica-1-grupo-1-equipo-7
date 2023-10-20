@@ -79,6 +79,7 @@ import gestorAplicación.*;
 						}
 						else{
 							Restaurante sede = Restaurante.buscarSede(opcion);
+							System.out.println("El nombre de la sede es: " + sede.getNombre());
 							System.out.println("Reporte de Comisiones para la sede: " + sede.getNombre());
 
 							ArrayList<Factura> facturas = Factura.buscarFacturasPorSede(opcion);
@@ -95,7 +96,7 @@ import gestorAplicación.*;
 	            //Aqui se puede detallar las ventas por sede, por ejemplo, ventas por dia, ventas por mes, ventas por año, etc.
 	        case 2:
 	        	
-	        	System.out.println("Recomendaciones");
+	        	System.out.println("------------Recomendaciones------------");
 		        System.out.println("1. Calcular plato preferido por cliente");
 		        System.out.println("2. Platos recomendados");
 	        	opcion = input1.nextInt();
@@ -103,9 +104,16 @@ import gestorAplicación.*;
 	        	switch(opcion){
 	            
 	        		case 1:
-	        			System.out.println("Platos preferidos por cliente");
+	        			System.out.println("------------Platos preferidos por cliente------------");
 						System.out.println("Ingrese el codigo del cliente:");
 						opcion = input1.nextInt();
+						if (Cliente.buscarCliente(opcion) == null){
+							System.out.println("No existe ese codigo de cliente");
+						}
+						else{
+							Cliente cliente = Cliente.buscarCliente(opcion);
+							System.out.println("El nombre del cliente es: " + cliente.getNombre());
+						}
 						ArrayList<Plato> preferido = Cliente.buscarPlatoPreferido(opcion);
 						if(preferido == null){
 							System.out.println("No hay plato preferido para ese cliente");
@@ -119,9 +127,16 @@ import gestorAplicación.*;
 
 	        			break;
 	        		case 2:
-	        			System.out.println("Platos recomendados");
+	        			System.out.println("------------Platos recomendados------------");
 						System.out.println("Ingrese el codigo del cliente:");
 						opcion = input1.nextInt();
+						if (Cliente.buscarCliente(opcion) == null){
+							System.out.println("No existe ese codigo de cliente");
+						}
+						else{
+							Cliente cliente = Cliente.buscarCliente(opcion);
+							System.out.println("El nombre del cliente es: " + cliente.getNombre());
+						}
 						ArrayList<Plato> recomendados = Cliente.buscarPlatoRecomendado(opcion);
 						if(recomendados == null){
 							System.out.println("No hay plato recomendado para ese cliente");

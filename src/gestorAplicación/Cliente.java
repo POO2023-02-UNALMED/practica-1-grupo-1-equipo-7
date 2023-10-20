@@ -104,4 +104,13 @@ public class Cliente extends Persona {
         }
         return platosRecomendados;
     }
+
+    public static Cliente buscarCliente(int codigoCliente){
+        for(Cliente cliente : clientes){
+            if(cliente.codigoCliente == codigoCliente){
+                return cliente;
+            }
+        }
+        return null;
+    }
 }
