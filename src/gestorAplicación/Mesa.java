@@ -1,14 +1,17 @@
 package gestorAplicación;
 
 import java.util.ArrayList;
+
 import java.util.List;
+
 
 public class Mesa {
 
 	private int numero;
-	private ArrayList<Cliente> cliente;
+	private ArrayList<Cliente> cliente;// esto para que se va a usar?
 	private boolean estado;
 	private Mesa[]listadoObjetos=new Mesa[20];// supongamos que tenemos 20 mesas
+	
 	
 	public Mesa(int numero, ArrayList<Cliente> cliente, boolean estado) {
 		this.numero = numero;
@@ -63,7 +66,14 @@ public class Mesa {
 	public void abandonarMesa() {
 		this.estado=true;
 		
-	}}// adelante un poco ya que el encargado de esta función anda dormido, si le va a cambiar algo, lo puede hacer si ningun problema
+	}
+	
+	
+	
+	
+
+}
+// adelante un poco ya que el encargado de esta función anda dormido, si le va a cambiar algo, lo puede hacer si ningun problema
 	
 	
 	

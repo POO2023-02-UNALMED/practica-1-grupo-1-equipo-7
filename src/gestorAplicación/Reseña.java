@@ -10,6 +10,8 @@ public class Reseña {
 	protected static int countCalificaciones;	
 	private static int count;
 	
+
+	
 	public Reseña(Cliente cliente, String reseña, int calificacion) {
 		this.cliente = cliente;
 		this.reseña = reseña;
@@ -17,6 +19,7 @@ public class Reseña {
 		count++;
 		countCalificaciones = countCalificaciones + calificacion;
 		Reseña.Recopilatorio.add(this);
+		
 	}
 	
 	public int PromedioCalificitacion() {
@@ -46,6 +49,8 @@ public class Reseña {
 	public String getReseña() {
 		return reseña;
 	}
+	
+
 	
 	public List<Reseña> getRecopilatorio(){
 		return Recopilatorio;

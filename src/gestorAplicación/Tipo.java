@@ -1,7 +1,8 @@
 package gestorAplicación;
 import java.util.List;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
+// es posible que esta desaparezca 
 	public class Tipo {
 	    private String nombre;
 	    private List<Tipo> listadoTipos = new ArrayList<>();

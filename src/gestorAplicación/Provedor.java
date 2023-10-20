@@ -1,17 +1,19 @@
 package gestorAplicación;
 
 import java.util.Map;
+
 import java.util.HashMap;
 
 
 
 
-public class Provedor {
+public class Provedor extends Persona {
     private String nombre;
     private Map<Item, Double> catalogo; // Mapa que almacena los productos y sus precios
 
-    public Provedor(String nombre) {
-        this.nombre = nombre;
+    public Provedor(String nombre, int id) {
+    	super( nombre,  id);
+        
         this.catalogo = new HashMap<>();
     }
     

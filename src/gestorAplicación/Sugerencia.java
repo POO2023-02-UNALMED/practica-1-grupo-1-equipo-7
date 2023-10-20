@@ -1,6 +1,6 @@
 package gestorAplicación;
 import java.util.*;
-
+// no sería mejor hacer un metodo para escirbir la sugerenci? solo es una pregunta, la verdad no sé :)
 public class Sugerencia {
 	
 	protected Cliente cliente;
