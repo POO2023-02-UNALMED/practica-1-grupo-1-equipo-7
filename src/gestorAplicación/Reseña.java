@@ -50,8 +50,6 @@ public class Reseña {
 		return reseña;
 	}
 	
-
-	
 	public List<Reseña> getRecopilatorio(){
 		return Recopilatorio;
 	}

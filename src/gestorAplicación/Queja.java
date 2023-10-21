@@ -4,6 +4,7 @@ import java.util.*;
 public class Queja {
 	
 	protected Cliente cliente;
+	protected int referencia;
 	protected Empleado empleado;
 	protected Sedes sede;
 	protected Plato plato;
@@ -16,8 +17,9 @@ public class Queja {
 	protected static List<Queja> QuejasSedes = new ArrayList<>();
 	protected static List<Queja> QuejasOtros = new ArrayList<>();
 	
-	public Queja(Cliente cliente, Plato plato, Empleado empleado, Sedes sede, Tipos tipo, String texto) {
+	public Queja(Cliente cliente, int reference,Plato plato, Empleado empleado, Sedes sede, Tipos tipo, String texto) {
 		this.cliente = cliente;
+		this.referencia = reference;
 		this.queja = texto;
 		count++;
 		
