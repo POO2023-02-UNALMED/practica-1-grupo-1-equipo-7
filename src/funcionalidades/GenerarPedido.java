@@ -10,4 +10,10 @@ public class GenerarPedido {
 		 System.out.println("1. Pedido Fisico");
 	     System.out.println("2. Pedido de envio");
 	}
+	
+	
+	
+	
+	
+	
 }
