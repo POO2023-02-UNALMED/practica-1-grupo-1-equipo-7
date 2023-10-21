@@ -51,21 +51,21 @@ public class PedidoOnlineEnvio {
 		
 	}
 	
-	
-	
-	
-	public class SistemaDeNotificacion {
-
-	    // Método para confirmar un pedido dentro de la aplicación
-	    public void confirmarPedidoEnApp(Cliente cliente, Pedido pedido) {
-	        // Realizar acciones de confirmación, como actualizar el estado del pedido
-	        pedido.setEstado("Confirmado");
-
-	        // Enviar una notificación dentro de la aplicación al cliente
-	        String mensaje = "Su pedido con el número de orden " + getNumeroOrden() + " ha sido confirmado.";
-	        System.out.print(mensaje);
-
-	        System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente.");
+	public void mostarConfirmacion() {
+	    System.out.println("Número de Orden: " + numeroOrden);
+	    System.out.println("Cantidad de Platos: " + cantidadPlatos);
+	    System.out.println("Dirección de Envío: " + direccionPedido);
+	    System.out.println("Tipo de Pedido: " + tipoPedido);
+	    
+	    System.out.println("Platos en el Carrito:");
+	    for (Plato plato : carrito) {
+	        System.out.println("Nombre: " + plato.getNombre());
+	       
+	        System.out.println("Precio: " + plato.getPrecio());
+	        // Agrega otros detalles del plato si es necesario
 	    }
 	}
+	
+	
+	
 }
