@@ -2,6 +2,7 @@ package gestorAplicación;
 import java.util.List;
 
 
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
@@ -16,27 +17,27 @@ public class Inventario  {
 	private Map <Item,Integer > diccionarioItems= new HashMap<>();
 	private List<Item>listadoItems=new ArrayList<>();
 	private static  int cantidadTotal;
+	private static List<Inventario> inventarios=new ArrayList<>();
 	
 	
 
-	public Inventario() {
-        
-    }
 	
 	
-//	constructor 
-	public Inventario(  Item item) {
+//	constructor creo que esto será cambiado 
+	public Inventario(  ) {
        
      // Añadir diccionario, con su valor y clave si la clave se repite, el valor aumenta en uno
         
-        int valorActual = diccionarioItems.get(item);
-        if (!diccionarioItems.containsKey(item)) {
-            diccionarioItems.put(item, 0);
-        } else {
+        //int valorActual = diccionarioItems.get(item);
+       // if (!diccionarioItems.containsKey(item)) {
+          //  diccionarioItems.put(item, 0);
+       // } else {
             
-            diccionarioItems.put(item, valorActual +=item.getCantidad());}
+         //   diccionarioItems.put(item, valorActual +=item.getCantidad());}
         cantidadTotal++;
-        listadoItems.add(item);
+       // listadoItems.add(item);
+        inventarios.add(this);
+        
         
         
         }
@@ -133,12 +134,28 @@ public class Inventario  {
     
     // eliminar items vencidos del inventario 
     public void eliminarVencidos() {
-    	for (Item i: listadoItems) {
-    		if (i.estaVencido()) {
-    			listadoItems.remove(i);
-    			this.retirarItems(i, i.getCantidad());
-    		}
+    	List<Item> elementosVencidos = new ArrayList<>();
+
+    	// Iterar sobre los elementos y agregar los vencidos a la lista temporal
+    	for (Item i : listadoItems) {
+    	    if (i.estaVencido()) {
+    	        elementosVencidos.add(i);
+    	    }
     	}
+
+    	// Eliminar los elementos vencidos de la lista principal
+    	listadoItems.removeAll(elementosVencidos);
+
+    	// Luego, puedes llamar a tu método retirarItems para actualizar las cantidades
+    	for (Item i : elementosVencidos) {
+    	    this.retirarItems(i, i.getCantidad());
+    	}
+    	
+
+
+
+
+
     }
     
     
@@ -162,6 +179,9 @@ public class Inventario  {
             }
         }
         return itemsSinStock;
+    }
+    public static  List<Inventario> obtenerInventarios(){
+    	return inventarios;
     }
     	
     

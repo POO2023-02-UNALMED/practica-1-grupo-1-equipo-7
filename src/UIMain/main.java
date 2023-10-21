@@ -2,8 +2,91 @@ package UIMain;
 import java.util.Scanner;
 
 import funcionalidades.*;
+import gestorAplicación.Caja;
+import gestorAplicación.Inventario;
+import gestorAplicación.Item;
+import gestorAplicación.Sedes;
+
+
 
 public class main {
+	static {// las sedes que tenemos si algo sugerencias o las cambias, no problema :)
+		
+	Inventario inventario1=new Inventario();
+	Inventario inventario2 = new Inventario();
+	Inventario inventario3 = new Inventario();
+	Inventario inventario4 = new Inventario();
+	Sedes laAmerica=new Sedes ("la america", "cra80 #45-b", 300, inventario1, new Caja( 10000000, 21345 ) );
+	Sedes envigado=new Sedes ("envigado", " Carrera 43 N° 38 sur 35", 350, inventario2, new Caja( 10000000, 21346 ) );
+	Sedes sandiego=new Sedes ("Sandiego", " Carrera 33#27-105", 380, inventario3, new Caja( 10000000, 21347 ));
+	Sedes belen=new Sedes ("belen", " Carrera 42#33-A", 380, inventario4, new Caja( 10000000, 21347 ));
+	}
+	
+	static{// por ahora lo trabajaré así, es posible que use un enumerado, si tienen alguna recomendación lo agradecería :)
+		new Item("Tortilla", 100, 0.50,"01/01/2024",Inventario.obtenerInventarios().get(0));
+        new Item("Carne", 100, 1.00,"01/01/2020",Inventario.obtenerInventarios().get(1));
+        new Item("Cebolla", 100, 0.25,"01/01/2020",Inventario.obtenerInventarios().get(0));
+        new Item("Cilantro", 100, 0.25,"01/01/2020",Inventario.obtenerInventarios().get(2));
+        new Item("Tostada", 100, 0.50,"01/01/2020",Inventario.obtenerInventarios().get(3));
+        new Item("Queso", 100, 0.50,"01/01/2020",Inventario.obtenerInventarios().get(1));
+        new Item("Frijoles", 100, 0.50,"01/01/2020", Inventario.obtenerInventarios().get(2));
+        new Item("Masa de Pizza", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(0));
+        new Item("Salsa de Tomate", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(1));
+        new Item("Crema de Champiñones", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(0));
+        new Item("Maíz en Lata", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(2));
+        new Item("Sopa de Champiñones", 100, 0.80, "01/01/2020", Inventario.obtenerInventarios().get(3));
+        new Item("Lasaña de Pollo", 100, 1.50, "01/01/2020", Inventario.obtenerInventarios().get(1));
+        new Item("Brócoli", 100, 1.00, "01/01/2020", Inventario.obtenerInventarios().get(2));
+        new Item("Sándwich de Pollo", 100, 1.20, "01/01/2020", Inventario.obtenerInventarios().get(0));
+        new Item("Hamburguesa de Pollo", 100, 1.50, "01/01/2020", Inventario.obtenerInventarios().get(3));
+        new Item("Pizza de Pepperoni", 100, 1.00, "01/01/2020", Inventario.obtenerInventarios().get(2));
+        new Item("Pasta Carbonara", 100, 1.20, "01/01/2020", Inventario.obtenerInventarios().get(1));
+        new Item("Sashimi de Salmón", 100, 2.50, "01/01/2020", Inventario.obtenerInventarios().get(0));
+        new Item("Tacos de Carne", 100, 1.25, "01/01/2020", Inventario.obtenerInventarios().get(3));
+        new Item("Agua Mineral", 100, 2.00, "01/01/2020", Inventario.obtenerInventarios().get(2));
+        new Item("Vino Blanco", 100, 3.00, "01/01/2020", Inventario.obtenerInventarios().get(1));
+        new Item("Café Espresso", 100, 0.90, "01/01/2020", Inventario.obtenerInventarios().get(0));
+        new Item("Té de Manzanilla", 100, 0.80, "01/01/2020", Inventario.obtenerInventarios().get(3));
+        new Item("Refresco de Naranja", 100, 1.00, "01/01/2020", Inventario.obtenerInventarios().get(2));
+        new Item("Helado de Fresa", 100, 1.20, "01/01/2020", Inventario.obtenerInventarios().get(1));
+        new Item("Pastel de Vainilla", 100, 1.50, "01/01/2020", Inventario.obtenerInventarios().get(0));
+
+        
+        
+        
+        
+        
+        /* new Item("Masa", 100, 0.50,"01/01/2020");// los relleno ahora sino que voy a probar el probar el programa
+        new Item("Salsa", 100, 0.50,"01/01/2020");
+        new Item("Crema", 100, 0.50,"01/01/2020");
+        new Item("Maiz", 100, 0.50,"01/01/2020");
+        new Item("Sopa de Tomate", 100, 0.80, "01/01/2020");
+        new Item("Lasagna", 100, 1.50, "01/01/2020");
+        new Item("Espárragos", 100, 1.00, "01/01/2020");
+        new Item("Sándwich de Pavo", 100, 1.20, "01/01/2020");
+        new Item("Hamburguesa", 100, 1.50, "01/01/2020");
+        new Item("Pizza Margarita", 100, 1.00, "01/01/2020");
+        new Item("Pasta Alfredo", 100, 1.20, "01/01/2020");
+        new Item("Sushi", 100, 2.50, "01/01/2020");
+        new Item("Tacos de Pescado", 100, 1.25, "01/01/2020");
+        new Item("Cerveza", 100, 2.00, "01/01/2020");
+        new Item("Vino Tinto", 100, 3.00, "01/01/2020");
+        new Item("Café", 100, 0.90, "01/01/2020");
+        new Item("Té Verde", 100, 0.80, "01/01/2020");
+        new Item("Refresco de Cola", 100, 1.00, "01/01/2020");
+        new Item("Helado de Vainilla", 100, 1.20, "01/01/2020");
+        new Item("Pastel de Chocolate", 100, 1.50, "01/01/2020");*/
+			        
+	}
+
+		
+		
+	
+	// esto se puede cambiar y meter a una lista en sedes, e iterar y si la opcion elegida es igual elegirlo:)
+	
+	
+	
+	
 	public static void main(String[] args) {
 		System.out.println("1. Ver menú\n2. Registro del restaurante\n3. Inventario\n4. Atención al cliente\n5. Reportes\n6. Salir");
 		Scanner input1 = new Scanner(System.in);
@@ -21,14 +104,83 @@ public class main {
 				System.out.println("Inventario");
 				
 				System.out.println("1.Salir");
-				System.out.println("2.Mostrar inventario ");
+				System.out.println("2.Mostrar sedes ");
 				Scanner inputb=new Scanner(System.in);
 				int opcion2;
 				opcion2=inputb.nextInt();
-				switch(opcion) {
+				switch(opcion2) {
 				case 1:
 					break;
 				case 2:
+					System.out.println("1.envigado");
+					System.out.println("2.sandiego");	
+					System.out.println("3.belen");
+					System.out.print("4.la america");
+					Scanner inputc= new Scanner(System.in);
+					int opcion3;
+					opcion3=inputc.nextInt();
+					
+					
+					// logica para  mostrar los items eliminados y eliminarlos, en caso que no, no se elimina nada
+					if (opcion3==1) {
+						if (Sedes.getLista().get(0).getInventario().mostrarItemsVencidos()==null) {
+							System.out.print("no hay items vencidos");						}
+						else {
+						System.out.print(Sedes.getLista().get(0).getInventario().mostrarItemsVencidos());
+						Sedes.getLista().get(0).getInventario().eliminarVencidos();
+						
+						System.out.print("Inventario vencido, eliminado");}
+						
+					}
+					if (opcion3==2) {
+						if (Sedes.getLista().get(1).getInventario().mostrarItemsVencidos()==null) {
+							System.out.print("no hay items vencidos");						}
+						else {
+						System.out.print(Sedes.getLista().get(1).getInventario().mostrarItemsVencidos());
+						System.out.print("Inventario vencido eliminado");}
+					}
+					if(opcion3==3) {
+						if (Sedes.getLista().get(2).getInventario().mostrarItemsVencidos()==null) {
+							System.out.print("no hay items vencidos");						}
+						else {
+						System.out.print(Sedes.getLista().get(2).getInventario().mostrarItemsVencidos());
+						System.out.print("Inventario vencido eliminado");}
+					}
+					if(opcion3==4) {
+						
+						if (Sedes.getLista().get(3).getInventario().mostrarItemsVencidos()==null) {
+							System.out.print("no hay items vencidos");						}
+						else {
+						System.out.print(Sedes.getLista().get(3).getInventario().mostrarItemsVencidos());
+						System.out.print("Inventario vencido eliminado");}
+						
+						
+					}
+					
+					
+					System.out.print(" Salir");
+					System.out.print("Continuar");
+					Scanner inputd =new Scanner(System.in);
+					String  esc;
+					esc=inputd.nextLine();
+					if(esc.equals("salir")) {
+						break;
+						
+						
+					}
+					if(esc.equals("continuar")) {
+						
+						
+					}
+					
+					
+					
+					
+					
+							
+				
+					
+					
 					
 					
 					

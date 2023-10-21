@@ -3,8 +3,8 @@ import java.util.List;
 
 import java.util.ArrayList;
 
-public class Caja {
-    private Sedes sedeAsociada;
+public class Caja  {
+    
     private int dineroCaja;
     private int numeroDeSerie;
     private int totalEgresos;
@@ -16,12 +16,12 @@ public class Caja {
     }
     
     
-    public Caja(Sedes sedeAsociada, int dineroCaja, int numeroDeSerie, int totalEgresos, int totalIngresos) {
-        this.sedeAsociada = sedeAsociada;
+    public Caja( int dineroCaja, int numeroDeSerie) {
+        
         this.dineroCaja = dineroCaja;
         this.numeroDeSerie = numeroDeSerie;
-        this.totalEgresos = totalEgresos;
-        this.totalIngresos = totalIngresos;
+
+        
         
     }
 
@@ -33,9 +33,7 @@ public class Caja {
        
 
 
-    public void setSedeAsociada(Sedes sedeAsociada) {
-        this.sedeAsociada = sedeAsociada;
-    }
+   
 
     public int getDineroCaja() {
         return dineroCaja;
@@ -82,7 +80,7 @@ public class Caja {
 
 
     
-    public void Compra(Item objeto, int precio, int cantidad) {
+    public void Compra(Item objeto, int precio, int cantidad, Sedes sedeAsociada) {
         int costoTotal = precio * cantidad;
 
         // Verificar si hay suficiente dinero en la caja para realizar la compra
@@ -105,7 +103,7 @@ public class Caja {
     }
     public void obtenerResumenCaja() {
         System.out.println("Número de Serie: " + numeroDeSerie);
-        System.out.println("Sede Asociada: " + sedeAsociada.getNombre()); // Asumiendo que Sedes tiene un atributo nombre
+                                                                  // Asumiendo que Sedes tiene un atributo nombre
         System.out.println("Dinero en Caja: " + dineroCaja);
         System.out.println("Total de Ingresos: " + totalIngresos);
         System.out.println("Total de Egresos: " + totalEgresos);

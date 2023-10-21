@@ -1,6 +1,7 @@
 package gestorAplicación;
+import java.time.LocalTime;
 import java.util.ArrayList;
-
+import java.util.Date;
 import java.util.List;
 
 public class Sedes extends Restaurante {
@@ -9,8 +10,10 @@ public class Sedes extends Restaurante {
     private int capacidad;
     private List<Menu> menuList;
     private List<Empleado> listadoEmpleados= new ArrayList<>();
-    private String horario;
+    private final LocalTime horaCierre=LocalTime.of(6,30,0 );
+    private final LocalTime horaApertura=LocalTime.of(20,0,0 );
     private Caja caja;
+    private static List<Sedes>sedes= new ArrayList<>();
     
     private Inventario inventario;
 
@@ -21,11 +24,12 @@ public class Sedes extends Restaurante {
         this.capacidad = capacidad;
         this. inventario=inventario;
         this.caja=caja;
+        sedes.add(this);
         
          
         
     }
-
+    
     // Getter para el atributo "nombre"
     public String getNombre() {
         return nombre;
@@ -91,14 +95,10 @@ public class Sedes extends Restaurante {
         return "Nombre de la Sede: " + nombre + "\nDirección: " + direccion + "\nCapacidad: " + capacidad
                 + "\nMenús en la Sede: " + menuList.size() + "\nEmpleados en la Sede: " + listadoEmpleados.size();
     }
-    public String getHorario() {
-        return horario;
-    }
+    
 
     // Setter para el atributo "horario"
-    public void setHorario(String horario) {
-        this.horario = horario;
-    }
+   
     //get inventario 
     public Inventario getInventario() {
     	return this.inventario;
@@ -106,5 +106,16 @@ public class Sedes extends Restaurante {
     // Sett Inventario 
     public void  setInventario(Inventario inventario ) {
     	this.inventario=inventario;
+    }
+
+	public LocalTime getHoraCierre() {
+		return horaCierre;
+	}
+
+	public LocalTime getHoraApertura() {
+		return horaApertura;
+	}
+    public static List<Sedes> getLista(){
+    	return sedes;
     }
 }
