@@ -9,6 +9,7 @@ public class Empleado extends Persona {
     private int codigoSede;
     private static int contadorEmpleados = 0;
     private static ArrayList<Empleado> empleados = new ArrayList<>();
+    
     public Empleado(String nombre, int sueldo, int codigoSede){
         super(nombre);
         this.sueldo = sueldo;
