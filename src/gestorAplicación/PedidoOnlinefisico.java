@@ -6,7 +6,7 @@ public class PedidoOnlinefisico {
 	 private int numeroOrden;
 	 private int cantidadPlatos;
 	 private String estadoPedido;
-	 protected String direccionPedido;
+	 protected String direccionPedido2;
 	 protected String tipoPedido = "fisico";
 	 private List<Plato> carrito=new ArrayList<>(); 
 	
@@ -14,13 +14,13 @@ public class PedidoOnlinefisico {
 	public PedidoOnlinefisico(int numeroOrden, int cantidadPlatos, String direccionPedido, String tipoPedido) {
 		this.numeroOrden = numeroOrden;
 		this.cantidadPlatos = cantidadPlatos;
-		this.direccionPedido = direccionPedido;
+		this.direccionPedido2 = direccionPedido;
 		this.tipoPedido= tipoPedido;
 	}
 	public void mostarConfirmacion() {
 	    System.out.println("Número de Orden: " + numeroOrden);
 	    System.out.println("Cantidad de Platos: " + cantidadPlatos);
-	    System.out.println("Dirección de Envío: " + direccionPedido);
+	    System.out.println("Dirección de Envío: " + direccionPedido2);
 	    System.out.println("Tipo de Pedido: " + tipoPedido);
 	
 	    System.out.println("Platos en el Carrito:");

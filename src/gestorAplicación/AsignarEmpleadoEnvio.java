@@ -2,15 +2,31 @@ package gestorAplicación;
 
 public class AsignarEmpleadoEnvio{
 	 private String referenciaPedido;
-	 private PedidoOnlineEnvio numeroOrden;
-	 private Persona nombre;
-	 private Persona id;
-	 private PedidoOnlineEnvio estadoPedido;
-	 private PedidoOnlineEnvio direccionPedido;
+	 protected PedidoOnlineEnvio numeroOrden;
+	 protected Persona nombre;
+	 protected Persona id;
+	 protected PedidoOnlineEnvio estadoPedido;
+	 protected PedidoOnlineEnvio direccionPedido;
 	 
 	 public AsignarEmpleadoEnvio(String referenciaPedido, PedidoOnlineEnvio numeroOrden, Persona nombre,Persona id, PedidoOnlineEnvio estadoPedido, PedidoOnlineEnvio direccionPedido) {
+		 this.referenciaPedido = referenciaPedido;
 		 this.direccionPedido = direccionPedido;
 		 this.id = id;
 		 this.referenciaPedido = referenciaPedido;
+		 this.numeroOrden = numeroOrden;
+		 this.nombre = nombre;
 	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 public String getReferenciaPedido() {
+		 return referenciaPedido;
+	 }
+	 public void setReferenciaPedido(String referenciaPedido) {
+		 this.referenciaPedido = referenciaPedido;
+	 }
+	 
 }

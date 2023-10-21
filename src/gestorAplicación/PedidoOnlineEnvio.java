@@ -7,7 +7,7 @@ public class PedidoOnlineEnvio {
 	private int numeroOrden;
 	private int cantidadPlatos;
 	private String estadoPedido;
-	private String direccionPedido;
+	public String direccionPedido;
 	protected String tipoPedido = "envio";
 	private List<Plato> carrito=new ArrayList<>(); 
 	
