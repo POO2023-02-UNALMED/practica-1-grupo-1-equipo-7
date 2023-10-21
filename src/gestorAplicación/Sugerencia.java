@@ -7,15 +7,18 @@ public class Sugerencia {
 	protected String sugerencia;
 	private enum Tipos {Menu, Empleado, Sede, Otro};
 	protected Tipos tipo;
+	protected int referencia;
 	private static int count;
 	protected static List<Sugerencia> SugerenciasMenu = new ArrayList<>();
 	protected static List<Sugerencia> SugerenciasEmpleados = new ArrayList<>();
 	protected static List<Sugerencia> SugerenciasSedes = new ArrayList<>();
 	protected static List<Sugerencia> SugerenciasOtros = new ArrayList<>();
 	
-	public Sugerencia(Cliente cliente, Tipos tipe, String texto) {
+	public Sugerencia(Cliente cliente, int reference, Tipos tipe, String texto) {
 		this.cliente = cliente;
+		this.referencia = reference;
 		this.sugerencia = texto;
+
 		count++;
 		
 		if (tipe == Tipos.Menu) {
@@ -34,7 +37,6 @@ public class Sugerencia {
 			Sugerencia.SugerenciasOtros.add(this);
 		}
 		
-		
 	}
 	
 	public String toString() {
@@ -47,6 +49,14 @@ public class Sugerencia {
 	
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+	
+	public 	int getReferencia(){
+		return referencia;
+	}
+	
+	public void setReferencia(int reference) {
+		this.referencia = reference;
 	}
 	
 	public String getSugerencia() {
