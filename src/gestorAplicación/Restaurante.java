@@ -15,6 +15,7 @@ public class Restaurante {
             put(30, 0.072f);
         }
     };
+    private String ubicacion;
     private String direccion;
     private  int telefono;
     private Date horario;
@@ -31,13 +32,14 @@ public class Restaurante {
     public static ArrayList <Restaurante> restaurantes = new ArrayList<Restaurante>();
 
     static{
-        new Restaurante("La Casa de Toño", "Calle 1", new Inventario(), new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
-        new Restaurante("La Casa de Toño", "Calle 2", new Inventario(), new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
+        new Restaurante("La Casa de Toño", "Sede: Las Americas", "Calle 1", new Inventario(), new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
+        new Restaurante("La Casa de Toño", "Sede: Envigado", "Calle 2", new Inventario(), new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
         
     }
 
-    public Restaurante(String nombre, String direccion, Inventario inventario, Caja caja, int telefono, Date horario, ArrayList<Plato> menu, ArrayList<Mesa> mesas ){
+    public Restaurante(String nombre, String ubicacion, String direccion, Inventario inventario, Caja caja, int telefono, Date horario, ArrayList<Plato> menu, ArrayList<Mesa> mesas ){
         this.nombre = nombre;
+        this.ubicacion = ubicacion;
         this.direccion = direccion;
         this.telefono = telefono;
         this.horario = horario;
@@ -53,7 +55,14 @@ public class Restaurante {
     public Restaurante() {
     	
     }
-
+    
+    public String getUbicacion(){
+    	return this.ubicacion;
+    }
+    
+    public void setUbicaicion(String ubicacion) {
+    	this.ubicacion = ubicacion;
+    }
     
     public Caja getCaja() {
     	return caja;
