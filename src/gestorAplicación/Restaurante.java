@@ -28,7 +28,7 @@ public class Restaurante {
     private static HashMap<Integer, String> facturas;
     private int codigoSede;
     public ArrayList <String> disponibilidad = new ArrayList<String>();
-    public ArrayList <Restaurante> restaurantes;
+    public static ArrayList <Restaurante> restaurantes = new ArrayList<Restaurante>();
 
     static{
         new Restaurante("La Casa de Toño", "Calle 1", new Inventario(), new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
@@ -48,6 +48,7 @@ public class Restaurante {
         this.codigoSede += 1;
         sedes.add(this);
         this.disponibilidad = new ArrayList<>(Arrays.asList("2023-10-25 14:00 PM","2023-10-25 18:00 PM", "2023-10-26 12:00 PM", "2023-10-30 11:00 AM"));
+        restaurantes.add(this);
     }
     public Restaurante() {
     	
