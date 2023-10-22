@@ -14,41 +14,41 @@ public class Queja extends ServiciosClientes {
 	protected static List<Queja> QuejasOtros = new ArrayList<>();
 	
 	public Queja() {
-		this(null, null, null, null, null, null);
-		
+		this(null, "Otro", null, null);
 	}
 	
-	public Queja(String nombre, String tipo, Plato plato, String texto) {
-		this(nombre, tipo, plato, null, null, texto);
-	}
-	
-	public Queja(String nombre, String tipo, Empleado empleado, String texto) {
-		this(nombre, tipo, null, empleado, null, texto);
-	}
-	
-	public Queja(String nombre, String tipo, Sedes sede, String texto) {
-		this(nombre, tipo, null, null, sede, texto);
-	}
-	
-	public Queja(String nombre, String tipo, Plato plato, Empleado empleado, Sedes sede, String texto) {
+	public Queja(String nombre, String tipo, String nombreAlgo,String texto) {
 		super(nombre, texto);
 		count++;
 		
 		this.tipo = tipo;
-		this.plato = plato;
-		this.empleado = empleado;
-		this.sede = sede;
 		
 		if (tipo == "Menu") {
+			
+			Plato plato;
+			plato = Plato.buscarPlato(nombreAlgo);
+			this.plato = plato;
+			
 			Queja.QuejasMenu.add(this);
+			
 		}
 		
 		if (tipo == "Empleado") {
+			
+			Empleado empleado;
+			empleado = Empleado.buscarEmpleadoXNombre(nombreAlgo);
+			this.empleado = empleado;
+			
 			Queja.QuejasEmpleados.add(this);
 			this.nuevaAmonestacion();
 		}
 		
 		if (tipo == "Sede") {
+			
+			Sedes sede;
+			sede = Sedes.buscarSedeXUbicacion(nombreAlgo);
+			this.sede = sede;
+			
 			Queja.QuejasSedes.add(this);
 		}
 		

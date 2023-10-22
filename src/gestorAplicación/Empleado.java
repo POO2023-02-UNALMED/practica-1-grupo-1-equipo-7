@@ -80,6 +80,16 @@ public class Empleado extends Persona {
         }
         return null;
     }
+    
+    public static Empleado buscarEmpleadoXNombre(String nombre){
+        for(Empleado empleado : empleados){
+            if(empleado.getNombre() == nombre){
+                return empleado;
+            }
+        }
+        return null;
+    }
+
 
     public float calcularPropinas(int codigo){
         Empleado empleado = buscarEmpleado(codigo);

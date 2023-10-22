@@ -84,14 +84,21 @@ public class Sedes extends Restaurante {
     public void eliminarEmpleado(Empleado empleado) {
         listadoEmpleados.remove(empleado);
     }
+    
+    public static Sedes buscarSedeXUbicacion(String ubicacion){
+        for(Sedes sede : sedes){
+            if(sede.getNombre() == ubicacion){
+                return sede;
+            }
+        }
+        return null;
+    }
 
     @Override
     public String toString() {
         return "Nombre de la Sede: " + ubicacion + "\nDirección: " + direccion + "\nCapacidad: " + capacidad
                 + "\nMenús en la Sede: " + menuList.size() + "\nEmpleados en la Sede: " + listadoEmpleados.size();
     }
-    
-
 
     public Inventario getInventario() {
     	return this.inventario;
