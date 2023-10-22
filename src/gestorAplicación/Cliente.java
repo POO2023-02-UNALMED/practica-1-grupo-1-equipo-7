@@ -13,9 +13,9 @@ public class Cliente extends Persona {
     private static int contadorClientes = 0;
     private static ArrayList<Cliente> clientes = new ArrayList<>();
     
-    public Cliente(String nombre, int codigo) {
-    	super(nombre);
-    	this.codigoCliente = codigo;
+    public Cliente(String nombre, int id) {
+    	this(nombre, id, null, null, null, null);
+    	
     }
     
     public Cliente(String nombre, int id, String direccion, String telefono, String email, String fechaRegistro){
@@ -30,6 +30,7 @@ public class Cliente extends Persona {
     }
 
     static{
+    	new Cliente("Anonimo", 0);
         new Cliente("Juan Perez", 5236, "Calle 1", "12345678", "juan@gmail.com", "2020-01-01");
         new Cliente("Maria Lopez", 7423, "Calle 2", "87654321", "1234", "2020-01-01");
     }
@@ -131,6 +132,14 @@ public class Cliente extends Persona {
     public static Cliente buscarCliente(int codigoCliente){
         for(Cliente cliente : clientes){
             if(cliente.codigoCliente == codigoCliente){
+                return cliente;
+            }
+        }
+        return null;
+    }
+    public static Cliente buscarClienteXNombre(String nombre){
+        for(Cliente cliente : clientes){
+            if(cliente.getNombre() == nombre){
                 return cliente;
             }
         }
