@@ -148,15 +148,25 @@ public class Restaurante {
     public void eliminarEmpleado(Empleado empleado){
         this.empleados.remove(empleado);
     }
+    
+    
+    
 // El de la clase plato revisar esto
    // public void modificarPlato(Plato plato, String nombre, String descripcion, int precio){
         //plato.setNombre(nombre);
       //  plato.setDescripcion(descripcion);
         //plato.setPrecio(precio);
    // }
+    
 
     
-    public HashMap<Integer, String>  getFacturas(){
+    public Inventario getInventario() {
+		return inventario;
+	}
+	public void setInventario(Inventario inventario) {
+		this.inventario = inventario;
+	}
+	public HashMap<Integer, String>  getFacturas(){
         return facturas;       
     }
     
@@ -184,6 +194,7 @@ public class Restaurante {
         }
         return null;
     }
+  
     
     public static Restaurante buscarSedeXUbicacion(String ubicacion){
         for(Restaurante sede : sedes){
@@ -210,9 +221,17 @@ public class Restaurante {
 
     }
 
+
     public static void sedesDisponibles(int mihorario, int mimesa) {
     	
 		
 	}
+
+	public static void add(Restaurante restaurante) {
+		// TODO Auto-generated method stub
+		
+	}
+    
+
     
 }

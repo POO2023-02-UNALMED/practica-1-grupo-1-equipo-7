@@ -3,22 +3,18 @@ package UIMain;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import funcionalidades.*;
-import gestorAplicación.Caja;
-import gestorAplicación.Inventario;
-import gestorAplicación.Item;
-import gestorAplicación.Plato;
-import gestorAplicación.Sedes;
 import gestorAplicación.*;
 
 
 
 public class main {
 	
-	static ArrayList<Sedes> sedes = new ArrayList<Sedes>();
+	static ArrayList<Restaurante> restaurantes = new ArrayList<Restaurante>();
 	
 	static {// las sedes que tenemos si algo sugerencias o las cambias, no problema :)
 		
@@ -26,10 +22,14 @@ public class main {
 	Inventario inventario2 = new Inventario();
 	Inventario inventario3 = new Inventario();
 	Inventario inventario4 = new Inventario();
-	sedes.add(new Sedes ("La America", "Carrera 80 #45-B", 300, inventario1, new Caja( 10000000, 21345 )) );
-	sedes.add(new Sedes ("Envigado", " Carrera 43 N° 38 sur 35", 350, inventario2, new Caja( 10000000, 21346 )) );
-	sedes.add(new Sedes ("Sandiego", " Carrera 33#27-105", 380, inventario3, new Caja( 10000000, 21347 )) );
-	sedes.add(new Sedes ("Belen", " Carrera 42#33-A", 380, inventario4, new Caja( 10000000, 21347 )));
+	
+	
+    restaurantes.add(new Restaurante("La Casa de Toño", "Sede: Envigado", "Calle 1", inventario1, new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>()));
+    restaurantes.add(new Restaurante("La Casa de Toño", "Sede: Sandiego", "Calle 2", inventario2, new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>()));
+    restaurantes.add(new Restaurante("La Casa de Toño", "Sede: belen", "Calle 3", inventario3, new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>()));
+    restaurantes.add(new Restaurante("La Casa de Toño", "Sede: la america", "Calle 4", inventario4, new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>()));
+    
+	
 	}
 	
 	static{// por ahora lo trabajaré así, es posible que use un enumerado, si tienen alguna recomendación lo agradecería :)
@@ -133,35 +133,35 @@ public class main {
 					
 					// logica para  mostrar los items eliminados y eliminarlos, en caso que no, no se elimina nada
 					if (opcion3==1) {
-						if (Sedes.getLista().get(0).getInventario().mostrarItemsVencidos()==null) {
+						if (Restaurante.restaurantes.get(0).getInventario().mostrarItemsVencidos()==null) {
 							System.out.print("no hay items vencidos");						}
 						else {
-						System.out.print(Sedes.getLista().get(0).getInventario().mostrarItemsVencidos());
-						Sedes.getLista().get(0).getInventario().eliminarVencidos();
+						System.out.print(Restaurante.restaurantes.get(0).getInventario().mostrarItemsVencidos());
+						Restaurante.restaurantes.get(0).getInventario().eliminarVencidos();
 						
 						System.out.print("Inventario vencido, eliminado");}
 						
 					}
 					if (opcion3==2) {
-						if (Sedes.getLista().get(1).getInventario().mostrarItemsVencidos()==null) {
+						if (Restaurante.restaurantes.get(1).getInventario().mostrarItemsVencidos()==null) {
 							System.out.print("no hay items vencidos");						}
 						else {
-						System.out.print(Sedes.getLista().get(1).getInventario().mostrarItemsVencidos());
+						System.out.print(Restaurante.restaurantes.get(1).getInventario().mostrarItemsVencidos());
 						System.out.print("Inventario vencido eliminado");}
 					}
 					if(opcion3==3) {
-						if (Sedes.getLista().get(2).getInventario().mostrarItemsVencidos()==null) {
+						if (Restaurante.restaurantes.get(2).getInventario().mostrarItemsVencidos()==null) {
 							System.out.print("no hay items vencidos");						}
 						else {
-						System.out.print(Sedes.getLista().get(2).getInventario().mostrarItemsVencidos());
+						System.out.print(Restaurante.restaurantes.get(2).getInventario().mostrarItemsVencidos());
 						System.out.print("Inventario vencido eliminado");}
 					}
 					if(opcion3==4) {
 						
-						if (Sedes.getLista().get(3).getInventario().mostrarItemsVencidos()==null) {
+						if (Restaurante.restaurantes.get(3).getInventario().mostrarItemsVencidos()==null) {
 							System.out.print("no hay items vencidos");						}
 						else {
-						System.out.print(Sedes.getLista().get(3).getInventario().mostrarItemsVencidos());
+						System.out.print(Restaurante.restaurantes.get(3).getInventario().mostrarItemsVencidos());
 						System.out.print("Inventario vencido eliminado");}
 						
 						
@@ -180,7 +180,7 @@ public class main {
 					}
 					if(esc.equals("continuar")) {
 						System.out.print("1.Mostrar inventario");
-						System.out.print("2.Recargar Inventario");
+						System.out.print("2. retirar item inventario");
 						System.out.print("3.Revisar niveles de Stock");
 						System.out.print("4.Registrar articulo en inventario");
 						System.out.print("5.Renovar inventario");
@@ -197,7 +197,7 @@ public class main {
 							Inventario.obtenerInventarios().get(opcion3).mostrarInventario(null);
 							break;
 						case 2:
-							System.out.print("¿Qué producto desea recargar?");
+							System.out.print("¿");
 						case 3:
 							System.out.print("Los articulos sin stock son:");
 							System.out.print(Inventario.obtenerInventarios().get(opcion3).obtenerItemsSinStock());
@@ -208,7 +208,7 @@ public class main {
 								if(g.getDisponibilidad()==false) {
 									System.out.print(g);
 									
-							}
+							}}
 							
 							
 							
@@ -222,11 +222,90 @@ public class main {
 								break;
 							}
 							if(variable==1) {
+								System.out.print("Cuantos items desea recargar");
 								System.out.print("¿Cual(es) items desea recargar?");// se vienen cositas :)
 								System.out.print("¿Cuanta cantidad?");
 								
+								Scanner inpuj3= new Scanner( System.in);
+								int var0;
+								var0=inpuj3.nextInt();
+								List<Item> listadoItems= new ArrayList<>();
+								List<Integer>ListadoNumeros= new ArrayList<>();
 								
-							}}
+								
+								
+								int var;
+								String var2;// revisar si va acá o dentro del bucle 
+								for(int e=0;e<=var0;e++) {
+								Scanner inputj= new Scanner(System.in);
+								Scanner inpuj2= new Scanner(System.in);
+								var=inputj.nextInt();
+								var2=inpuj2.nextLine();
+								
+								for (Item c :Inventario.obtenerInventarios().get(opcion3).getDiccionarioItems().keySet()) {
+									if (c.getNombre().equals(var2)){
+										listadoItems.add(c);
+										ListadoNumeros.add(var);
+										
+										
+										
+									}
+									else {
+										System.out.print(" No es un item válido");
+									}
+									}
+									}
+								
+								for(int i: ListadoNumeros) {
+									int e;
+									int precioTotal;
+									
+									e++;
+									precioTotal+=ListadoNumeros.get(e)*listadoItems.get(e).getPrecio();
+									System.out.print(listadoItems.get(e).getNombre()+ "cuesta:"+ (ListadoNumeros.get(e)*listadoItems.get(e).getPrecio()));
+									System.out.print("valor total ="+ precioTotal);
+									
+								}
+								Scanner inputcomp= new Scanner(System.in);
+								int num;
+								num=inputcomp.nextInt(num);
+								System.out.print("1.Confirmar compra");
+								System.out.print("2.Salir");
+								if (num==1) {
+									int e;
+									for( int i : ListadoNumeros) {
+										System.out.print(Caja.getListadoCajas().get(opcion3).Compra(listadoItems.get(e), listadoItems.get(e).getPrecio(), i, restaurantes.get(opcion3)));
+										e++;
+										
+										
+								
+									
+									
+									
+								}
+									if(num==2) {
+										return ;
+									}
+									
+								
+								
+								
+								
+							
+								
+								
+								
+								
+								
+							}
+							
+								
+								
+							}
+								
+				
+							
+							
 							
 						
 							
