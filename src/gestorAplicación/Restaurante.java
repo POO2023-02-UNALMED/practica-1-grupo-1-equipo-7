@@ -21,6 +21,7 @@ public class Restaurante {
     private Caja caja;
     private ArrayList<Plato>menu;   
     private ArrayList<Mesa> mesas;
+    private Mesa[] mesa;
     private static ArrayList<Restaurante> sedes = new ArrayList<Restaurante>();
     private static ArrayList<Empleado> empleados = new ArrayList<Empleado>();
     private static HashMap<Integer, String> facturas;
@@ -135,10 +136,6 @@ public class Restaurante {
         plato.setPrecio(precio);
     }
 
-    public void modificarMesa(Mesa mesa, int capacidad, boolean estado){
-        mesa.setCapacidad(capacidad);
-        mesa.setEstado(estado);
-    }
     
     public HashMap<Integer, String>  getFacturas(){
         return facturas;       
@@ -184,4 +181,14 @@ public class Restaurante {
     }
 
     }
+    
+    ArrayList<Mesa>mesasDisponibles(){
+    	ArrayList<Mesa> disponibles = new ArrayList<Mesa>();
+    	for (Mesa mesa; this.mesa) {
+    		if(mesa.getCliente() ==  null)
+    			disponibles.add(mesa);
+    	}
+    	return disponibles;
+    }
+    
 }

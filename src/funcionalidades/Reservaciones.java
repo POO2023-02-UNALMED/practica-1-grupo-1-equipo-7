@@ -47,7 +47,7 @@ public static void main(String [] args) {
     case 1:
     	
     	System.out.println(" -------Reservaciones---------");
-	    System.out.println(" ¿Qué le gustaría hacer?");
+	    System.out.println("¿Qué le gustaría hacer?");
         System.out.println("1. Reservar");
         System.out.println("2. Cancelar o modificar la reserva");
     
@@ -57,9 +57,28 @@ public static void main(String [] args) {
         
         case 1:
         	
-        	System.out.println(" Elija la opción de la fecha que le conviene");
+        	System.out.println("Fechas disponibles para realizar la reservación ");
         	
+            for (int i = 0; i < reservasDisponibles.size(); i++) {
+                System.out.println((i + 1) + ". " + reservasDisponibles.get(i));
+            }
+            
+            
+            System.out.println("Elija la opción de la fecha que le conviene ");
+            int opcion2 = input1.nextInt();
+
+            if (opcion >= 1 && opcion <= reservasDisponibles.size()) {
+                Reserva Reserva = reservasDisponibles.get(opcion2 - 1);
+                
+            } else {
+                System.out.println("Opción no válida.");
+            }
         	
+            System.out.println("¿Para cuántas personas son la reserva? ");
+            System.out.println("1. Dos personas");
+            System.out.println("2. Tres Personas");
+            System.out.println("3. Cuatro o más personas");
+            opcion = input1.nextInt();
         }
         
         
