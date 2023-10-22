@@ -1,7 +1,7 @@
 package funcionalidades;
 import java.util.ArrayList;
 import java.util.Scanner;
-import clases.Sedes;
+import gestorAplicación.Sedes;
 
 public class Reserva {
 
