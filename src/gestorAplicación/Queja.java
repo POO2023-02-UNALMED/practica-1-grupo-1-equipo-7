@@ -45,6 +45,7 @@ public class Queja extends ServiciosClientes {
 		
 		if (tipo == Tipos.Empleado) {
 			Queja.QuejasEmpleados.add(this);
+			this.nuevaAmonestacion();
 		}
 		
 		if (tipo == Tipos.Sede) {
@@ -59,14 +60,23 @@ public class Queja extends ServiciosClientes {
 	
 	public String MostrarQuejas() {
 		if (this.tipo == Tipos.Menu) {
-			return "Nombre: " + super.cliente.getNombre() + "\n" + "Realizo una queja sobre el platillo: " this.plato.getNombre() +  super.getTexto();
+			return "Nombre: " + super.cliente.getNombre() + "\n" + "Realizo una queja sobre el platillo: " + this.plato.getNombre() +  "\n" + "'" + super.getTexto() + "'";
 		}
-	}
-	
-	public void Amonestaciones() {
-	    for (int i=0;i<Queja.QuejasEmpleados.size();i++) {
-	    	empleado.nuevaAmonestacion(i);
-	    }
+		
+		if (this.tipo == Tipos.Empleado) {
+			return "Nombre: " + super.cliente.getNombre() + "\n" + "Realizo una queja sobre el empleado: " + this.empleado.getNombre() + " - " + this.empleado.getCargo() + "\n" +
+					"'" + super.getTexto() + "'";
+		}
+		
+		if (this.tipo == Tipos.Sede) {
+			return "Nombre: " + super.cliente.getNombre() + "\n" + "Realizo una queja sobre la sede: " + this.sede.getUbicacion() + "\n"  + "'" + super.getTexto() + "'";
+		}
+		
+		if (this.tipo == Tipos.Otro) {
+			return "Nombre: " + super.cliente.getNombre() + "\n"  + "Realizo una queja: " + "'" + super.getTexto() + "'";
+		}
+		
+		return null;
 	}
 	
 	public Tipos getTipo() {
@@ -76,6 +86,10 @@ public class Queja extends ServiciosClientes {
 	public void setTipo(Tipos tipe) {
 		this.tipo = tipe;
 	}
+	
+	 public int nuevaAmonestacion() {
+	    	return this.empleado.countAmonestaciones + 1;
+	    }
 	
 	public List<Queja> getQuejasMenu() {
 		return QuejasMenu;
