@@ -264,28 +264,46 @@ public class main {
 				switch(opcion4) {
 				
 				case 1:
-					System.out.println("Ha seleccionado la opcion 1, ¿Sobre que desea realizar su sugerencia?");
+					System.out.println("Ha seleccionado la opcion 1, ¿Sobre que desea realizar su sugerecia?");
 					
-					System.out.println("1. Si");
-					System.out.println("2. No");
+					System.out.println("1. Sobre el menu");
+					System.out.println("2. Sobre un empleado");
+					System.out.println("3. Sobre una de nuestras sedes");
+					System.out.println("4. Algun otro");
 					
-					Cliente cliente;
+					String type;
 					
+					Scanner inputs=new Scanner(System.in);
+					int opcions;
+					opcions=inputs.nextInt();
 					
-					Scanner inputAnonimo=new Scanner(System.in);
-					int opcionAnonimo;
-					opcionAnonimo=inputAnonimo.nextInt();
+					switch(opcions) { 
 					
-					if (opcionAnonimo == 1) {
-						cliente = new Cliente("Anonimo",0);
+					case 1:
+						type = "Menu";
+						break;
+					
+					case 2:
+						type = "Empleado";
+						break;
+					
+					case 3:
+						type = "Sede";
+						break;
+						
+					case 4:
+						type = "Otro";
+						break;
+					
 					}
-						
-					if (opcionAnonimo == 2) {
-						
-						System.out.println("");
-						System.out.println("2. No");
-						
-					}
+					
+					System.out.println("Por favor, a continuacion escriba su sugerencia");
+					
+					Scanner inputTextoS=new Scanner(System.in);
+					String TextoS;
+					TextoS=inputTextoS.next();
+					
+					new Sugerencia(type,TextoS);
 					
 					
 					break;
