@@ -3,8 +3,7 @@ import java.util.*;
 
 public class Sugerencia extends ServiciosClientes{
 
-	private enum Tipos {Menu, Empleado, Sede, Otro};
-	protected Tipos tipo;
+	protected String tipo;
 	private static int count;
 	protected static List<Sugerencia> SugerenciasMenu = new ArrayList<>();
 	protected static List<Sugerencia> SugerenciasEmpleados = new ArrayList<>();
@@ -15,25 +14,25 @@ public class Sugerencia extends ServiciosClientes{
 		this(null, null, null, 0);
 	}
 	
-	public Sugerencia(Cliente cliente, Tipos tipe, String texto,  int reference) {
+	public Sugerencia(Cliente cliente, String tipe, String texto,  int reference) {
 		super(cliente, texto, reference);
 		count++;
 		
 		this.tipo = tipe;
 		
-		if (tipe == Tipos.Menu) {
+		if (tipe == "Menu") {
 			Sugerencia.SugerenciasMenu.add(this);
 		}
 		
-		if (tipe == Tipos.Empleado) {
+		if (tipe == "Empleado") {
 			Sugerencia.SugerenciasEmpleados.add(this);
 		}
 		
-		if (tipe == Tipos.Sede) {
+		if (tipe == "Sede") {
 			Sugerencia.SugerenciasSedes.add(this);
 		}
 		
-		if (tipe == Tipos.Otro || tipe == null) {
+		if (tipe == "Otro" || tipe == null) {
 			Sugerencia.SugerenciasOtros.add(this);
 		}
 		
@@ -43,11 +42,11 @@ public class Sugerencia extends ServiciosClientes{
 		return super.cliente.getNombre() + " hizo la siguiente sugerencia: " + "\n" + super.getTexto();
 	}
 	
-	public Tipos getTipo() {
+	public String getTipo() {
 		return this.tipo;
 	}
 	
-	public void setTipo(Tipos tipe) {
+	public void setTipo(String tipe) {
 		this.tipo = tipe;
 	}
 	
