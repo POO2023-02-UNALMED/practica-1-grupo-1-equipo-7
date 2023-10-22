@@ -62,7 +62,7 @@ public static void main(String [] args) {
             for (int i = 0; i < reservasDisponibles.size(); i++) {
                 System.out.println((i + 1) + ". " + reservasDisponibles.get(i));
             }
-            
+           
             
             System.out.println("Elija la opción de la fecha que le conviene ");
             int opcion2 = input1.nextInt();

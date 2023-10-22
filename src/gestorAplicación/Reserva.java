@@ -57,6 +57,10 @@ public void setCliente(Cliente cliente) {
 	this.cliente = cliente;
 }
 
+@Override
+public String toString() {
+    return "Fecha: " + fecha + ", Hora: " + hora;
+}
 
 }	
 	
