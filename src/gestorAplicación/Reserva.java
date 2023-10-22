@@ -22,7 +22,7 @@ public class Reserva {
 		
 		cantidadReservas ++;
 		this.fecha=fecha;
-		generarReserva(mesa,fecha);
+		generarReserva(mesa, fecha);
 		
 		
 	}
@@ -61,40 +61,25 @@ public class Reserva {
 	    // mirar como podemos asociar la fecha a la disponibilidad de la mesa 
 	} 
 	
-	
-	
-	
 	public void VencimientoReserva() {
 	    for (Mesa i : reservas.keySet()) {
 	        for (ZonedDateTime e:reservas.get(i)) {
 	        	if (e.isAfter(fechaActualBogota)) {
 	        		reservas.get(i).remove(e);
-	        	}
-	        	
-	        	
-	        	
-	            
+	        	}    
 	        }
-	    }
-	    
-	    	
-	    
-	    	
-	    	
-	    	
-	    }
+	    }	
+	}
 	// metodo para verificar si ya la reserva está ocupada 
 	public boolean  verificarReservas(Mesa mesa ,ZonedDateTime time) {
 		for(ZonedDateTime i :reservas.get(mesa)) {
 			if (time.isEqual(i)) {
 				return false;// si retorna false indica que la reserva no está disponible para esa fecha 
 			}
-			
 		}
 		return true;// esto significa que no está agotada 
-		}
-		
-	}
+	}	
+}
 	
 	
 	

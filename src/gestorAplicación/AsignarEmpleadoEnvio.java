@@ -17,14 +17,7 @@ public class AsignarEmpleadoEnvio{
 		 this.numeroOrden = numeroOrden;
 		 this.nombre = nombre;
 	 }
-	 void asignarEmpleado(Empleado empleado) {
-		 this.empleado = empleado;
-		 this.empleado.setNumeroOrden(this);
-	 }
-	 
-	 
-	 
-	 
+	
 	 //getters and setters
 	 public String getReferenciaPedido() {
 		 return referenciaPedido;

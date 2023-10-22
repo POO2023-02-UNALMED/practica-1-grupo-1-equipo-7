@@ -1,20 +1,19 @@
 package gestorAplicación;
 import java.util.*;
 
-public class Reseña {
+public class Reseña extends ServiciosClientes{
 
-	protected Cliente cliente;
 	protected int calificacion;
-	protected String reseña;
 	protected static List<Reseña> Recopilatorio = new ArrayList<>();
 	protected static int countCalificaciones;	
 	private static int count;
 	
-
+	public Reseña() {
+		this(null,null,0,0);
+	}
 	
-	public Reseña(Cliente cliente, String reseña, int calificacion) {
-		this.cliente = cliente;
-		this.reseña = reseña;
+	public Reseña(Cliente cliente, String texto, int calificacion,int codigo) {
+		super(cliente,texto,codigo);
 		this.calificacion = calificacion;
 		count++;
 		countCalificaciones = countCalificaciones + calificacion;
@@ -30,14 +29,6 @@ public class Reseña {
 		return count;
 	}
 	
-	public Cliente getCliente() {
-		return cliente;
-	}
-	
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-	
 	public int getCalificacion() {
 		return calificacion;
 	}
@@ -47,17 +38,23 @@ public class Reseña {
 	}
 	
 	public String getReseña() {
-		return reseña;
+		return super.getTexto();
+	}
+	
+	public void setReseña(String texto) {
+		super.setTexto(texto);
 	}
 	
 	public List<Reseña> getRecopilatorio(){
 		return Recopilatorio;
 	}
 	
-	public String toString() {
-		return "Nombre: " + this.cliente.getNombre() + "\n" + "Calificacion: " + 
+	public String MostrarReseñas() {
+		return "Nombre: " + super.cliente.getNombre() + "\n" + "Calificacion: " + 
 				this.calificacion + " estrellas." + "\n" + 
-				this.reseña;
+				this.getReseña();
 	}
+	
+	
 	
 }
