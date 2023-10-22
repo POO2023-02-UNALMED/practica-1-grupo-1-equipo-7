@@ -32,7 +32,6 @@ public class Cliente extends Persona {
     }
 
     static{
-    	public Cliente C = new Cliente("Anonimo", 0);
         new Cliente("Juan Perez", 5236, "Calle 1", "12345678", "juan@gmail.com", "2020-01-01");
         new Cliente("Maria Lopez", 7423, "Calle 2", "87654321", "1234", "2020-01-01");
     }
