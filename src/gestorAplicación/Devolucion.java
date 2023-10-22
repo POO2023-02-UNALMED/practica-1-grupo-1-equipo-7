@@ -10,8 +10,8 @@ public class Devolucion extends ServiciosClientes{
 	private static int count;
 	
 	
-	public Devolucion(Cliente cliente, Factura factura, String texto, int reference) {
-		super(cliente,texto, reference);
+	public Devolucion(String nombre, int id, Factura factura, String texto) {
+		super(nombre, id, texto);
 		this.factura = factura;
 		Devolucion.ListaDevoluciones.add(this);
 		count++;

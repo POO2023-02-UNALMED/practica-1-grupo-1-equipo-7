@@ -15,22 +15,23 @@ public class Queja extends ServiciosClientes {
 	
 	public Queja() {
 		this(null, null, null, null, null, null);
+		
 	}
 	
-	public Queja(Cliente cliente, String tipo, Plato plato, String texto) {
-		this(cliente, tipo, plato, null, null, texto);
+	public Queja(String nombre, String tipo, Plato plato, String texto) {
+		this(nombre, tipo, plato, null, null, texto);
 	}
 	
-	public Queja(Cliente cliente, String tipo, Empleado empleado, String texto) {
-		this(cliente, tipo, null, empleado, null, texto);
+	public Queja(String nombre, String tipo, Empleado empleado, String texto) {
+		this(nombre, tipo, null, empleado, null, texto);
 	}
 	
-	public Queja(Cliente cliente, String tipo, Sedes sede, String texto) {
-		this(cliente, tipo, null, null, sede, texto);
+	public Queja(String nombre, String tipo, Sedes sede, String texto) {
+		this(nombre, tipo, null, null, sede, texto);
 	}
 	
-	public Queja(Cliente cliente, String tipo, Plato plato, Empleado empleado, Sedes sede, String texto) {
-		super(cliente, texto);
+	public Queja(String nombre, String tipo, Plato plato, Empleado empleado, Sedes sede, String texto) {
+		super(nombre, texto);
 		count++;
 		
 		this.tipo = tipo;
