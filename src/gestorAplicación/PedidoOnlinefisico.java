@@ -1,4 +1,6 @@
 package gestorAplicación;
+import Factura.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,16 +52,18 @@ public class PedidoOnlinefisico {
 	}
 	
 	public class PedidoDeComida {
-	    private Domiciliario domiciliario;
+	    protected String domiciliario;
 	    
-	    public void asignarDomiciliario(Domiciliario domiciliario) {
+	    public void asignarDomiciliario(String domiciliario) {
 	        this.domiciliario = domiciliario;
 	    }
 	}
-
-	public class Domiciliario {
-	    // Atributos de la clase Domiciliario
-	}
+	
+	public void generarFactura(Factura Factura) {
+		public Factura();
+			
+		}
+}
 	
 	//getters and setters
 	public int getNumeroOrden() {

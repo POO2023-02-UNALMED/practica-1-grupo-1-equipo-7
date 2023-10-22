@@ -243,14 +243,6 @@ public class main {
 					 
 					
 					
-					
-							
-				
-					
-					
-					
-					
-					
 				}
 				
 				break;

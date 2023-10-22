@@ -19,9 +19,7 @@ public class GenerarPedido {
 		System.out.println("1. Pedido Fisico");
 	    System.out.println("2. Pedido de envio");
 	    
-	    Scanner input1 = new Scanner(System.in);
-        int opcion;
-        opcion = input1.nextInt();
+	    
 	
 	switch(opcion){
 	
@@ -34,7 +32,7 @@ public class GenerarPedido {
         System.out.println("4. Sede Belen");
         System.out.println("En donde desea recojer el pedido: ");
 		opcion = input1.nextInt();
-		if (opcion ){
+		if ( ){
 			System.out.println("Opción invalida");
 		}
 

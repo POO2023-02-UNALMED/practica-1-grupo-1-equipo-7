@@ -12,6 +12,7 @@ public class Factura {
     private LocalDate fecha;
     private static int contadorFacturas = 0;
     private static ArrayList<Factura> facturas = new ArrayList<>();
+    
     public Factura(int codigoCliente, int codigoEmpleado, int codigoSede, LocalDate fecha, int total, ArrayList<Plato> platos){
         this.codigo = contadorFacturas + 1;
         this.codigoCliente = codigoCliente;
