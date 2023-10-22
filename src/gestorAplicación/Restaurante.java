@@ -15,6 +15,7 @@ public class Restaurante {
             put(30, 0.072f);
         }
     };
+    private String ubicacion;
     private String direccion;
     private  int telefono;
     private Date horario;
@@ -28,16 +29,17 @@ public class Restaurante {
     private static HashMap<Integer, String> facturas;
     private int codigoSede;
     public ArrayList <String> disponibilidad = new ArrayList<String>();
-    public ArrayList <Restaurante> restaurantes;
+    public static ArrayList <Restaurante> restaurantes = new ArrayList<Restaurante>();
 
     static{
-        new Restaurante("La Casa de Toño", "Calle 1", new Inventario(), new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
-        new Restaurante("La Casa de Toño", "Calle 2", new Inventario(), new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
+        new Restaurante("La Casa de Toño", "Sede: Las Americas", "Calle 1", new Inventario(), new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
+        new Restaurante("La Casa de Toño", "Sede: Envigado", "Calle 2", new Inventario(), new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
         
     }
 
-    public Restaurante(String nombre, String direccion, Inventario inventario, Caja caja, int telefono, Date horario, ArrayList<Plato> menu, ArrayList<Mesa> mesas ){
+    public Restaurante(String nombre, String ubicacion, String direccion, Inventario inventario, Caja caja, int telefono, Date horario, ArrayList<Plato> menu, ArrayList<Mesa> mesas ){
         this.nombre = nombre;
+        this.ubicacion = ubicacion;
         this.direccion = direccion;
         this.telefono = telefono;
         this.horario = horario;
@@ -48,11 +50,19 @@ public class Restaurante {
         this.codigoSede += 1;
         sedes.add(this);
         this.disponibilidad = new ArrayList<>(Arrays.asList("2023-10-25 14:00 PM","2023-10-25 18:00 PM", "2023-10-26 12:00 PM", "2023-10-30 11:00 AM"));
+        restaurantes.add(this);
     }
     public Restaurante() {
     	
     }
-
+    
+    public String getUbicacion(){
+    	return this.ubicacion;
+    }
+    
+    public void setUbicaicion(String ubicacion) {
+    	this.ubicacion = ubicacion;
+    }
     
     public Caja getCaja() {
     	return caja;
@@ -170,6 +180,14 @@ public class Restaurante {
         return null;
     }
     
+    public static Restaurante buscarSedeXUbicacion(String ubicacion){
+        for(Restaurante sede : sedes){
+            if(sede.getUbicacion() == ubicacion){
+                return sede;
+            }
+        }
+        return null;
+       }
 
     public float calcularPropinasPorSede(int codigoSede){
         Restaurante sede = buscarSede(codigoSede);
