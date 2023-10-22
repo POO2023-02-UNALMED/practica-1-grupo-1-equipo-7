@@ -45,20 +45,10 @@ public class GenerarPedido {
 			System.out.println("------------Menu disponible en esta sede------------");
 			System.out.println("Menu: " + Menu.Map());
 			System.out.println("Que productos desea escoger:");
-			
-			
-			
-			
-			
-				
-				
-				
-				
-					
-				
-        
-	}
-	}
+			}
+		}
+	case 2:
+		
 	}
 }
 
