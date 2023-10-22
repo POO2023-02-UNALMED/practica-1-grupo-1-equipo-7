@@ -90,7 +90,7 @@ public static void main(String [] args) {
     case 2:
     	
     	System.out.println("Salir");
-		break;
+		System.exit(0);
     
     }
     
