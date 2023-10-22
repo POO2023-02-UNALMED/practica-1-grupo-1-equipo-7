@@ -3,27 +3,40 @@ package gestorAplicación;
 public  class Persona {
     private String nombre;
     private int id;
+    
+    public Persona() {
+    	this(null, 0);
+    }
    
+    public Persona(String nombre) {
+    	this(nombre, 0);
+    }
 	
 	public Persona(String nombre, int id){
         this.nombre = nombre;
         this.id=id;
     }
+	
     public String getNombre(){
         return nombre;
     }
+    
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
+    
     public int getId() {
   		return id;
   	}
+    
   	public void setId(int id) {
   		this.id = id;
   	}
+  	
     public String toString(){
         return "Nombre: " + nombre;
     }
+    
     static {
         Persona persona1 = new Persona("Persona 1", 1);
         Persona persona2 = new Persona("Persona 2", 2);
@@ -41,10 +54,7 @@ public  class Persona {
         Persona persona14 = new Persona("Persona 14", 14);
         Persona persona15 = new Persona("Persona 15", 15);
     }
-   
-
  
-   
 }
 
 

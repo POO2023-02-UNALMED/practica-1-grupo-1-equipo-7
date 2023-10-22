@@ -35,19 +35,19 @@ public class Queja extends ServiciosClientes {
 		count++;
 		
 		this.tipo = tipo;
+		this.plato = plato;
+		this.empleado = empleado;
+		this.sede = sede;
 		
 		if (tipo == Tipos.Menu) {
-			this.plato = plato;
 			Queja.QuejasMenu.add(this);
 		}
 		
 		if (tipo == Tipos.Empleado) {
-			this.empleado = empleado;
 			Queja.QuejasEmpleados.add(this);
 		}
 		
 		if (tipo == Tipos.Sede) {
-			this.sede = sede;
 			Queja.QuejasSedes.add(this);
 		}
 		
@@ -55,6 +55,56 @@ public class Queja extends ServiciosClientes {
 			Queja.QuejasOtros.add(this);
 		}
 		
+	}
+	
+	public String MostrarQuejas() {
+		if (this.tipo == Tipos.Menu) {
+			return "Nombre: " + super.cliente.getNombre() + "\n" + "Realizo una queja sobre el platillo: " this.plato.getNombre() +  super.getTexto();
+		}
+	}
+	
+	public Tipos getTipo() {
+		return this.tipo;
+	}
+	
+	public void setTipo(Tipos tipe) {
+		this.tipo = tipe;
+	}
+	
+	public List<Queja> getQuejasMenu() {
+		return QuejasMenu;
+	}
+	
+	public List<Queja> getQuejasEmpleados(){
+		return QuejasEmpleados;
+	}
+	
+	public List<Queja> getQuejasSedes(){
+		return QuejasSedes;
+	}
+	
+	public List<Queja> getQuejasOtros(){
+		return QuejasOtros;
+	}
+	
+	public int cantidadQuejas() {
+		return count;
+	}
+	
+	public int cantidadQuejasMenu() {
+		return QuejasMenu.size();
+	}
+	
+	public int cantidadQuejasEmpleados() {
+		return QuejasEmpleados.size();
+	}
+	
+	public int cantidadQuejasSedes() {
+		return QuejasSedes.size();
+	}
+	
+	public int cantidadQuejasOtros() {
+		return QuejasOtros.size();
 	}
 	
 }

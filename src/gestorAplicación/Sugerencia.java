@@ -43,6 +43,14 @@ public class Sugerencia extends ServiciosClientes{
 		return super.cliente.getNombre() + " hizo la siguiente sugerencia: " + "\n" + super.getTexto();
 	}
 	
+	public Tipos getTipo() {
+		return this.tipo;
+	}
+	
+	public void setTipo(Tipos tipe) {
+		this.tipo = tipe;
+	}
+	
 	public List<Sugerencia> getSugerenciasMenu() {
 		return SugerenciasMenu;
 	}
