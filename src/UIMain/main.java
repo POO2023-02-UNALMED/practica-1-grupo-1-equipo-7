@@ -324,9 +324,11 @@ public class main {
 					if (opcionES == 2) {new Sugerencia(type,TextoS);}
 					
 					System.out.println("Su sugerencia se ha enviado con exito");
+					System.out.println("1. Salir");
 					
-					System.out.println("1. Realizar una nueva sugerencia");
-					System.out.println("2. Salir");
+					Scanner inputSalirS = new Scanner(System.in);
+					int SalirS;
+					SalirS=inputSalirS.nextInt();
 					
 					
 					break;
@@ -365,13 +367,12 @@ public class main {
 						
 						Scanner inputplatoQ=new Scanner(System.in);
 						String platoQ;
+						Plato platoQueja;
 						platoQ=inputplatoQ.next();
 						
-						switch(platoQ) {
+						platoQueja = Plato.buscarPlato(platoQ);
 						
-						}
-						
-						if (platoQ == null) {
+						while (platoQueja == null) {
 							System.out.println("Este platillo no existe. Por favor ingrese un platillo que se encuentre en el menu");
 							
 							System.out.println("1. Ingresar un platillo diferente");
@@ -386,15 +387,57 @@ public class main {
 								String platoEQ;
 								platoEQ=inputplatoEQ.next();
 								
-								platoEQ
+								platoEQ = platoQ;
+								
 							}
+							
+							if(opcionPQ == 2) {
+								break;
+							}
+						OtroQ = platoQ;
 							
 						}
 						
 						
 						
+						
 					case 2:
 						typeQ = "Empleado";
+						
+						System.out.println("Por favor, para continuar ingrese el nombre del empleado");
+						
+						Scanner inputempleadoQ=new Scanner(System.in);
+						String empleadoQ;
+						Empleado empleadoQueja;
+						empleadoQ=inputempleadoQ.next();
+						
+						empleadoQueja = Empleado.buscarEmpleadoXNombre(empleadoQ);
+						
+						while (empleadoQueja == null) {
+							System.out.println("Esta persona no hace parte de nuestro equipo de trabjo. Por favor ingrese otro nombre");
+							
+							System.out.println("1. Ingresar un nombre diferente");
+							System.out.println("2. Salir");
+							
+							Scanner inputEQ = new Scanner(System.in);
+							int opcionEQ;
+							opcionEQ = inputEQ.nextInt();
+							
+							if (opcionEQ == 1) {
+								Scanner inputplatoEEQ=new Scanner(System.in);
+								String empleadoEQ;
+								empleadoEQ=inputplatoEEQ.next();
+								
+								empleadoEQ = empleadoQ;
+								
+							}
+							
+							if(opcionEQ == 2) {
+								break;
+							}
+						OtroQ = empleadoQ;
+							
+						}
 						
 					case 3:
 						typeQ = "Sede";
@@ -406,6 +449,22 @@ public class main {
 							break;
 					}
 					break;
+					
+					System.out.println("Por favor, a continuacion escriba su queja");
+					
+					Scanner inputTextoQ=new Scanner(System.in);
+					String TextoQ;
+					TextoQ=inputTextoQ.next();
+					
+					System.out.println("Todo listo");
+					
+					System.out.println("1. Editar Queja");
+					System.out.println("2. Enviar Queja");
+					
+					Scanner inputOEditarQ=new Scanner(System.in);
+					int opcionEQ;
+					opcionEQ=inputOEditarQ.nextInt();
+					
 					
 					
 				
