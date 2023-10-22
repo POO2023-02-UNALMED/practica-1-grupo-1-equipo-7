@@ -101,6 +101,9 @@ public class Sedes extends Restaurante {
     public String imprimirMenu() {
     	for (Menu menu : this.menuList) {
     		return "Nombre: " + menu.getNombre() + "\n" + "Precio: " + menu.getPrecio();
+    
+    	}
+    	return null;
     }
 
     public Inventario getInventario() {
