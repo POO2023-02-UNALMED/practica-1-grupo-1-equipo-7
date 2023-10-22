@@ -15,8 +15,6 @@ public  class Persona {
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
-    
-    
     public int getId() {
   		return id;
   	}
