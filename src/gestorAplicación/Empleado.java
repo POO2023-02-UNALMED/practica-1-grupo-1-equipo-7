@@ -10,7 +10,7 @@ public class Empleado extends Persona {
     private String cargo;
     private int codigo;
     private int codigoSede;
-    private int countAmonestaciones;
+    protected int countAmonestaciones;
     private static int contadorEmpleados = 0;
     private static ArrayList<Empleado> empleados = new ArrayList<>();
     
@@ -71,11 +71,6 @@ public class Empleado extends Persona {
     public int getCountAmonestaciones() {
     	return countAmonestaciones;
     }
-    
-    public void nuevaAmonestacion(Empleado empleado) {
-    	empleado.countAmonestaciones++;
-    }
-    
    
     public static Empleado buscarEmpleado(int codigo){
         for(Empleado empleado : empleados){
