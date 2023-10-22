@@ -83,6 +83,6 @@ public class Reseña extends ServiciosClientes{
 		for (int i=0;i<Reseña.Recopilatorio.size();i++) {
 			System.out.println(toString(Recopilatorio.get(i)));
 		}
-	
+	}
 	
 }
