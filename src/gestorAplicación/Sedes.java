@@ -1,8 +1,6 @@
 package gestorAplicación;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class Sedes extends Restaurante {
 	private String ubicacion;
@@ -98,6 +96,11 @@ public class Sedes extends Restaurante {
     public String toString() {
         return "Nombre de la Sede: " + ubicacion + "\nDirección: " + direccion + "\nCapacidad: " + capacidad
                 + "\nMenús en la Sede: " + menuList.size() + "\nEmpleados en la Sede: " + listadoEmpleados.size();
+    }
+    
+    public String imprimirMenu() {
+    	for (Menu menu : this.menuList) {
+    		return "Nombre: " + menu.getNombre() + "\n" + "Precio: " + menu.getPrecio();
     }
 
     public Inventario getInventario() {
