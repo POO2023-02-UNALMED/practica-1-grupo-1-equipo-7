@@ -63,6 +63,12 @@ public class Queja extends ServiciosClientes {
 		}
 	}
 	
+	public void Amonestaciones() {
+	    for (int i=0;i<Queja.QuejasEmpleados.size();i++) {
+	    	empleado.nuevaAmonestacion(i);
+	    }
+	}
+	
 	public Tipos getTipo() {
 		return this.tipo;
 	}

@@ -71,6 +71,12 @@ public class Empleado extends Persona {
     public int getCountAmonestaciones() {
     	return countAmonestaciones;
     }
+    
+    public void nuevaAmonestacion(Empleado empleado) {
+    	empleado.countAmonestaciones++;
+    }
+    
+   
     public static Empleado buscarEmpleado(int codigo){
         for(Empleado empleado : empleados){
             if(empleado.getCodigo() == codigo){
