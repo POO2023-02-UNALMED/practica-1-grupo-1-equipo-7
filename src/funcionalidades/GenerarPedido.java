@@ -12,6 +12,9 @@ public class GenerarPedido {
 	private String nombreSede;
 	
 	public static void main(String[] args) {
+		boolean repetir;
+		byte opcion;
+		String salir;
 		System.out.println("¿Qué tipo de pedido desea?");
 		System.out.println("1. Pedido Fisico");
 	    System.out.println("2. Pedido de envio");
@@ -31,7 +34,7 @@ public class GenerarPedido {
         System.out.println("4. Sede Belen");
         System.out.println("En donde desea recojer el pedido: ");
 		opcion = input1.nextInt();
-		if (opcion =! 1,2,3,4){
+		if (opcion ){
 			System.out.println("Opción invalida");
 		}
 
