@@ -321,7 +321,7 @@ public class main {
 						TextoS = EditarS;
 					}
 					
-					if (opcionES == 2) {new Sugerencia(type,TextoS);}
+					if (opcionES == 2) {new Sugerencia(type, TextoS);}
 					
 					System.out.println("Su sugerencia se ha enviado con exito");
 					System.out.println("1. Salir");
@@ -505,7 +505,7 @@ public class main {
 			
 				Scanner input3=new Scanner(System.in);
 				int opcion5;
-				opcion5=inputb.nextInt();
+				opcion5=input3.nextInt();
 				switch(opcion5) {
 				case 1:
 					
@@ -517,7 +517,7 @@ public class main {
 				
 				Scanner inputc=new Scanner(System.in);
 				String  Op;
-				Op = inputd.nextLine();
+				Op = inputc.nextLine();
 					
 				System.out.println("Elija la fecha de su reservación");
 				

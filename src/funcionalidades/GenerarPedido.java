@@ -67,22 +67,34 @@ public class GenerarPedido {
 		    int opcion4;
 		    if (opcion4 != 1 && opcion4 != 2 && opcion4 != 3 && opcion4 != 4){
 				System.out.println("Opción invalida");
+		    }
 			
-			else{
+			else {
 					
 				System.out.println("------------Menu disponible en esta sede------------");
-				ArrayList<Plato> b = Restaurante.getMenu();
-				System.out.println("Menu: " + b);
-				Restaurante.getMenu();
-				System.out.println("Que productos desea escoger:");
+				System.out.println("Menu: " + gestorAplicación.Menu.menu());
+				System.out.println("¿Que productos desea ordenar?");
 				Scanner input13= new Scanner(System.in);
 				int opcion3;
 				opcion3 = input13.nextInt();
-				}
+				opcion3.add(listMenu);
+				menu.size();
+				System.out.println("Productos escogidos");
+				System.out.println("¿Desea ordenar algo mas?");
+				 Scanner input15= new Scanner(System.in);
+				    String opcion5;
+				    if (opcion5 != "y"){
+						System.out.println("Progama Terminado");
+				    }
+				    else {
+				    	return case 2;
+				    }
 			}
 		}
 	}
 }
+
+
 
 
 
