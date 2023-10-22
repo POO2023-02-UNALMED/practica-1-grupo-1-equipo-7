@@ -1,6 +1,7 @@
 package gestorAplicación;
 import java.util.*;
 
+
 public class Reseña extends ServiciosClientes{
 
 	protected int calificacion;
@@ -8,8 +9,25 @@ public class Reseña extends ServiciosClientes{
 	protected static int countCalificaciones;	
 	private static int count;
 	
+	static{
+		Cliente Anonimo = new Cliente("Anonimo", 0);
+		Cliente Uno = new Cliente("Julian Vargas", 71628249);
+		Cliente Dos = new Cliente("Martha Wayne", 48752698);
+		Cliente Tres = new Cliente("Barbara Gordon", 1173149587);
+		Cliente Cuatro = new Cliente("Carol Diaz", 25789635);
+		
+		new Reseña(Anonimo, "Gran lugar para pasar el tiempo en familia, muy buena la atención", 4, 12345);
+		new Reseña(Uno, "Me gustaron las hamburguesas", 5, 54321);
+		new Reseña(Dos, "La comida estaba fria y tardaron mucho en atendernos, mal ahí", 2, 56789);
+		new Reseña(Tres, "Muy buen servicio a domicilio, todo llego a tiempo y recien hecho", 5, 98765);
+		new Reseña(Anonimo, "Que fea la sede de Bello, casi nos roban al salir", 1, 14785);
+		new Reseña(Anonimo, "Mi mujer se enfermo despues de comer en una de sus sedes", 1, 85296);
+		new Reseña(Cuatro, "Excelente atención", 5, 69852);
+		
+	}
+	
 	public Reseña() {
-		this(null,null,0,0);
+
 	}
 	
 	public Reseña(Cliente cliente, String texto, int calificacion,int codigo) {
@@ -50,9 +68,16 @@ public class Reseña extends ServiciosClientes{
 	}
 	
 	public String MostrarReseñas() {
-		return "Nombre: " + super.cliente.getNombre() + "\n" + "Calificacion: " + 
-				this.calificacion + " estrellas." + "\n" + 
-				this.getReseña();
+		
+		if (super.cliente.getNombre() == "Anonimo") {
+			return "Anonimo." + "\n"  + 
+					"Calificacion:" + this.getCalificacion() + "\n" + 
+					"'" + this.getReseña() + "'";
+		}
+		
+		return "Nombre: " + super.cliente.getNombre() + "\n" + 
+				"Calificacion: " + this.getCalificacion() + " estrellas." + "\n" + 
+				"'" + this.getReseña() + "'";
 	}
 	
 	

@@ -172,6 +172,40 @@ public class main {
 						
 					}
 					if(esc.equals("continuar")) {
+						System.out.print("1.Mostrar inventario");
+						System.out.print("2.Recargar Inventario");
+						System.out.print("3.Revisar niveles de Stock");
+						System.out.print("4.Registrar articulo en inventario");
+						System.out.print("5.Renovar inventario");
+						System.out.print("6.Valor del inventario total");
+						System.out.print("7.Precio articulo del inventario ");
+						System.out.print("Cambiar de sede");
+						Scanner inputf=new Scanner(System.in);
+						int opcionf;
+						opcionf=inputf.nextInt();
+						
+						
+						switch(opcionf) {
+						case 1:
+							Inventario.obtenerInventarios().get(opcion3).mostrarInventario(null);
+							break;
+						case 2:
+							System.out.print("¿Qué producto desea recargar?");
+						case 3:
+							System.out.print("Los articulos sin stock son:");
+							System.out.print(Inventario.obtenerInventarios().get(opcion3).obtenerItemsSinStock());
+							System.out.print("1. renovar inventario");
+							
+							
+							
+						
+						}
+						
+						
+						
+						
+					}
+
 						
 						
 					}
