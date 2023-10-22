@@ -10,12 +10,12 @@ import java.time.LocalTime;
 
 public class Reserva {
 	private int numeroReserva;
-	Map<Mesa ,List<ZonedDateTime>  > reservas = new HashMap<>();// para tener el registro de las fehcas reservasa, cambiar si algo 
+	Map<Mesa ,List<ZonedDateTime>  > reservas = new HashMap<>();
 	private static int cantidadReservas;
 	private ZonedDateTime fechaActualBogota = ZonedDateTime.now(ZoneId.of("America/Bogota"));
 	private ZonedDateTime fecha ;
 	
-	// hay que hacer un metodo para verificar si hay disponibilidad 
+
 	public Reserva(int numeroReserva, ZonedDateTime fecha, Mesa mesa  ) {
 		
 		this.numeroReserva = numeroReserva;
@@ -44,21 +44,21 @@ public class Reserva {
 	}
 	
 	public void generarReserva(Mesa mesa, ZonedDateTime date) {
-	    // Obtener la lista de fechas reservadas para la mesa (si existe)
+	
 	    List<ZonedDateTime> fechasReservadas = reservas.get(mesa);
 
-	    // Verificar si la lista no existe para esta mesa
+
 	    if (fechasReservadas == null) {
 	        fechasReservadas = new ArrayList<>();
 	    }
 
-	    // Agregar la nueva fecha a la lista de fechas reservadas
+
 	    fechasReservadas.add(date);
 
-	    // Actualizar la asociación de la mesa con la lista de fechas reservadas
+
 	    reservas.put(mesa, fechasReservadas);
 
-	    // mirar como podemos asociar la fecha a la disponibilidad de la mesa 
+
 	} 
 	
 	public void VencimientoReserva() {
@@ -70,14 +70,14 @@ public class Reserva {
 	        }
 	    }	
 	}
-	// metodo para verificar si ya la reserva está ocupada 
+
 	public boolean  verificarReservas(Mesa mesa ,ZonedDateTime time) {
 		for(ZonedDateTime i :reservas.get(mesa)) {
 			if (time.isEqual(i)) {
-				return false;// si retorna false indica que la reserva no está disponible para esa fecha 
+				return false;
 			}
 		}
-		return true;// esto significa que no está agotada 
+		return true;
 	}	
 }
 	

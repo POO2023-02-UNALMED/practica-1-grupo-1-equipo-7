@@ -23,10 +23,10 @@ public class GenerarPedido {
     case 1:
         System.out.println("1. Pedido Fisico:");
 		System.out.println("Nuestras sedes disponibles");
-        System.out.println("1. Sede Envigado");
-        System.out.println("2. Sede Centro");
-        System.out.println("3. sede Estadio");
-        System.out.println("4. Sede Bello");
+        System.out.println("1. Sede Las americas");
+        System.out.println("2. Sede Sandiego");
+        System.out.println("3. Sede Envigado");
+        System.out.println("4. Sede Belen");
         System.out.println("En donde desea recojer el pedido: ");
 		opcion = input1.nextInt();
     

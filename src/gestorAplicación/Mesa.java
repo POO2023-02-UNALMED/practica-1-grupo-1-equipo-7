@@ -8,9 +8,8 @@ import java.util.List;
 public class Mesa {
 
 	private int numero;
-	private ArrayList<Cliente> cliente;// esto para que se va a usar?
-	private boolean estado;
-	private Mesa[]listadoObjetos=new Mesa[10];// supongamos que tenemos 20 mesas
+	private ArrayList<Cliente> cliente;	private boolean estado;
+	private Mesa[]listadoObjetos=new Mesa[10];
 	
 	
 	public Mesa(int numero, ArrayList<Cliente> cliente, boolean estado) {
@@ -45,7 +44,7 @@ public class Mesa {
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
-	//devuelve las mesas disponibles
+	
 	public List<Mesa> mesaDisponible() {
 		List<Mesa> mesas=new ArrayList<>();
 		for(Mesa i :listadoObjetos ) {

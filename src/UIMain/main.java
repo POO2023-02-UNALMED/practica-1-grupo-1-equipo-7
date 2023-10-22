@@ -19,10 +19,10 @@ public class main {
 	Inventario inventario2 = new Inventario();
 	Inventario inventario3 = new Inventario();
 	Inventario inventario4 = new Inventario();
-	sedes.add(new Sedes ("la america", "cra80 #45-b", 300, inventario1, new Caja( 10000000, 21345 )) );
-	sedes.add(new Sedes ("envigado", " Carrera 43 N° 38 sur 35", 350, inventario2, new Caja( 10000000, 21346 )) );
+	sedes.add(new Sedes ("La America", "cra80 #45-b", 300, inventario1, new Caja( 10000000, 21345 )) );
+	sedes.add(new Sedes ("Envigado", " Carrera 43 N° 38 sur 35", 350, inventario2, new Caja( 10000000, 21346 )) );
 	sedes.add(new Sedes ("Sandiego", " Carrera 33#27-105", 380, inventario3, new Caja( 10000000, 21347 )) );
-	sedes.add(new Sedes ("belen", " Carrera 42#33-A", 380, inventario4, new Caja( 10000000, 21347 )));
+	sedes.add(new Sedes ("Belen", " Carrera 42#33-A", 380, inventario4, new Caja( 10000000, 21347 )));
 	}
 	
 	static{// por ahora lo trabajaré así, es posible que use un enumerado, si tienen alguna recomendación lo agradecería :)
