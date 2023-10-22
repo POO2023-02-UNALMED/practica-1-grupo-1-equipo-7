@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Sedes extends Restaurante {
-    private String ubicacion;
+	private String ubicacion;
     private String direccion;
     private int capacidad;
     private List<Menu> menuList;
@@ -15,10 +15,7 @@ public class Sedes extends Restaurante {
     private Caja caja;
     private static List<Sedes>sedes= new ArrayList<>();
     
-    private Inventario inventario;
-
-    
-  //revisar constructor por los atributos que heredan de restaurante, mal expresado  
+    private Inventario inventario; 
     
     public Sedes(String ubicacion, String direccion, int capacidad, Inventario inventario, Caja caja) {
     	this.ubicacion = ubicacion;
@@ -31,7 +28,7 @@ public class Sedes extends Restaurante {
          
         
     }
-   
+
     public String getUbicacion() {
         return ubicacion;
     }
@@ -115,15 +112,5 @@ public class Sedes extends Restaurante {
     	return sedes;
     }
     
-    ArrayList<Sedes>sedesDisponibles(String fecha){
-    	ArrayList<Sedes>sedesDisponibles = new ArrayList<Sedes>();
-    	for (Sedes sedes : this.sedes) {
-    		if (sedes.hayMesas()) {
-    			if (sedes.getFecha()equals(fecha))
-    				sedesDisponibles.add(sedes);
-    		}
-    	}
-    	return sedesDisponibles;
-    }
     
 }
