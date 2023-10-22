@@ -30,25 +30,38 @@ public class Queja extends ServiciosClientes {
 		this(nombre, tipo, null, null, sede, texto);
 	}
 	
-	public Queja(String nombre, String tipo, Plato plato, Empleado empleado, Sedes sede, String texto) {
+	public Queja(String nombre, String tipo, String nombrePlato, String nombreEmpleado, String UbiSede, String texto) {
 		super(nombre, texto);
 		count++;
 		
 		this.tipo = tipo;
-		this.plato = plato;
-		this.empleado = empleado;
-		this.sede = sede;
 		
 		if (tipo == "Menu") {
+			
+			Plato plato;
+			plato = Plato.buscarPlato(nombrePlato);
+			this.plato = plato;
+			
 			Queja.QuejasMenu.add(this);
+			
 		}
 		
 		if (tipo == "Empleado") {
+			
+			Empleado empleado;
+			empleado = Empleado.buscarEmpleadoXNombre(nombreEmpleado);
+			this.empleado = empleado;
+			
 			Queja.QuejasEmpleados.add(this);
 			this.nuevaAmonestacion();
 		}
 		
 		if (tipo == "Sede") {
+			
+			Sedes sede;
+			sede = Sedes.buscarSedeXUbicacion(UbiSede);
+			this.sede = sede;
+			
 			Queja.QuejasSedes.add(this);
 		}
 		
