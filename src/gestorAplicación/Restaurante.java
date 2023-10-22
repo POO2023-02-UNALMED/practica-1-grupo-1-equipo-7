@@ -1,5 +1,6 @@
 package gestorAplicación;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 public class Restaurante {
@@ -26,6 +27,8 @@ public class Restaurante {
     private static ArrayList<Empleado> empleados = new ArrayList<Empleado>();
     private static HashMap<Integer, String> facturas;
     private int codigoSede;
+    public ArrayList <String> disponibilidad = new ArrayList<String>();
+    public ArrayList <Restaurante> restaurantes;
 
     static{
         new Restaurante("La Casa de Toño", "Calle 1", new Inventario(), new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
@@ -33,7 +36,7 @@ public class Restaurante {
         
     }
 
-    public Restaurante(String nombre, String direccion, Inventario inventario, Caja caja, int telefono, Date horario, ArrayList<Plato> menu, ArrayList<Mesa> mesas){
+    public Restaurante(String nombre, String direccion, Inventario inventario, Caja caja, int telefono, Date horario, ArrayList<Plato> menu, ArrayList<Mesa> mesas ){
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -44,6 +47,7 @@ public class Restaurante {
         this.caja = caja;
         this.codigoSede += 1;
         sedes.add(this);
+        this.disponibilidad = new ArrayList<>(Arrays.asList("2023-10-25 14:00 PM","2023-10-25 18:00 PM", "2023-10-26 12:00 PM", "2023-10-30 11:00 AM"));
     }
     public Restaurante() {
     	
@@ -130,11 +134,11 @@ public class Restaurante {
         this.empleados.remove(empleado);
     }
 // El de la clase plato revisar esto
-    public void modificarPlato(Plato plato, String nombre, String descripcion, int precio){
-        plato.setNombre(nombre);
-        plato.setDescripcion(descripcion);
-        plato.setPrecio(precio);
-    }
+   // public void modificarPlato(Plato plato, String nombre, String descripcion, int precio){
+        //plato.setNombre(nombre);
+      //  plato.setDescripcion(descripcion);
+        //plato.setPrecio(precio);
+   // }
 
     
     public HashMap<Integer, String>  getFacturas(){
@@ -183,13 +187,5 @@ public class Restaurante {
 
     }
     
-    ArrayList<Mesa>mesasDisponibles(){
-    	ArrayList<Mesa> disponibles = new ArrayList<Mesa>();
-    	for (Mesa mesa; this.mesa) {
-    		if(mesa.getCliente() ==  null)
-    			disponibles.add(mesa);
-    	}
-    	return disponibles;
-    }
     
 }
