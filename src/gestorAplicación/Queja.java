@@ -1,14 +1,11 @@
 package gestorAplicación;
 import java.util.*;
 
-public class Queja {
+public class Queja extends ServiciosClientes {
 	
-	protected Cliente cliente;
-	protected int referencia;
 	protected Empleado empleado;
 	protected Sedes sede;
 	protected Plato plato;
-	protected String queja;
 	protected enum Tipos {Menu, Empleado, Sede, Otro};
 	protected Tipos tipo;
 	protected static int count;
@@ -17,11 +14,27 @@ public class Queja {
 	protected static List<Queja> QuejasSedes = new ArrayList<>();
 	protected static List<Queja> QuejasOtros = new ArrayList<>();
 	
-	public Queja(Cliente cliente, int reference,Plato plato, Empleado empleado, Sedes sede, Tipos tipo, String texto) {
-		this.cliente = cliente;
-		this.referencia = reference;
-		this.queja = texto;
+	public Queja() {
+		this(null, null, null, null, null, null, 0);
+	}
+	
+	public Queja(Cliente cliente, Tipos tipo, Plato plato, String texto, int reference) {
+		this(cliente, tipo, plato, null, null, texto, reference);
+	}
+	
+	public Queja(Cliente cliente, Tipos tipo, Empleado empleado, String texto, int reference) {
+		this(cliente, tipo, null, empleado, null, texto, reference);
+	}
+	
+	public Queja(Cliente cliente, Tipos tipo, Sedes sede, String texto, int reference) {
+		this(cliente, tipo, null, null, sede, texto, reference);
+	}
+	
+	public Queja(Cliente cliente, Tipos tipo, Plato plato, Empleado empleado, Sedes sede, String texto, int reference) {
+		super(cliente, texto, reference);
 		count++;
+		
+		this.tipo = tipo;
 		
 		if (tipo == Tipos.Menu) {
 			this.plato = plato;
@@ -38,7 +51,7 @@ public class Queja {
 			Queja.QuejasSedes.add(this);
 		}
 		
-		if (tipo == Tipos.Otro) {
+		if (tipo == Tipos.Otro || tipo == null) {
 			Queja.QuejasOtros.add(this);
 		}
 		

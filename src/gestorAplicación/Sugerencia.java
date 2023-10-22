@@ -1,25 +1,25 @@
 package gestorAplicación;
 import java.util.*;
-// no sería mejor hacer un metodo para escirbir la sugerenci? solo es una pregunta, la verdad no sé :)
-public class Sugerencia {
-	
-	protected Cliente cliente;
-	protected String sugerencia;
+
+public class Sugerencia extends ServiciosClientes{
+
 	private enum Tipos {Menu, Empleado, Sede, Otro};
 	protected Tipos tipo;
-	protected int referencia;
 	private static int count;
 	protected static List<Sugerencia> SugerenciasMenu = new ArrayList<>();
 	protected static List<Sugerencia> SugerenciasEmpleados = new ArrayList<>();
 	protected static List<Sugerencia> SugerenciasSedes = new ArrayList<>();
 	protected static List<Sugerencia> SugerenciasOtros = new ArrayList<>();
 	
-	public Sugerencia(Cliente cliente, int reference, Tipos tipe, String texto) {
-		this.cliente = cliente;
-		this.referencia = reference;
-		this.sugerencia = texto;
-
+	public Sugerencia() {
+		this(null, null, null, 0);
+	}
+	
+	public Sugerencia(Cliente cliente, Tipos tipe, String texto,  int reference) {
+		super(cliente, texto, reference);
 		count++;
+		
+		this.tipo = tipe;
 		
 		if (tipe == Tipos.Menu) {
 			Sugerencia.SugerenciasMenu.add(this);
@@ -33,38 +33,14 @@ public class Sugerencia {
 			Sugerencia.SugerenciasSedes.add(this);
 		}
 		
-		if (tipe == Tipos.Otro) {
+		if (tipe == Tipos.Otro || tipe == null) {
 			Sugerencia.SugerenciasOtros.add(this);
 		}
 		
 	}
 	
-	public String toString() {
-		return this.cliente.getNombre() + " hizo la siguiente sugerencia: " + "\n" + this.sugerencia;
-	}
-	
-	public Cliente getCliente() {
-		return cliente;
-	}
-	
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-	
-	public 	int getReferencia(){
-		return referencia;
-	}
-	
-	public void setReferencia(int reference) {
-		this.referencia = reference;
-	}
-	
-	public String getSugerencia() {
-		return sugerencia;
-	}
-	
-	public void setSugerencia(String sugerencia) {
-		this.sugerencia = sugerencia;
+	public String MostrarSugerencias() {
+		return super.cliente.getNombre() + " hizo la siguiente sugerencia: " + "\n" + super.getTexto();
 	}
 	
 	public List<Sugerencia> getSugerenciasMenu() {
