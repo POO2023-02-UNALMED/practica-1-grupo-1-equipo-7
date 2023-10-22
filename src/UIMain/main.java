@@ -263,9 +263,45 @@ public class main {
 				case 1:
 					System.out.println("Ha seleccionado la opcion 1, ¿Desea que su sugerencia sea anonima?");
 					
+					System.out.println("1. Si");
+					System.out.println("2. No");
+					
 					Scanner inputAnonimo=new Scanner(System.in);
 					int opcionAnonimo;
 					opcionAnonimo=inputAnonimo.nextInt();
+					
+					if (opcionAnonimo == 1) {
+						System.out.println("¿Desea hacer su sugerencia sobre algo especifico?");
+						
+						System.out.println("1. Si");
+						System.out.println("2. No");
+						
+						String t;
+						
+						Scanner inputAnonimosi=new Scanner(System.in);
+						int opcionAnonimosi;
+						opcionAnonimosi=inputAnonimosi.nextInt();
+						
+						if (opcionAnonimosi == 1) {
+							
+							Scanner inputtipoA=new Scanner(System.in);
+							int opciontipoA;
+							opciontipoA=inputtipoA.nextInt();
+							System.out.println("1. Si");
+							
+							switch(opciontipoA) {
+							
+							
+							}
+						}
+						
+						
+						
+					}
+					
+					if (opcionAnonimo == 2) {
+						
+					}
 					
 					
 					break;
