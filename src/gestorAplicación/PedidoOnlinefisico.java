@@ -11,11 +11,13 @@ public class PedidoOnlinefisico {
 	 private List<Plato> carrito=new ArrayList<>(); 
 	
 	 //Constructor_de_la_clase
+
 	public PedidoOnlinefisico(int numeroOrden, int cantidadPlatos, String direccionPedido, String tipoPedido) {
 		this.numeroOrden = numeroOrden;
 		this.cantidadPlatos = cantidadPlatos;
 		this.direccionPedido2 = direccionPedido;
 		this.tipoPedido= tipoPedido;
+		
 	}
 	public void mostarConfirmacion() {
 	    System.out.println("Número de Orden: " + numeroOrden);
