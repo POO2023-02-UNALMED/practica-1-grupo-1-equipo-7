@@ -3,33 +3,44 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//Por si acaso agrege atributos que eran necesarios :D 
+
 public class Empleado extends Persona {
     private int sueldo;
+    private String cargo;
     private int codigo;
     private int codigoSede;
+    private int countAmonestaciones;
     private static int contadorEmpleados = 0;
     private static ArrayList<Empleado> empleados = new ArrayList<>();
     
-    public Empleado(String nombre, int sueldo, int codigoSede){
+    public Empleado(String nombre, String cargo, int sueldo, int codigoSede){
         super(nombre);
+        this.cargo = cargo;
         this.sueldo = sueldo;
         this.codigo = contadorEmpleados + 1;
         this.codigoSede = codigoSede;
         contadorEmpleados++;
         empleados.add(this);
     }
+    
     static{
-        new Empleado("Juan", 1000, 1);
-        new Empleado("Pedro", 1000, 1);
-        new Empleado("Maria", 1000, 2);
-        new Empleado("Jose", 1000, 2);
+        new Empleado("Juan Lopez", "Chef", 2000, 1);
+        new Empleado("Pedro Sanchez", "Mesero", 1700, 1);
+        new Empleado("Maria Ochoa", "Gerente", 3000, 2);
+        new Empleado("Jose Correa", "Domiciliario", 1500, 2);
+        new Empleado("Alejandra Diaz", "Servicios Varios", 1000, 2);
+        new Empleado("Camilo Palacio", "Mesero", 1700, 1);
     }
+    
     public int getSueldo(){
         return sueldo;
     }
+    
     public static ArrayList<Empleado> getEmpleados(){
         return empleados;
     }
+    
     public static ArrayList<Empleado> getEmpleados(int codigoSede){
         ArrayList<Empleado> empleadosSede = new ArrayList<>();
         for(Empleado empleado : empleados){
@@ -43,13 +54,22 @@ public class Empleado extends Persona {
         this.sueldo = sueldo;
     }
     public String toString(){
-        return super.toString() + " Sueldo: " + sueldo;
+        return super.toString() + "Cargo: " + cargo + " Sueldo: " + sueldo;
     }
+    
+    public String getCargo() {
+    	return cargo;
+    }
+    
     public int getCodigo(){
         return codigo;
     }
     public int getCodigoSede(){
         return codigoSede;
+    }
+    
+    public int getCountAmonestaciones() {
+    	return countAmonestaciones;
     }
     public static Empleado buscarEmpleado(int codigo){
         for(Empleado empleado : empleados){
