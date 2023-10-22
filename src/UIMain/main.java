@@ -243,11 +243,52 @@ public class main {
 					 
 					
 					
-				}
+				
 				
 				break;
 			case 4:
-				System.out.println("Atención al cliente");
+				System.out.println("Atención al cliente\n¿Que desea realizar?");
+				System.out.println("1. Sugerencias");
+				System.out.println("2. Qujeas");
+				System.out.println("3. Reseñas");
+				System.out.println("4. Solicitar Devolucion");
+				System.out.println("5. Salir");
+				
+				Scanner input4=new Scanner(System.in);
+				int opcion4;
+				opcion4=input4.nextInt();
+				
+				switch(opcion4) {
+				
+				case 1:
+					System.out.println("Ha seleccionado la opcion 1, ¿Desea que su sugerencia sea anonima?");
+					
+					Scanner inputAnonimo=new Scanner(System.in);
+					int opcionAnonimo;
+					opcionAnonimo=inputAnonimo.nextInt();
+					
+					
+					break;
+				
+				case 2:
+					break;
+				
+				case 3:
+					break;
+				
+				case 4:
+					break;
+				case 5:
+					break;
+				}
+				
+				
+				
+				
+				
+				
+				
+				
 				break;
 			case 5:
 				System.out.println("Reportes");
@@ -296,7 +337,7 @@ public class main {
 				System.out.println("Opción no válida");
 				break;
 
-
+				}
 
 
 
