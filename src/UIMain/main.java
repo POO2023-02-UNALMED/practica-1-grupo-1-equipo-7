@@ -264,7 +264,7 @@ public class main {
 				switch(opcion4) {
 				
 				case 1:
-					System.out.println("Ha seleccionado la opcion 1, ¿Sobre que desea realizar su sugerecia?");
+					System.out.println("Ha seleccionado la opcion 1, Sugerencias, ¿Sobre que desea realizar su sugerecia?");
 					
 					System.out.println("1. Sobre el menu");
 					System.out.println("2. Sobre un empleado");
@@ -303,19 +303,57 @@ public class main {
 					String TextoS;
 					TextoS=inputTextoS.next();
 					
-					new Sugerencia(type,TextoS);
+					System.out.println("Todo listo");
+					
+					System.out.println("1. Editar Sugerencia");
+					System.out.println("2. Enviar Sugerencia");
+					
+					Scanner inputOEditarS=new Scanner(System.in);
+					int opcionES;
+					opcionES=inputOEditarS.nextInt();
+					
+					if (opcionES == 1) {
+						
+						System.out.println("Ahora puede editar su sugerencia");
+						Scanner inputEditarS=new Scanner(System.in);
+						String EditarS;
+						EditarS=inputEditarS.next();
+						
+						TextoS = EditarS;
+					}
+					
+					if (opcionES == 2) {new Sugerencia(type,TextoS);}
+					
+					System.out.println("Su sugerencia se ha enviado con exito");
+					
+					System.out.println("1. Realizar una nueva sugerencia");
+					System.out.println("2. Salir");
 					
 					
 					break;
 				
+					
+					
 				case 2:
+					System.out.println("Ha seleccionado la opcion 2, Quejas.\nPor favor, a continuacion ingrese su nombre completo:");
+					
+					Scanner inputNombreQ=new Scanner(System.in);
+					String NombreQ;
+					NombreQ=inputNombreQ.next();
+					
 					break;
+					
+					
 				
 				case 3:
 					break;
+					
+					
 				
 				case 4:
 					break;
+					
+					
 				case 5:
 					break;
 				}
