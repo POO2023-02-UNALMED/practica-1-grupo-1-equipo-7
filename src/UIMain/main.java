@@ -270,6 +270,7 @@ public class main {
 					System.out.println("2. Sobre un empleado");
 					System.out.println("3. Sobre una de nuestras sedes");
 					System.out.println("4. Algun otro");
+					System.out.println("5. Salir");
 					
 					String type;
 					
@@ -277,24 +278,22 @@ public class main {
 					int opcions;
 					opcions=inputs.nextInt();
 					
-					switch(opcions) { 
+					switch(opcions) {
 					
 					case 1:
 						type = "Menu";
-						break;
-					
+						
 					case 2:
 						type = "Empleado";
-						break;
-					
+						
 					case 3:
 						type = "Sede";
-						break;
-						
-					case 4:
-						type = "Otro";
-						break;
 					
+					case 4:
+						type = "Algun otro";
+					
+					case 5:
+							break;
 					}
 					
 					System.out.println("Por favor, a continuacion escriba su sugerencia");
@@ -341,6 +340,71 @@ public class main {
 					String NombreQ;
 					NombreQ=inputNombreQ.next();
 					
+					System.out.println("¿Sobre que desea realizar su queja?");
+					
+					System.out.println("1. Sobre el menu");
+					System.out.println("2. Sobre un empleado");
+					System.out.println("3. Sobre una de nuestras sedes");
+					System.out.println("4. Algun otro");
+					System.out.println("5. Salir");
+					
+					
+					String typeQ;
+					String OtroQ;
+					
+					Scanner inputQ=new Scanner(System.in);
+					int opcionQ;
+					opcionQ=inputQ.nextInt();
+					
+					switch(opcionQ) {
+					
+					case 1:
+						typeQ = "Menu";
+						
+						System.out.println("¿Sobre que platillo desea quejarse?");
+						
+						Scanner inputplatoQ=new Scanner(System.in);
+						String platoQ;
+						platoQ=inputplatoQ.next();
+						
+						switch(platoQ) {
+						
+						}
+						
+						if (platoQ == null) {
+							System.out.println("Este platillo no existe. Por favor ingrese un platillo que se encuentre en el menu");
+							
+							System.out.println("1. Ingresar un platillo diferente");
+							System.out.println("2. Salir");
+							
+							Scanner inputPQ = new Scanner(System.in);
+							int opcionPQ;
+							opcionPQ = inputPQ.nextInt();
+							
+							if (opcionPQ == 1) {
+								Scanner inputplatoEQ=new Scanner(System.in);
+								String platoEQ;
+								platoEQ=inputplatoEQ.next();
+								
+								platoEQ
+							}
+							
+						}
+						
+						
+						
+					case 2:
+						typeQ = "Empleado";
+						
+					case 3:
+						typeQ = "Sede";
+					
+					case 4:
+						typeQ = "Algun otro";
+					
+					case 5:
+							break;
+					}
 					break;
 					
 					
