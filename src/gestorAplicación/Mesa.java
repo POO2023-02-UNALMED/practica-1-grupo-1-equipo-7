@@ -10,7 +10,7 @@ public class Mesa {
 	private int numero;
 	private Cliente cliente;
 	private String tipoMesa;
-	private Mesa[]listadoObjetos=new Mesa[10];
+	private static Mesa[]listaMesas = new Mesa[15];
 	
 	
 	public Mesa(int numero, Cliente cliente) {
@@ -45,6 +45,20 @@ public class Mesa {
 
 	public void setNumero(int numero) {
 		this.numero = numero;
+	}
+	
+	public static ArrayList<Mesa> mesasDisponibles(String mesaDeseada) {
+		
+		ArrayList<Mesa> mesasQuePueden = null;
+
+		for (Mesa mesa: listaMesas)
+		{
+			if(mesa.tipoMesa == mesaDeseada) {
+				mesasQuePueden.add(mesa);
+			}
+		}
+		return mesasQuePueden;
+		
 	}
 		
 
