@@ -66,7 +66,8 @@ public class Reseña extends ServiciosClientes{
 		return Recopilatorio;
 	}
 	
-	public String toString(Reseña rsñ) {
+	@Override
+	public String toString() {
 		
 		if (super.cliente.getNombre() == "Anonimo") {
 			return "Anonimo." + "\n"  + 
@@ -79,9 +80,9 @@ public class Reseña extends ServiciosClientes{
 				"'" + this.getReseña() + "'";
 	}
 	
-	public void ImprimirRepositorio() {
+	public static void ImprimirRepositorio() {
 		for (int i=0;i<Reseña.Recopilatorio.size();i++) {
-			System.out.println(toString(Recopilatorio.get(i)));
+			System.out.println(Recopilatorio.get(i));
 		}
 	}
 	
