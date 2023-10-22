@@ -10,12 +10,14 @@ public class Sugerencia extends ServiciosClientes{
 	protected static List<Sugerencia> SugerenciasSedes = new ArrayList<>();
 	protected static List<Sugerencia> SugerenciasOtros = new ArrayList<>();
 	
+	
+	
 	public Sugerencia() {
-		this(null, null, null, 0);
+		this(null, null);
 	}
 	
-	public Sugerencia(Cliente cliente, String tipe, String texto,  int reference) {
-		super(cliente, texto, reference);
+	public Sugerencia(String tipe, String texto) {
+		super(texto);
 		count++;
 		
 		this.tipo = tipe;

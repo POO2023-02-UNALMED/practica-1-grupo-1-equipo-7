@@ -31,8 +31,15 @@ public class Cliente extends Persona {
 
     static{
     	new Cliente("Anonimo", 0);
-        new Cliente("Juan Perez", 5236, "Calle 1", "12345678", "juan@gmail.com", "2020-01-01");
-        new Cliente("Maria Lopez", 7423, "Calle 2", "87654321", "1234", "2020-01-01");
+        new Cliente("Juan Perez", 5236, "Calle 1", "1234567", "juan@gmail.com", "2020-01-01");
+        new Cliente("Maria Lopez", 7423, "Calle 2", "8765432", "1234", "2020-01-01");
+        new Cliente("Julian Vargas", 7162, "Carrera 65", "4630245", "nose@gmail.com", "2020-01-02");
+		new Cliente("Martha Wayne", 4875, "Carrera 64", "4526315", "nose2@gmail.com", "2020-01-03");
+		new Cliente("Barbara Gordon", 1173, "Carrera 63", "7526941", "amveceshayquesufrir@gmail.com", "2020-01-04");
+		new Cliente("Carol Diaz", 2578, "Carrera 62", "1453278", "nose.3@gmail.com", "2020-01-04");
+		new Cliente("Santiago Lopez", 7894, "Carrera 61", "2358714", "slopez@gmail.com", "2020-01-04");
+		new Cliente("Estaban Tabares", 1257, "Carrera 60", "2352348", "estebantab@gmail.com", "2020-01-05");
+		new Cliente("Elizabeth Bennet", 6872, "Carrera 59", "5896314", "Elib@gmail.com", "2020-01-05");
     }
 
     public String getDireccion(){

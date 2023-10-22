@@ -1,36 +1,44 @@
 package gestorAplicación;
 
+
 public class ServiciosClientes {
 	
 	protected Cliente cliente;
 	protected String texto;
-	protected int codigoReferencia;
+	protected int codigoReferencia = count + 1;
+	protected static int count;
 	
 	public ServiciosClientes(){
 		
 	}
+
 	
-	static{
-		;
-		Cliente Uno = new Cliente("Julian Vargas", 71628249);
-		Cliente Dos = new Cliente("Martha Wayne", 48752698);
-		Cliente Tres = new Cliente("Barbara Gordon", 1173149587);
-		Cliente Cuatro = new Cliente("Carol Diaz", 25789635);
-		Cliente Cinco = new Cliente("Santiago Lopez", 78945625);
-		Cliente Seis = new Cliente("Estaban Tabares", 12578963);
-		Cliente Siete = new Cliente("Elizabeth Bennet", 68721493);
-		
-		}
-	
-	public ServiciosClientes(String texto, int codigoReferencia) {
-		this(Cliente.Anonimo, texto,codigoReferencia);
+	public ServiciosClientes(String texto) {
+		this(((Cliente)null), texto);
 		
 	}
 	
-	public ServiciosClientes(Cliente cliente, String texto, int codigoReferencia) {
+	public ServiciosClientes(Cliente cliente, String texto) {
 		this.cliente = cliente;
 		this.texto = texto;
-		this.codigoReferencia = codigoReferencia;
+		count++;
+	}
+	
+	public ServiciosClientes(String nombre, int id, String texto) {
+		this(((Cliente)null),texto);
+		Cliente cl;
+		Cliente a;
+		cl = Cliente.buscarClienteXNombre(nombre);
+		if (cl == null) {
+			a = new Cliente(nombre, id);
+			cl = a;
+		}
+		this.cliente = cl;
+		
+	}
+	
+	public ServiciosClientes(String nombre, String texto) {
+		this(nombre, 0, texto);
 	}
 	
 	

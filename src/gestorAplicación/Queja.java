@@ -14,23 +14,23 @@ public class Queja extends ServiciosClientes {
 	protected static List<Queja> QuejasOtros = new ArrayList<>();
 	
 	public Queja() {
-		this(null, null, null, null, null, null, 0);
+		this(null, null, null, null, null, null);
 	}
 	
-	public Queja(Cliente cliente, String tipo, Plato plato, String texto, int reference) {
-		this(cliente, tipo, plato, null, null, texto, reference);
+	public Queja(Cliente cliente, String tipo, Plato plato, String texto) {
+		this(cliente, tipo, plato, null, null, texto);
 	}
 	
-	public Queja(Cliente cliente, String tipo, Empleado empleado, String texto, int reference) {
-		this(cliente, tipo, null, empleado, null, texto, reference);
+	public Queja(Cliente cliente, String tipo, Empleado empleado, String texto) {
+		this(cliente, tipo, null, empleado, null, texto);
 	}
 	
-	public Queja(Cliente cliente, String tipo, Sedes sede, String texto, int reference) {
-		this(cliente, tipo, null, null, sede, texto, reference);
+	public Queja(Cliente cliente, String tipo, Sedes sede, String texto) {
+		this(cliente, tipo, null, null, sede, texto);
 	}
 	
-	public Queja(Cliente cliente, String tipo, Plato plato, Empleado empleado, Sedes sede, String texto, int reference) {
-		super(cliente, texto, reference);
+	public Queja(Cliente cliente, String tipo, Plato plato, Empleado empleado, Sedes sede, String texto) {
+		super(cliente, texto);
 		count++;
 		
 		this.tipo = tipo;

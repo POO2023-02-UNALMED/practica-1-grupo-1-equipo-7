@@ -1,5 +1,6 @@
 package gestorAplicación;
 import java.util.*;
+import gestorAplicación.*;
 
 
 public class Reseña extends ServiciosClientes{
@@ -10,34 +11,26 @@ public class Reseña extends ServiciosClientes{
 	private static int count;
 	
 	static{
-		Cliente Anonimo = new Cliente("Anonimo", 0);
-		Cliente Uno = new Cliente("Julian Vargas", 71628249);
-		Cliente Dos = new Cliente("Martha Wayne", 48752698);
-		Cliente Tres = new Cliente("Barbara Gordon", 1173149587);
-		Cliente Cuatro = new Cliente("Carol Diaz", 25789635);
-		Cliente Cinco = new Cliente("Santiago Lopez", 78945625);
-		Cliente Seis = new Cliente("Estaban Tabares", 12578963);
-		Cliente Siete = new Cliente("Elizabeth Bennet", 68721493);
 		
-		new Reseña(Anonimo, "Gran lugar para pasar el tiempo en familia, muy buena la atención", 4, 12345);
-		new Reseña(Uno, "Me gustaron las hamburguesas", 5, 54321);
-		new Reseña(Dos, "La comida estaba fria y tardaron mucho en atendernos, mal ahí", 2, 56789);
-		new Reseña(Tres, "Muy buen servicio a domicilio, todo llego a tiempo y recien hecho", 5, 98765);
-		new Reseña(Anonimo, "Que fea la sede de Bello, casi nos roban al salir", 1, 14785);
-		new Reseña(Anonimo, "Mi mujer se enfermo despues de comer en una de sus sedes", 1, 85296);
-		new Reseña(Cuatro, "Excelente atención", 5, 69852);
-		new Reseña(Cinco, "Muy buenas porciones y de sabor delicioso", 5, 96322);
-		new Reseña(Seis, "La atención en el local de las Americas fue muy buena, hicimos un evento familiar y todo salio perfecto", 5, 75324);
-		new Reseña(Siete, "Las papas estaban duras pero lo demas muy rico", 3, 85247);
+		new Reseña("Anonimo", "Gran lugar para pasar el tiempo en familia, muy buena la atención", 4);
+		new Reseña("Julian Vargas", "Me gustaron las hamburguesas", 5);
+		new Reseña("Marta Wayne", "La comida estaba fria y tardaron mucho en atendernos, mal ahí", 2);
+		new Reseña("Barbara Gordon", "Muy buen servicio a domicilio, todo llego a tiempo y recien hecho", 5);
+		new Reseña("Anonimo", "Que fea la sede de Bello, casi nos roban al salir", 1);
+		new Reseña("Anonimo", "Mi mujer se enfermo despues de comer en una de sus sedes", 1);
+		new Reseña("Carol Diaz", "Excelente atención", 5);
+		new Reseña("Santiago Lopez", "Muy buenas porciones y de sabor delicioso", 5);
+		new Reseña("Esteban Tabares", "La atención en el local de las Americas fue muy buena, hicimos un evento familiar y todo salio perfecto", 5);
+		new Reseña("Elizabeth Bennet", "Las papas estaban duras pero lo demas muy rico", 3);
 		
 	}
 	
-	public Reseña() {
-
+	public Reseña(String nombre, String texto, int calificacion) {
+		super(((String)nombre),texto);
 	}
 	
-	public Reseña(Cliente cliente, String texto, int calificacion,int codigo) {
-		super(cliente,texto,codigo);
+	public Reseña(Cliente cliente, String texto, int calificacion) {
+		super(cliente,texto);
 		this.calificacion = calificacion;
 		count++;
 		countCalificaciones = countCalificaciones + calificacion;
@@ -73,23 +66,25 @@ public class Reseña extends ServiciosClientes{
 		return Recopilatorio;
 	}
 	
-	public void MostrarReseñas(Reseña reseña) {
+	public String toString(Reseña rsñ) {
 		
 		if (super.cliente.getNombre() == "Anonimo") {
-			System.out.println ("Anonimo." + "\n"  + 
+			return "Anonimo." + "\n"  + 
 					"Calificacion:" + this.getCalificacion() + "\n" + 
-					"'" + this.getReseña() + "'");
+					"'" + this.getReseña() + "'";
 		}
 		
-		System.out.println("Nombre: " + super.cliente.getNombre() + "\n" + 
+		return "Nombre: " + super.cliente.getNombre() + "\n" + 
 				"Calificacion: " + this.getCalificacion() + " estrellas." + "\n" + 
-				"'" + this.getReseña() + "'");
+				"'" + this.getReseña() + "'";
 	}
 	
-	public void ImprimirRepositorio() {
+	public String ImprimirRepositorio() {
 		for (int i=0;i<Reseña.Recopilatorio.size();i++) {
-			MostrarReseñas(Recopilatorio.get(i));
+			return toString(Recopilatorio.get(i));
 		}
+		return null;
 	}
+	
 	
 }
