@@ -8,16 +8,13 @@ public class Cliente extends Persona {
     private String telefono;
     private String email;
     private String fechaRegistro;
+    private Mesa mesa;
     private int codigoCliente;
     private static int contadorClientes = 0;
     private static ArrayList<Cliente> clientes = new ArrayList<>();
     
-    public Cliente() {
-    	
-    }
-    
     public Cliente(String nombre, int id) {
-    	this(nombre, id, null, null, null, null);
+    	super(nombre, id);
     }
     
     public Cliente(String nombre, int id, String direccion, String telefono, String email, String fechaRegistro){
@@ -50,6 +47,14 @@ public class Cliente extends Persona {
 
     public String getFechaRegistro(){
         return this.fechaRegistro;
+    }
+    
+    public Mesa getMesa() {
+    	return mesa;
+    }
+    
+    public void setMesa(Mesa mesa) {
+    	this.mesa = mesa;
     }
 
     public void setDireccion(String direccion){

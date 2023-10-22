@@ -8,27 +8,31 @@ import java.util.List;
 public class Mesa {
 
 	private int numero;
-	private ArrayList<Cliente> cliente;	private boolean estado;
+	private Cliente cliente;
+	private boolean estado;
 	private Mesa[]listadoObjetos=new Mesa[10];
 	
 	
-	public Mesa(int numero, ArrayList<Cliente> cliente, boolean estado) {
+	public Mesa(int numero, Cliente cliente, boolean estado) {
 		this.numero = numero;
 		this.cliente = cliente;
 		this.estado = estado;
 		
 	}
 	
-	 public ArrayList<Cliente> getCliente(){
-		 
-	        return this.cliente;
-	    }
+	public void asignarCliente(Cliente cliente) {
+		this.cliente = cliente;
+		this.cliente.setMesa(this);
+	}
+	
+	public Cliente getCliente() {
+		return cliente;
+	}
 	 
-	 public void setCliente(ArrayList<Cliente> Cliente){
-		 
-	        this.cliente = cliente;
-	    }
-
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
 	public int getNumero() {
 		return numero;
 	}
