@@ -79,12 +79,10 @@ public class Reseña extends ServiciosClientes{
 				"'" + this.getReseña() + "'";
 	}
 	
-	public String ImprimirRepositorio() {
+	public void ImprimirRepositorio() {
 		for (int i=0;i<Reseña.Recopilatorio.size();i++) {
-			return toString(Recopilatorio.get(i));
+			System.out.println(toString(Recopilatorio.get(i)));
 		}
-		return null;
-	}
 	
 	
 }
