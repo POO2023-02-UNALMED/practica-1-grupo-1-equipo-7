@@ -13,8 +13,9 @@ public class Cliente extends Persona {
     private static int contadorClientes = 0;
     private static ArrayList<Cliente> clientes = new ArrayList<>();
     
-    public Cliente(String nombre, int id) {
-    	super(nombre, id);
+    public Cliente(String nombre, int codigo) {
+    	super(nombre);
+    	this.codigoCliente = codigo;
     }
     
     public Cliente(String nombre, int id, String direccion, String telefono, String email, String fechaRegistro){

@@ -15,6 +15,9 @@ public class Reseña extends ServiciosClientes{
 		Cliente Dos = new Cliente("Martha Wayne", 48752698);
 		Cliente Tres = new Cliente("Barbara Gordon", 1173149587);
 		Cliente Cuatro = new Cliente("Carol Diaz", 25789635);
+		Cliente Cinco = new Cliente("Santiago Lopez", 78945625);
+		Cliente Seis = new Cliente("Estaban Tabares", 12578963);
+		Cliente Siete = new Cliente("Elizabeth Bennet", 68721493);
 		
 		new Reseña(Anonimo, "Gran lugar para pasar el tiempo en familia, muy buena la atención", 4, 12345);
 		new Reseña(Uno, "Me gustaron las hamburguesas", 5, 54321);
@@ -23,6 +26,9 @@ public class Reseña extends ServiciosClientes{
 		new Reseña(Anonimo, "Que fea la sede de Bello, casi nos roban al salir", 1, 14785);
 		new Reseña(Anonimo, "Mi mujer se enfermo despues de comer en una de sus sedes", 1, 85296);
 		new Reseña(Cuatro, "Excelente atención", 5, 69852);
+		new Reseña(Cinco, "Muy buenas porciones y de sabor delicioso", 5, 96322);
+		new Reseña(Seis, "La atención en el local de las Americas fue muy buena, hicimos un evento familiar y todo salio perfecto", 5, 75324);
+		new Reseña(Siete, "Las papas estaban duras pero lo demas muy rico", 3, 85247);
 		
 	}
 	
@@ -67,19 +73,23 @@ public class Reseña extends ServiciosClientes{
 		return Recopilatorio;
 	}
 	
-	public String MostrarReseñas() {
+	public void MostrarReseñas(Reseña reseña) {
 		
 		if (super.cliente.getNombre() == "Anonimo") {
-			return "Anonimo." + "\n"  + 
+			System.out.println ("Anonimo." + "\n"  + 
 					"Calificacion:" + this.getCalificacion() + "\n" + 
-					"'" + this.getReseña() + "'";
+					"'" + this.getReseña() + "'");
 		}
 		
-		return "Nombre: " + super.cliente.getNombre() + "\n" + 
+		System.out.println("Nombre: " + super.cliente.getNombre() + "\n" + 
 				"Calificacion: " + this.getCalificacion() + " estrellas." + "\n" + 
-				"'" + this.getReseña() + "'";
+				"'" + this.getReseña() + "'");
 	}
 	
-	
+	public void ImprimirRepositorio() {
+		for (int i=0;i<Reseña.Recopilatorio.size();i++) {
+			MostrarReseñas(Recopilatorio.get(i));
+		}
+	}
 	
 }
