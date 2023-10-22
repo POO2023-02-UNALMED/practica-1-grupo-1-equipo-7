@@ -1,6 +1,6 @@
 package UIMain;
 import java.util.Scanner;
-
+import java.util.ArrayList;
 import funcionalidades.*;
 import gestorAplicación.Caja;
 import gestorAplicación.Inventario;
@@ -10,16 +10,19 @@ import gestorAplicación.Sedes;
 
 
 public class main {
+	
+	static ArrayList<Sedes> sedes = new ArrayList<Sedes>();
+	
 	static {// las sedes que tenemos si algo sugerencias o las cambias, no problema :)
 		
 	Inventario inventario1=new Inventario();
 	Inventario inventario2 = new Inventario();
 	Inventario inventario3 = new Inventario();
 	Inventario inventario4 = new Inventario();
-	Sedes laAmerica=new Sedes ("la america", "cra80 #45-b", 300, inventario1, new Caja( 10000000, 21345 ) );
-	Sedes envigado=new Sedes ("envigado", " Carrera 43 N° 38 sur 35", 350, inventario2, new Caja( 10000000, 21346 ) );
-	Sedes sandiego=new Sedes ("Sandiego", " Carrera 33#27-105", 380, inventario3, new Caja( 10000000, 21347 ));
-	Sedes belen=new Sedes ("belen", " Carrera 42#33-A", 380, inventario4, new Caja( 10000000, 21347 ));
+	sedes.add(new Sedes ("la america", "cra80 #45-b", 300, inventario1, new Caja( 10000000, 21345 )) );
+	sedes.add(new Sedes ("envigado", " Carrera 43 N° 38 sur 35", 350, inventario2, new Caja( 10000000, 21346 )) );
+	sedes.add(new Sedes ("Sandiego", " Carrera 33#27-105", 380, inventario3, new Caja( 10000000, 21347 )) );
+	sedes.add(new Sedes ("belen", " Carrera 42#33-A", 380, inventario4, new Caja( 10000000, 21347 )));
 	}
 	
 	static{// por ahora lo trabajaré así, es posible que use un enumerado, si tienen alguna recomendación lo agradecería :)
@@ -88,7 +91,7 @@ public class main {
 	
 	
 	public static void main(String[] args) {
-		System.out.println("1. Ver menú\n2. Registro del restaurante\n3. Inventario\n4. Atención al cliente\n5. Reportes\n6. Salir");
+		System.out.println("1. Ver menú\n2. Registro del restaurante\n3. Inventario\n4. Atención al cliente\n5. Reportes\n6. Reservaciones\n7. Salir");
 		Scanner input1 = new Scanner(System.in);
 	    int  opcion;
 	    opcion = input1.nextInt();
@@ -172,8 +175,7 @@ public class main {
 						
 						
 					}
-					
-					
+					 
 					
 					
 					
@@ -194,7 +196,43 @@ public class main {
 				System.out.println("Reportes");
 				Reportes.main(args);
 				break;
+			
+			
 			case 6:
+				
+           System.out.println("Reservaciones");
+				
+				System.out.println("1.Reservar");
+				System.out.println("2.Cancelar o Modificar reservaciones ");
+			
+				Scanner input3=new Scanner(System.in);
+				int opcion5;
+				opcion5=inputb.nextInt();
+				switch(opcion5) {
+				case 1:
+					
+				System.out.println("Elija la fecha de su reservación");
+				System.out.println("1. 24 de Octubre, 16:00");
+				System.out.println("2. 25 de Octubre, 14:00");
+				System.out.println("3. 26 de Octubre, 12:00");
+				System.out.println("4. 27 de Octubre, 20:00");
+				
+				Scanner inputc=new Scanner(System.in);
+				String  Op;
+				Op = inputd.nextLine();
+					
+				System.out.println("Elija la fecha de su reservación");
+				
+				
+				
+				case 2:
+				System.out.println("1.Cancelar Reserva");
+				System.out.println("2.Modificar Reserva");	
+	
+					
+
+				
+			case 7:
 				System.out.println("Salir");
 				break;
 			default:
@@ -206,7 +244,6 @@ public class main {
 
 
 
-
 	}
 }
-}
+	}}

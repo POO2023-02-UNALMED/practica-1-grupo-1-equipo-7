@@ -10,7 +10,7 @@ public class Mesa {
 	private int numero;
 	private ArrayList<Cliente> cliente;// esto para que se va a usar?
 	private boolean estado;
-	private Mesa[]listadoObjetos=new Mesa[20];// supongamos que tenemos 20 mesas
+	private Mesa[]listadoObjetos=new Mesa[10];// supongamos que tenemos 20 mesas
 	
 	
 	public Mesa(int numero, ArrayList<Cliente> cliente, boolean estado) {
@@ -73,8 +73,7 @@ public class Mesa {
 	
 
 }
-// adelante un poco ya que el encargado de esta función anda dormido, si le va a cambiar algo, lo puede hacer si ningun problema
-	
+
 	
 	
 	
