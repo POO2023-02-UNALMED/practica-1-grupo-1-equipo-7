@@ -180,6 +180,14 @@ public class Restaurante {
         return null;
     }
     
+    public static Restaurante buscarSedeXUbicacion(String ubicacion){
+        for(Restaurante sede : sedes){
+            if(sede.getUbicacion() == ubicacion){
+                return sede;
+            }
+        }
+        return null;
+       }
 
     public float calcularPropinasPorSede(int codigoSede){
         Restaurante sede = buscarSede(codigoSede);

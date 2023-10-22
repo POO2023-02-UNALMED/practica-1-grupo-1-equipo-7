@@ -4,7 +4,7 @@ import java.util.*;
 public class Queja extends ServiciosClientes {
 	
 	protected Empleado empleado;
-	protected Sedes sede;
+	protected Restaurante sede;
 	protected Plato plato;
 	protected String tipo;
 	protected static int count;
@@ -45,8 +45,8 @@ public class Queja extends ServiciosClientes {
 		
 		if (tipo == "Sede") {
 			
-			Sedes sede;
-			sede = Sedes.buscarSedeXUbicacion(nombreAlgo);
+			Restaurante sede;
+			sede = Restaurante.buscarSedeXUbicacion(nombreAlgo);
 			this.sede = sede;
 			
 			Queja.QuejasSedes.add(this);
