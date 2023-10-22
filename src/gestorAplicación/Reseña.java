@@ -14,6 +14,7 @@ public class Reseña extends ServiciosClientes{
 		Cliente Uno = new Cliente("Julian Vargas", 71628249);
 		Cliente Dos = new Cliente("Martha Wayne", 48752698);
 		Cliente Tres = new Cliente("Barbara Gordon", 1173149587);
+		Cliente Cuatro = new Cliente("Carol Diaz", 25789635);
 		
 		new Reseña(Anonimo, "Gran lugar para pasar el tiempo en familia, muy buena la atención", 4, 12345);
 		new Reseña(Uno, "Me gustaron las hamburguesas", 5, 54321);
@@ -21,7 +22,7 @@ public class Reseña extends ServiciosClientes{
 		new Reseña(Tres, "Muy buen servicio a domicilio, todo llego a tiempo y recien hecho", 5, 98765);
 		new Reseña(Anonimo, "Que fea la sede de Bello, casi nos roban al salir", 1, 14785);
 		new Reseña(Anonimo, "Mi mujer se enfermo despues de comer en una de sus sedes", 1, 85296);
-		
+		new Reseña(Cuatro, "Excelente atención", 5, 69852);
 		
 	}
 	
