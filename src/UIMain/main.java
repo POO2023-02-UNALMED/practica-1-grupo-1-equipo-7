@@ -219,7 +219,7 @@ public class main {
 								break;
 							}
 							if(variable==1) {
-								System.out.print("¿Cual(es) items desea recargar?");
+								System.out.print("¿Cual(es) items desea recargar?");// se vienen cositas :)
 								System.out.print("¿Cuanta cantidad?");
 								
 								
