@@ -129,7 +129,7 @@ public class Restaurante {
     public void eliminarEmpleado(Empleado empleado){
         this.empleados.remove(empleado);
     }
-
+// El de la clase plato revisar esto
     public void modificarPlato(Plato plato, String nombre, String descripcion, int precio){
         plato.setNombre(nombre);
         plato.setDescripcion(descripcion);

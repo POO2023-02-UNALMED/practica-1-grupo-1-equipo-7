@@ -50,7 +50,8 @@ public static void main(String [] args) {
 	    System.out.println("¿Qué le gustaría hacer?");
         System.out.println("1. Reservar");
         System.out.println("2. Cancelar o modificar la reserva");
-    
+        System.out.println("3. Volver a Reservaciones");
+        System.out.println("3. Volver al menú principal");
         opcion = input1.nextInt();
     
         switch(opcion) {
