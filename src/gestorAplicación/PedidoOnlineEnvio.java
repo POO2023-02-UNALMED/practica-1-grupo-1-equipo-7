@@ -8,7 +8,7 @@ public class PedidoOnlineEnvio {
 	private int cantidadPlatos;
 	private String estadoPedido;
 	public String direccionPedido;
-	protected String tipoPedido = "envio";
+	protected String tipoPedido = "Pedido Fisico";
 	private List<Plato> carrito=new ArrayList<>(); 
 	
 	

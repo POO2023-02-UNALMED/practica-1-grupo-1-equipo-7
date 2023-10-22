@@ -7,7 +7,7 @@ public class PedidoOnlinefisico {
 	 private int cantidadPlatos;
 	 private String estadoPedido;
 	 protected String direccionPedido2;
-	 protected String tipoPedido = "fisico";
+	 protected String tipoPedido = "Pedido Fisico";
 	 private List<Plato> carrito=new ArrayList<>(); 
 	
 	 //Constructor_de_la_clase
@@ -44,7 +44,7 @@ public class PedidoOnlinefisico {
 
 	System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente.");
 	
-	}
+		}
 	}
 	
 	
