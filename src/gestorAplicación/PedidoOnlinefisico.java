@@ -1,5 +1,4 @@
 package gestorAplicación;
-import Factura.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +10,7 @@ public class PedidoOnlinefisico {
 	 protected String direccionPedido2;
 	 protected String tipoPedido = "Pedido Fisico";
 	 private List<Plato> carrito=new ArrayList<>(); 
+	 Factura Factura;
 	
 	 //Constructor_de_la_clase
 
@@ -58,12 +58,6 @@ public class PedidoOnlinefisico {
 	        this.domiciliario = domiciliario;
 	    }
 	}
-	
-	public void generarFactura(Factura Factura) {
-		public Factura();
-			
-		}
-}
 	
 	//getters and setters
 	public int getNumeroOrden() {
