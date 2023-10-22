@@ -2,6 +2,7 @@ package funcionalidades;
 
 import gestorAplicación.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -41,14 +42,45 @@ public class GenerarPedido {
 		}
 
 		else{
-			private List<String> platos;
+			
 			System.out.println("------------Menu disponible en esta sede------------");
-			System.out.println("Menu: " + Menu.Map());
+			
+			System.out.println("Menu: " + gestorAplicación.Menu.menu());
 			System.out.println("Que productos desea escoger:");
+			Scanner input13= new Scanner(System.in);
+			int opcion3;
+			opcion3 = input13.nextInt();
+		}
+	
+		
+			
+			
+		case 2:
+			System.out.println("2. Pedido de envio");
+			System.out.println("Nuestras sedes disponibles");
+		    System.out.println("1. Sede Las americas");
+		    System.out.println("2. Sede Sandiego");
+		    System.out.println("3. Sede Envigado");
+		    System.out.println("4. Sede Belen");
+		    System.out.println("¿En donde desea recojer el pedido? Recuerde que debe ser una sede cerca de su casa.");
+		    Scanner input14= new Scanner(System.in);
+		    int opcion4;
+		    if (opcion4 != 1 && opcion4 != 2 && opcion4 != 3 && opcion4 != 4){
+				System.out.println("Opción invalida");
+			
+			else{
+					
+				System.out.println("------------Menu disponible en esta sede------------");
+				ArrayList<Plato> b = Restaurante.getMenu();
+				System.out.println("Menu: " + b);
+				Restaurante.getMenu();
+				System.out.println("Que productos desea escoger:");
+				Scanner input13= new Scanner(System.in);
+				int opcion3;
+				opcion3 = input13.nextInt();
+				}
 			}
 		}
-	case 2:
-		
 	}
 }
 
