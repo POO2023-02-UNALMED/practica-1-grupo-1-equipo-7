@@ -7,7 +7,8 @@ public class AsignarEmpleadoEnvio{
 	 protected Persona id;
 	 protected PedidoOnlineEnvio estadoPedido;
 	 protected PedidoOnlineEnvio direccionPedido;
-	 
+	 private Empleado empleado;
+	 //constructor
 	 public AsignarEmpleadoEnvio(String referenciaPedido, PedidoOnlineEnvio numeroOrden, Persona nombre,Persona id, PedidoOnlineEnvio estadoPedido, PedidoOnlineEnvio direccionPedido) {
 		 this.referenciaPedido = referenciaPedido;
 		 this.direccionPedido = direccionPedido;
@@ -16,12 +17,15 @@ public class AsignarEmpleadoEnvio{
 		 this.numeroOrden = numeroOrden;
 		 this.nombre = nombre;
 	 }
+	 void asignarEmpleado(Empleado empleado) {
+		 this.empleado = empleado;
+		 this.empleado.setNumeroOrden(this);
+	 }
 	 
 	 
 	 
 	 
-	 
-	 
+	 //getters and setters
 	 public String getReferenciaPedido() {
 		 return referenciaPedido;
 	 }

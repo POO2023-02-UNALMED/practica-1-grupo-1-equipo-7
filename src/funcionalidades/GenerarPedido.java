@@ -34,8 +34,10 @@ public class GenerarPedido {
 				opcion = input1.nextInt();
     
 				
-				}
-        	}
-		}
+			}
+        }
 	}
 }
+
+
+

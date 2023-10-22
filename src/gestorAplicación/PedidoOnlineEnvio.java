@@ -8,7 +8,7 @@ public class PedidoOnlineEnvio {
 	private int cantidadPlatos;
 	private String estadoPedido;
 	public String direccionPedido;
-	protected String tipoPedido = "Pedido Fisico";
+	protected String tipoPedido = "Pedido de envío";
 	private List<Plato> carrito=new ArrayList<>(); 
 	
 	
@@ -19,6 +19,7 @@ public class PedidoOnlineEnvio {
 		this.direccionPedido = direccionPedido;
 		this.tipoPedido = tipoPedido;
 	}
+	
 	public String getEstadoPedido() {
 		return estadoPedido;
 	}
@@ -46,6 +47,8 @@ public class PedidoOnlineEnvio {
 	public void agregarPedidoAlCarrito(Plato plato) {
 		carrito.add(plato);	
 	}
+	
+	
 	
 	public void mostarConfirmacion() {
 	    System.out.println("Número de Orden: " + numeroOrden);
