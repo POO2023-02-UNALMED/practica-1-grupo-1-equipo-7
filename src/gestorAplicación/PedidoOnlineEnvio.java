@@ -74,7 +74,7 @@ public class PedidoOnlineEnvio {
 	    	setEstadoPedido("Confirmado");
 
 	        // Enviar_una_notificación_dentro_de_la_aplicación_al_cliente
-	        String mensaje = "Su pedido con el número de orden " + getNumeroOrden() + " ha sido confirmado.";
+	        String mensaje = "Su pedido con el número de orden " + getNumeroOrden() + " ha sido confirmado y va a en camino a su hogar.";
 	        System.out.print(mensaje);
 
 	        System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente.");

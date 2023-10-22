@@ -49,6 +49,18 @@ public class PedidoOnlinefisico {
 		}
 	}
 	
+	public class PedidoDeComida {
+	    private Domiciliario domiciliario;
+	    
+	    public void asignarDomiciliario(Domiciliario domiciliario) {
+	        this.domiciliario = domiciliario;
+	    }
+	}
+
+	public class Domiciliario {
+	    // Atributos de la clase Domiciliario
+	}
+	
 	//getters and setters
 	public int getNumeroOrden() {
 		return numeroOrden;

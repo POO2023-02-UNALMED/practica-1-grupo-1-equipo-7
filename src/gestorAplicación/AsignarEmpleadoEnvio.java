@@ -2,20 +2,22 @@ package gestorAplicación;
 
 public class AsignarEmpleadoEnvio{
 	 private String referenciaPedido;
-	 protected PedidoOnlineEnvio numeroOrden;
-	 protected Persona nombre;
-	 protected Persona id;
-	 protected PedidoOnlineEnvio estadoPedido;
-	 protected PedidoOnlineEnvio direccionPedido;
-	 private Empleado empleado;
-	 //constructor
-	 public AsignarEmpleadoEnvio(String referenciaPedido, PedidoOnlineEnvio numeroOrden, Persona nombre,Persona id, PedidoOnlineEnvio estadoPedido, PedidoOnlineEnvio direccionPedido) {
+	 PedidoOnlineEnvio numeroOrden;
+	 PedidoOnlineEnvio estadoPedido;
+	 PedidoOnlineEnvio direccionPedido;
+	 Empleado empleado;
+	 //constructor7
+
+	 public AsignarEmpleadoEnvio(String referenciaPedido, PedidoOnlineEnvio numeroOrden, Empleado empleado, PedidoOnlineEnvio estadoPedido, PedidoOnlineEnvio direccionPedido) {
 		 this.referenciaPedido = referenciaPedido;
 		 this.direccionPedido = direccionPedido;
-		 this.id = id;
 		 this.referenciaPedido = referenciaPedido;
 		 this.numeroOrden = numeroOrden;
-		 this.nombre = nombre;
+		 this.empleado = empleado;
+		 
+	 }
+	 public void asignarDomiciliario(Empleado domiciliario) {
+	        this.empleado = domiciliario;
 	 }
 	
 	 //getters and setters
@@ -25,4 +27,5 @@ public class AsignarEmpleadoEnvio{
 	 public void setReferenciaPedido(String referenciaPedido) {
 		 this.referenciaPedido = referenciaPedido;
 	 }
+	 
 }
