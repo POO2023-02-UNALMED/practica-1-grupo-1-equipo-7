@@ -1,15 +1,18 @@
 package funcionalidades;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import gestorAplicación.Caja;
 import gestorAplicación.Inventario;
+import gestorAplicación.Reserva;
+import gestorAplicación.Restaurante;
 import gestorAplicación.Sedes;
 
 public class Reservaciones {
 	
-	static ArrayList<Sedes> sedes = new ArrayList<Sedes>();
-	
+	static ArrayList<Restaurante> restaurante = new ArrayList<Restaurante>();
+    static List<Reserva> reservasDisponibles = new ArrayList<>();
 	
     static {
     Inventario inventario1=new Inventario();
@@ -17,11 +20,18 @@ public class Reservaciones {
     Inventario inventario3 = new Inventario();
     Inventario inventario4 = new Inventario();  
     
-	sedes.add(new Sedes ("La America", "Carrera 80 #45-B", 300, inventario1, new Caja( 10000000, 21345 )) );
-	sedes.add(new Sedes ("Envigado", " Carrera 43 N° 38 sur 35", 350, inventario2, new Caja( 10000000, 21346 )) );
-	sedes.add(new Sedes ("Sandiego", " Carrera 33#27-105", 380, inventario3, new Caja( 10000000, 21347 )) );
-	sedes.add(new Sedes ("Belen", " Carrera 42#33-A", 380, inventario4, new Caja( 10000000, 21347 )));
-}
+	restaurante.add(new Sedes ("La America", "Carrera 80 #45-B", 300, inventario1, new Caja( 10000000, 21345 )) );
+	restaurante.add(new Sedes ("Envigado", " Carrera 43 N° 38 sur 35", 350, inventario2, new Caja( 10000000, 21346 )) );
+	restaurante.add(new Sedes ("Sandiego", " Carrera 33#27-105", 380, inventario3, new Caja( 10000000, 21347 )) );
+	restaurante.add(new Sedes ("Belen", " Carrera 42#33-A", 380, inventario4, new Caja( 10000000, 21347 )));
+	
+	reservasDisponibles.add(new Reserva("2023-10-25", "14:00 PM"));
+	reservasDisponibles.add(new Reserva("2023-10-25", "18:00 PM"));
+	reservasDisponibles.add(new Reserva("2023-10-26", "12:00 PM"));
+	reservasDisponibles.add(new Reserva("2023-10-30", "11:00 AM"));
+    
+    }
+    
 	
 
 	
