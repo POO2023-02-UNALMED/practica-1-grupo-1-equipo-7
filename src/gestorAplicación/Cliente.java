@@ -11,8 +11,17 @@ public class Cliente extends Persona {
     private int codigoCliente;
     private static int contadorClientes = 0;
     private static ArrayList<Cliente> clientes = new ArrayList<>();
-    public Cliente(String nombre, String direccion, String telefono, String email, String fechaRegistro){
-        super(nombre);
+    
+    public Cliente() {
+    	
+    }
+    
+    public Cliente(String nombre, int id) {
+    	this(nombre, id, null, null, null, null);
+    }
+    
+    public Cliente(String nombre, int id, String direccion, String telefono, String email, String fechaRegistro){
+        super(nombre, id);
         this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
@@ -23,8 +32,9 @@ public class Cliente extends Persona {
     }
 
     static{
-        new Cliente("Juan Perez", "Calle 1", "12345678", "juan@gmail.com", "2020-01-01");
-        new Cliente("Maria Lopez", "Calle 2", "87654321", "1234", "2020-01-01");
+    	public Cliente C = new Cliente("Anonimo", 0);
+        new Cliente("Juan Perez", 5236, "Calle 1", "12345678", "juan@gmail.com", "2020-01-01");
+        new Cliente("Maria Lopez", 7423, "Calle 2", "87654321", "1234", "2020-01-01");
     }
 
     public String getDireccion(){
