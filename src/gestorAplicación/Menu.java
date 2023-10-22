@@ -19,17 +19,17 @@ public class Menu {
         this.platos = platos;
     }
 
-    // Getter para el atributo "nombre"
+    // Getter_para_el_atributo_"nombre"
     public String getNombre() {
         return nombre;
     }
 
-    // Setter para el atributo "nombre"
+    // Setter_para_el_atributo_"nombre"
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    // Getter para el atributo "precio"
+    // Getter_para _el_atributo_"precio"
     public double getPrecio() {
         return precio;
     }
