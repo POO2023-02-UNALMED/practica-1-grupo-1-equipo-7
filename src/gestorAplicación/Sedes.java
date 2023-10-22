@@ -17,7 +17,9 @@ public class Sedes extends Restaurante {
     
     private Inventario inventario;
 
-
+    
+  //revisar constructor por los atributos que heredan de restaurante, mal expresado  
+    
     public Sedes(String ubicacion, String direccion, int capacidad, Inventario inventario, Caja caja) {
     	this.ubicacion = ubicacion;
         this.direccion = direccion;
@@ -29,16 +31,7 @@ public class Sedes extends Restaurante {
          
         
     }
-    
-    public Caja getCaja() {
-    	return caja;
-    }
-    
-    public void setCaja(Caja caja) {
-    	this.caja = caja;
-    }
-    
-
+   
     public String getUbicacion() {
         return ubicacion;
     }
@@ -121,4 +114,16 @@ public class Sedes extends Restaurante {
     public static List<Sedes> getLista(){
     	return sedes;
     }
+    
+    ArrayList<Sedes>sedesDisponibles(String fecha){
+    	ArrayList<Sedes>sedesDisponibles = new ArrayList<Sedes>();
+    	for (Sedes sedes : this.sedes) {
+    		if (sedes.hayMesas()) {
+    			if (sedes.getFecha()equals(fecha))
+    				sedesDisponibles.add(sedes);
+    		}
+    	}
+    	return sedesDisponibles;
+    }
+    
 }

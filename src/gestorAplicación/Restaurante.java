@@ -48,6 +48,15 @@ public class Restaurante {
     	
     }
 
+    
+    public Caja getCaja() {
+    	return caja;
+    }
+    
+    public void setCaja(Caja caja) {
+    	this.caja = caja;
+    }
+    
     public String getNombre(){
         return this.nombre;
     }
