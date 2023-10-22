@@ -1,10 +1,14 @@
 package UIMain;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import funcionalidades.*;
 import gestorAplicación.Caja;
 import gestorAplicación.Inventario;
 import gestorAplicación.Item;
+import gestorAplicación.Plato;
 import gestorAplicación.Sedes;
 
 
@@ -194,7 +198,34 @@ public class main {
 						case 3:
 							System.out.print("Los articulos sin stock son:");
 							System.out.print(Inventario.obtenerInventarios().get(opcion3).obtenerItemsSinStock());
+							System.out.print("Los siguientes platos se encuentran agotados");// le metí muy sabroso :#
+							for (Plato  g: Plato.getPlatos().keySet()) {// implementacion de la funcionalidad para cambiar la disponibilidad del plato si no hay stock
+								
+								g.disponibilidadPlato();
+								if(g.getDisponibilidad()==false) {
+									System.out.print(g);
+									
+							}
+							
+							
+							
+							
 							System.out.print("1. renovar inventario");
+							System.out.print("2.Salir");
+							Scanner inputg =new Scanner(System.in);
+							int variable;
+							variable= inputg.nextInt();
+							if (variable==2) {
+								break;
+							}
+							if(variable==1) {
+								System.out.print("¿Cual(es) items desea recargar?");
+								System.out.print("¿Cuanta cantidad?");
+								
+								
+							}}
+							
+						
 							
 							
 							
@@ -281,4 +312,4 @@ public class main {
 	}
 }
 }
-}
+

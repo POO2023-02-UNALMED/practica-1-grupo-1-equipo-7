@@ -163,7 +163,7 @@ public class Plato {
         return new Object[]{ingredientesSimilares, ingredientes};
     }
     
-    // con esto miramíamos la disponibilidad del plato, no sé si va acá o va en la funcionalidad, si algo lo paso al implementarla :)
+    // con esto miramíamos la disponibilidad del plato, no sé si va acá o va en la funcionalidad, si algo lo paso al implementarla :)+++++++++++++++++++++++++++++++++++++
     public void   disponibilidadPlato() {
     	for(Item i:ingredientes ) {
     		if (i.getInventario().haySuficienteStock(i, 1)==false) {
