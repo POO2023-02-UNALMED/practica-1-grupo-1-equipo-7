@@ -153,7 +153,7 @@ public class main {
 						if (Restaurante.restaurantes.get(2).getInventario().mostrarItemsVencidos()==null) {
 							System.out.print("no hay items vencidos");						}
 						else {
-						System.out.print(Restaurante.restaurantes.get(2).getInventario().mostrarItemsVencidos());
+						System.out.print(Restaurante..get(2).getInventario().mostrarItemsVencidos());
 						System.out.print("Inventario vencido eliminado");}
 					}
 					if(opcion3==4) {
