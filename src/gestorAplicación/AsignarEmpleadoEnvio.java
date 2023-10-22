@@ -25,5 +25,4 @@ public class AsignarEmpleadoEnvio{
 	 public void setReferenciaPedido(String referenciaPedido) {
 		 this.referenciaPedido = referenciaPedido;
 	 }
-	 
 }

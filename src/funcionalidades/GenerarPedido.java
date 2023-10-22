@@ -1,7 +1,9 @@
 package funcionalidades;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
+import gestorAplicación.Empleado;
 import gestorAplicación.PedidoOnlineEnvio;
 import gestorAplicación.PedidoOnlinefisico;
 
@@ -21,7 +23,7 @@ public class GenerarPedido {
 	switch(opcion){
 	
     case 1:
-        System.out.println("1. Pedido Fisico:");
+       
 		System.out.println("Nuestras sedes disponibles");
         System.out.println("1. Sede Las americas");
         System.out.println("2. Sede Sandiego");
@@ -29,11 +31,34 @@ public class GenerarPedido {
         System.out.println("4. Sede Belen");
         System.out.println("En donde desea recojer el pedido: ");
 		opcion = input1.nextInt();
-    
-				
+		if (Empleado.buscarEmpleado(opcion) == null){
+			System.out.println("Opción invalida");
+		}
+
+		else{
+			PedidoOnlinefisico PedidoOnlinefisico = New pedidoOnlinefisico();
+
+			System.out.println("Reporte de Comisiones para el mesero: " + empleado.getNombre());
+			System.out.println("------------Rango de fechas para el calculo de comisiones------------");
+			System.out.println("Ingrese la fecha de inicio");
+			String fecha = input1.next();
+			LocalDate fechaInicio = LocalDate.parse(fecha);
+			System.out.println("Ingrese la fecha de fin");
+			LocalDate fechaFin;
+			while(true){
+				fecha = input1.next();
+				fechaFin = LocalDate.parse(fecha);
+				if(fechaFin.isBefore(fechaInicio)){
+					System.out.println("La fecha de fin debe ser posterior a la fecha de inicio");
+				}
+				else{
+					break;
+					}
+				}
 			}
         }
 	}
+}
 
 
 
