@@ -136,7 +136,7 @@ public class main {
 						if (Restaurante.restaurantes.get(0).getInventario().mostrarItemsVencidos()==null) {
 							System.out.print("no hay items vencidos");						}
 						else {
-						System.out.print(Restaurante.restaurantes.get(0).getInventario().mostrarItemsVencidos());
+						System.out.print(Restaurante.getSedes().get(0).getInventario().mostrarItemsVencidos());
 						Restaurante.restaurantes.get(0).getInventario().eliminarVencidos();
 						
 						System.out.print("Inventario vencido, eliminado");}

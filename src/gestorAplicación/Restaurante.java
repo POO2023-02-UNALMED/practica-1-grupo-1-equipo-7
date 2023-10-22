@@ -93,7 +93,7 @@ public class Restaurante {
 		return this.mesas;
 	}
 
-	public ArrayList<Restaurante> getSedes() {
+	public static ArrayList<Restaurante> getSedes() {
 		return sedes;
 	}
 
@@ -237,6 +237,15 @@ public class Restaurante {
 		
 
 	}
+
+	public Inventario getInventario() {
+		return inventario;
+	}
+
+	public void setInventario(Inventario inventario) {
+		this.inventario = inventario;
+	}
+	
 
 }
 
