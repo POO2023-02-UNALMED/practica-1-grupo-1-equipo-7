@@ -253,6 +253,14 @@ public class Restaurante {
 
 	}
 	
+        ArrayList<Mesa> mesasNoAsignadas(){
+		ArrayList<Mesa> libres = new ArrayList<Mesa>();
+		for(Mesa mesa: this.mesas) {
+			if(Mesa.getCliente() == null)
+				libres.add(mesa);
+		}
+		return libres;
+	}
 
 }
 

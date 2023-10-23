@@ -8,7 +8,7 @@ import java.util.List;
 public class Mesa {
 
 	private int numero;
-	private Cliente cliente;
+	private static Cliente cliente;
 	private String tipoMesa;
 	private String ubicacion;
 	private static ArrayList<Mesa> listaMesas = new ArrayList<Mesa>();
@@ -21,8 +21,8 @@ public class Mesa {
 	}
 	
 	public void asignarCliente(Cliente cliente) {
-		this.cliente = cliente;
-		this.cliente.setMesa(this);
+		Mesa.cliente = cliente;
+		Mesa.cliente.setMesa(this);
 	}
 	
 	public String getTipoMesa() {
@@ -42,12 +42,12 @@ public class Mesa {
 		this.ubicacion = ubicacion;
 	}
 
-	public Cliente getCliente() {
+	public static Cliente getCliente() {
 		return cliente;
 	}
 	 
 	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+		Mesa.cliente = cliente;
 	}
 	
 	public int getNumero() {
