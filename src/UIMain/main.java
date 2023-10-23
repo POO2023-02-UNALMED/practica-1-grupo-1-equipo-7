@@ -386,6 +386,58 @@ public class main {
 							}
 
 						}
+						
+						
+						
+					case 4 : 
+						System.out.println("--------¿Desea registrar el articulo?---------");
+						System.out.println(" Si/No");
+						Scanner inputñ= new Scanner( System.in);
+						String YesorNot;
+						YesorNot=inputñ.nextLine();
+						if (YesorNot.equals("Si") || YesorNot.equals("si")) {
+							System.out.println("Nombre:");
+							System.out.println("Cantidad:");
+							System.out.println("Precio:");
+							System.out.println("Fecha de vencimiento:");
+							
+							
+							// Nombre 
+							Scanner input4= new Scanner(System.in);
+							String var4 = input4.nextLine();
+							// Cantidad 
+							Scanner input41= new Scanner(System.in);
+							int var41 = input41.nextInt();
+							
+							// Precio
+							Scanner input42= new Scanner(System.in);
+							int var42 = input42.nextInt();
+							
+							//Fecha de vencimiento
+							Scanner input43= new Scanner(System.in);
+							String var43 = input43.nextLine();
+							
+							
+							
+							if (Item.buscarItem(var4)!=null) {
+								Inventario.obtenerInventarios().get(opcion3-1).añadirItems(var4,var41 );
+								System.out.println("**Se ha añdido el item con exito**");
+								
+								
+								
+									
+								
+							}
+							else {
+								new Item(var4, var41, var42, var43, Inventario.obtenerInventarios().get(opcion3-1));// Aca estoy ************************************
+							}
+							
+						}
+						
+						
+						
+							
+					
 
 					}
 
