@@ -92,10 +92,15 @@ public class GenerarPedido {
 	Plato enchilada = new Plato("Enchiladas", ingredientesEnchiladas, 8000);
 	Plato pozol = new Plato("Pozol", ingredientesPozol, 9000);
 	
-	new PedidoOnlineEnvio(6253, 2, "Calle 2", " Pedido Fisico" );
+	new PedidoOnlinefisico(6253, 2, "Calle 2", " Pedido Fisico" );
 	new PedidoOnlineEnvio(4544, 1, "Calle 2", " Pedido de envio" );
-	new PedidoOnlineEnvio(3948, 3, "Calle 2", " Pedido Fisico" );
+	new PedidoOnlinefisico(3948, 3, "Calle 2", " Pedido Fisico" );
 	new PedidoOnlineEnvio(1234, 1, "Calle 2", " Pedido de Envio" );
+	
+	new Pedido(null, "Calle 2", " Pedido Fisico", new Restaurante(), new Cliente("David Gonzales", 123), new Empleado("Jose", "Domiciliario", 20000, 4791));
+	new Pedido(null, "Calle 17 - 2", " Pedido de Envio", new Restaurante(), new Cliente("Andres Gutierres", 324), new Empleado("Daniel", "Domiciliario", 20000, 4791));
+	new Pedido(null, "Calle 22 - 1", " Pedido de Envio", new Restaurante(), new Cliente("Carlos Duque", 456), new Empleado("Jose", "Domiciliario", 20000, 4791));
+	new Pedido(null, "Calle 5 - 2", " Pedido Fisico", new Restaurante(), new Cliente("Carolina Leño", 145), new Empleado("Daniel", "Domiciliario", 20000, 4791));
 	
 	
 	}
@@ -177,8 +182,8 @@ public class GenerarPedido {
 				
 		
 				System.out.println("Productos escogidos");
-				for(Pedido pedidos : Pedido.getNumeroOrden()) {
-				String mensaje2 = "------------Su pedido con el número de orden "  + + " ha sido confirmado. Su pedido va en camino.------------" + "\n";
+			
+				String mensaje2 = "------------Su pedido ha sido confirmado.------------" + "\n";
 				System.out.print(mensaje2);
 				
 				System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente."  + "\n");
@@ -187,11 +192,12 @@ public class GenerarPedido {
 				String opcionRR;
 				opcionRR = input9.nextLine();
 				if (opcionRR != "S"){
+					System.out.println("------------Su pedido estará listo cuando llegue.------------");
 					System.out.println("------------Gracias por su compra.------------");
 					System.out.println("Progama Terminado");
 				}
 			break;
-				}
+				
 		}
 
 		case 2:

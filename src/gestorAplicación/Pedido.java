@@ -30,7 +30,7 @@ public class Pedido  {
 		Pedido.Pedidos.add(this);
 		factura = new Factura(cliente.getCodigo(), empleado.getCodigo(), restaurante.getCodigoSede(), LocalDate.of(2020, 01, 01), 0, platos);
 	}
-	public void PedidoOnlineEnvio(int numeroOrden, int cantidadPlatos, String direccionPedido, String tipoPedido) {
+	public void PedidoOnlineEnvio(Cliente nuevoCliente) {
 		this.numeroOrden = numeroOrden;
 		this.cantidadPlatos = cantidadPlatos;
 		this.direccionPedido = direccionPedido;
@@ -70,14 +70,14 @@ public class Pedido  {
 	}
 
 	public String getDireccionPedido() {
-		return direccionPedido;
+		return this.direccionPedido;
 	}
 
 	public void setTipoPedido(String tipoPedido) {
 		this.tipoPedido = tipoPedido;
 	}
 	public int getNumeroOrden() {
-		return numeroOrden;
+		return this.numeroOrden;
 	}
 
 	public void setNumeroOrden(int numeroOrden) {
