@@ -1,11 +1,12 @@
 package gestorAplicación;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import gestorAplicación.Restaurante;
 
-public class Reserva {
+public class Reserva implements Serializable{
 
 	private Cliente cliente;
 	private Restaurante miSede;

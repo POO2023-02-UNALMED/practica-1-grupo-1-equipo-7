@@ -1,13 +1,13 @@
 package gestorAplicación;
 import java.util.List;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 
 
 
-public class Plato {
+public class Plato implements Serializable{
 	private String nombre;
 	private  final ArrayList<Item> ingredientes;
 	public static ArrayList<Plato> pl = new ArrayList<>();

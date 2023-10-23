@@ -1,12 +1,13 @@
 package gestorAplicación;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Cliente extends Persona {
+public class Cliente extends Persona implements Serializable{
 	private String direccion;
 	private String telefono;
 	private String email;
