@@ -93,11 +93,11 @@ public class Restaurante {
 		return this.mesas;
 	}
 
-	public ArrayList<Restaurante> getRestaurantes() {
+	public ArrayList<Restaurante> getSedes() {
 		return sedes;
 	}
 
-	public void setRestaurantes(ArrayList<Restaurante> sedes) {
+	public void setSedes(ArrayList<Restaurante> sedes) {
 		this.sedes = sedes;
 	}
 
@@ -234,6 +234,7 @@ public class Restaurante {
 
 
 	public static void sedesDisponibles(int miHorario, int miMesa) {
+		
 
 	}
 
