@@ -39,7 +39,7 @@ public class main {
         new Item("Frijoles", 100, 0.50,"01/01/2020", Inventario.obtenerInventarios().get(2));
         new Item("Masa de Pizza", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(0));
         new Item("Salsa de Tomate", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(1));
-        new Item("Crema de Champiñones", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(0));
+        new Item(" Champiñones verdes", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(0));
         new Item("Maíz en Lata", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(2));
         new Item(" Champiñones", 100, 0.80, "01/01/2020", Inventario.obtenerInventarios().get(3));
         new Item("Pollo", 100, 1.50, "01/01/2020", Inventario.obtenerInventarios().get(1));
@@ -52,7 +52,7 @@ public class main {
         new Item("Salsa roja", 100, 1.25, "01/01/2020", Inventario.obtenerInventarios().get(3));
         new Item("Agua Mineral", 100, 2.00, "01/01/2020", Inventario.obtenerInventarios().get(2));
         new Item("Vino Blanco", 100, 3.00, "01/01/2020", Inventario.obtenerInventarios().get(1));
-        new Item("Café Espresso", 100, 0.90, "01/01/2020", Inventario.obtenerInventarios().get(0));
+        new Item("Café ", 100, 0.90, "01/01/2020", Inventario.obtenerInventarios().get(0));
         new Item("Té de Manzanilla", 100, 0.80, "01/01/2020", Inventario.obtenerInventarios().get(3));
         new Item("Refresco de Naranja", 100, 1.00, "01/01/2020", Inventario.obtenerInventarios().get(2));
         new Item("Helado de Fresa", 100, 1.20, "01/01/2020", Inventario.obtenerInventarios().get(1));
