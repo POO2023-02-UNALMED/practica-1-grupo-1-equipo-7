@@ -45,7 +45,7 @@ public class GenerarPedido {
 			
 			System.out.println("------------Menu disponible en esta sede------------");
 			
-			System.out.println("Menu: " + gestorAplicación.Menu.menu());
+			System.out.println("Menu: " + Menu.menu());
 			System.out.println("Que productos desea escoger:");
 			Scanner input13= new Scanner(System.in);
 			int opcion3;
@@ -70,7 +70,8 @@ public class GenerarPedido {
 		    }
 			
 			else {
-					
+				if (opcion4 == 1) {
+				System.out.println("1. Sede Las americas");
 				System.out.println("------------Menu disponible en esta sede------------");
 				System.out.println("Menu: " + gestorAplicación.Menu.menu());
 				System.out.println("¿Que productos desea ordenar?");
@@ -92,7 +93,9 @@ public class GenerarPedido {
 			}
 		}
 	}
+	}
 }
+
 
 
 
