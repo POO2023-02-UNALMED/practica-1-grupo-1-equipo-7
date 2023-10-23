@@ -10,14 +10,18 @@ public class Reserva {
 	private Cliente cliente;
 	private Restaurante miSede;
 	private String miMesa;
+	private String fecha;
 	static List<Cliente> clientes = new ArrayList<>();
 	static Scanner input1 = new Scanner(System.in);
 	static int opcion;
+	public static ArrayList<Reserva> listaReservas = new ArrayList<Reserva>();
 
-	public Reserva(Cliente cliente, Restaurante miSede, String miMesa) {
+	public Reserva(Cliente cliente, Restaurante miSede, String miMesa, String fecha) {
 		this.cliente = cliente;
 		this.miSede = miSede;
 		this.miMesa = miMesa;
+		this.fecha = fecha;
+		listaReservas.add(this);
 	}
 
 	public Reserva(Cliente cliente) {
@@ -25,7 +29,7 @@ public class Reserva {
 	}
 
 	public Cliente getCliente() {
-		return cliente;
+		return this.cliente;
 	}
 
 	public void setCliente(Cliente cliente) {
@@ -33,7 +37,7 @@ public class Reserva {
 	}
 
 	public Restaurante getMiSede() {
-		return miSede;
+		return this.miSede;
 	}
 
 	public void setMiSede(Restaurante miSede) {
@@ -41,7 +45,19 @@ public class Reserva {
 	}
 
 	public String getMiMesa() {
-		return miMesa;
+		return this.miMesa;
+	}
+
+	public void setMiMesa(String miMesa) {
+		this.miMesa = miMesa;
+	}
+
+	public String getFecha() {
+		return this.fecha;
+	}
+
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
 	}
 
 	public static void reservaciones(Cliente nuevoCliente) {
@@ -52,7 +68,6 @@ public class Reserva {
 			System.out.println("¿Qué le gustaría hacer?");
 			System.out.println("1. Reservar");
 			System.out.println("2. Cancelar o modificar la reserva");
-			System.out.println("3. Volver a Reservaciones");
 			System.out.println("3. Volver al menú principal");
 			opcion = input1.nextInt();
 
@@ -75,7 +90,8 @@ public class Reserva {
 	public static void generarReserva(Cliente nuevoCliente) {
 		String miHorario = null;
 		String miMesa = null;
-		while (miHorario == null) {
+		Restaurante sedeElegida = null;
+		nuevareserva: while (miHorario == null) {
 			System.out.println("Fechas disponibles para realizar la reservación ");
 
 			System.out.println("1. 2023-10-25 14:00 PM");
@@ -175,31 +191,40 @@ public class Reserva {
 			if (opSede <= 0 || opSede > sedesEncontradas.size()) {
 				System.out.println("Opción de Sede incorrecta");
 			} else {
-				Restaurante sedeElegida = sedesEncontradas.get(opSede - 1);
+				sedeElegida = sedesEncontradas.get(opSede - 1);
 				System.out.println("Sede seleccionada: " + sedeElegida.getUbicacion());
-
-				System.out.println("");
-
-				if (nuevoCliente.getId() == 0) {
-					nuevoCliente = Cliente.registrarCliente();
-				}
-
-				Reserva miReserva = new Reserva(nuevoCliente, sedeElegida, miMesa);
-				System.out.println(miReserva.toString());
-				
-
 			}
+
+			for (Reserva reserva : listaReservas) {
+
+//					System.out.println(miHorario);
+//					System.out.println(sedeElegida);
+//					System.out.println(reserva.toString());
+
+				if (reserva.getFecha() == miHorario && reserva.getMiSede() == sedeElegida) {
+
+					System.out.println("Ya está reservado");
+					break;
+				}
+			}
+
+			if (nuevoCliente.getId() == 0) {
+				nuevoCliente = Cliente.registrarCliente();
+			}
+
+			Reserva miReserva = new Reserva(nuevoCliente, sedeElegida, miMesa, miHorario);
+			System.out.println(miReserva.toString());
 
 		}
 
 	}
-	
-	
-@Override
 
-public String toString() {
-	
-	return ("El cliente " + this.getCliente().getId() + " hizo su reservación en la sede " + this.getMiSede().getUbicacion() + " y, escogió la mesa " + this.getMiMesa());
-}
-	
+	@Override
+
+	public String toString() {
+
+		return ("El cliente " + this.getCliente().getId() + " hizo su reservación para la fecha " + this.getFecha()
+				+ " en la " + this.getMiSede().getUbicacion() + " y, escogió la mesa " + this.getMiMesa());
+	}
+
 }
