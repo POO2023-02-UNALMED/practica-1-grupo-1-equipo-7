@@ -48,6 +48,7 @@ public class GenerarPedido {
 				System.out.println(j++ + ". " + platos.getNombre() + " " + platos.getPrecio());
 			}
 			System.out.println("¿Cuantos platos desea ordenar?");
+			System.out.println("¿Cuantos platos desea ordenar?");
 			Scanner input3= new Scanner(System.in);
 		    int opcion2;
 			opcion2 = input3.nextInt();
