@@ -3,14 +3,45 @@ package funcionalidades;
 import gestorAplicación.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 
 
 public class GenerarPedido {
+	static {
+	ArrayList<Plato> menu1 = new ArrayList<Plato>();
+	for (Plato platos : Plato.getPlatos().keySet()) {
+        menu1.add(platos);
+	}
+    ArrayList<Plato> menu2 = new ArrayList<Plato>();
+	for (Plato platosmenu2 : Plato.getPlatos().keySet()) {
+        menu2.add(platosmenu2);
+	}
+	ArrayList<Plato> menu3 = new ArrayList<Plato>();
+	for (Plato platosmenu3 : Plato.getPlatos().keySet()) {
+        menu3.add(platosmenu3);
+	}
+	ArrayList<Plato> menu4 = new ArrayList<Plato>();
+	for (Plato platosmenu4 : Plato.getPlatos().keySet()) {
+        menu4.add(platosmenu4);
+	}
+	
+	new Restaurante("La Casa de Toño", "Sede: Las Americas", "Calle 1", new Inventario(), new Caja(), 1234567,
+			new Date(), menu4, new ArrayList<Mesa>());
+	new Restaurante("La Casa de Toño", "Sede: Envigado", "Calle 2", new Inventario(), new Caja(), 1234567,
+			new Date(), menu3, new ArrayList<Mesa>());
+	new Restaurante("La Casa de Toño", "Sede: Sandiego", "Calle 3", new Inventario(), new Caja(), 1234567,
+			new Date(), menu2, new ArrayList<Mesa>());
+	new Restaurante("La Casa de Toño", "Sede: Belen", "Calle 4", new Inventario(), new Caja(), 1234567, 
+			new Date(), menu1, new ArrayList<Mesa>());
+	}
+
+
 	
 	
+
 	//inicia_la_funcionalidad
 	public static void main(String[] args) {
 		boolean repetir;
@@ -29,7 +60,7 @@ public class GenerarPedido {
     	System.out.println("1. Pedido Fisico");
     	System.out.println("Nuestras sedes disponibles");
 		int i;
-	    for( i=0; i<Restaurante.getSedes().size(); i++) {
+	    for( i=0; i< Restaurante.getSedes().size(); i++) {
 	    	System.out.println(i+1 + ". " + Restaurante.getSedes().get(i).getUbicacion());
 	    }
 		System.out.println("¿En donde desea recojer el pedido? Recuerde que debe ser una sede cerca de su casa.");
@@ -87,7 +118,6 @@ public class GenerarPedido {
 				}
 				
 			}
-	
 
 		case 2:
 			System.out.println("2. Pedido de envio");
