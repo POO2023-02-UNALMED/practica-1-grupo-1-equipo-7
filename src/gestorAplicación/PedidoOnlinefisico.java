@@ -59,6 +59,9 @@ public class PedidoOnlinefisico {
 	    }
 	}
 	
+
+
+	
 	//getters and setters
 	public int getNumeroOrden() {
 		return numeroOrden;
