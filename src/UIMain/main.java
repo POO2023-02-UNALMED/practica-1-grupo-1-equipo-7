@@ -164,6 +164,8 @@ public class main {
 			case 1:
 				break;
 			case 2:
+				boolean llaveMaestra2=true;
+				
 				System.out.println("1. Envigado");
 				System.out.println("2. Sandiego");
 				System.out.println("3. Belen");
@@ -178,7 +180,8 @@ public class main {
 					if (Restaurante.getSedes().get(0).getInventario().mostrarItemsVencidos().size() == 0) {
 						System.out.println("no hay items vencidos");
 					} else {
-						System.out.println(Restaurante.getSedes().get(0).getInventario().mostrarItemsVencidos());
+						for (Item i :Restaurante.getSedes().get(0).getInventario().mostrarItemsVencidos() ){
+						System.out.println(i);}
 
 						Restaurante.getSedes().get(0).getInventario().eliminarVencidos();
 
@@ -190,7 +193,8 @@ public class main {
 					if (Restaurante.getSedes().get(1).getInventario().mostrarItemsVencidos().size() == 0) {
 						System.out.println("no hay items vencidos");
 					} else {
-						System.out.print(Restaurante.getSedes().get(1).getInventario().mostrarItemsVencidos());
+						for (Item i :Restaurante.getSedes().get(1).getInventario().mostrarItemsVencidos()) {
+						System.out.print(i);}
 						Restaurante.getSedes().get(1).getInventario().eliminarVencidos();
 
 						System.out.println("Inventario vencido eliminado");
@@ -200,7 +204,9 @@ public class main {
 					if (Restaurante.getSedes().get(2).getInventario().mostrarItemsVencidos().size() == 0) {
 						System.out.println("no hay items vencidos");
 					} else {
-						System.out.print(Restaurante.getSedes().get(2).getInventario().mostrarItemsVencidos());
+						
+						for (Item i :Restaurante.getSedes().get(2).getInventario().mostrarItemsVencidos()) { 
+						System.out.print(i);}
 						Restaurante.getSedes().get(2).getInventario().eliminarVencidos();
 
 						System.out.println("Inventario vencido eliminado");
@@ -211,7 +217,9 @@ public class main {
 					if (Restaurante.getSedes().get(3).getInventario().mostrarItemsVencidos().size() == 0) {
 						System.out.println("no hay items vencidos");
 					} else {
-						System.out.print(Restaurante.getSedes().get(3).getInventario().mostrarItemsVencidos());
+						
+						for (Item i :Restaurante.getSedes().get(3).getInventario().mostrarItemsVencidos() ) {
+						System.out.print(i);}
 						Restaurante.getSedes().get(3).getInventario().eliminarVencidos();
 
 						System.out.println("Inventario vencido eliminado");
@@ -229,6 +237,10 @@ public class main {
 					break;
 
 				}
+				
+				boolean llaveMaestra=true;
+				while (llaveMaestra==true) {
+				
 				if (esc.equals("continuar")) {
 					System.out.println("1. Mostrar inventario");
 					System.out.println("2. Precio articulo inventario");
@@ -236,15 +248,17 @@ public class main {
 					System.out.println("4. Registrar artículo en inventario");
 					System.out.println("5. Renovar inventario");
 					System.out.println("6. Valor del inventario total");
-					System.out.println("7. Cambiar de sede");
+					System.out.println("7. Salir");
 					Scanner inputf = new Scanner(System.in);
 					int opcionf;
 					opcionf = inputf.nextInt();
+					
+					
 
 					switch (opcionf) {
 					case 1:
-						Inventario.obtenerInventarios().get(opcion3 - 1)
-								.mostrarInventario(Restaurante.getSedes().get(opcion3 - 1));
+						Inventario.obtenerInventarios().get(opcion3 - 1);
+						Inventario.mostrarInventario(Restaurante.getSedes().get(opcion3 - 1));
 						break;
 					case 2:
 						
@@ -294,7 +308,7 @@ public class main {
 							int variable;
 							variable = inputg.nextInt();
 							if (variable == 2) {
-								break;
+								llaveMaestra=false;
 							}
 
 							if (variable == 1) {
@@ -363,8 +377,8 @@ public class main {
 												"No hay suficiente dinero en la caja para realizar la compra. Debe ingresar dinero en caja  para hacer posible la compra");
 									} else {
 										System.out.println("El stock ha sido  actualizado:");
-										Inventario.obtenerInventarios().get(opcion3 - 1)
-												.mostrarInventario(Restaurante.getSedes().get(opcion3 - 1));
+										Inventario.obtenerInventarios().get(opcion3 - 1);
+										Inventario.mostrarInventario(Restaurante.getSedes().get(opcion3 - 1));
 										System.out.println("1.Volver");
 										System.out.println("2.Salir ");
 										Scanner inpuj8 = new Scanner(System.in);
@@ -432,9 +446,14 @@ public class main {
 							else {
 								new Item(var4, var41, var42, var43, Inventario.obtenerInventarios().get(opcion3-1));// Aca estoy ************************************
 							}
-							break;
+							
+							
 							
 						}
+						else {
+							
+						}
+						break;
 					case 5:
 						System.out.print("------¿Desea renovar inventario?------");
 						System.out.print("S/N");
@@ -476,18 +495,28 @@ public class main {
 						else {
 							
 						}
+						break;
 						
 						
-							
+					case 7:
+						break;
+								
 						
 
 					}
+					
+
+					}
+				/// aquí termina 
+				
 
 				}
+			
+			
+			///el otro 
+			}break;
 
-			}
-
-			break;
+			
 		case 4:
 			System.out.println("Atención al cliente\n¿Que desea realizar?");
 
@@ -515,5 +544,5 @@ public class main {
 			}
 
 		}
-	}
+	}// este fue el del while 
 
