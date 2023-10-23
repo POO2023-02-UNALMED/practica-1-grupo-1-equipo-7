@@ -200,7 +200,7 @@ public String getNombre() {
     	
     	
     
-    public List<String> IngredientesFaltantes() {
+    public List<String> IngredientesFaltantes() {// Andres
     	
     	List<String> listadoFaltantes = new ArrayList<>();
     	
