@@ -103,9 +103,9 @@ public class AtencionCliente {
 			System.out.println("------------Quejas------------");
 			System.out.println("Ha seleccionado la opcion 2, Quejas\nPor favor, a continuacion ingrese su nombre completo:");
 			
-			Scanner inputNombreQ=new Scanner(System.in);
+			Scanner inputNombreQ = new Scanner(System.in);
 			String NombreQ;
-			NombreQ=inputNombreQ.nextLine();
+			NombreQ = inputNombreQ.nextLine();
 			
 			System.out.println("¿Sobre que desea realizar su queja?");
 			
@@ -119,9 +119,9 @@ public class AtencionCliente {
 			String typeQ = null;
 			String OtroQ = null;
 			
-			Scanner inputQ=new Scanner(System.in);
+			Scanner inputQ = new Scanner(System.in);
 			int opcionQ;
-			opcionQ=inputQ.nextInt();
+			opcionQ = inputQ.nextInt();
 			
 			switch(opcionQ) {
 			
@@ -130,10 +130,10 @@ public class AtencionCliente {
 				
 				System.out.println("¿Sobre que platillo desea quejarse?");
 				
-				Scanner inputplatoQ=new Scanner(System.in);
+				Scanner inputplatoQ = new Scanner(System.in);
 				String platoQ;
 				Plato platoQueja;
-				platoQ=inputplatoQ.nextLine();
+				platoQ = inputplatoQ.nextLine();
 				
 				platoQueja = Plato.buscarPlato(platoQ);
 				
@@ -423,11 +423,7 @@ public class AtencionCliente {
 			
 			}
 			break;
-			
-			
-			
-			
-		
+
 		case 4:
 			break;
 			

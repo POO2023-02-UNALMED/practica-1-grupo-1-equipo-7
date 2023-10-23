@@ -7,8 +7,11 @@ public class AsignarEmpleadoEnvio{
 	 PedidoOnlineEnvio direccionPedido;
 	 Empleado empleado;
 	 //constructor7
-
-	 public AsignarEmpleadoEnvio(String referenciaPedido, PedidoOnlineEnvio numeroOrden, Empleado empleado, PedidoOnlineEnvio estadoPedido, PedidoOnlineEnvio direccionPedido) {
+	 public AsignarEmpleadoEnvio() {
+		 this.asignarDomiciliario(null);
+	 }
+	
+	public AsignarEmpleadoEnvio(String referenciaPedido, PedidoOnlineEnvio numeroOrden, Empleado empleado, PedidoOnlineEnvio estadoPedido, PedidoOnlineEnvio direccionPedido) {
 		 this.referenciaPedido = referenciaPedido;
 		 this.direccionPedido = direccionPedido;
 		 this.referenciaPedido = referenciaPedido;

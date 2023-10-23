@@ -3,17 +3,20 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PedidoOnlinefisico {
+public class PedidoOnlinefisico extends Pedido{
 	 private int numeroOrden;
 	 private int cantidadPlatos;
 	 private String estadoPedido;
 	 protected String direccionPedido2;
 	 protected String tipoPedido = "Pedido Fisico";
 	 private List<Plato> carrito=new ArrayList<>(); 
+	 private List<Plato> Pedidos =new ArrayList<>(); 
 	 Factura Factura;
 	
 	 //Constructor_de_la_clase
-
+	 public PedidoOnlinefisico() {
+		 this.agregarPedidoAlCarrito(null);
+	 }
 	public PedidoOnlinefisico(int numeroOrden, int cantidadPlatos, String direccionPedido, String tipoPedido) {
 		this.numeroOrden = numeroOrden;
 		this.cantidadPlatos = cantidadPlatos;
@@ -58,10 +61,7 @@ public class PedidoOnlinefisico {
 	        this.domiciliario = domiciliario;
 	    }
 	}
-	
 
-
-	
 	//getters and setters
 	public int getNumeroOrden() {
 		return numeroOrden;
