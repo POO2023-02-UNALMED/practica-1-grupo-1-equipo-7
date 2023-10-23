@@ -1,9 +1,26 @@
 package funcionalidades;
-
+import gestorAplicación.*;
 import java.util.*;
 import gestorAplicación.*;
 
 public class AtencionCliente {
+	
+	public static List<Reseña> Recopilatorio = new ArrayList<>();
+	
+	static{
+		
+		new Reseña("Anonimo", "Gran lugar para pasar el tiempo en familia, muy buena la atención", 4);
+		new Reseña("Julian Vargas", "Me gustaron los pozoles", 5);
+		new Reseña("Marta Wayne", "La comida estaba fria y tardaron mucho en atendernos, mal ahí", 2);
+		new Reseña("Barbara Gordon", "Muy buen servicio a domicilio, todo llego a tiempo y recien hecho", 5);
+		new Reseña("Anonimo", "Que fea la sede de Bello, casi nos roban al salir", 1);
+		new Reseña("Anonimo", "Mi mujer se enfermo despues de comer en una de sus sedes", 1);
+		new Reseña("Carol Diaz", "Excelente atención", 5);
+		new Reseña("Santiago Lopez", "Muy buenas porciones y de sabor delicioso", 5);
+		new Reseña("Esteban Tabares", "La atención en el local de las Americas fue muy buena, hicimos un evento familiar y todo salio perfecto", 5);
+		new Reseña("Elizabeth Bennet", "La tortilla estaba dura pero lo demas muy rico", 3);
+		
+	}
 	
 	
 	public static void main(String[] arg){
@@ -12,7 +29,7 @@ public class AtencionCliente {
 		System.out.println("Bienvenid@ al sistema de atención al cliente.\n¿Qué desea realizar?");
 		
 		System.out.println("1. Sugerencia");
-		System.out.println("2. Qujea");
+		System.out.println("2. Queja");
 		System.out.println("3. Reseña");
 		System.out.println("4. Solicitar Devolucion");
 		System.out.println("5. Salir");
@@ -132,36 +149,30 @@ public class AtencionCliente {
 				
 				Scanner inputplatoQ = new Scanner(System.in);
 				String platoQ;
+<<<<<<< Updated upstream
 				Plato platoQueja;
 				platoQ = inputplatoQ.nextLine();
+=======
+				boolean pb;
+>>>>>>> Stashed changes
 				
-				platoQueja = Plato.buscarPlato(platoQ);
+				platoQ = inputplatoQ.nextLine();
+				pb =Plato.existePlato(((String)platoQ));
+				System.out.println(Plato.existePlato(platoQ));
 				
-				while (platoQueja == null) {
-					System.out.println("Este platillo no existe. Por favor ingrese un platillo que se encuentre en el menu");
+				
+				if (pb == false) {
+					System.out.println("Este platillo no es parte de nuestro menu");
 					
-					System.out.println("1. Ingresar un platillo diferente");
-					System.out.println("2. Salir");
+					opcionQ = 5;
 					
-					Scanner inputPQ = new Scanner(System.in);
-					int opcionPQ;
-					opcionPQ = inputPQ.nextInt();
+					break;
 					
-					if (opcionPQ == 1) {
-						Scanner inputplatoEQ=new Scanner(System.in);
-						String platoEQ;
-						platoEQ=inputplatoEQ.next();
-						
-						platoEQ = platoQ;
-						
-					}
 					
-					if(opcionPQ == 2) {
-						break;
-					}
-				OtroQ = platoQ;
-					
-				}
+				}	
+				
+				
+				break;
 				
 			case 2:
 				typeQ = "Empleado";
@@ -170,122 +181,118 @@ public class AtencionCliente {
 				
 				Scanner inputempleadoQ=new Scanner(System.in);
 				String empleadoQ;
-				Empleado empleadoQueja;
+				boolean empleadoQueja;
 				empleadoQ=inputempleadoQ.nextLine();
 				
-				empleadoQueja = Empleado.buscarEmpleadoXNombre(empleadoQ);
-				
-				while (empleadoQueja == null) {
-					System.out.println("Esta persona no hace parte de nuestro equipo de trabjo. Por favor ingrese otro nombre");
+				empleadoQueja = Empleado.existeEmpleado(empleadoQ);
+				if(empleadoQueja == false) {
+					System.out.println("Esta persona no pertenece a nuestro equipo de trabajo");
 					
-					System.out.println("1. Ingresar un nombre diferente");
-					System.out.println("2. Salir");
+					opcionQ = 5;
 					
-					Scanner inputEQ = new Scanner(System.in);
-					int opcionEQ;
-					opcionEQ = inputEQ.nextInt();
-					
-					if (opcionEQ == 1) {
-						Scanner inputempleadoEQ=new Scanner(System.in);
-						String empleadoEQ;
-						empleadoEQ=inputempleadoEQ.next();
-						
-						empleadoEQ = empleadoQ;
-						
-					}
-					
-					if(opcionEQ == 2) {
-						break;
-					}
-				OtroQ = empleadoQ;
-					
+					break;
 				}
+				
+				OtroQ = empleadoQ;
+				break;
 				
 			case 3:
 				typeQ = "Sede";
 				
 				System.out.println("Por favor, para continuar indique la sede de la cual quiere hacer su queja");
-
+				
+				System.out.println("1. Sede Las Americas");
+		        System.out.println("2. Sede Sandiego");
+		        System.out.println("3. Sede Envigado");
+		        System.out.println("4. Sede Belen");
+		        
 				Scanner inputsedeQ=new Scanner(System.in);
-				String sedeQ;
+				int sedeQ;
 				Restaurante sedeQueja;
-				sedeQ=inputsedeQ.nextLine();
+				sedeQ=inputsedeQ.nextInt();
 				
-				sedeQueja = Restaurante.buscarSedeXUbicacion(sedeQ);
+				switch (sedeQ) {
 				
-				while (sedeQueja == null) {
-					System.out.println("Esta Sede no existe. Por favor ingrese una sede valida");
+				case 1:
+					OtroQ = "Sede Las Americas";
+					break;
 					
-					System.out.println("1. Ingresar una sede diferente");
-					System.out.println("2. Salir");
+				case 2:
+					OtroQ = "Sede Sandiego";
+					break;
 					
-					Scanner inputSQ = new Scanner(System.in);
-					int opcionSQ;
-					opcionSQ = inputSQ.nextInt();
+				case 3:
+					OtroQ = "Sede Envigado";
+					break;
 					
-					if (opcionSQ == 1) {
-						Scanner inputsedeEQ=new Scanner(System.in);
-						String sedeEQ;
-						sedeEQ=inputsedeEQ.nextLine();
-						
-						sedeEQ = sedeQ;
-					}
+				case 4:
+					OtroQ = "Sede Belen";
+					break;
+				
+				default:
+					System.out.println("Esta Sede no existe");
+					opcionQ = 5;
+					break;
 					
-					if(opcionSQ == 2) {
-						break;
-					}
-					
-				OtroQ = sedeQ;
 				}
+				
+				break;
 			
 			case 4:
 				typeQ = "Algun otro";
 				
 				
 				OtroQ = null;
+				break;
 			
 			case 5:
+					System.out.println("Usted ha salido con exito");
 					break;
 			default:
 				System.out.println("Opcion invalida");
+				opcionQ = 5;
+				break;
 			}
+			
 			if (opcionQ == 5) {break;}
 		
-		
-			System.out.println("Por favor, a continuacion escriba su queja");
-			
-			Scanner inputTextoQ=new Scanner(System.in);
-			String TextoQ;
-			TextoQ=inputTextoQ.nextLine();
-			
-			System.out.println("Todo listo");
-			
-			System.out.println("1. Editar Queja");
-			System.out.println("2. Enviar Queja");
-			
-			Scanner inputOEditarQ=new Scanner(System.in);
-			int opcionEQ;
-			opcionEQ=inputOEditarQ.nextInt();
-			
-			if (opcionEQ == 1) {
+			if (opcionQ != 5 && opcionQ >= 1) {
+				System.out.println("Por favor, a continuacion escriba su queja");
 				
-				System.out.println("Ahora puede editar su sugerencia");
-				Scanner inputEditarQ=new Scanner(System.in);
-				String EditarQ;
-				EditarQ=inputEditarQ.nextLine();
+				Scanner inputTextoQ=new Scanner(System.in);
+				String TextoQ;
+				TextoQ=inputTextoQ.nextLine();
 				
-				TextoQ = EditarQ;
+				System.out.println("Todo listo");
+				
+				System.out.println("1. Editar Queja");
+				System.out.println("2. Enviar Queja");
+				
+				Scanner inputOEditarQ=new Scanner(System.in);
+				int opcionEQ;
+				opcionEQ=inputOEditarQ.nextInt();
+				
+				if (opcionEQ == 1) {
+					
+					System.out.println("Ahora puede editar su queja");
+					Scanner inputEditarQ=new Scanner(System.in);
+					String EditarQ;
+					EditarQ=inputEditarQ.nextLine();
+					
+					TextoQ = EditarQ;
+				}
+				
+				if (opcionEQ == 2) {new Queja(NombreQ, typeQ, OtroQ, TextoQ);}
+				
+				System.out.println("Su queja se ha enviado con exito");
+				System.out.println("1. Salir");
+				
+				Scanner inputSalirQ = new Scanner(System.in);
+				int SalirQ;
+				SalirQ=inputSalirQ.nextInt();
+				break;
 			}
-			
-			if (opcionEQ == 2) {new Queja(NombreQ, typeQ, OtroQ, TextoQ);}
-			
-			System.out.println("Su queja se ha enviado con exito");
-			System.out.println("1. Salir");
-			
-			Scanner inputSalirQ = new Scanner(System.in);
-			int SalirQ;
-			SalirQ=inputSalirQ.nextInt();
-			
+				
 			break;
 			
 			
@@ -298,6 +305,7 @@ public class AtencionCliente {
 			System.out.println("2. Realizar una nueva reseña");
 			System.out.println("3. Salir");
 			
+			Reseña reseñaNueva = null;
 			Scanner inputR=new Scanner(System.in);
 			int opcionR;
 			opcionR=inputR.nextInt();
@@ -309,7 +317,7 @@ public class AtencionCliente {
 			case 1:
 				System.out.println("Mostrando recopilatorio de reseñas ...");
 				
-				for(Reseña rsñ: Reseña.Recopilatorio) {
+				for(Reseña rsñ: AtencionCliente.Recopilatorio) {
 					System.out.println(rsñ);
 					System.out.println("\n");
 				}
@@ -391,8 +399,8 @@ public class AtencionCliente {
 						cant = cant2;
 					}
 				}
-				
-				if (opcionER == 2) {new Reseña(NombreR, reseñaN, cant) ;}
+				if (opcionER == 2) {reseñaNueva = new Reseña(NombreR, reseñaN, cant);}
+				funcionalidades.AtencionCliente.Recopilatorio.add(reseñaNueva);
 				
 				System.out.println("Su reseña se ha enviado con exito");
 				System.out.println("1. Salir");
@@ -407,7 +415,7 @@ public class AtencionCliente {
 				if (finR ==2) {
 					System.out.println("Mostrando recopilatorio de reseñas");
 					
-					for(Reseña rsña: Reseña.Recopilatorio) {
+					for(Reseña rsña: AtencionCliente.Recopilatorio) {
 						System.out.println(rsña);
 						System.out.println("\n");
 					}

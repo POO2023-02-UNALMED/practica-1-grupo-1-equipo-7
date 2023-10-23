@@ -35,9 +35,13 @@ public class Queja extends ServiciosClientes {
 		
 		if (tipo == "Empleado") {
 			
-			Empleado empleado;
-			empleado = Empleado.buscarEmpleadoXNombre(nombreAlgo);
-			this.empleado = empleado;
+			boolean e;
+			e = Empleado.existeEmpleado(nombreAlgo);
+			if (e == true) {
+				Empleado emp;
+				emp = Empleado.busquedaXNombre(nombreAlgo);
+				this.empleado = emp;
+			}
 			
 			Queja.QuejasEmpleados.add(this);
 			this.nuevaAmonestacion();
