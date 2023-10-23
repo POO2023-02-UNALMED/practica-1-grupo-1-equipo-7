@@ -2,6 +2,7 @@ package UIMain;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -250,9 +251,15 @@ public class main {
 						Scanner inputlk= new Scanner(System.in);
 						String art;
 						art= inputlk.nextLine();
+						List <String >listt= Arrays.asList(art.split(" "));
+						for (String i : listt) {
+						if (Item.buscarItem(i)!=null) {
+							System.out.println(  "El precio de "+Item.buscarItem(i).getNombre()+" "+Item.buscarItem(i).getPrecio());
+						}
+						if (Item.buscarItem(i)==null) {
+							System.out.println("El nombre de "+i +" no ha sido encontrado");
+						}
 						
-						if (Item.buscarItem(art)!=null) {
-							Item.buscarItem(art).getPrecio();
 						}
 							
 						
