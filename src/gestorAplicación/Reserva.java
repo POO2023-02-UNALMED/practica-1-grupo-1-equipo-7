@@ -182,15 +182,19 @@ public class Reserva {
 
 			if (opSede <= 0 || opSede > sedesEncontradas.size()) {
 				System.out.println("Opción de Sede incorrecta");
-			}else {
-				Restaurante sedeElegida = sedesEncontradas.get(opSede-1);
+			} else {
+				Restaurante sedeElegida = sedesEncontradas.get(opSede - 1);
 				System.out.println("Sede seleccionada: " + sedeElegida.getUbicacion());
-			}
 
-			// Tipo de mesa
+				// Tipo de mesa
+
+				System.out.println("Estos son los tipos de mesa Disponibles en la Sede elegida");
+				
 			
-			System.out.println("Estos son los tipos de mesa Disponibles en la Sede elegida");
 			
+			
+			
+			}
 
 		}
 
