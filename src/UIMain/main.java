@@ -272,7 +272,7 @@ public class main {
 					System.out.println("4. Algun otro");
 					System.out.println("5. Salir");
 					
-					String type;
+					String type = null;			
 					
 					Scanner inputs=new Scanner(System.in);
 					int opcions;
@@ -290,10 +290,11 @@ public class main {
 						type = "Sede";
 					
 					case 4:
-						type = "Algun otro";
+						type = "otro";
 					
 					case 5:
 							break;
+					
 					}
 					
 					System.out.println("Por favor, a continuacion escriba su sugerencia");
@@ -351,8 +352,8 @@ public class main {
 					System.out.println("5. Salir");
 					
 					
-					String typeQ;
-					String OtroQ;
+					String typeQ = null;
+					String OtroQ = null;
 					
 					Scanner inputQ=new Scanner(System.in);
 					int opcionQ;
@@ -397,10 +398,6 @@ public class main {
 						OtroQ = platoQ;
 							
 						}
-						
-						
-						
-						
 						
 					case 2:
 						typeQ = "Empleado";
@@ -482,11 +479,11 @@ public class main {
 						
 						
 						OtroQ = null;
-						}
 					
 					case 5:
 							break;
 					}
+				
 					
 					
 					System.out.println("Por favor, a continuacion escriba su queja");
@@ -503,6 +500,29 @@ public class main {
 					Scanner inputOEditarQ=new Scanner(System.in);
 					int opcionEQ;
 					opcionEQ=inputOEditarQ.nextInt();
+					
+					if (opcionEQ == 1) {
+						
+						System.out.println("Ahora puede editar su sugerencia");
+						Scanner inputEditarQ=new Scanner(System.in);
+						String EditarQ;
+						EditarQ=inputEditarQ.next();
+						
+						TextoQ = EditarQ;
+					}
+					
+					if (opcionEQ == 2) {new Queja(NombreQ, typeQ, OtroQ, TextoQ);}
+					
+					System.out.println("Su sugerencia se ha enviado con exito");
+					System.out.println("1. Salir");
+					
+					Scanner inputSalirQ = new Scanner(System.in);
+					int SalirQ;
+					SalirQ=inputSalirQ.nextInt();
+					
+					
+					
+					
 					
 					break;
 					
