@@ -120,10 +120,10 @@ public class main {
 		ingredientesPozol.add(Item.buscarItem("Cilantro"));
 		// le agregué los precios a cada plato, se puede cambiar esto:)
 		Plato tacos = new Plato("Tacos", ingredientesTacos, 2000);
-		System.out.print(tacos.getIngredientes());
+		
 
 		Plato tostadas = new Plato("Tostadas", ingredientesTostadas, 2000);
-		System.out.print(ingredientesTostadas);
+		
 		Plato quesadilla = new Plato("Quesadillas", ingredientesQuesadillas, 5000);
 		Plato sopes = new Plato("Sopes", ingredientesSopes, 6000);
 		Plato tamales = new Plato("Tamales", ingredientesTamales, 7000);
@@ -258,9 +258,11 @@ public class main {
 						}
 						if (Item.buscarItem(i)==null) {
 							System.out.println("El nombre de "+i +" no ha sido encontrado");
+							
 						}
 						
 						}
+						break;
 							
 						
 					case 3:
