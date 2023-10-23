@@ -54,12 +54,13 @@ public class Restaurante {
 	
 		
 		new Restaurante("La Casa de Toño", "Sede: Las Americas", "Calle 1", new Inventario(), new Caja(), 1234567,
-				new Date(),  menu4, new ArrayList<Mesa>());
+				new Date(), menu4, new ArrayList<Mesa>());
 		new Restaurante("La Casa de Toño", "Sede: Envigado", "Calle 2", new Inventario(), new Caja(), 1234567,
 				new Date(), menu3, new ArrayList<Mesa>());
 		new Restaurante("La Casa de Toño", "Sede: Sandiego", "Calle 3", new Inventario(), new Caja(), 1234567,
 				new Date(), menu2, new ArrayList<Mesa>());
-		new Restaurante("La Casa de Toño", "Sede: Belen", "Calle 4", new Inventario(), new Caja(), 1234567, new Date(), menu1, new ArrayList<Mesa>());
+		new Restaurante("La Casa de Toño", "Sede: Belen", "Calle 4", new Inventario(), new Caja(), 1234567, 
+				new Date(), menu1, new ArrayList<Mesa>());
 		
 
 	}*/

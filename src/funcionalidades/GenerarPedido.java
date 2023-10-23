@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class GenerarPedido {
 	
+	
 	//inicia_la_funcionalidad
 	public static void main(String[] args) {
 		boolean repetir;
@@ -86,8 +87,7 @@ public class GenerarPedido {
 				}
 				
 			}
-		
-			
+	
 
 		case 2:
 			System.out.println("2. Pedido de envio");
@@ -142,15 +142,16 @@ public class GenerarPedido {
 						Scanner input9= new Scanner(System.in);
 						String opcionRR;
 						opcionRR = input9.nextLine();
-						if (opcionRR != "y"){
+						if (opcionRR != "N"){
 							System.out.println("Gracias por su compra.");
 							System.out.println("Progama Terminado");
 				    }
 				}
 			}
-		   
+			
 		}
 	}
+
 }
 	
 
