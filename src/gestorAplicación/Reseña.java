@@ -6,7 +6,7 @@ import java.util.*;
 public class Reseña extends ServiciosClientes{
 
 	protected int calificacion;
-	private static List<Reseña> Recopilatorio = new ArrayList<>();
+	public static List<Reseña> Recopilatorio = new ArrayList<>();
 	private static int countCalificaciones;	
 	private static int count;
 	
@@ -25,12 +25,9 @@ public class Reseña extends ServiciosClientes{
 		
 	}
 	
-	public Reseña(String nombre, String texto, int calificacion) {
-		super(((String)nombre),texto);
-	}
 	
-	public Reseña(Cliente cliente, String texto, int calificacion) {
-		super(cliente,texto);
+	public Reseña(String nombre, String texto, int calificacion) {
+		super(nombre,texto);
 		this.calificacion = calificacion;
 		count++;
 		countCalificaciones = countCalificaciones + calificacion;
@@ -66,18 +63,31 @@ public class Reseña extends ServiciosClientes{
 		return Recopilatorio;
 	}
 	
+	public static void AñadirReseña(Reseña rsñ) {
+		Reseña.Recopilatorio.add(rsñ);
+	}
+	
 	@Override
 	public String toString() {
 		
 		if (super.cliente.getNombre() == "Anonimo") {
-			return "Anonimo." + "\n"  + 
+			return "Reseña Numero: " + super.getCodigoReferencia() + "\n" +
+					"Anonimo." + "\n"  + 
 					"Calificacion:" + this.getCalificacion() + "\n" + 
 					"'" + this.getReseña() + "'";
 		}
 		
-		return "Nombre: " + super.cliente.getNombre() + "\n" + 
+		return 	"Reseña Numero: " + super.getCodigoReferencia() + "\n" +
+				"Nombre: " + super.cliente.getNombre() + "\n" + 
 				"Calificacion: " + this.getCalificacion() + " estrellas." + "\n" + 
 				"'" + this.getReseña() + "'";
+	}
+	
+	public static void main (String[] arg) {
+		for(Reseña rsñ: Reseña.Recopilatorio) {
+			System.out.println(rsñ);
+			System.out.println("\n");
+		}
 	}
 	
 	

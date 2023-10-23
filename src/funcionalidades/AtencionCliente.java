@@ -4,10 +4,12 @@ import java.util.*;
 import gestorAplicación.*;
 
 public class AtencionCliente {
+	
+	
 	public static void main(String[] arg){
 		
 		System.out.println("------------Atencion al cliente------------");
-		System.out.println("Bienvenid@ al sistema de atención al cliente, ¿Qué desea realizar?");
+		System.out.println("Bienvenid@ al sistema de atención al cliente.\n¿Qué desea realizar?");
 		
 		System.out.println("1. Sugerencia");
 		System.out.println("2. Qujea");
@@ -53,14 +55,16 @@ public class AtencionCliente {
 			
 			case 5:
 					break;
+			default:
+				System.out.println("Opcion invalida");
 			
 			}
-			
+			if (opcions== 5) {break;}
 			System.out.println("Por favor, a continuacion escriba su sugerencia");
 			
 			Scanner inputTextoS=new Scanner(System.in);
 			String TextoS;
-			TextoS=inputTextoS.next();
+			TextoS=inputTextoS.nextLine();
 			
 			System.out.println("Todo listo");
 			
@@ -76,7 +80,7 @@ public class AtencionCliente {
 				System.out.println("Ahora puede editar su sugerencia");
 				Scanner inputEditarS=new Scanner(System.in);
 				String EditarS;
-				EditarS=inputEditarS.next();
+				EditarS=inputEditarS.nextLine();
 				
 				TextoS = EditarS;
 			}
@@ -101,7 +105,7 @@ public class AtencionCliente {
 			
 			Scanner inputNombreQ=new Scanner(System.in);
 			String NombreQ;
-			NombreQ=inputNombreQ.next();
+			NombreQ=inputNombreQ.nextLine();
 			
 			System.out.println("¿Sobre que desea realizar su queja?");
 			
@@ -129,7 +133,7 @@ public class AtencionCliente {
 				Scanner inputplatoQ=new Scanner(System.in);
 				String platoQ;
 				Plato platoQueja;
-				platoQ=inputplatoQ.next();
+				platoQ=inputplatoQ.nextLine();
 				
 				platoQueja = Plato.buscarPlato(platoQ);
 				
@@ -167,7 +171,7 @@ public class AtencionCliente {
 				Scanner inputempleadoQ=new Scanner(System.in);
 				String empleadoQ;
 				Empleado empleadoQueja;
-				empleadoQ=inputempleadoQ.next();
+				empleadoQ=inputempleadoQ.nextLine();
 				
 				empleadoQueja = Empleado.buscarEmpleadoXNombre(empleadoQ);
 				
@@ -205,7 +209,7 @@ public class AtencionCliente {
 				Scanner inputsedeQ=new Scanner(System.in);
 				String sedeQ;
 				Restaurante sedeQueja;
-				sedeQ=inputsedeQ.next();
+				sedeQ=inputsedeQ.nextLine();
 				
 				sedeQueja = Restaurante.buscarSedeXUbicacion(sedeQ);
 				
@@ -222,7 +226,7 @@ public class AtencionCliente {
 					if (opcionSQ == 1) {
 						Scanner inputsedeEQ=new Scanner(System.in);
 						String sedeEQ;
-						sedeEQ=inputsedeEQ.next();
+						sedeEQ=inputsedeEQ.nextLine();
 						
 						sedeEQ = sedeQ;
 					}
@@ -242,14 +246,17 @@ public class AtencionCliente {
 			
 			case 5:
 					break;
+			default:
+				System.out.println("Opcion invalida");
 			}
+			if (opcionQ == 5) {break;}
 		
 		
 			System.out.println("Por favor, a continuacion escriba su queja");
 			
 			Scanner inputTextoQ=new Scanner(System.in);
 			String TextoQ;
-			TextoQ=inputTextoQ.next();
+			TextoQ=inputTextoQ.nextLine();
 			
 			System.out.println("Todo listo");
 			
@@ -265,7 +272,7 @@ public class AtencionCliente {
 				System.out.println("Ahora puede editar su sugerencia");
 				Scanner inputEditarQ=new Scanner(System.in);
 				String EditarQ;
-				EditarQ=inputEditarQ.next();
+				EditarQ=inputEditarQ.nextLine();
 				
 				TextoQ = EditarQ;
 			}
@@ -295,13 +302,19 @@ public class AtencionCliente {
 			int opcionR;
 			opcionR=inputR.nextInt();
 			
+			
+			
 			switch(opcionR) {
 			
 			case 1:
-				List<Reseña> listado= Reseña.getRecopilatorio();
-				for(Reseña rsñ: listado) {
+				System.out.println("Mostrando recopilatorio de reseñas ...");
+				
+				for(Reseña rsñ: Reseña.Recopilatorio) {
 					System.out.println(rsñ);
+					System.out.println("\n");
 				}
+				
+				break;
 				
 				
 			case 2:
@@ -324,17 +337,18 @@ public class AtencionCliente {
 					System.out.println("Por favor, a continuacion ingrese su nombre:");
 					String newNombre=null;
 					Scanner inputNNombre = new Scanner(System.in);
-					newNombre = inputNNombre.next();
+					newNombre = inputNNombre.nextLine();
 					
 					NombreR = newNombre;
 					
+			
 				}
 				
 				System.out.println("Por favor, escriba su reseña");
 				
 				String reseñaN= null;
 				Scanner inputrsñ = new Scanner(System.in);
-				reseñaN=inputrsñ.next();
+				reseñaN=inputrsñ.nextLine();
 				
 				
 				System.out.println("Por favor, indique del 1-5 que calificación le daria a su experiencia en el restaurante, donde 1 es mul mal y 5 muy bien");
@@ -357,7 +371,7 @@ public class AtencionCliente {
 					System.out.println("Ahora puede editar su Reseña");
 					Scanner inputEditarR=new Scanner(System.in);
 					String EditarR;
-					EditarR=inputEditarR.next();
+					EditarR=inputEditarR.nextLine();
 					
 					reseñaN = EditarR;
 					
@@ -378,7 +392,7 @@ public class AtencionCliente {
 					}
 				}
 				
-				if (opcionER == 2) {new Reseña(NombreR, reseñaN, cant);}
+				if (opcionER == 2) {new Reseña(NombreR, reseñaN, cant) ;}
 				
 				System.out.println("Su reseña se ha enviado con exito");
 				System.out.println("1. Salir");
@@ -391,15 +405,21 @@ public class AtencionCliente {
 				if (finR ==1) {break;}
 				
 				if (finR ==2) {
-					List<Reseña> listado2= Reseña.getRecopilatorio();
-					for(Reseña rsña: listado2) {
+					System.out.println("Mostrando recopilatorio de reseñas");
+					
+					for(Reseña rsña: Reseña.Recopilatorio) {
 						System.out.println(rsña);
+						System.out.println("\n");
 					}
 				
 				}
+				break;
 				
 				
 			case 3: break;
+			
+			default:
+				System.out.println("Opcion invalida");
 			
 			}
 			break;
