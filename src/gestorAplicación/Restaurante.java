@@ -32,6 +32,7 @@ public class Restaurante {
 	private int codigoSede;
 	private ArrayList<String> disponibilidad;
 
+	//No quitar
 	static {
 		new Restaurante("La Casa de Toño", "Sede: Las Americas", "Calle 1", new Inventario(), new Caja(), 1234567,
 				new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
@@ -267,6 +268,16 @@ public class Restaurante {
 				libres.add(mesa);
 		}
 		return libres;
+	}
+	
+	boolean hayMesasDos() {
+		ArrayList<Mesa> mesasDesocupadas = mesasNoAsignadas();
+		for(Mesa mesa: mesasDesocupadas) {
+	//		if(mesa instanceof MesaDos) {
+				return true;
+			}
+	//	}
+		return false;
 	}
 
 }
