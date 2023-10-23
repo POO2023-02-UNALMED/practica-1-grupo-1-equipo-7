@@ -484,8 +484,7 @@ public class main {
 							break;
 					}
 				
-					
-					
+				
 					System.out.println("Por favor, a continuacion escriba su queja");
 					
 					Scanner inputTextoQ=new Scanner(System.in);
@@ -520,15 +519,20 @@ public class main {
 					int SalirQ;
 					SalirQ=inputSalirQ.nextInt();
 					
-					
-					
-					
-					
 					break;
 					
 					
 				
 				case 3:
+					System.out.println("Ha seleccionado la opcion 3, Reseña.\n¿Que desea realizar?");
+					
+					System.out.println("1. Ver repositorio de reseñas");
+					System.out.println("2. Realizar una nueva reseña");
+					System.out.println("3. Salir");
+					
+					Scanner inputR=new Scanner(System.in);
+					int opcionR;
+					opcionR=inputR.nextInt();
 					break;
 					
 					
