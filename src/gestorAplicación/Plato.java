@@ -173,7 +173,7 @@ public String getNombre() {
         return plato.getNombre();
     }
 
-   /* public static Object[] getIngredientesSimilares(Plato plato1, Plato plato2){
+   public static Object[] getIngredientesSimilares(Plato plato1, Plato plato2){
         int ingredientesSimilares = 0;
         ArrayList<String> ingredientes = new ArrayList<>();
         System.out.println("1.1");
@@ -188,7 +188,7 @@ public String getNombre() {
             }
         }
         return new Object[]{ingredientesSimilares, ingredientes};
-    }*/
+    }
     
     // con esto miramíamos la disponibilidad del plato, no sé si va acá o va en la funcionalidad, si algo lo paso al implementarla :)+++++++++++++++++++++++++++++++++++++
     public void   disponibilidadPlato() {

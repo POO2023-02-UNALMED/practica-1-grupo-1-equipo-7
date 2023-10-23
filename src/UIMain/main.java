@@ -229,13 +229,12 @@ public class main {
 				}
 				if (esc.equals("continuar")) {
 					System.out.println("1. Mostrar inventario");
-					System.out.println("2. Retirar item inventario");
+					System.out.println("2. Precio articulo inventario");
 					System.out.println("3. Revisar niveles de Stock");
 					System.out.println("4. Registrar artículo en inventario");
 					System.out.println("5. Renovar inventario");
 					System.out.println("6. Valor del inventario total");
-					System.out.println("7. Precio artículo del inventario");
-					System.out.println("Cambiar de sede");
+					System.out.println("7. Cambiar de sede");
 					Scanner inputf = new Scanner(System.in);
 					int opcionf;
 					opcionf = inputf.nextInt();
