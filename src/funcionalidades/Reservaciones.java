@@ -35,6 +35,10 @@ public class Reservaciones {
 		new Mesa(1, "Dos personas", "Sede: Las Americas");
 		new Mesa(2, "Tres personas", "Sede: Envigado");
 		new Mesa(3, "Cuatro o más personas", "Sede: Belen");
+		new Mesa(5, "Dos personas", "Sede: Belen");
+		new Mesa(7, "Tres personas", "Sede: Las Americas");
+		new Mesa(7, "Cuatro o más personas", "Sede: Sandiego");
+		new Mesa(7, "Dos personas", "Sede: Envigado");
 
 		System.out.println("1. Reservaciones\n2. Salir");
 		Scanner input1 = new Scanner(System.in);

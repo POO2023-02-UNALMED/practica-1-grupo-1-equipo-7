@@ -101,7 +101,6 @@ public class Reserva {
 			System.out.println("4. 2023-10-30 11:00 AM");
 			int opcion1 = input1.nextInt();
 
-
 			switch (opcion1) {
 
 			case 1:
@@ -130,16 +129,16 @@ public class Reserva {
 
 			}
 		}
-		while(miMesa == null) {
-			
+		while (miMesa == null) {
+
 			System.out.println("¿Para cuántas personas son la reserva? ");
 			System.out.println("1. Dos personas");
 			System.out.println("2. Tres Personas");
 			System.out.println("3. Cuatro o más personas");
 			int opcion = input1.nextInt();
-			
-			switch(opcion) {
-			
+
+			switch (opcion) {
+
 			case 1:
 
 				miMesa = "Dos personas";
@@ -158,38 +157,42 @@ public class Reserva {
 			default:
 
 				System.out.println("Opción Inválida");
-			
+
 			}
 		}
-		
-		//ArrayList<Restaurante> sedesEncontradas = new ArrayList<Restaurante>();
-		//sedesEncontradas = Restaurante.sedesDisponibles(miHorario, miMesa);
-		//System.out.println(sedesEncontradas[0]);
-		
-		
-		//Sede Disponible
-		
+
+		// ArrayList<Restaurante> sedesEncontradas = new ArrayList<Restaurante>();
+		// sedesEncontradas = Restaurante.sedesDisponibles(miHorario, miMesa);
+		// System.out.println(sedesEncontradas[0]);
+
+		// Sede Disponible
+
 		ArrayList<Restaurante> sedesEncontradas = Restaurante.sedesDisponibles(miHorario, miMesa);
-		
-		if(sedesEncontradas.size() == 0) {
+
+		if (sedesEncontradas.size() == 0) {
 			System.out.println("No hay sedes disponibles para hacer su reserva");
-			} else {
+		} else {
 			System.out.println("Sedes disponibles para hacer su reserva");
-			for(Restaurante restaurante: sedesEncontradas)
-			{
-			    System.out.println(restaurante.getUbicacion());
+			for (Restaurante restaurante : sedesEncontradas) {
+				System.out.println(restaurante.getUbicacion());
 			}
-			
+
 			System.out.println("Ingrese la opción de la sede [1." + sedesEncontradas.size() + "]:");
 			int opSede = input1.nextInt();
-			
-			if(opSede <= 0 || opSede > sedesEncontradas.size()) {
+
+			if (opSede <= 0 || opSede > sedesEncontradas.size()) {
 				System.out.println("Opción de Sede incorrecta");
+			}else {
+				Restaurante sedeElegida = sedesEncontradas.get(opSede-1);
+				System.out.println("Sede seleccionada: " + sedeElegida.getUbicacion());
 			}
+
+			// Tipo de mesa
 			
-			//Tipo de mesa
+			System.out.println("Estos son los tipos de mesa Disponibles en la Sede elegida");
 			
-			}
+
+		}
 
 	}
 

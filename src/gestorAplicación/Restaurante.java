@@ -29,6 +29,10 @@ public class Restaurante {
 				new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
 		new Restaurante("La Casa de Toño", "Sede: Envigado", "Calle 2", new Inventario(), new Caja(), 1234567,
 				new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
+		new Restaurante("La Casa de Toño", "Sede: Sandiego", "Calle 3", new Inventario(), new Caja(), 1234567,
+				new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
+		new Restaurante("La Casa de Toño", "Sede: Belen", "Calle 4", new Inventario(), new Caja(), 1234567,
+				new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
 
 	}
 
