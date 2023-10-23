@@ -68,7 +68,12 @@ public class Pedido {
 		
 		
 		
-	 
+	public class PedidoDeComida {
+	protected String domiciliario;
+		public void asignarDomiciliario(String domiciliario) {
+	        this.domiciliario = domiciliario;
+		}
+	}
 
 	public String getEstadoPedido() {
 		return estadoPedido;
@@ -90,6 +95,12 @@ public class Pedido {
 	}
 	public String getDireccionPedido() {
 		return direccionPedido;
+	}
+	public String getTipoPedido() {
+		return tipoPedido;
+	}
+	public void setTipoPedido(String tipoPedido) {
+		this.tipoPedido = tipoPedido;
 	}
 	public void setDireccionPedido(String direccionPedido) {
 		this.direccionPedido =direccionPedido;
