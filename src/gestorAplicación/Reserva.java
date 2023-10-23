@@ -237,6 +237,13 @@ public class Reserva {
 			if (nuevoCliente.getId() == 0) {
 				nuevoCliente = Cliente.registrarCliente();
 			}
+			ArrayList<Reserva> reservasCliente = reservasCliente(nuevoCliente);
+			
+			System.out.println("Elija su reservación");
+			for(int i = 0; i < reservasCliente.size(); i++) {
+				System.out.println(reservasCliente.get(i).toString());
+			}
+			int reOp = input1.nextInt();
 			
 		
 		}
@@ -258,7 +265,7 @@ public class Reserva {
 	@Override
 	public String toString() {
 
-		return ("El cliente " + this.getCliente().getId() + " hizo su reservación para la fecha " + this.getFecha()
+		return ("El cliente " + this.getCliente().getId() + " tiene su reservación para la fecha " + this.getFecha()
 				+ " en la " + this.getMiSede().getUbicacion() + " y, escogió la mesa " + this.getMiMesa());
 	}
 
