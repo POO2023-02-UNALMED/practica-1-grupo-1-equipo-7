@@ -252,6 +252,7 @@ public class main {
 						System.out.println(Inventario.obtenerInventarios().get(opcion3 - 1).obtenerItemsSinStock());
 						System.out.println("Los siguientes platos se encuentran agotados: ");// le metí muy sabroso :#
 
+						
 						for (Plato g : Restaurante.getSedes().get(opcion3 - 1).getMenu()) {// implementacion de la
 																							// funcionalidad para
 																							// cambiar la disponibilidad
@@ -260,8 +261,7 @@ public class main {
 							g.disponibilidadPlato();
 							if (g.getDisponibilidad() == false) {
 
-								System.out.println("Para los " + g.getNombre() + " ,los ingredintes que faltan son: "
-										+ g.IngredientesFaltantes());
+								System.out.println("Para los " + g.getNombre() + " ,los ingredintes que faltan son: "+ g.IngredientesFaltantes());
 
 							}
 						}
@@ -404,4 +404,3 @@ public class main {
 
 		}
 	}
-
