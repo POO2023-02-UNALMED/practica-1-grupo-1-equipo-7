@@ -1,7 +1,6 @@
 package funcionalidades;
 
-import java.util.Scanner;
-
+import java.util.*;
 import gestorAplicación.*;
 
 public class AtencionCliente {
@@ -299,6 +298,10 @@ public class AtencionCliente {
 			switch(opcionR) {
 			
 			case 1:
+				List<Reseña> listado= Reseña.getRecopilatorio();
+				for(Reseña rsñ: listado) {
+					System.out.println(rsñ);
+				}
 				
 				
 			case 2:
@@ -388,6 +391,10 @@ public class AtencionCliente {
 				if (finR ==1) {break;}
 				
 				if (finR ==2) {
+					List<Reseña> listado2= Reseña.getRecopilatorio();
+					for(Reseña rsña: listado2) {
+						System.out.println(rsña);
+					}
 				
 				}
 				

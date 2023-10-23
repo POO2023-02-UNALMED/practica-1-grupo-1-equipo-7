@@ -6,8 +6,8 @@ import java.util.*;
 public class Reseña extends ServiciosClientes{
 
 	protected int calificacion;
-	protected static List<Reseña> Recopilatorio = new ArrayList<>();
-	protected static int countCalificaciones;	
+	private static List<Reseña> Recopilatorio = new ArrayList<>();
+	private static int countCalificaciones;	
 	private static int count;
 	
 	static{
@@ -42,7 +42,7 @@ public class Reseña extends ServiciosClientes{
 		return countCalificaciones/count;
 	}
 	
-	public int getCantidadReseñas() {
+	public static int getCantidadReseñas() {
 		return count;
 	}
 	
@@ -62,7 +62,7 @@ public class Reseña extends ServiciosClientes{
 		super.setTexto(texto);
 	}
 	
-	public List<Reseña> getRecopilatorio(){
+	public static List<Reseña> getRecopilatorio(){
 		return Recopilatorio;
 	}
 	
@@ -80,10 +80,5 @@ public class Reseña extends ServiciosClientes{
 				"'" + this.getReseña() + "'";
 	}
 	
-	public static void ImprimirRepositorio() {
-		for (int i=0;i<Reseña.Recopilatorio.size();i++) {
-			System.out.println(Recopilatorio.get(i));
-		}
-	}
 	
 }
