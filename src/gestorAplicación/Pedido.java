@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Pedido {
 	private int numeroOrden = count+1;
-	private int cantidadPlatos;
-	private String estadoPedido;
-	public String direccionPedido;
+	private  int cantidadPlatos;
+	private  String estadoPedido;
+	public  String direccionPedido;
 	private static int count;
-	protected String tipoPedido;
+	protected  String tipoPedido;
 	private List<Plato> carrito=new ArrayList<>(); 
 	private  static List<Pedido> PedidosOnline =new ArrayList<>(); 
 	private  static List<Pedido> PedidosFisicos =new ArrayList<>(); 
@@ -34,39 +34,14 @@ public class Pedido {
 				this.direccionPedido = Algo;
 				
 			}			
-			
-}
-
-	 
+		}
 		
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	public String toString() {
+		return "Numero de orden: " + this.getNumeroOrden() + "\n" +
+				"Tipo de Pedido: " + this.getTipoPedido() + "\n" +
+				"Cantidad de Platos: " + this.getCantidadPlatos() +  "\n" +
+				"Dirección de Envío: " + this.getDireccionPedido();
+	}
 		
 	public class PedidoDeComida {
 	protected String domiciliario;
@@ -81,7 +56,7 @@ public class Pedido {
 	public void setEstadoPedido(String estadoPedido) {
 		this.estadoPedido = estadoPedido;
 	}
-	public int getCantidadPlatos() {
+	public  int getCantidadPlatos() {
 		return cantidadPlatos;
 	}
 	public void setCantidadPlatos(int cantidadPlatos) {
@@ -93,10 +68,10 @@ public class Pedido {
 	public void setNumeroOrden(int numeroOrden) {
 		this.numeroOrden = numeroOrden;
 	}
-	public String getDireccionPedido() {
+	public  String getDireccionPedido() {
 		return direccionPedido;
 	}
-	public String getTipoPedido() {
+	public  String getTipoPedido() {
 		return tipoPedido;
 	}
 	public void setTipoPedido(String tipoPedido) {

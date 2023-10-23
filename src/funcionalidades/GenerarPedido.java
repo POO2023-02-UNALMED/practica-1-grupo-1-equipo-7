@@ -72,10 +72,7 @@ public class GenerarPedido {
 			
 			
 			
-			System.out.println("Número de Orden: " + Pedido.getNumeroOrden());
-		    System.out.println("Cantidad de Platos: " + Pedido.getCantidadPlatos());
-		    System.out.println("Dirección de Envío: " + Pedido.getDireccionPedido());
-		    System.out.println("Tipo de Pedido: " + Pedido.getTipoPedido());
+			
 			
 			
 		    
@@ -92,7 +89,7 @@ public class GenerarPedido {
 		    
 		    
 			
-		    System.out.print(Pedido.setEstadoPedido("Confirmado"));
+		    System.out.println(Pedido.setEstadoPedido("Confirmado"));
 
 			// Enviar_una_notificación_dentro_de_la_aplicación_al_cliente
 			String mensaje = "Su pedido con el número de orden " + Pedido.getNumeroOrden() + " ha sido confirmado. Pedido en espera para ser recogido.";
@@ -143,20 +140,16 @@ public class GenerarPedido {
 				    }
 				}
 			}
-		    System.out.println("Número de Orden: " + Pedido.getNumeroOrden());
-		    System.out.println("Cantidad de Platos: " + Pedido.getCantidadPlatos());
-		    System.out.println("Dirección de Envío: " + Pedido.getDireccionPedido());
-		    System.out.println("Tipo de Pedido: " + Pedido.getTipoPedido());
-			
+		    
 			
 		    
 		    
 		    System.out.println("Productos escogidos");
 			System.out.println("¿Desea ordenar algo mas?");
-			Scanner input19= new Scanner(System.in);
-			String opcion7;
-			opcion7 = input19.nextLine();
-			if (opcion7 != "y"){
+			Scanner input9= new Scanner(System.in);
+			String opcionRR;
+			opcionRR = input9.nextLine();
+			if (opcionRR != "y"){
 				System.out.println("Progama Terminado");
 			
 			}
@@ -166,8 +159,8 @@ public class GenerarPedido {
 		    System.out.print(Pedido.setEstadoPedido("Confirmado"));
 
 			// Enviar_una_notificación_dentro_de_la_aplicación_al_cliente
-			String mensaje = "Su pedido con el número de orden " + Pedido.getNumeroOrden() + " ha sido confirmado. Su pedido va en camino. Gracias por su compra.";
-			System.out.print(mensaje);
+			String mensaje2 = "Su pedido con el número de orden " + Pedido.getNumeroOrden() + " ha sido confirmado. Su pedido va en camino. Gracias por su compra.";
+			System.out.print(mensaje2);
 
 			System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente.");
 		}

@@ -19,6 +19,8 @@ public class AsignarEmpleadoEnvio{
 		 this.empleado = empleado;
 		 this.asignarDomiciliario(empleado);
 	 }
+
+	
 	 public void asignarDomiciliario(Empleado domiciliario) {
 	        this.empleado = domiciliario;
 	 }
