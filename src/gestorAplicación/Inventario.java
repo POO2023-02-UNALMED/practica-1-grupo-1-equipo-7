@@ -228,7 +228,9 @@ public class Inventario  {
 	public void setListadoItems(List<Item> listadoItems) {
 		this.listadoItems = listadoItems;
 	}
-    
+    public void resetearInventario() {
+    	this.diccionarioItems= new HashMap<>();// metodo para rsetear el dicionario.
+    }
     	
     
    

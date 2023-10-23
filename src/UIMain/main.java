@@ -432,8 +432,23 @@ public class main {
 							else {
 								new Item(var4, var41, var42, var43, Inventario.obtenerInventarios().get(opcion3-1));// Aca estoy ************************************
 							}
+							break;
 							
 						}
+					case 5:
+						System.out.print("------¿Desea renovar inventario?------");
+						System.out.print("S/N");
+						Scanner inputk40=new Scanner(System.in);
+						String vark40;
+						vark40=inputk40.nextLine();
+						if (vark40=="S") {
+							Inventario.obtenerInventarios().get(opcion3-1).resetearInventario();
+							Restaurante.getSedes().get(opcion3-1).getInventario();
+						}
+						else {}
+						
+						
+						
 						
 						
 						
