@@ -495,15 +495,14 @@ public class AtencionCliente {
 						System.out.println("Por favor ingrese el numero de la solicitud que desea revisar");
 						
 						Scanner num = new Scanner(System.in);
-						boolean a;
 						int n;
 						n = num.nextInt();
 						
-						a = Devolucion.buscarD(ListaDevoluciones2,n);
-						System.out.println("¿Desea aprobadar o denegar la solicitud?");
+						System.out.println("¿Desea aprobar o denegar la solicitud?");
 						
 						System.out.println("1. Aprobar");
 						System.out.println("2. Denegar");
+						
 						
 						int m;
 						Scanner mun = new Scanner(System.in);
@@ -513,11 +512,36 @@ public class AtencionCliente {
 						if (m == 2)  {
 							
 							System.out.println("Para poder denegar la solicitud por favor indique la razon: ");
+							Scanner text = new Scanner(System.in);
+							String t;
+							t = text.nextLine();
+							
+							Devolucion delv;
+							delv = Devolucion.buscarD2(ListaDevoluciones2, n);
+							
+							delv.setT(t);
+							delv.setEstado("Denegado");
+							
+							System.out.println("Todo listo, la solicitud fue denegada con exito\n");
+							System.out.println(delv);
+							System.out.println("\nSaliendo");
+							break;
 							
 						}
 						
 						//Aprobar
-						if (m == 1) {}
+						if (m == 1) {
+							
+							Devolucion delv;
+							delv = Devolucion.buscarD2(ListaDevoluciones2, n);
+							
+							delv.setEstado("Aprobado");
+							System.out.println("Todo listo, la solicitud fue aprobada con exito\n");
+							System.out.println(delv);
+							System.out.println("\nSaliendo");
+							break;
+							
+						}
 						
 						
 						
