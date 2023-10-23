@@ -245,7 +245,17 @@ public class main {
 								.mostrarInventario(Restaurante.getSedes().get(opcion3 - 1));
 						break;
 					case 2:
-						System.out.print("");
+						
+						System.out.print("¿Cual articulo desea mirar?");
+						Scanner inputlk= new Scanner(System.in);
+						String art;
+						art= inputlk.nextLine();
+						
+						if (Item.buscarItem(art)!=null) {
+							Item.buscarItem(art).getPrecio();
+						}
+							
+						
 					case 3:
 						System.out.println("Los articulos sin stock son:");
 						System.out.println(Inventario.obtenerInventarios().get(opcion3 - 1).obtenerItemsSinStock());
