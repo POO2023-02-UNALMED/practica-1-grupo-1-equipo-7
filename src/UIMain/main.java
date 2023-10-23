@@ -3,22 +3,18 @@ package UIMain;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import funcionalidades.*;
-import gestorAplicación.Caja;
-import gestorAplicación.Inventario;
-import gestorAplicación.Item;
-import gestorAplicación.Plato;
-import gestorAplicación.Sedes;
 import gestorAplicación.*;
 
 
 
 public class main {
 	
-	static ArrayList<Sedes> sedes = new ArrayList<Sedes>();
+	static ArrayList<Restaurante> restaurantes = new ArrayList<Restaurante>();
 	
 	static {// las sedes que tenemos si algo sugerencias o las cambias, no problema :)
 		
@@ -26,10 +22,14 @@ public class main {
 	Inventario inventario2 = new Inventario();
 	Inventario inventario3 = new Inventario();
 	Inventario inventario4 = new Inventario();
-	sedes.add(new Sedes ("La America", "Carrera 80 #45-B", 300, inventario1, new Caja( 10000000, 21345 )) );
-	sedes.add(new Sedes ("Envigado", " Carrera 43 N° 38 sur 35", 350, inventario2, new Caja( 10000000, 21346 )) );
-	sedes.add(new Sedes ("Sandiego", " Carrera 33#27-105", 380, inventario3, new Caja( 10000000, 21347 )) );
-	sedes.add(new Sedes ("Belen", " Carrera 42#33-A", 380, inventario4, new Caja( 10000000, 21347 )));
+	
+	
+    restaurantes.add(new Restaurante("La Casa de Toño", "Sede: Envigado", "Calle 1", inventario1, new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>()));
+    restaurantes.add(new Restaurante("La Casa de Toño", "Sede: Sandiego", "Calle 2", inventario2, new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>()));
+    restaurantes.add(new Restaurante("La Casa de Toño", "Sede: belen", "Calle 3", inventario3, new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>()));
+    restaurantes.add(new Restaurante("La Casa de Toño", "Sede: la america", "Calle 4", inventario4, new Caja(), 1234567, new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>()));
+    
+	
 	}
 	
 	static{// por ahora lo trabajaré así, es posible que use un enumerado, si tienen alguna recomendación lo agradecería :)
@@ -122,10 +122,10 @@ public class main {
 				case 1:
 					break;
 				case 2:
-					System.out.println("1.envigado");
-					System.out.println("2.sandiego");	
-					System.out.println("3.belen");
-					System.out.print("4.la america");
+					System.out.println("1. Envigado");
+					System.out.println("2. Sandiego");	
+					System.out.println("3. Belen");
+					System.out.print("4. La America");
 					Scanner inputc= new Scanner(System.in);
 					int opcion3;
 					opcion3=inputc.nextInt();
@@ -133,35 +133,35 @@ public class main {
 					
 					// logica para  mostrar los items eliminados y eliminarlos, en caso que no, no se elimina nada
 					if (opcion3==1) {
-						if (Sedes.getLista().get(0).getInventario().mostrarItemsVencidos()==null) {
+						if (Restaurante.restaurantes.get(0).getInventario().mostrarItemsVencidos()==null) {
 							System.out.print("no hay items vencidos");						}
 						else {
-						System.out.print(Sedes.getLista().get(0).getInventario().mostrarItemsVencidos());
-						Sedes.getLista().get(0).getInventario().eliminarVencidos();
+						System.out.print(Restaurante.getSedes().get(0).getInventario().mostrarItemsVencidos());
+						Restaurante.restaurantes.get(0).getInventario().eliminarVencidos();
 						
 						System.out.print("Inventario vencido, eliminado");}
 						
 					}
 					if (opcion3==2) {
-						if (Sedes.getLista().get(1).getInventario().mostrarItemsVencidos()==null) {
+						if (Restaurante.restaurantes.get(1).getInventario().mostrarItemsVencidos()==null) {
 							System.out.print("no hay items vencidos");						}
 						else {
-						System.out.print(Sedes.getLista().get(1).getInventario().mostrarItemsVencidos());
+						System.out.print(Restaurante.restaurantes.get(1).getInventario().mostrarItemsVencidos());
 						System.out.print("Inventario vencido eliminado");}
 					}
 					if(opcion3==3) {
-						if (Sedes.getLista().get(2).getInventario().mostrarItemsVencidos()==null) {
+						if (Restaurante.restaurantes.get(2).getInventario().mostrarItemsVencidos()==null) {
 							System.out.print("no hay items vencidos");						}
 						else {
-						System.out.print(Sedes.getLista().get(2).getInventario().mostrarItemsVencidos());
+						System.out.print(Restaurante..get(2).getInventario().mostrarItemsVencidos());
 						System.out.print("Inventario vencido eliminado");}
 					}
 					if(opcion3==4) {
 						
-						if (Sedes.getLista().get(3).getInventario().mostrarItemsVencidos()==null) {
+						if (Restaurante.restaurantes.get(3).getInventario().mostrarItemsVencidos()==null) {
 							System.out.print("no hay items vencidos");						}
 						else {
-						System.out.print(Sedes.getLista().get(3).getInventario().mostrarItemsVencidos());
+						System.out.print(Restaurante.restaurantes.get(3).getInventario().mostrarItemsVencidos());
 						System.out.print("Inventario vencido eliminado");}
 						
 						
@@ -180,7 +180,7 @@ public class main {
 					}
 					if(esc.equals("continuar")) {
 						System.out.print("1.Mostrar inventario");
-						System.out.print("2.Recargar Inventario");
+						System.out.print("2. retirar item inventario");
 						System.out.print("3.Revisar niveles de Stock");
 						System.out.print("4.Registrar articulo en inventario");
 						System.out.print("5.Renovar inventario");
@@ -197,7 +197,7 @@ public class main {
 							Inventario.obtenerInventarios().get(opcion3).mostrarInventario(null);
 							break;
 						case 2:
-							System.out.print("¿Qué producto desea recargar?");
+							System.out.print("¿");
 						case 3:
 							System.out.print("Los articulos sin stock son:");
 							System.out.print(Inventario.obtenerInventarios().get(opcion3).obtenerItemsSinStock());
@@ -208,7 +208,7 @@ public class main {
 								if(g.getDisponibilidad()==false) {
 									System.out.print(g);
 									
-							}
+							}}
 							
 							
 							
@@ -222,11 +222,90 @@ public class main {
 								break;
 							}
 							if(variable==1) {
+								System.out.print("Cuantos items desea recargar");
 								System.out.print("¿Cual(es) items desea recargar?");// se vienen cositas :)
 								System.out.print("¿Cuanta cantidad?");
 								
+								Scanner inpuj3= new Scanner( System.in);
+								int var0;
+								var0=inpuj3.nextInt();
+								List<Item> listadoItems= new ArrayList<>();
+								List<Integer>ListadoNumeros= new ArrayList<>();
 								
-							}}
+								
+								
+								int var;
+								String var2;// revisar si va acá o dentro del bucle 
+								for(int e=0;e<=var0;e++) {
+								Scanner inputj= new Scanner(System.in);
+								Scanner inpuj2= new Scanner(System.in);
+								var=inputj.nextInt();
+								var2=inpuj2.nextLine();
+								
+								for (Item c :Inventario.obtenerInventarios().get(opcion3).getDiccionarioItems().keySet()) {
+									if (c.getNombre().equals(var2)){
+										listadoItems.add(c);
+										ListadoNumeros.add(var);
+										
+										
+										
+									}
+									else {
+										System.out.print(" No es un item válido");
+									}
+									}
+									}
+								
+								for(int i: ListadoNumeros) {
+									int e;
+									int precioTotal;
+									
+									e++;
+									precioTotal+=ListadoNumeros.get(e)*listadoItems.get(e).getPrecio();
+									System.out.print(listadoItems.get(e).getNombre()+ "cuesta:"+ (ListadoNumeros.get(e)*listadoItems.get(e).getPrecio()));
+									System.out.print("valor total ="+ precioTotal);
+									
+								}
+								Scanner inputcomp= new Scanner(System.in);
+								int num;
+								num=inputcomp.nextInt(num);
+								System.out.print("1.Confirmar compra");
+								System.out.print("2.Salir");
+								if (num==1) {
+									int e;
+									for( int i : ListadoNumeros) {
+										System.out.print(Caja.getListadoCajas().get(opcion3).Compra(listadoItems.get(e), listadoItems.get(e).getPrecio(), i, restaurantes.get(opcion3)));
+										e++;
+										
+										
+								
+									
+									
+									
+								}
+									if(num==2) {
+										return ;
+									}
+									
+								
+								
+								
+								
+							
+								
+								
+								
+								
+								
+							}
+							
+								
+								
+							}
+								
+				
+							
+							
 							
 						
 							
@@ -251,9 +330,9 @@ public class main {
 				break;
 			case 4:
 				System.out.println("Atención al cliente\n¿Que desea realizar?");
-				System.out.println("1. Sugerencias");
-				System.out.println("2. Qujeas");
-				System.out.println("3. Reseñas");
+				System.out.println("1. Sugerencia");
+				System.out.println("2. Qujea");
+				System.out.println("3. Reseña");
 				System.out.println("4. Solicitar Devolucion");
 				System.out.println("5. Salir");
 				
@@ -512,7 +591,7 @@ public class main {
 					
 					if (opcionEQ == 2) {new Queja(NombreQ, typeQ, OtroQ, TextoQ);}
 					
-					System.out.println("Su sugerencia se ha enviado con exito");
+					System.out.println("Su queja se ha enviado con exito");
 					System.out.println("1. Salir");
 					
 					Scanner inputSalirQ = new Scanner(System.in);
@@ -533,7 +612,109 @@ public class main {
 					Scanner inputR=new Scanner(System.in);
 					int opcionR;
 					opcionR=inputR.nextInt();
+					
+					switch(opcionR) {
+					
+					case 1:
+						
+						
+					case 2:
+						
+						System.out.println("¿Desea que su reseña sea anonima?");
+						System.out.println("1. Si");
+						System.out.println("2. No");
+						
+						String NombreR=null;
+						int nombreR;
+						Scanner inputNombreR = new Scanner(System.in);
+						nombreR = inputNombreR.nextInt();
+						
+						if (nombreR == 1) {
+							NombreR = "Anonimo";
+							
+						}
+						
+						if(nombreR == 2) {
+							System.out.println("Por favor, a continuacion ingrese su nombre:");
+							String newNombre=null;
+							Scanner inputNNombre = new Scanner(System.in);
+							newNombre = inputNNombre.next();
+							
+							NombreR = newNombre;
+							
+						}
+						
+						System.out.println("Por favor, escriba su reseña");
+						
+						String reseñaN= null;
+						Scanner inputrsñ = new Scanner(System.in);
+						reseñaN=inputrsñ.next();
+						
+						
+						System.out.println("Por favor, indique del 1-5 que calificación le daria a su experiencia en el restaurante, donde 1 es mul mal y 5 muy bien");
+						
+						int cant;
+						Scanner inputcant = new Scanner(System.in);
+						cant = inputcant.nextInt();	
+						
+						System.out.println("Todo listo");
+						
+						System.out.println("1. Editar Reseña");
+						System.out.println("2. Enviar Reseña");
+						
+						Scanner inputOEditarR=new Scanner(System.in);
+						int opcionER;
+						opcionER=inputOEditarR.nextInt();
+						
+						if (opcionER == 1) {
+							
+							System.out.println("Ahora puede editar su Reseña");
+							Scanner inputEditarR=new Scanner(System.in);
+							String EditarR;
+							EditarR=inputEditarR.next();
+							
+							reseñaN = EditarR;
+							
+							System.out.println("¿Tambien quiere editar su calificación?");
+							System.out.println("1. Si");
+							System.out.println("2. No");
+							
+							int ec;
+							Scanner inputec=new Scanner(System.in);
+							ec = inputec.nextInt();
+							
+							if (ec == 1) {
+								int cant2;
+								Scanner inputcant2=new Scanner(System.in);
+								cant2 = inputcant2.nextInt();
+								
+								cant = cant2;
+							}
+						}
+						
+						if (opcionER == 2) {new Reseña(NombreR, reseñaN, cant);}
+						
+						System.out.println("Su reseña se ha enviado con exito");
+						System.out.println("1. Salir");
+						System.out.println("2. Ver repositorio de reseñas");
+						
+						int finR;
+						Scanner inputfinR = new Scanner(System.in);
+						finR = inputfinR.nextInt();
+						
+						if (finR ==1) {break;}
+						
+						if (finR ==2) {
+						
+						}
+						
+						
+					case 3: break;
+					
+					}
 					break;
+					
+					
 					
 					
 				

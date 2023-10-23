@@ -80,7 +80,7 @@ public class Inventario  {
     
     
     	
-    // retirar items del inventario 
+    // retirar items del inventario creo que voy a cambiar esto
     public void retirarItems(Item item, int cantidad) {
         if (diccionarioItems.containsKey(item)) {
             int cantidadActual = diccionarioItems.get(item);
@@ -183,12 +183,53 @@ public class Inventario  {
     public static  List<Inventario> obtenerInventarios(){
     	return inventarios;
     }
+
+
+
+
+
+
+
+	public Map<Item, Integer> getDiccionarioItems() {
+		return diccionarioItems;
+	}
+
+
+
+
+
+
+
+	public void setDiccionarioItems(Map<Item, Integer> diccionarioItems) {
+		this.diccionarioItems = diccionarioItems;
+	}
+
+
+
+
+
+
+
+	public List<Item> getListadoItems() {
+		return listadoItems;
+	}
+
+
+
+
+
+
+
+	public void setListadoItems(List<Item> listadoItems) {
+		this.listadoItems = listadoItems;
+	}
+    
     	
     
    
     }
     
-    
+    // al final lo que no me sirva lo borro :)
     
     	
     	

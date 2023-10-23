@@ -80,8 +80,8 @@ public class Caja  {
 
 
     
-    public void Compra(Item objeto, int precio, int cantidad, Sedes sedeAsociada) {
-        int costoTotal = precio * cantidad;
+    public String  Compra(Item objeto, double precio, int cantidad, Restaurante restauranteAsociado) {
+        double costoTotal = precio * cantidad;
 
         // Verificar si hay suficiente dinero en la caja para realizar la compra
         if (dineroCaja >= costoTotal) {
@@ -92,9 +92,10 @@ public class Caja  {
             totalEgresos += costoTotal;
 
             // Actualizar el inventario de la sede asociada
-            sedeAsociada.getInventario().añadirItems(objeto, cantidad);
+            restauranteAsociado.getInventario().añadirItems(objeto, cantidad);
+            return("Compra exitosa");
         } else {
-            System.out.println("No hay suficiente dinero en la caja para realizar la compra.");
+            return "No hay suficiente dinero en la caja para realizar la compra. Debe ingresar dinero en caja  para hacer posible la compra";
         }
     }
     public void agregarDineroCaja(int monto) {
