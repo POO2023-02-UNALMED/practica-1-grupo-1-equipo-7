@@ -166,6 +166,9 @@ public class Reserva {
 		//sedesEncontradas = Restaurante.sedesDisponibles(miHorario, miMesa);
 		//System.out.println(sedesEncontradas[0]);
 		
+		
+		//Sede Disponible
+		
 		ArrayList<Restaurante> sedesEncontradas = Restaurante.sedesDisponibles(miHorario, miMesa);
 		
 		if(sedesEncontradas.size() == 0) {
@@ -176,8 +179,16 @@ public class Reserva {
 			{
 			    System.out.println(restaurante.getUbicacion());
 			}
+			
 			System.out.println("Ingrese la opción de la sede [1." + sedesEncontradas.size() + "]:");
-			int opcion2 = input1.nextInt();
+			int opSede = input1.nextInt();
+			
+			if(opSede <= 0 || opSede > sedesEncontradas.size()) {
+				System.out.println("Opción de Sede incorrecta");
+			}
+			
+			//Tipo de mesa
+			
 			}
 
 	}
