@@ -61,7 +61,7 @@ public class Reserva {
 		this.cliente = cliente;
 	}
 
-	public static void reservaciones() {
+	public static void reservaciones(Cliente nuevoCliente) {
 
 		while (true) {
 
@@ -77,7 +77,7 @@ public class Reserva {
 
 			case 1:
 
-				generarReserva();
+				generarReserva(nuevoCliente);
 				break;
 
 			default:
@@ -89,7 +89,7 @@ public class Reserva {
 		}
 	}
 
-	public static void generarReserva() {
+	public static void generarReserva(Cliente nuevoCliente) {
 		String miHorario = null;
 		String miMesa = null;
 		while (miHorario == null) {
@@ -131,7 +131,7 @@ public class Reserva {
 		}
 		while (miMesa == null) {
 
-			System.out.println("¿Para cuántas personas son la reserva? ");
+			System.out.println("¿Qué tipo de mesa desea para su reservación? ");
 			System.out.println("1. Dos personas");
 			System.out.println("2. Tres Personas");
 			System.out.println("3. Cuatro o más personas");
@@ -177,7 +177,7 @@ public class Reserva {
 				System.out.println(restaurante.getUbicacion());
 			}
 
-			System.out.println("Ingrese la opción de la sede [1." + sedesEncontradas.size() + "]:");
+			System.out.println("Ingrese la opción de la sede [1-" + sedesEncontradas.size() + "]:");
 			int opSede = input1.nextInt();
 
 			if (opSede <= 0 || opSede > sedesEncontradas.size()) {
@@ -186,22 +186,10 @@ public class Reserva {
 				Restaurante sedeElegida = sedesEncontradas.get(opSede - 1);
 				System.out.println("Sede seleccionada: " + sedeElegida.getUbicacion());
 
-				// Tipo de mesa
-
-				System.out.println("Estos son los tipos de mesa Disponibles en la Sede elegida");
-				ArrayList<String>tipoMesas = new ArrayList<String>();
-				if(sedeElegida.hayMesasDos()) 
-					tipoMesas.add("Mesa para Dos");
+				System.out.println("");
 				
-				if(sedeElegida.hayMesasTres()) 
-					tipoMesas.add("Mesa para Tres");
-				
-				if(sedeElegida.hayMesasFamiliar()) 
-					tipoMesas.add("Mesa Familiar");
-				for()
-			
-			
-			
+				if(nuevoCliente.getId() == 0) {Cliente.registrarCliente();}
+				else {}
 			
 			}
 

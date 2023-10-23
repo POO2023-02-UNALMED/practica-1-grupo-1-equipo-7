@@ -261,23 +261,5 @@ public class Restaurante {
 
 	}
 
-	ArrayList<Mesa> mesasNoAsignadas() {
-		ArrayList<Mesa> libres = new ArrayList<Mesa>();
-		for (Mesa mesa : this.mesas) {
-			if (Mesa.getCliente() == null)
-				libres.add(mesa);
-		}
-		return libres;
-	}
-	
-	boolean hayMesasDos() {
-		ArrayList<Mesa> mesasDesocupadas = mesasNoAsignadas();
-		for(Mesa mesa: mesasDesocupadas) {
-	//		if(mesa instanceof MesaDos) {
-				return true;
-			}
-	//	}
-		return false;
-	}
 
 }

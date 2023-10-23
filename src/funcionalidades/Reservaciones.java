@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import gestorAplicación.Caja;
+import gestorAplicación.Cliente;
 import gestorAplicación.Inventario;
 import gestorAplicación.Mesa;
 import gestorAplicación.Reserva;
@@ -39,6 +40,7 @@ public class Reservaciones {
 		new Mesa("Mesa siete", "Tres personas", "Sede: Las Americas");
 		new Mesa("Mesa siete", "Cuatro o más personas", "Sede: Sandiego");
 		new Mesa("Mesa tres", "Dos personas", "Sede: Envigado");
+		Cliente nuevoCliente = new Cliente(null, 0);
 
 		System.out.println("1. Reservaciones\n2. Salir");
 		Scanner input1 = new Scanner(System.in);
@@ -50,7 +52,9 @@ public class Reservaciones {
 
 		case 1:
 
-			Reserva.reservaciones();
+			Reserva.reservaciones(nuevoCliente);
+			Cliente micliente = new Cliente("Null", 0);
+			Reserva.reservaciones(micliente);
 
 		case 2:
 

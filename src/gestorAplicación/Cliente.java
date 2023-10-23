@@ -1,8 +1,10 @@
 package gestorAplicación;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Cliente extends Persona {
 	private String direccion;
@@ -189,5 +191,18 @@ public class Cliente extends Persona {
 		}
 		return platosRecomendados;
 
+	}
+	
+	public static Cliente registrarCliente() {
+		
+		Scanner input = new Scanner(System.in);
+		
+	    System.out.println("¿Cuál es su nombre?");
+	    String nombre = input.nextLine();
+	    
+	    System.out.println("¿Cuál es su ID?");
+	    int id = input.nextInt();
+	    return new Cliente(nombre, id);
+		
 	}
 }
