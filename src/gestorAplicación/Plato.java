@@ -10,6 +10,7 @@ import java.util.HashMap;
 public class Plato {
 	private String nombre;
 	private  final List<Item> ingredientes;
+	public static List<Plato> pl = new ArrayList<>();
 	private int precio;
 	private boolean disponibilidad=true;// esto es importante para mi funcionalidad :)
 	private static ArrayList<Plato> listadoplatos = new ArrayList<>();
@@ -23,7 +24,11 @@ public class Plato {
 		this.ingredientes=ingredientes;
 		platos.put(this, ingredientes);
 		this.precio=precio;
+
 		listadoplatos.add(this);
+
+		Plato.pl.add(this);
+
 		
 		
 	}
@@ -144,7 +149,18 @@ public String getNombre() {
         }
         return null;
     }
-
+    
+    public static boolean existePlato(String nombre) {
+    	boolean a = false;
+    	for(Plato plato: pl) {
+    		if(plato.getNombre()== nombre) {
+    			a = true;
+    			break;
+    		} break;
+    	}
+    	return a;
+    }
+    
     public static String getNombrePlato(Plato plato){
         return plato.getNombre();
     }
