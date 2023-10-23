@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class Restaurante implements Serializable{
 
-	private String nombre;
+	private final String nombre=" La Casa de Toño";
 	static HashMap<Integer, Float> incentivos = new HashMap<Integer, Float>() {
 		{
 			put(10, 0.05f);
@@ -36,9 +36,9 @@ public class Restaurante implements Serializable{
 
 	
 
-	public Restaurante(String nombre, String ubicacion, String direccion, Inventario inventario, Caja caja,
+	public Restaurante( String ubicacion, String direccion, Inventario inventario, Caja caja,
 			int telefono, Date horario, ArrayList<Plato> menu, ArrayList<Mesa> mesas) {
-		this.nombre = nombre;
+		
 		this.ubicacion = ubicacion;
 		this.direccion = direccion;
 		this.telefono = telefono;
@@ -123,9 +123,7 @@ public class Restaurante implements Serializable{
 		this.disponibilidad = disponibilidad;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+	
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;

@@ -27,13 +27,13 @@ public class main {
 		Inventario inventario3 = new Inventario();
 		Inventario inventario4 = new Inventario();
 
-		restaurantes.add(new Restaurante("La Casa de Toño", "Sede: Envigado", "Calle 1", inventario1,
+		restaurantes.add(new Restaurante( "Sede: Envigado", "Calle 1", inventario1,
 				new Caja(1000000, 1234), 1234567, new Date(), Plato.getListadoplatos(), new ArrayList<Mesa>()));
-		restaurantes.add(new Restaurante("La Casa de Toño", "Sede: Sandiego", "Calle 2", inventario2,
+		restaurantes.add(new Restaurante( "Sede: Sandiego", "Calle 2", inventario2,
 				new Caja(10000000, 1235), 1234567, new Date(), Plato.getListadoplatos(), new ArrayList<Mesa>()));
-		restaurantes.add(new Restaurante("La Casa de Toño", "Sede: Belen", "Calle 3", inventario3,
+		restaurantes.add(new Restaurante( "Sede: Belen", "Calle 3", inventario3,
 				new Caja(10000000, 1236), 1234567, new Date(), Plato.getListadoplatos(), new ArrayList<Mesa>()));
-		restaurantes.add(new Restaurante("La Casa de Toño", "Sede: La America", "Calle 4", inventario4, new Caja(),
+		restaurantes.add(new Restaurante( "Sede: La America", "Calle 4", inventario4, new Caja(),
 				1234567, new Date(), Plato.getListadoplatos(), new ArrayList<Mesa>()));
 
 		new Mesa("Mesa uno", "Dos personas", "Sede: Las Americas");
