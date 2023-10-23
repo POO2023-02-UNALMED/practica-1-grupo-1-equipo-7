@@ -122,10 +122,10 @@ public class main {
 				case 1:
 					break;
 				case 2:
-					System.out.println("1.envigado");
-					System.out.println("2.sandiego");	
-					System.out.println("3.belen");
-					System.out.print("4.la america");
+					System.out.println("1. Envigado");
+					System.out.println("2. Sandiego");	
+					System.out.println("3. Belen");
+					System.out.print("4. La America");
 					Scanner inputc= new Scanner(System.in);
 					int opcion3;
 					opcion3=inputc.nextInt();
@@ -330,9 +330,9 @@ public class main {
 				break;
 			case 4:
 				System.out.println("Atención al cliente\n¿Que desea realizar?");
-				System.out.println("1. Sugerencias");
-				System.out.println("2. Qujeas");
-				System.out.println("3. Reseñas");
+				System.out.println("1. Sugerencia");
+				System.out.println("2. Qujea");
+				System.out.println("3. Reseña");
 				System.out.println("4. Solicitar Devolucion");
 				System.out.println("5. Salir");
 				
@@ -591,7 +591,7 @@ public class main {
 					
 					if (opcionEQ == 2) {new Queja(NombreQ, typeQ, OtroQ, TextoQ);}
 					
-					System.out.println("Su sugerencia se ha enviado con exito");
+					System.out.println("Su queja se ha enviado con exito");
 					System.out.println("1. Salir");
 					
 					Scanner inputSalirQ = new Scanner(System.in);
@@ -612,7 +612,109 @@ public class main {
 					Scanner inputR=new Scanner(System.in);
 					int opcionR;
 					opcionR=inputR.nextInt();
+					
+					switch(opcionR) {
+					
+					case 1:
+						
+						
+					case 2:
+						
+						System.out.println("¿Desea que su reseña sea anonima?");
+						System.out.println("1. Si");
+						System.out.println("2. No");
+						
+						String NombreR=null;
+						int nombreR;
+						Scanner inputNombreR = new Scanner(System.in);
+						nombreR = inputNombreR.nextInt();
+						
+						if (nombreR == 1) {
+							NombreR = "Anonimo";
+							
+						}
+						
+						if(nombreR == 2) {
+							System.out.println("Por favor, a continuacion ingrese su nombre:");
+							String newNombre=null;
+							Scanner inputNNombre = new Scanner(System.in);
+							newNombre = inputNNombre.next();
+							
+							NombreR = newNombre;
+							
+						}
+						
+						System.out.println("Por favor, escriba su reseña");
+						
+						String reseñaN= null;
+						Scanner inputrsñ = new Scanner(System.in);
+						reseñaN=inputrsñ.next();
+						
+						
+						System.out.println("Por favor, indique del 1-5 que calificación le daria a su experiencia en el restaurante, donde 1 es mul mal y 5 muy bien");
+						
+						int cant;
+						Scanner inputcant = new Scanner(System.in);
+						cant = inputcant.nextInt();	
+						
+						System.out.println("Todo listo");
+						
+						System.out.println("1. Editar Reseña");
+						System.out.println("2. Enviar Reseña");
+						
+						Scanner inputOEditarR=new Scanner(System.in);
+						int opcionER;
+						opcionER=inputOEditarR.nextInt();
+						
+						if (opcionER == 1) {
+							
+							System.out.println("Ahora puede editar su Reseña");
+							Scanner inputEditarR=new Scanner(System.in);
+							String EditarR;
+							EditarR=inputEditarR.next();
+							
+							reseñaN = EditarR;
+							
+							System.out.println("¿Tambien quiere editar su calificación?");
+							System.out.println("1. Si");
+							System.out.println("2. No");
+							
+							int ec;
+							Scanner inputec=new Scanner(System.in);
+							ec = inputec.nextInt();
+							
+							if (ec == 1) {
+								int cant2;
+								Scanner inputcant2=new Scanner(System.in);
+								cant2 = inputcant2.nextInt();
+								
+								cant = cant2;
+							}
+						}
+						
+						if (opcionER == 2) {new Reseña(NombreR, reseñaN, cant);}
+						
+						System.out.println("Su reseña se ha enviado con exito");
+						System.out.println("1. Salir");
+						System.out.println("2. Ver repositorio de reseñas");
+						
+						int finR;
+						Scanner inputfinR = new Scanner(System.in);
+						finR = inputfinR.nextInt();
+						
+						if (finR ==1) {break;}
+						
+						if (finR ==2) {
+						
+						}
+						
+						
+					case 3: break;
+					
+					}
 					break;
+					
+					
 					
 					
 				
