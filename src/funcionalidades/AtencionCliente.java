@@ -5,7 +5,10 @@ import java.util.Scanner;
 import gestorAplicación.*;
 
 public class AtencionCliente {
-	public static void main(String[] arg) {
+	public static void main(String[] arg){
+		
+		System.out.println("------------Atencion al cliente------------");
+		System.out.println("Bienvenid@ al sistema de atención al cliente, ¿Qué desea realizar?");
 		
 		System.out.println("1. Sugerencia");
 		System.out.println("2. Qujea");
@@ -20,7 +23,8 @@ public class AtencionCliente {
 		switch(opcion4) {
 		
 		case 1:
-			System.out.println("Ha seleccionado la opcion 1, Sugerencias, ¿Sobre que desea realizar su sugerecia?");
+			System.out.println("------------Sugerencias------------");
+			System.out.println("Ha seleccionado la opcion 1, Sugerencia, ¿Sobre que desea realizar su sugerecia?");
 			
 			System.out.println("1. Sobre el menu");
 			System.out.println("2. Sobre un empleado");
@@ -93,7 +97,8 @@ public class AtencionCliente {
 			
 			
 		case 2:
-			System.out.println("Ha seleccionado la opcion 2, Quejas.\nPor favor, a continuacion ingrese su nombre completo:");
+			System.out.println("------------Quejas------------");
+			System.out.println("Ha seleccionado la opcion 2, Quejas\nPor favor, a continuacion ingrese su nombre completo:");
 			
 			Scanner inputNombreQ=new Scanner(System.in);
 			String NombreQ;
@@ -280,6 +285,7 @@ public class AtencionCliente {
 			
 		
 		case 3:
+			System.out.println("------------Reseñas------------");
 			System.out.println("Ha seleccionado la opcion 3, Reseña.\n¿Que desea realizar?");
 			
 			System.out.println("1. Ver repositorio de reseñas");
