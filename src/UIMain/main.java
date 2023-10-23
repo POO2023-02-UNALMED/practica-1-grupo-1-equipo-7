@@ -74,7 +74,7 @@ public class main {
 		new Item("Té de Manzanilla", 100, 0.80, "01/01/2020", Inventario.obtenerInventarios().get(3));
 		new Item("Refresco de Naranja", 100, 1.00, "01/01/2020", Inventario.obtenerInventarios().get(2));
 		new Item("Helado de Fresa", 100, 1.20, "01/01/2020", Inventario.obtenerInventarios().get(1));
-		new Item("aqrequipe", 100, 1.50, "01/01/2020", Inventario.obtenerInventarios().get(0));
+		new Item("aqrequipe", 100, 1.50, "01/01/2024", Inventario.obtenerInventarios().get(0));
 
 		/*
 		 * new Item("Masa", 100, 0.50,"01/01/2020");// los relleno ahora sino que voy a
@@ -288,7 +288,8 @@ public class main {
 						
 					case 3:
 						System.out.println("Los articulos sin stock son:");
-						System.out.println(Inventario.obtenerInventarios().get(opcion3 - 1).obtenerItemsSinStock());
+						for(String i:Inventario.obtenerInventarios().get(opcion3 - 1).obtenerItemsSinStock()) {
+						System.out.println(i);};
 						System.out.println("Los siguientes platos se encuentran agotados: ");// le metí muy sabroso :#
 
 						
@@ -318,7 +319,7 @@ public class main {
 							}
 
 							if (variable == 1) {
-								System.out.println("Cuantos items desea recargar");
+								System.out.println("¿Cuantos items desea recargar?");
 								System.out.println("¿Cual(es) items desea recargar?");// se vienen cositas :)
 								System.out.println("¿Cuanta cantidad?");
 
@@ -505,6 +506,7 @@ public class main {
 						
 						
 					case 7:
+						System.exit(0);
 						break;
 								
 						
