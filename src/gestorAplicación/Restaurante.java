@@ -277,5 +277,10 @@ public class Restaurante {
 
 	}
 
+	public Inventario getInventario() {
+		return this.inventario;
+		
+	}
+
 
 }

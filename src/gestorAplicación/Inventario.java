@@ -14,7 +14,7 @@ public class Inventario  {
 	
 	
 	
-	private Map <Item,Integer > diccionarioItems= new HashMap<>();
+	private Map <String ,Integer > diccionarioItems= new HashMap<>();
 	private List<Item>listadoItems=new ArrayList<>();
 	private static  int cantidadTotal;
 	private static List<Inventario> inventarios=new ArrayList<>();
@@ -28,7 +28,7 @@ public class Inventario  {
        
      // Añadir diccionario, con su valor y clave si la clave se repite, el valor aumenta en uno
         
-        //int valorActual = diccionarioItems.get(item);
+      //int valorActual = diccionarioItems.get(item);
        // if (!diccionarioItems.containsKey(item)) {
           //  diccionarioItems.put(item, 0);
        // } else {
@@ -62,7 +62,7 @@ public class Inventario  {
    
     
     // metodo para agregar items al invetario.
-    public void añadirItems(Item item, int cantidad) {
+    public void añadirItems(String  item, int cantidad) {
         if (!diccionarioItems.containsKey(item)) {
             // Si el item no existe en el diccionario, simplemente establece la cantidad especificada.
             diccionarioItems.put(item, cantidad);
@@ -81,7 +81,7 @@ public class Inventario  {
     
     	
     // retirar items del inventario creo que voy a cambiar esto
-    public void retirarItems(Item item, int cantidad) {
+    public void retirarItems(String item, int cantidad) {
         if (diccionarioItems.containsKey(item)) {
             int cantidadActual = diccionarioItems.get(item);
             if (cantidadActual >= cantidad) {
@@ -90,16 +90,16 @@ public class Inventario  {
                 
             } else {
                 // Manejar el caso en el que intentas retirar más de lo que hay disponible.
-                System.out.println("No hay suficientes " + item.getNombre() + " en el inventario.");
+                System.out.println("No hay suficientes " + item + " en el inventario.");
             }
         }
     }
     // mostrar inventario 
-    public void mostrarInventario(Sedes sede) {
-    	System.out.print("inventario de "+ sede.getDireccion());
+    public void mostrarInventario(Restaurante restaurante) {
+    	System.out.print("inventario de "+ restaurante.getDireccion());
     	
-         for (Map.Entry<Item, Integer> entry : sede.getInventario().diccionarioItems.entrySet()) {
-             String  clave = entry.getKey().getNombre();
+         for (Map.Entry<String, Integer> entry : restaurante.getInventario().diccionarioItems.entrySet()) {
+             String  clave = entry.getKey();
              Integer valor = entry.getValue();
              System.out.println(clave + ": " + valor);
          }
@@ -148,7 +148,7 @@ public class Inventario  {
 
     	// Luego, puedes llamar a tu método retirarItems para actualizar las cantidades
     	for (Item i : elementosVencidos) {
-    	    this.retirarItems(i, i.getCantidad());
+    	    this.retirarItems(i.getNombre(), i.getCantidad());
     	}
     	
 
@@ -162,24 +162,29 @@ public class Inventario  {
     // metodo que verifica si hay suficiente stock
     public boolean haySuficienteStock(Item item, int cantidadDeseada) {
         if (diccionarioItems.containsKey(item)) {
-            int cantidadDisponible = diccionarioItems.get(item);
-            return cantidadDisponible >= cantidadDeseada;
-        } else {
-            return false; // El artículo no está en el inventario, por lo que no hay suficiente stock.
-        }
+        	if (diccionarioItems.get(item)>cantidadDeseada) {
+        		return true;
+            
+            }
+        } 
+        return false;
     }
     
     
     // obtener items sin stock 
-    public List<Item> obtenerItemsSinStock() {
-        List<Item> itemsSinStock = new ArrayList<>();
-        for (Map.Entry<Item, Integer> entry : diccionarioItems.entrySet()) {
-            if (entry.getValue() == 0) {
-                itemsSinStock.add(entry.getKey());
+    public List<String> obtenerItemsSinStock() {
+        List<String> itemsSinStock = new ArrayList<>();
+        
+        for (String i : this.getDiccionarioItems().keySet()) {
+            if (this.diccionarioItems.get(i) == 0) {
+                itemsSinStock.add(i);
             }
         }
         return itemsSinStock;
     }
+    
+    
+    
     public static  List<Inventario> obtenerInventarios(){
     	return inventarios;
     }
@@ -190,7 +195,7 @@ public class Inventario  {
 
 
 
-	public Map<Item, Integer> getDiccionarioItems() {
+	public Map<String, Integer> getDiccionarioItems() {
 		return diccionarioItems;
 	}
 
@@ -200,7 +205,7 @@ public class Inventario  {
 
 
 
-	public void setDiccionarioItems(Map<Item, Integer> diccionarioItems) {
+	public void setDiccionarioItems(Map<String, Integer> diccionarioItems) {
 		this.diccionarioItems = diccionarioItems;
 	}
 
