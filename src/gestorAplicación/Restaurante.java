@@ -8,7 +8,15 @@ import java.util.HashMap;
 public class Restaurante {
 
 	private String nombre;
-	static HashMap<Integer, Float> incentivos=new HashMap<Integer,Float>(){{put(10,0.05f);put(15,0.06f);put(20,0.065f);put(25,0.07f);put(30,0.072f);}};
+	static HashMap<Integer, Float> incentivos = new HashMap<Integer, Float>() {
+		{
+			put(10, 0.05f);
+			put(15, 0.06f);
+			put(20, 0.065f);
+			put(25, 0.07f);
+			put(30, 0.072f);
+		}
+	};
 	private String ubicacion;
 	private String direccion;
 	private int telefono;
@@ -31,8 +39,8 @@ public class Restaurante {
 				new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
 		new Restaurante("La Casa de Toño", "Sede: Sandiego", "Calle 3", new Inventario(), new Caja(), 1234567,
 				new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
-		new Restaurante("La Casa de Toño", "Sede: Belen", "Calle 4", new Inventario(), new Caja(), 1234567,
-				new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
+		new Restaurante("La Casa de Toño", "Sede: Belen", "Calle 4", new Inventario(), new Caja(), 1234567, new Date(),
+				new ArrayList<Plato>(), new ArrayList<Mesa>());
 
 	}
 
@@ -221,7 +229,6 @@ public class Restaurante {
 
 	}
 
-
 	public static ArrayList<Restaurante> horariosDisponibles(String fechaDeseada) {
 
 		ArrayList<Restaurante> restaurantesDisponible = new ArrayList<Restaurante>();
@@ -252,17 +259,14 @@ public class Restaurante {
 		return sedesDisponibles;
 
 	}
-	
-        ArrayList<Mesa> mesasNoAsignadas(){
+
+	ArrayList<Mesa> mesasNoAsignadas() {
 		ArrayList<Mesa> libres = new ArrayList<Mesa>();
-		for(Mesa mesa: this.mesas) {
-			if(Mesa.getCliente() == null)
+		for (Mesa mesa : this.mesas) {
+			if (Mesa.getCliente() == null)
 				libres.add(mesa);
 		}
 		return libres;
 	}
 
 }
-
-    
-	

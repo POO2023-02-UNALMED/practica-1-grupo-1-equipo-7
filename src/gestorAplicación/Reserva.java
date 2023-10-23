@@ -190,13 +190,13 @@ public class Reserva {
 
 				System.out.println("Estos son los tipos de mesa Disponibles en la Sede elegida");
 				ArrayList<String>tipoMesas = new ArrayList<String>();
-				if(sedeElegida.tieneMesasDos()) 
+				if(sedeElegida.hayMesasDos()) 
 					tipoMesas.add("Mesa para Dos");
 				
-				if(sedeElegida.tieneMesasTres()) 
+				if(sedeElegida.hayMesasTres()) 
 					tipoMesas.add("Mesa para Tres");
 				
-				if(sedeElegida.tieneMesasFamiliar()) 
+				if(sedeElegida.hayMesasFamiliar()) 
 					tipoMesas.add("Mesa Familiar");
 				for()
 			

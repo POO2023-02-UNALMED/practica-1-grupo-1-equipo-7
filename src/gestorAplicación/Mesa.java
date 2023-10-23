@@ -7,14 +7,14 @@ import java.util.List;
 
 public class Mesa {
 
-	private int numero;
+	private String numMesa;
 	private static Cliente cliente;
 	private String tipoMesa;
 	private String ubicacion;
 	private static ArrayList<Mesa> listaMesas = new ArrayList<Mesa>();
 	
-	public Mesa(int numero, String tipoMesa, String ubicacion) {
-		this.numero = numero;
+	public Mesa(String numMesa, String tipoMesa, String ubicacion) {
+		this.numMesa = numMesa;
 		this.tipoMesa = tipoMesa;
 		this.ubicacion = ubicacion;
 		listaMesas.add(this);
@@ -50,12 +50,12 @@ public class Mesa {
 		Mesa.cliente = cliente;
 	}
 	
-	public int getNumero() {
-		return numero;
+	public String getNumMesa() {
+		return numMesa;
 	}
 
-	public void setNumero(int numero) {
-		this.numero = numero;
+	public void setNumMesa(String numMesa) {
+		this.numMesa = numMesa;
 	}
 	
 	public static ArrayList<Mesa> mesasDisponibles(String mesaDeseada) {

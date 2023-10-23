@@ -32,13 +32,13 @@ public class Reservaciones {
 
 	public static void main(String[] args) {
 		
-		new Mesa(1, "Dos personas", "Sede: Las Americas");
-		new Mesa(2, "Tres personas", "Sede: Envigado");
-		new Mesa(3, "Cuatro o más personas", "Sede: Belen");
-		new Mesa(5, "Dos personas", "Sede: Belen");
-		new Mesa(7, "Tres personas", "Sede: Las Americas");
-		new Mesa(7, "Cuatro o más personas", "Sede: Sandiego");
-		new Mesa(7, "Dos personas", "Sede: Envigado");
+		new Mesa("Mesa uno", "Dos personas", "Sede: Las Americas");
+		new Mesa("Mesa dos", "Tres personas", "Sede: Envigado");
+		new Mesa("Mesa tres", "Cuatro o más personas", "Sede: Belen");
+		new Mesa("Mesa cinco", "Dos personas", "Sede: Belen");
+		new Mesa("Mesa siete", "Tres personas", "Sede: Las Americas");
+		new Mesa("Mesa siete", "Cuatro o más personas", "Sede: Sandiego");
+		new Mesa("Mesa tres", "Dos personas", "Sede: Envigado");
 
 		System.out.println("1. Reservaciones\n2. Salir");
 		Scanner input1 = new Scanner(System.in);
