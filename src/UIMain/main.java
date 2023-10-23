@@ -401,6 +401,7 @@ public class main {
 						
 						
 						
+						
 					case 2:
 						typeQ = "Empleado";
 						
@@ -424,9 +425,9 @@ public class main {
 							opcionEQ = inputEQ.nextInt();
 							
 							if (opcionEQ == 1) {
-								Scanner inputplatoEEQ=new Scanner(System.in);
+								Scanner inputempleadoEQ=new Scanner(System.in);
 								String empleadoEQ;
-								empleadoEQ=inputplatoEEQ.next();
+								empleadoEQ=inputempleadoEQ.next();
 								
 								empleadoEQ = empleadoQ;
 								
@@ -441,6 +442,40 @@ public class main {
 						
 					case 3:
 						typeQ = "Sede";
+						
+						System.out.println("Por favor, para continuar ingrese el nombre del empleado");
+
+						Scanner inputsedeQ=new Scanner(System.in);
+						String sedeQ;
+						Restaurante sedeQueja;
+						sedeQ=inputsedeQ.next();
+						
+						sedeQueja = Restaurante.buscarSedeXUbicacion(sedeQ);
+						
+						while (sedeQueja == null) {
+							System.out.println("Esta persona no hace parte de nuestro equipo de trabjo. Por favor ingrese otro nombre");
+							
+							System.out.println("1. Ingresar un nombre diferente");
+							System.out.println("2. Salir");
+							
+							Scanner inputSQ = new Scanner(System.in);
+							int opcionSQ;
+							opcionSQ = inputSQ.nextInt();
+							
+							if (opcionSQ == 1) {
+								Scanner inputsedeEQ=new Scanner(System.in);
+								String sedeEQ;
+								sedeEQ=inputsedeEQ.next();
+								
+								sedeEQ = sedeQ;
+							}
+							
+							if(opcionEQ == 2) {
+								break;
+							}
+							
+						OtroQ = empleadoQ;
+						}
 					
 					case 4:
 						typeQ = "Algun otro";
