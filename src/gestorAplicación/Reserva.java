@@ -77,6 +77,11 @@ public class Reserva {
 
 				generarReserva(nuevoCliente);
 				break;
+				
+			case 2:
+				
+				cancelarModificarReserva(nuevoCliente);
+				break;
 
 			default:
 
@@ -218,9 +223,39 @@ public class Reserva {
 		}
 
 	}
+	
+	public static void cancelarModificarReserva(Cliente nuevoCliente) {
+		System.out.println("1. ¿Desea cancelar su reservación?");
+		System.out.println("2. ¿Desea modificar su reservación?");
+		int opcion2 = input1.nextInt();
+		
+		
+		switch(opcion2) {
+		
+		case 1:
+			
+			if (nuevoCliente.getId() == 0) {
+				nuevoCliente = Cliente.registrarCliente();
+			}
+			
+		
+		}
+	} 
+	
+	public static ArrayList<Reserva> reservasCliente(Cliente nuevoCliente){
+	    ArrayList<Reserva> reservasCliente =  new ArrayList<Reserva>();
 
+
+	    for(Reserva reserva: listaReservas)
+	    {
+	        if(reserva.getCliente().getId() == nuevoCliente.getId())
+	        {reservasCliente.add(reserva);}
+	    }
+	    
+	    return reservasCliente;
+	}
+	
 	@Override
-
 	public String toString() {
 
 		return ("El cliente " + this.getCliente().getId() + " hizo su reservación para la fecha " + this.getFecha()
