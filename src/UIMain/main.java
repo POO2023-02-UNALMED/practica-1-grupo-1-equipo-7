@@ -24,9 +24,9 @@ public class main {
 				new Caja(1000000, 1234), 1234567, new Date(), Plato.getListadoplatos(), new ArrayList<Mesa>()));
 		restaurantes.add(new Restaurante("La Casa de Toño", "Sede: Sandiego", "Calle 2", inventario2,
 				new Caja(10000000, 1235), 1234567, new Date(), Plato.getListadoplatos(), new ArrayList<Mesa>()));
-		restaurantes.add(new Restaurante("La Casa de Toño", "Sede: belen", "Calle 3", inventario3,
+		restaurantes.add(new Restaurante("La Casa de Toño", "Sede: Belen", "Calle 3", inventario3,
 				new Caja(10000000, 1236), 1234567, new Date(), Plato.getListadoplatos(), new ArrayList<Mesa>()));
-		restaurantes.add(new Restaurante("La Casa de Toño", "Sede: la america", "Calle 4", inventario4, new Caja(),
+		restaurantes.add(new Restaurante("La Casa de Toño", "Sede: La America", "Calle 4", inventario4, new Caja(),
 				1234567, new Date(), Plato.getListadoplatos(), new ArrayList<Mesa>()));
 
 		new Mesa("Mesa uno", "Dos personas", "Sede: Las Americas");
@@ -55,8 +55,8 @@ public class main {
 		new Item("Brócoli", 100, 1.00, "01/01/2020", Inventario.obtenerInventarios().get(2));
 		new Item("pan", 100, 1.20, "01/01/2020", Inventario.obtenerInventarios().get(0));
 		new Item("carne desmechada Pollo", 100, 1.50, "01/01/2020", Inventario.obtenerInventarios().get(3));
-		new Item("e Pepperoni", 100, 1.00, "01/01/2020", Inventario.obtenerInventarios().get(2));
-		new Item("Pasta Carbonara", 100, 1.20, "01/01/2020", Inventario.obtenerInventarios().get(1));
+		new Item(" Pepperoni", 100, 1.00, "01/01/2020", Inventario.obtenerInventarios().get(2));
+		new Item("Pasta ", 100, 1.20, "01/01/2020", Inventario.obtenerInventarios().get(1));
 		new Item("Sashimi de Salmón", 100, 2.50, "01/01/2020", Inventario.obtenerInventarios().get(0));
 		new Item("Salsa roja", 100, 1.25, "01/01/2020", Inventario.obtenerInventarios().get(3));
 		new Item("Agua Mineral", 100, 2.00, "01/01/2020", Inventario.obtenerInventarios().get(2));
