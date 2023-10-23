@@ -61,15 +61,15 @@ public class Reservaciones {
 				System.out.println("2023-10-25 18:00 PM");
 				System.out.println("2023-10-26 12:00 PM");
 			    System.out.println("2023-10-30 11:00 AM");
-			    int mihorario = input1.nextInt();
+			    int miHorario = input1.nextInt();
 				
 			    System.out.println("¿Para cuántas personas son la reserva? ");
 			    System.out.println("1. Dos personas");
 			    System.out.println("2. Tres Personas");
 			    System.out.println("3. Cuatro o más personas");
-			    int mimesa = input1.nextInt();
+			    int miMesa = input1.nextInt();
 			    
-			    Restaurante.sedesDisponibles(mihorario, mimesa);
+			    Restaurante.sedesDisponibles(miHorario, miMesa);
 			    
 			
 			case 2:
