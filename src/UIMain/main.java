@@ -453,7 +453,31 @@ public class main {
 						
 						
 							
-					
+					case 6 :
+						System.out.print("----¿Desea ver el valor de los articulos?----");
+						System.out.print("S/N");
+						Scanner inpujtñ45 = new Scanner (System.in);
+						String var450k= inpujtñ45.nextLine();
+						if (var450k=="S") {
+							float precioTotal=0;
+							for (String  k: Restaurante.getSedes().get(opcion3-1).getInventario().getDiccionarioItems().keySet() ) {
+								if ( Item.buscarItem(k)!=null) {
+									precioTotal+=Item.buscarItem(k).getPrecio();
+									System.out.println(k+"tiene un precio de "+Item.buscarItem(k).getPrecio());
+									
+								}
+									
+								
+							}
+							System.out.println("Precio total = "+ precioTotal);
+						}
+						else {
+							
+						}
+						
+						
+							
+						
 
 					}
 
