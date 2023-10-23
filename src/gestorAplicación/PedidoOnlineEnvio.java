@@ -3,22 +3,39 @@ package gestorAplicación;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PedidoOnlineEnvio {
+public class PedidoOnlineEnvio extends Pedido{
 	private int numeroOrden;
 	private int cantidadPlatos;
 	private String estadoPedido;
 	public String direccionPedido;
 	protected String tipoPedido = "Pedido de envío";
-	private List<Plato> carrito=new ArrayList<>(); 
-	
+	private static List<Plato> carrito=new ArrayList<>(); 
+	private static List<Pedido> Pedidos =new ArrayList<>(); 
+	 Factura Factura;
 	
 	//Constructor
+	
+	public PedidoOnlineEnvio() {
+		this(0, 0, null, null);
+	}
 	public PedidoOnlineEnvio(int numeroOrden, int cantidadPlatos, String direccionPedido, String tipoPedido) {
 		this.numeroOrden = numeroOrden;
 		this.cantidadPlatos = cantidadPlatos;
 		this.direccionPedido = direccionPedido;
 		this.tipoPedido = tipoPedido;
+		PedidoOnlineEnvio.Pedidos.add(this);
 	}
+	
+	public static List<Pedido> getPedidos(){
+		return Pedidos;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	public String getEstadoPedido() {
 		return estadoPedido;
