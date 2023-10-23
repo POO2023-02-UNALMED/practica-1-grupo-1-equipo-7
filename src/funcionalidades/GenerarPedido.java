@@ -82,35 +82,48 @@ public class GenerarPedido {
 		case 2:
 			System.out.println("2. Pedido de envio");
 			System.out.println("Nuestras sedes disponibles");
-		    System.out.println("1. Sede Las americas");
-		    System.out.println("2. Sede Sandiego");
-		    System.out.println("3. Sede Envigado");
-		    System.out.println("4. Sede Belen");
-		    System.out.println("¿En donde desea recojer el pedido? Recuerde que debe ser una sede cerca de su casa.");
-		    Scanner input14= new Scanner(System.in);
-		    int opcion4;
-		    opcion4 = input14.nextInt();
-		    if (opcion4 != 1 && opcion4 != 2 && opcion4 != 3 && opcion4 != 4){
-				System.out.println("Opción invalida");
+			int i2;
+		    for( i2=0; i<Restaurante.getSedes().size(); i++) {
+		    	System.out.println(i+1 + ". " + Restaurante.getSedes().get(i).getUbicacion());
 		    }
-			
+			System.out.println("¿En donde desea recojer el pedido? Recuerde que debe ser una sede cerca de su casa.");
+			Scanner inputS2= new Scanner(System.in);
+		    int opcion2;
+			opcion2 = input2.nextInt();
+			String sede2 = Restaurante.getSedes().get(opcion1-1).getUbicacion();
+			if(opcion2 > i){
+				System.out.println("Opción invalida");
+			}
 			else {
-				if (opcion4 == 1) {
-				System.out.println("1. Sede Las americas");
 				System.out.println("------------Menu disponible en esta sede------------");
-				System.out.println("Menu: " );
-				System.out.println("¿Que productos desea ordenar?");
-				Scanner input16= new Scanner(System.in);
-				int opcion6;
-				opcion6 = input16.nextInt();
-				
-				System.out.println("Productos escogidos");
-				System.out.println("¿Desea ordenar algo mas?");
-				Scanner input9= new Scanner(System.in);
-				String opcionr;
-				opcionr = input9.nextLine();
-				if (opcionr != "y"){
-					System.out.println("Progama Terminado");
+				int j = 1;
+				for(Plato platos : Restaurante.getMenu(sede)) {
+					System.out.println(j++ + ". " + platos.getNombre() + " " + platos.getPrecio());
+				}
+				System.out.println("¿Cuantos platos desea ordenar?");
+				System.out.println("¿Cuantos platos desea ordenar?");
+				Scanner input3= new Scanner(System.in);
+			    int opcionP;
+				opcionP = input3.nextInt();
+				ArrayList<Plato> platos = new ArrayList<>();
+				for(int k = 0; k < opcion2; k++) {
+					System.out.println("Ingrese el nombre del plato");
+					Scanner input4= new Scanner(System.in);
+				    String opcion3;
+					opcion3 = input4.nextLine();
+					platos.add(Plato.buscarPlato(opcion3));
+				}
+				System.out.println("Confirma tus productos");
+				for(Plato plato : platos) {
+					System.out.println(plato.getNombre() + " " + plato.getPrecio());
+				}
+				System.out.println("¿Desea confirmar su pedido? (S/N)");
+				Scanner input5= new Scanner(System.in);
+			    String opcion4;
+				opcion4 = input5.nextLine();
+				if(opcion4 == "S"){
+					System.out.println("Pedido confirmado");
+
 				    }
 				}
 			}
