@@ -21,9 +21,7 @@ public class GenerarPedido {
 	    Scanner input1= new Scanner(System.in);
 	    int opcion;
 	    opcion = input1.nextInt(); 
-	    
-	    
-	    
+	   
 	switch(opcion){
 	
     case 1:
@@ -48,7 +46,6 @@ public class GenerarPedido {
 				System.out.println(j++ + ". " + platos.getNombre() + " " + platos.getPrecio());
 			}
 			System.out.println("¿Cuantos platos desea ordenar?");
-			System.out.println("¿Cuantos platos desea ordenar?");
 			Scanner input3= new Scanner(System.in);
 		    int opcion2;
 			opcion2 = input3.nextInt();
@@ -70,37 +67,47 @@ public class GenerarPedido {
 			opcion4 = input5.nextLine();
 			if(opcion4 == "S"){
 				System.out.println("Pedido confirmado");
-				String mensaje = "Su pedido con el número de orden " + Pedido.getNumeroOrden() + " ha sido confirmado. Pedido en espera para ser recogido.";
-				System.out.print(mensaje);
+			}
+				
+		
+				System.out.println("Productos escogidos");
+				// Enviar_una_notificación_dentro_de_la_aplicación_al_cliente
+				String mensaje2 = "Su pedido con el número de orden "  + " ha sido confirmado. Su pedido va en camino. Gracias por su compra.";
+				System.out.print(mensaje2);
 
 				System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente.");
-				
+				System.out.println("¿Desea ordenar algo mas (S/N)?");
+				Scanner input9= new Scanner(System.in);
+				String opcionRR;
+				opcionRR = input9.nextLine();
+				if (opcionRR != "N"){
+					System.out.println("Progama Terminado");
+				}
 			}
-		}
+		
 			
 
 		case 2:
 			System.out.println("2. Pedido de envio");
 			System.out.println("Nuestras sedes disponibles");
 			int i2;
-		    for( i2=0; i<Restaurante.getSedes().size(); i++) {
-		    	System.out.println(i+1 + ". " + Restaurante.getSedes().get(i).getUbicacion());
+		    for( i2=0; i2<Restaurante.getSedes().size(); i2++) {
+		    	System.out.println(i2+1 + ". " + Restaurante.getSedes().get(i2).getUbicacion());
 		    }
 			System.out.println("¿En donde desea recojer el pedido? Recuerde que debe ser una sede cerca de su casa.");
 			Scanner inputS2= new Scanner(System.in);
 		    int opcion2;
-			opcion2 = input2.nextInt();
-			String sede2 = Restaurante.getSedes().get(opcion1-1).getUbicacion();
-			if(opcion2 > i){
+			opcion2 = inputS2.nextInt();
+			String sede2 = Restaurante.getSedes().get(opcion2-1).getUbicacion();
+			if(opcion2 > i2){
 				System.out.println("Opción invalida");
 			}
 			else {
 				System.out.println("------------Menu disponible en esta sede------------");
 				int j = 1;
-				for(Plato platos : Restaurante.getMenu(sede)) {
+				for(Plato platos : Restaurante.getMenu(sede2)) {
 					System.out.println(j++ + ". " + platos.getNombre() + " " + platos.getPrecio());
 				}
-				System.out.println("¿Cuantos platos desea ordenar?");
 				System.out.println("¿Cuantos platos desea ordenar?");
 				Scanner input3= new Scanner(System.in);
 			    int opcionP;
@@ -132,34 +139,21 @@ public class GenerarPedido {
 		    
 		    
 		    System.out.println("Productos escogidos");
-			System.out.println("¿Desea ordenar algo mas?");
+			// Enviar_una_notificación_dentro_de_la_aplicación_al_cliente
+			String mensaje2 = "Su pedido con el número de orden "  + " ha sido confirmado." + "\n"+ "Su pedido va en camino. Gracias por su compra.";
+			System.out.print(mensaje2);
+
+			System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente.");
+			System.out.println("¿Desea ordenar algo mas? (S/N)");
 			Scanner input9= new Scanner(System.in);
 			String opcionRR;
 			opcionRR = input9.nextLine();
 			if (opcionRR != "y"){
 				System.out.println("Progama Terminado");
-			
-			}
-		    
-		    
-			
-		    System.out.print(Pedido.setEstadoPedido("Confirmado"));
-
-			// Enviar_una_notificación_dentro_de_la_aplicación_al_cliente
-			String mensaje2 = "Su pedido con el número de orden " + Pedido.getNumeroOrden() + " ha sido confirmado. Su pedido va en camino. Gracias por su compra.";
-			System.out.print(mensaje2);
-
-			System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente.");
-		}
-
-			
-			
-
-
-		}
-			}
 		}
 	}
+}
+	
 
 
 
