@@ -443,7 +443,7 @@ public class main {
 					case 3:
 						typeQ = "Sede";
 						
-						System.out.println("Por favor, para continuar ingrese el nombre del empleado");
+						System.out.println("Por favor, para continuar indique la sede de la cual quiere hacer su queja");
 
 						Scanner inputsedeQ=new Scanner(System.in);
 						String sedeQ;
@@ -453,9 +453,9 @@ public class main {
 						sedeQueja = Restaurante.buscarSedeXUbicacion(sedeQ);
 						
 						while (sedeQueja == null) {
-							System.out.println("Esta persona no hace parte de nuestro equipo de trabjo. Por favor ingrese otro nombre");
+							System.out.println("Esta Sede no existe. Por favor ingrese una sede valida");
 							
-							System.out.println("1. Ingresar un nombre diferente");
+							System.out.println("1. Ingresar una sede diferente");
 							System.out.println("2. Salir");
 							
 							Scanner inputSQ = new Scanner(System.in);
@@ -470,20 +470,24 @@ public class main {
 								sedeEQ = sedeQ;
 							}
 							
-							if(opcionEQ == 2) {
+							if(opcionSQ == 2) {
 								break;
 							}
 							
-						OtroQ = empleadoQ;
+						OtroQ = sedeQ;
 						}
 					
 					case 4:
 						typeQ = "Algun otro";
+						
+						
+						OtroQ = null;
+						}
 					
 					case 5:
 							break;
 					}
-					break;
+					
 					
 					System.out.println("Por favor, a continuacion escriba su queja");
 					
@@ -500,6 +504,7 @@ public class main {
 					int opcionEQ;
 					opcionEQ=inputOEditarQ.nextInt();
 					
+					break;
 					
 					
 				
