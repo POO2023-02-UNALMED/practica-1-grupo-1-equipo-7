@@ -453,7 +453,7 @@ public class AtencionCliente {
 			opcionD=inputD.nextInt();
 			
 			switch(opcionD) {
-			case 1:
+			case 1:  //Ver solicitudes de Devoluciones
 				System.out.println("Para poder continuar debe ingresar su codigo de empleado. ¿Cuenta con un codigo de empleado?");
 				System.out.println("1. Si");
 				System.out.println("2. No");
@@ -463,7 +463,7 @@ public class AtencionCliente {
 				opcionD1=inputD1.nextInt();
 				
 				switch (opcionD1) {
-				case 1:
+				case 1: //Tiene codigo de empleado
 					System.out.println("Ingrese su codigo de empleado:");
 					
 					Scanner inputD12=new Scanner(System.in);
@@ -477,15 +477,58 @@ public class AtencionCliente {
 					
 					for(Devolucion d: ListaDevoluciones2) {
 						System.out.println(d);
-						System.out.println("\n");}
+						System.out.println("\n");
+					}
 					
+					System.out.println("¿Desea revisar y cambiar el estado de una solucitud?");
 					
+					System.out.println("1. Si");
+					System.out.println("2. No/Salir");
+					
+					Scanner i = new Scanner(System.in);
+					int j;
+					j = i.nextInt();
+					
+					if (j == 2) {break;}
+					if (j == 1) {
+						
+						System.out.println("Por favor ingrese el numero de la solicitud que desea revisar");
+						
+						Scanner num = new Scanner(System.in);
+						boolean a;
+						int n;
+						n = num.nextInt();
+						
+						a = Devolucion.buscarD(ListaDevoluciones2,n);
+						System.out.println("¿Desea aprobadar o denegar la solicitud?");
+						
+						System.out.println("1. Aprobar");
+						System.out.println("2. Denegar");
+						
+						int m;
+						Scanner mun = new Scanner(System.in);
+						m = mun.nextInt();
+						
+						//Denegar
+						if (m == 2)  {
+							
+							System.out.println("Para poder denegar la solicitud por favor indique la razon: ");
+							
+						}
+						
+						//Aprobar
+						if (m == 1) {}
+						
+						
+						
+						
+					}
 					
 					
 					
 					break;
 					
-				case 2:
+				case 2: //No tiene codigo de empleado
 					break;
 				}
 				
