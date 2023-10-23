@@ -225,7 +225,7 @@ public class Reserva {
 		int opcion2 = input1.nextInt();
 		int reOp;
 		Reserva reservaElegida;
-		ArrayList<Reserva> reservasCliente = reservasCliente(nuevoCliente);
+		ArrayList<Reserva> reservasCliente = null;
 
 		switch (opcion2) {
 
@@ -235,6 +235,8 @@ public class Reserva {
 				nuevoCliente = Cliente.registrarCliente();
 			}
 
+			reservasCliente = reservasCliente(nuevoCliente);
+
 			System.out.println("Elija su reservación");
 			for (int i = 0; i < reservasCliente.size(); i++) {
 				System.out.println((i + 1) + ". " + reservasCliente.get(i).toString());
@@ -243,12 +245,15 @@ public class Reserva {
 
 			reservaElegida = reservasCliente.get(reOp - 1);
 			eliminarReserva(reservaElegida);
+			break;
 
 		case 2:
 
 			if (nuevoCliente.getId() == 0) {
 				nuevoCliente = Cliente.registrarCliente();
 			}
+
+			reservasCliente = reservasCliente(nuevoCliente);
 
 			System.out.println("Elija su reservación");
 			for (int i = 0; i < reservasCliente.size(); i++) {
@@ -257,7 +262,7 @@ public class Reserva {
 			reOp = input1.nextInt();
 			reservaElegida = reservasCliente.get(reOp - 1);
 			modificarReserva(reservaElegida, nuevoCliente);
-
+			break;
 		}
 	}
 
@@ -266,7 +271,6 @@ public class Reserva {
 
 		for (Reserva reserva : listaReservas) {
 			if (reserva.getCliente().getId() == nuevoCliente.getId()) {
-				System.out.println("Reserva encontrada");
 				reservasCliente.add(reserva);
 			}
 		}
@@ -383,7 +387,7 @@ public class Reserva {
 				sedeElegida = sedesEncontradas.get(opSede - 1);
 				System.out.println("Sede seleccionada: " + sedeElegida.getUbicacion());
 			}
-			
+
 			creando: while (true) {
 				for (Reserva reserva : listaReservas) {
 
@@ -394,9 +398,9 @@ public class Reserva {
 					}
 				}
 
-			    reservaElegida.setFecha(miHorario);
-			    reservaElegida.setMiSede(sedeElegida);
-			    reservaElegida.setMiMesa(miMesa);
+				reservaElegida.setFecha(miHorario);
+				reservaElegida.setMiSede(sedeElegida);
+				reservaElegida.setMiMesa(miMesa);
 				System.out.println("Ya se actualizó su reserva: " + reservaElegida.toString());
 				break creando;
 			}
