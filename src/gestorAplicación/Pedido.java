@@ -25,27 +25,20 @@ public class Pedido {
 				this.tipoPedido = "Pedido Fisico";
 				Pedido.PedidosFisicos.add(this);
 				this.direccionPedido = Algo;
+	
 			}
-			
-			
-			
 			
 			if (tipoPedido == "Pedido a Domicilio") {
 				this.tipoPedido = "Pedido a Domicilio";
 				Pedido.PedidosOnline.add(this);
 				this.direccionPedido = Algo;
-			}
+				
+			}			
 			
-			
-			
-			
-			
-		}
+}
 
 	 
-		public static List<Pedido> getPedidos(){
-			return Pedidos;
-		}
+		
 
 		
 		

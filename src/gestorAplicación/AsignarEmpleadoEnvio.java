@@ -8,7 +8,7 @@ public class AsignarEmpleadoEnvio{
 	 Empleado empleado;
 	 //constructor7
 	 public AsignarEmpleadoEnvio() {
-		 this.asignarDomiciliario(null);
+		 
 	 }
 	
 	public AsignarEmpleadoEnvio(String referenciaPedido, PedidoOnlineEnvio numeroOrden, Empleado empleado, PedidoOnlineEnvio estadoPedido, PedidoOnlineEnvio direccionPedido) {
@@ -17,7 +17,7 @@ public class AsignarEmpleadoEnvio{
 		 this.referenciaPedido = referenciaPedido;
 		 this.numeroOrden = numeroOrden;
 		 this.empleado = empleado;
-		 
+		 this.asignarDomiciliario(empleado);
 	 }
 	 public void asignarDomiciliario(Empleado domiciliario) {
 	        this.empleado = domiciliario;
@@ -26,6 +26,7 @@ public class AsignarEmpleadoEnvio{
 	 //getters and setters
 	 public String getReferenciaPedido() {
 		 return referenciaPedido;
+		 
 	 }
 	 public void setReferenciaPedido(String referenciaPedido) {
 		 this.referenciaPedido = referenciaPedido;
