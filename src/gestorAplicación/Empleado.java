@@ -40,6 +40,7 @@ public class Empleado extends Persona {
     public static ArrayList<Empleado> getEmpleados(){
         return empleados;
     }
+
     
     public static ArrayList<Empleado> getEmpleados(int codigoSede){
         ArrayList<Empleado> empleadosSede = new ArrayList<>();

@@ -34,6 +34,11 @@ public class Restaurante {
 
 	//No quitar
 	static {
+		ArrayList<Plato> menu1 = new ArrayList<Plato>();
+		for (Plato platos : Plato.getPlatos().keySet()) {
+            menu1.add(platos);
+        }
+		
 		new Restaurante("La Casa de Toño", "Sede: Las Americas", "Calle 1", new Inventario(), new Caja(), 1234567,
 				new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
 		new Restaurante("La Casa de Toño", "Sede: Envigado", "Calle 2", new Inventario(), new Caja(), 1234567,
@@ -41,7 +46,8 @@ public class Restaurante {
 		new Restaurante("La Casa de Toño", "Sede: Sandiego", "Calle 3", new Inventario(), new Caja(), 1234567,
 				new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
 		new Restaurante("La Casa de Toño", "Sede: Belen", "Calle 4", new Inventario(), new Caja(), 1234567, new Date(),
-				new ArrayList<Plato>(), new ArrayList<Mesa>());
+				menu1, new ArrayList<Mesa>());
+		
 
 	}
 
@@ -100,6 +106,16 @@ public class Restaurante {
 
 	public ArrayList<Plato> getMenu() {
 		return this.menu;
+	}
+
+	public static ArrayList<Plato> getMenu(String sede){
+		for(Restaurante restaurante : getSedes()) {
+			if(restaurante.getUbicacion() == sede) {
+				return restaurante.getMenu();
+			}
+		}
+		return null;
+
 	}
 
 	public ArrayList<Mesa> getMesas() {

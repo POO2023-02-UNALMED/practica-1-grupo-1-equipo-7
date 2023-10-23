@@ -148,6 +148,9 @@ public class Cliente extends Persona {
 		}
 		return null;
 	}
+	public int getCodigo() {
+		return this.codigoCliente;
+	}
 
 	public static Cliente buscarClienteXNombre(String nombre) {
 		for (Cliente cliente : clientes) {
