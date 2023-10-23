@@ -10,12 +10,14 @@ public class Mesa {
 	private int numero;
 	private Cliente cliente;
 	private String tipoMesa;
-	private static Mesa[]listaMesas = new Mesa[15];
+	private String ubicacion;
+	private static ArrayList<Mesa> listaMesas = new ArrayList<Mesa>();
 	
-	
-	public Mesa(int numero, Cliente cliente) {
+	public Mesa(int numero, String tipoMesa, String ubicacion) {
 		this.numero = numero;
-		this.cliente = cliente;
+		this.tipoMesa = tipoMesa;
+		this.ubicacion = ubicacion;
+		listaMesas.add(this);
 	}
 	
 	public void asignarCliente(Cliente cliente) {
@@ -27,10 +29,19 @@ public class Mesa {
 		return this.tipoMesa;
 	}
 	
+	
 	public void setTipoMesa(String tipoMesa) {
 		this.tipoMesa = tipoMesa;
 	}
 	
+	public String getUbicacion() {
+		return ubicacion;
+	}
+
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
+	}
+
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -49,11 +60,11 @@ public class Mesa {
 	
 	public static ArrayList<Mesa> mesasDisponibles(String mesaDeseada) {
 		
-		ArrayList<Mesa> mesasQuePueden = null;
+		ArrayList<Mesa> mesasQuePueden = new ArrayList<Mesa>();
 
 		for (Mesa mesa: listaMesas)
 		{
-			if(mesa.tipoMesa == mesaDeseada) {
+			if(mesa.getTipoMesa() == mesaDeseada) {
 				mesasQuePueden.add(mesa);
 			}
 		}

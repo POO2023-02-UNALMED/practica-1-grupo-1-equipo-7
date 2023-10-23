@@ -217,33 +217,36 @@ public class Restaurante {
 
 	}
 
-	public static ArrayList<String> horariosDisponibles(String fechaDeseada) {
 
-		ArrayList<String> horarioDisponible = null;
+	public static ArrayList<Restaurante> horariosDisponibles(String fechaDeseada) {
+
+		ArrayList<Restaurante> restaurantesDisponible = new ArrayList<Restaurante>();
 
 		for (Restaurante sede : sedes) {
 			for (String disponibilidad : sede.disponibilidad) {
 				if (disponibilidad == fechaDeseada) {
-					horarioDisponible.add(disponibilidad);
+					restaurantesDisponible.add(sede);
 				}
 			}
 		}
-		return horarioDisponible;
+		return restaurantesDisponible;
 	}
 
+	public static ArrayList<Restaurante> sedesDisponibles(String miHorario, String miMesa) {
 
+		ArrayList<Mesa> mesasEncontradas = Mesa.mesasDisponibles(miMesa);
+		ArrayList<Restaurante> horarioEncontrados = Restaurante.horariosDisponibles(miHorario);
+		ArrayList<Restaurante> sedesDisponibles = new ArrayList<Restaurante>();
 
-	public static void sedesDisponibles(int miHorario, int miMesa) {
-		
+		for (Restaurante restaurante : horarioEncontrados) {
+			for (Mesa mesa : mesasEncontradas) {
+				if (mesa.getUbicacion() == restaurante.ubicacion) {
+					sedesDisponibles.add(restaurante);
+				}
+			}
+		}
+		return sedesDisponibles;
 
-	}
-
-	public Inventario getInventario() {
-		return inventario;
-	}
-
-	public void setInventario(Inventario inventario) {
-		this.inventario = inventario;
 	}
 	
 
