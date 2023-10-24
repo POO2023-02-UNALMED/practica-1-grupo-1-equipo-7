@@ -189,7 +189,7 @@ public String getNombre() {
     
     // con esto miramíamos la disponibilidad del plato, no sé si va acá o va en la funcionalidad, si algo lo paso al implementarla :)+++++++++++++++++++++++++++++++++++++
     public void   disponibilidadPlato() {
-    	for(Item i:ingredientes ) {
+    	for(Item i:ingredientes ) {// andres
     		if (i==null){
     			continue;
     		}

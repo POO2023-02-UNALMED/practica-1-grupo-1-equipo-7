@@ -5,10 +5,10 @@ import gestorAplicación.*;
 
 public class AtencionCliente {
 	
-	public static List<Reseña> Recopilatorio = new ArrayList<>();
 	
+
 	static{
-		
+	          
 		new Reseña("Anonimo", "Gran lugar para pasar el tiempo en familia, muy buena la atención", 4);
 		new Reseña("Julian Vargas", "Me gustaron los pozoles", 5);
 		new Reseña("Marta Wayne", "La comida estaba fria y tardaron mucho en atendernos, mal ahí", 2);
@@ -22,6 +22,11 @@ public class AtencionCliente {
 		
 	}
 	
+
+	
+	
+	public static List<Reseña> Recopilatorio2 = Reseña.Recopilatorio;
+	public static List<Devolucion> ListaDevoluciones2 = Devolucion.ListaDevoluciones;
 	
 	public static void main(String[] arg){
 		
@@ -77,40 +82,41 @@ public class AtencionCliente {
 			
 			}
 			if (opcions== 5) {break;}
-			System.out.println("Por favor, a continuacion escriba su sugerencia");
-			
-			Scanner inputTextoS=new Scanner(System.in);
-			String TextoS;
-			TextoS=inputTextoS.nextLine();
-			
-			System.out.println("Todo listo");
-			
-			System.out.println("1. Editar Sugerencia");
-			System.out.println("2. Enviar Sugerencia");
-			
-			Scanner inputOEditarS=new Scanner(System.in);
-			int opcionES;
-			opcionES=inputOEditarS.nextInt();
-			
-			if (opcionES == 1) {
+			if (opcions != 5 && opcions>= 1) {
+				System.out.println("Por favor, a continuacion escriba su sugerencia");
 				
-				System.out.println("Ahora puede editar su sugerencia");
-				Scanner inputEditarS=new Scanner(System.in);
-				String EditarS;
-				EditarS=inputEditarS.nextLine();
+				Scanner inputTextoS=new Scanner(System.in);
+				String TextoS;
+				TextoS=inputTextoS.nextLine();
 				
-				TextoS = EditarS;
+				System.out.println("Todo listo");
+				
+				System.out.println("1. Editar Sugerencia");
+				System.out.println("2. Enviar Sugerencia");
+				
+				Scanner inputOEditarS=new Scanner(System.in);
+				int opcionES;
+				opcionES=inputOEditarS.nextInt();
+				
+				if (opcionES == 1) {
+					
+					System.out.println("Ahora puede editar su sugerencia");
+					Scanner inputEditarS=new Scanner(System.in);
+					String EditarS;
+					EditarS=inputEditarS.nextLine();
+					
+					TextoS = EditarS;
+				}
+				
+				if (opcionES == 2) {new Sugerencia(type, TextoS);}
+				
+				System.out.println("Su sugerencia se ha enviado con exito");
+				System.out.println("1. Salir");
+				
+				Scanner inputSalirS = new Scanner(System.in);
+				int SalirS;
+				SalirS=inputSalirS.nextInt();
 			}
-			
-			if (opcionES == 2) {new Sugerencia(type, TextoS);}
-			
-			System.out.println("Su sugerencia se ha enviado con exito");
-			System.out.println("1. Salir");
-			
-			Scanner inputSalirS = new Scanner(System.in);
-			int SalirS;
-			SalirS=inputSalirS.nextInt();
-			
 			
 			break;
 		
@@ -149,12 +155,12 @@ public class AtencionCliente {
 				
 				Scanner inputplatoQ = new Scanner(System.in);
 				String platoQ;
-<<<<<<< Updated upstream
+
 				Plato platoQueja;
 				platoQ = inputplatoQ.nextLine();
-=======
+
 				boolean pb;
->>>>>>> Stashed changes
+
 				
 				platoQ = inputplatoQ.nextLine();
 				pb =Plato.existePlato(((String)platoQ));
@@ -317,7 +323,7 @@ public class AtencionCliente {
 			case 1:
 				System.out.println("Mostrando recopilatorio de reseñas ...");
 				
-				for(Reseña rsñ: AtencionCliente.Recopilatorio) {
+				for(Reseña rsñ: Recopilatorio2) {
 					System.out.println(rsñ);
 					System.out.println("\n");
 				}
@@ -400,7 +406,7 @@ public class AtencionCliente {
 					}
 				}
 				if (opcionER == 2) {reseñaNueva = new Reseña(NombreR, reseñaN, cant);}
-				funcionalidades.AtencionCliente.Recopilatorio.add(reseñaNueva);
+				Recopilatorio2.add(reseñaNueva);
 				
 				System.out.println("Su reseña se ha enviado con exito");
 				System.out.println("1. Salir");
@@ -415,7 +421,7 @@ public class AtencionCliente {
 				if (finR ==2) {
 					System.out.println("Mostrando recopilatorio de reseñas");
 					
-					for(Reseña rsña: AtencionCliente.Recopilatorio) {
+					for(Reseña rsña: Recopilatorio2) {
 						System.out.println(rsña);
 						System.out.println("\n");
 					}
@@ -433,6 +439,122 @@ public class AtencionCliente {
 			break;
 
 		case 4:
+			System.out.println("------------Devoluciones------------");
+			System.out.println("Ha seleccionado la opcion 4, Devoluciones.\n¿Que desea realizar?");
+			
+			System.out.println("1. Ver las solicitudes de Devoluciones");
+			System.out.println("2. Realizar una nueva solicitud");
+			System.out.println("3. Revisar el estado de mi solicitud");
+			System.out.println("4. Salir");
+			
+	
+			Scanner inputD=new Scanner(System.in);
+			int opcionD;
+			opcionD=inputD.nextInt();
+			
+			switch(opcionD) {
+			case 1:  //Ver solicitudes de Devoluciones
+				System.out.println("Para poder continuar debe ingresar su codigo de empleado. ¿Cuenta con un codigo de empleado?");
+				System.out.println("1. Si");
+				System.out.println("2. No");
+				
+				Scanner inputD1=new Scanner(System.in);
+				int opcionD1;
+				opcionD1=inputD1.nextInt();
+				
+				switch (opcionD1) {
+				case 1: //Tiene codigo de empleado
+					System.out.println("Ingrese su codigo de empleado:");
+					
+					Scanner inputD12=new Scanner(System.in);
+					Empleado emp;
+					int opcionD12;
+					opcionD12=inputD12.nextInt();
+					
+					emp = Empleado.buscarEmpleado(opcionD12);
+					
+					System.out.println("Bienvenid@ " + emp.getNombre()+ "\nA continucion se mostraran todas las solicitudes pendientes");
+					
+					for(Devolucion d: ListaDevoluciones2) {
+						System.out.println(d);
+						System.out.println("\n");
+					}
+					
+					System.out.println("¿Desea revisar y cambiar el estado de una solucitud?");
+					
+					System.out.println("1. Si");
+					System.out.println("2. No/Salir");
+					
+					Scanner i = new Scanner(System.in);
+					int j;
+					j = i.nextInt();
+					
+					if (j == 2) {break;}
+					if (j == 1) {
+						
+						System.out.println("Por favor ingrese el numero de la solicitud que desea revisar");
+						
+						Scanner num = new Scanner(System.in);
+						boolean a;
+						int n;
+						n = num.nextInt();
+						
+						a = Devolucion.buscarD(ListaDevoluciones2,n);
+						System.out.println("¿Desea aprobadar o denegar la solicitud?");
+						
+						System.out.println("1. Aprobar");
+						System.out.println("2. Denegar");
+						
+						int m;
+						Scanner mun = new Scanner(System.in);
+						m = mun.nextInt();
+						
+						//Denegar
+						if (m == 2)  {
+							
+							System.out.println("Para poder denegar la solicitud por favor indique la razon: ");
+							
+						}
+						
+						//Aprobar
+						if (m == 1) {}
+						
+						
+						
+						
+					}
+					
+					
+					
+					break;
+					
+				case 2: //No tiene codigo de empleado
+					break;
+				}
+				
+				if(opcionD1 == 1) {
+					
+					
+				}
+				
+				
+				
+				break;
+			
+			case 2:
+				break;
+				
+			case 3:
+				break;
+			
+			case 4:
+				break;
+				
+			default:
+				System.out.println("Opcion invalida");
+				break;
+			}
+			
 			break;
 			
 			

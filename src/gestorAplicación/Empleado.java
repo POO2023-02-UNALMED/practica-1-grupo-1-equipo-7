@@ -27,10 +27,14 @@ public class Empleado extends Persona {
     static{
         new Empleado("Juan Lopez", "Chef", 2000, 1);
         new Empleado("Pedro Sanchez", "Mesero", 1700, 1);
-        new Empleado("Maria Ochoa", "Gerente", 3000, 2);
+        new Empleado("Maria Ochoa", "Mesera", 1700, 1);
+        new Empleado("Camila Rios", "Gerente", 3000, 2);
+        new Empleado("Luan Restrepo", "Gerente", 3000, 3);
+        new Empleado("Manuel Mensa", "Gerrente", 3000, 1);
         new Empleado("Jose Correa", "Domiciliario", 1500, 2);
         new Empleado("Alejandra Diaz", "Servicios Varios", 1000, 2);
         new Empleado("Camilo Palacio", "Mesero", 1700, 1);
+        
     }
     
     public int getSueldo(){

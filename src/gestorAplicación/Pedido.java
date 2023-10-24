@@ -28,7 +28,10 @@ public class Pedido {
 		Pedido.Pedidos.add(this);
 		factura = new Factura(cliente.getCodigo(), empleado.getCodigo(), restaurante.getCodigoSede(), LocalDate.of(2020, 01, 01), 0, platos);
 	}
-
+	 public String toString() {
+	        return "Nombre del cliente " + cliente + "\nDirección: " + direccionPedido + "\nCantidad de platos: " + platos
+	                + "\ntipo de pedido: " + tipoPedido  + "\nEmpleados encargado del envio: " + empleado;
+	    }
 	
 	public double getPrecioTotal(ArrayList<Plato> platos) {
 		double precioTotal = 0;

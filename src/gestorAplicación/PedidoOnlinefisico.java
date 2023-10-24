@@ -3,7 +3,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PedidoOnlinefisico extends Pedido{
+public class PedidoOnlinefisico {
 	 private int numeroOrden;
 	 private int cantidadPlatos;
 	 private String estadoPedido;

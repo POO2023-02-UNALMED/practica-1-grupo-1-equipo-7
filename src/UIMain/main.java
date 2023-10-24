@@ -24,9 +24,9 @@ public class main {
 				new Caja(1000000, 1234), 1234567, new Date(), Plato.getListadoplatos(), new ArrayList<Mesa>()));
 		restaurantes.add(new Restaurante("La Casa de Toño", "Sede: Sandiego", "Calle 2", inventario2,
 				new Caja(10000000, 1235), 1234567, new Date(), Plato.getListadoplatos(), new ArrayList<Mesa>()));
-		restaurantes.add(new Restaurante("La Casa de Toño", "Sede: belen", "Calle 3", inventario3,
+		restaurantes.add(new Restaurante("La Casa de Toño", "Sede: Belen", "Calle 3", inventario3,
 				new Caja(10000000, 1236), 1234567, new Date(), Plato.getListadoplatos(), new ArrayList<Mesa>()));
-		restaurantes.add(new Restaurante("La Casa de Toño", "Sede: la america", "Calle 4", inventario4, new Caja(),
+		restaurantes.add(new Restaurante("La Casa de Toño", "Sede: La America", "Calle 4", inventario4, new Caja(),
 				1234567, new Date(), Plato.getListadoplatos(), new ArrayList<Mesa>()));
 
 		new Mesa("Mesa uno", "Dos personas", "Sede: Las Americas");
@@ -55,8 +55,8 @@ public class main {
 		new Item("Brócoli", 100, 1.00, "01/01/2020", Inventario.obtenerInventarios().get(2));
 		new Item("pan", 100, 1.20, "01/01/2020", Inventario.obtenerInventarios().get(0));
 		new Item("carne desmechada Pollo", 100, 1.50, "01/01/2020", Inventario.obtenerInventarios().get(3));
-		new Item("e Pepperoni", 100, 1.00, "01/01/2020", Inventario.obtenerInventarios().get(2));
-		new Item("Pasta Carbonara", 100, 1.20, "01/01/2020", Inventario.obtenerInventarios().get(1));
+		new Item(" Pepperoni", 100, 1.00, "01/01/2020", Inventario.obtenerInventarios().get(2));
+		new Item("Pasta ", 100, 1.20, "01/01/2020", Inventario.obtenerInventarios().get(1));
 		new Item("Sashimi de Salmón", 100, 2.50, "01/01/2020", Inventario.obtenerInventarios().get(0));
 		new Item("Salsa roja", 100, 1.25, "01/01/2020", Inventario.obtenerInventarios().get(3));
 		new Item("Agua Mineral", 100, 2.00, "01/01/2020", Inventario.obtenerInventarios().get(2));
@@ -119,7 +119,10 @@ public class main {
 		ingredientesPozol.add(Item.buscarItem("Cilantro"));
 		// le agregué los precios a cada plato, se puede cambiar esto:)
 		Plato tacos = new Plato("Tacos", ingredientesTacos, 2000);
+		System.out.print(tacos.getIngredientes());
+
 		Plato tostadas = new Plato("Tostadas", ingredientesTostadas, 2000);
+		System.out.print(ingredientesTostadas);
 		Plato quesadilla = new Plato("Quesadillas", ingredientesQuesadillas, 5000);
 		Plato sopes = new Plato("Sopes", ingredientesSopes, 6000);
 		Plato tamales = new Plato("Tamales", ingredientesTamales, 7000);
@@ -226,13 +229,12 @@ public class main {
 				}
 				if (esc.equals("continuar")) {
 					System.out.println("1. Mostrar inventario");
-					System.out.println("2. Retirar item inventario");
+					System.out.println("2. Precio articulo inventario");
 					System.out.println("3. Revisar niveles de Stock");
 					System.out.println("4. Registrar artículo en inventario");
 					System.out.println("5. Renovar inventario");
 					System.out.println("6. Valor del inventario total");
-					System.out.println("7. Precio artículo del inventario");
-					System.out.println("Cambiar de sede");
+					System.out.println("7. Cambiar de sede");
 					Scanner inputf = new Scanner(System.in);
 					int opcionf;
 					opcionf = inputf.nextInt();
@@ -243,12 +245,23 @@ public class main {
 								.mostrarInventario(Restaurante.getSedes().get(opcion3 - 1));
 						break;
 					case 2:
-						System.out.print("");
+						
+						System.out.print("¿Cual articulo desea mirar?");
+						Scanner inputlk= new Scanner(System.in);
+						String art;
+						art= inputlk.nextLine();
+						
+						if (Item.buscarItem(art)!=null) {
+							Item.buscarItem(art).getPrecio();
+						}
+							
+						
 					case 3:
 						System.out.println("Los articulos sin stock son:");
 						System.out.println(Inventario.obtenerInventarios().get(opcion3 - 1).obtenerItemsSinStock());
 						System.out.println("Los siguientes platos se encuentran agotados: ");// le metí muy sabroso :#
 
+						
 						for (Plato g : Restaurante.getSedes().get(opcion3 - 1).getMenu()) {// implementacion de la
 																							// funcionalidad para
 																							// cambiar la disponibilidad
@@ -257,8 +270,7 @@ public class main {
 							g.disponibilidadPlato();
 							if (g.getDisponibilidad() == false) {
 
-								System.out.println("Para los " + g.getNombre() + " ,los ingredintes que faltan son: "
-										+ g.IngredientesFaltantes());
+								System.out.println("Para los " + g.getNombre() + " ,los ingredintes que faltan son: "+ g.IngredientesFaltantes());
 
 							}
 						}
@@ -385,9 +397,9 @@ public class main {
 
 		case 6:
 			
-			Reserva.reservaciones(nuevoCliente);
+			Reservaciones.reservaciones(nuevoCliente);
 			Cliente micliente = new Cliente("Null", 0);
-			Reserva.reservaciones(micliente);
+			Reservaciones.reservaciones(micliente);
 
 		case 7:
 
@@ -401,5 +413,4 @@ public class main {
 
 		}
 	}
-
 

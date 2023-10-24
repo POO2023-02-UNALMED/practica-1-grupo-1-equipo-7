@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class GenerarPedido {
 	
+	
 	//inicia_la_funcionalidad
 	public static void main(String[] args) {
 		boolean repetir;
@@ -72,20 +73,21 @@ public class GenerarPedido {
 		
 				System.out.println("Productos escogidos");
 				// Enviar_una_notificación_dentro_de_la_aplicación_al_cliente
-				String mensaje2 = "Su pedido con el número de orden "  + " ha sido confirmado. Su pedido va en camino. Gracias por su compra.";
+				String mensaje2 = "Su pedido con el número de orden "  + " ha sido confirmado. Su pedido va en camino.";
 				System.out.print(mensaje2);
-
+				
 				System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente.");
 				System.out.println("¿Desea ordenar algo mas (S/N)?");
 				Scanner input9= new Scanner(System.in);
 				String opcionRR;
 				opcionRR = input9.nextLine();
 				if (opcionRR != "N"){
+					System.out.println("Gracias por su compra.");
 					System.out.println("Progama Terminado");
 				}
+				
 			}
-		
-			
+	
 
 		case 2:
 			System.out.println("2. Pedido de envio");
@@ -130,28 +132,26 @@ public class GenerarPedido {
 				opcion4 = input5.nextLine();
 				if(opcion4 == "S"){
 					System.out.println("Pedido confirmado");
+					 System.out.println("Productos escogidos");
+						// Enviar_una_notificación_dentro_de_la_aplicación_al_cliente
+						String mensaje2 = "Su pedido con el número de orden "  + " ha sido confirmado." + "\n"+ "Su pedido va en camino.";
+						System.out.print(mensaje2);
 
+						System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente.");
+						System.out.println("¿Desea ordenar algo mas? (S/N)");
+						Scanner input9= new Scanner(System.in);
+						String opcionRR;
+						opcionRR = input9.nextLine();
+						if (opcionRR != "N"){
+							System.out.println("Gracias por su compra.");
+							System.out.println("Progama Terminado");
 				    }
 				}
 			}
-		    
 			
-		    
-		    
-		    System.out.println("Productos escogidos");
-			// Enviar_una_notificación_dentro_de_la_aplicación_al_cliente
-			String mensaje2 = "Su pedido con el número de orden "  + " ha sido confirmado." + "\n"+ "Su pedido va en camino. Gracias por su compra.";
-			System.out.print(mensaje2);
-
-			System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente.");
-			System.out.println("¿Desea ordenar algo mas? (S/N)");
-			Scanner input9= new Scanner(System.in);
-			String opcionRR;
-			opcionRR = input9.nextLine();
-			if (opcionRR != "y"){
-				System.out.println("Progama Terminado");
 		}
 	}
+
 }
 	
 

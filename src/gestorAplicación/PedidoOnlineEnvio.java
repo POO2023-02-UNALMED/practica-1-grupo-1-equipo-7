@@ -3,7 +3,7 @@ package gestorAplicación;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PedidoOnlineEnvio extends Pedido{
+public class PedidoOnlineEnvio {
 	private int numeroOrden;
 	private int cantidadPlatos;
 	private String estadoPedido;
@@ -23,7 +23,7 @@ public class PedidoOnlineEnvio extends Pedido{
 		this.cantidadPlatos = cantidadPlatos;
 		this.direccionPedido = direccionPedido;
 		this.tipoPedido = tipoPedido;
-		PedidoOnlineEnvio.Pedidos.add(this);
+		
 	}
 	
 	public static List<Pedido> getPedidos(){
