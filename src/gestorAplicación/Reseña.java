@@ -20,7 +20,7 @@ public class Reseña extends ServiciosClientes{
 		
 	}
 	
-	public int PromedioCalificitacion() {
+	public static int PromedioCalificitacion() {
 		return countCalificaciones/count;
 	}
 	

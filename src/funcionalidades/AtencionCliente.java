@@ -17,7 +17,7 @@ public class AtencionCliente {
 		
 		new Queja("Juan Perez", "Empleado", "Camilo Palacio", "Me cobro propina sin dar la autorización");
 		new Queja("Juan Perez", "Empleado", "Camilo Palacio", "Es muy grosero, me insulto por dejar, segun él, poca propina");
-		new Queja("Maria Lopez", "Menu", "Tacos", "La salsa es muy extravagante, no permite que se disfrute el plato");
+		new Queja("Maria Lopez", "Sede", "Envigado", "No quisieron hacerme un domicilio");
 	          
 		new Reseña("Anonimo", "Gran lugar para pasar el tiempo en familia, muy buena la atención", 4);
 		new Reseña("Julian Vargas", "Me gustaron los pozoles", 5);
@@ -373,10 +373,12 @@ public class AtencionCliente {
 							break;
 							
 						case 5: //Salir;
+							System.out.println("Saliendo");
 							break;
 						
 						default:
 							System.out.println("Opcion invalida");
+							System.out.println("Saliendo");
 							break;
 						}
 					
@@ -398,11 +400,13 @@ public class AtencionCliente {
 					
 				default:
 					System.out.println("Opcion invalida");
+					System.out.println("Saliendo");
 					break;
 				}
 				break;
 				
 			case 3: //Salir
+				System.out.println("Saliendo");
 				break;
 				
 			default:
@@ -478,6 +482,7 @@ public class AtencionCliente {
 						Scanner inputQP12=new Scanner(System.in);
 						String opcionQP12;
 						opcionQP12=inputQP12.nextLine();
+						
 						OtroQ = opcionQP12;
 						
 						break;
@@ -488,6 +493,7 @@ public class AtencionCliente {
 						
 					default:
 						System.out.println("Opcion invalida");
+						System.out.println("Saliendo");
 						break;
 					}
 					
@@ -523,6 +529,7 @@ public class AtencionCliente {
 						
 					default:
 						System.out.println("Opcion invalida");
+						System.out.println("Saliendo");
 						break;
 					}
 					break;
@@ -562,7 +569,7 @@ public class AtencionCliente {
 					
 					default:
 						System.out.println("Esta Sede no existe");
-						opcionQ = 5;
+						System.out.println("Saliendo");
 						break;
 						
 					}
@@ -576,17 +583,15 @@ public class AtencionCliente {
 					OtroQ = null;
 					break;
 				
-				case 5:
+				case 5: //Salir
 						System.out.println("Usted ha salido con exito");
 						break;
 				default:
 					System.out.println("Opcion invalida");
-					opcionQ = 5;
+					System.out.println("Saliendo");
 					break;
 				}
 				
-				if (opcionQ == 5) {break;}
-			
 				if (opcionQ != 5 && opcionQ >= 1 && opcionQ < 5) {
 					System.out.println("Por favor, a continuacion escriba su queja");
 					
@@ -700,6 +705,7 @@ public class AtencionCliente {
 								
 								if (m != 1 && m != 2) {
 									System.out.println("Opcion invalida");
+									System.out.println("Saliendo");
 									break;
 								}
 								break;
@@ -743,6 +749,7 @@ public class AtencionCliente {
 								
 								if (me != 1 && me != 2) {
 									System.out.println("Opcion invalida");
+									System.out.println("Saliendo");
 									break;
 								}
 								break;
@@ -784,6 +791,7 @@ public class AtencionCliente {
 								
 								if (ma == 1 && ma != 2) {
 									System.out.println("Opcion invalida");
+									System.out.println("Saliendo");
 									break;
 								}
 								break;
@@ -826,6 +834,7 @@ public class AtencionCliente {
 								
 								if (mo != 1 && mo != 2) {
 									System.out.println("Opcion invalida");
+									System.out.println("Saliendo");
 									break;
 								}
 								break;
@@ -846,10 +855,12 @@ public class AtencionCliente {
 							break;
 						
 						case 6://Salir
+							System.out.println("Saliendo");
 							break;
 							
 						default:
 							System.out.println("Opcion invalida");
+							System.out.println("Saliendo");
 							break;
 						}
 					
@@ -868,6 +879,7 @@ public class AtencionCliente {
 					
 				default:
 					System.out.println("Opcion invalida");
+					System.out.println("Saliendo");
 					break;
 				}
 				
@@ -876,6 +888,7 @@ public class AtencionCliente {
 				
 			default:
 				System.out.println("Opcion invalida");
+				System.out.println("Saliendo");
 				qj = 3;
 				break;
 			}
@@ -890,7 +903,8 @@ public class AtencionCliente {
 			
 			System.out.println("1. Ver repositorio de reseñas");
 			System.out.println("2. Realizar una nueva reseña");
-			System.out.println("3. Salir");
+			System.out.println("3. Reporte de calificaiones");
+			System.out.println("4. Salir");
 			
 			Reseña reseñaNueva = null;
 			Scanner inputR=new Scanner(System.in);
@@ -1009,13 +1023,33 @@ public class AtencionCliente {
 				
 				}
 				break;
+			
+			case 3://Reporte de calificaiones
+				System.out.println("El promedio de calificaciones es --> " + Reseña.PromedioCalificitacion());
 				
+				if(Reseña.PromedioCalificitacion() == 5 || Reseña.PromedioCalificitacion() >=4) {
+					System.out.println("La satisfacion general  de los clientes es buena :D");
+				}
 				
-			case 3: //Salir
+				if(Reseña.PromedioCalificitacion() >= 3 && Reseña.PromedioCalificitacion() < 4) {
+					System.out.println("La satisfacion general de los clientes es regular :/");
+				}
+				
+				if(Reseña.PromedioCalificitacion() <3 ) {
+					System.out.println("La satisfacion general de los clientes es mala :c");
+				}
+				
+				System.out.println("\nSaliendo");
+				break;
+				
+			case 4: //Salir
+				System.out.println("Saliendo");
 				break;
 			
 			default:
 				System.out.println("Opcion invalida");
+				System.out.println("Saliendo");
+				break;
 			
 			}
 			break;
@@ -1197,6 +1231,7 @@ public class AtencionCliente {
 					ListaDevoluciones2.add(D);
 					
 					System.out.println("Todo listo, su solicitud ha sido creada y enviada con exito,\nNos estaremos comunicando con usted proximamente con la debida respuesta a su solicitud");
+					System.out.println(D);
 					System.out.println("Saliendo");
 					
 					break;
@@ -1227,6 +1262,12 @@ public class AtencionCliente {
 					System.out.println(delv);
 					System.out.println("\nSaliendo");
 					
+					break;
+				}
+				
+				if (bol != true) {
+					System.out.println("Esta solicitud no existe");
+					System.out.println("Saliendo");
 					break;
 				}
 				

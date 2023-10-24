@@ -73,8 +73,8 @@ public class Devolucion extends ServiciosClientes{
 		for (Devolucion d: lista) {
 			if(d.getCodigoReferencia() == codigo) {
 				a = true;
-				break;
-			} break;
+			
+			}
 		}return a;
 	}
 	
@@ -87,14 +87,12 @@ public class Devolucion extends ServiciosClientes{
 	}
 	
 	public static Devolucion buscarD2(List<Devolucion> lista, int codigo) {
-		Devolucion a = null;
-		
 		for (Devolucion d: lista) {
 			if(d.getCodigoReferencia() == codigo) {
-				a = d;
-				break;
-			} break;
-		}return a;
+				
+				return d;
+			} 
+		}return null;
 	}
 	
 	public static List<Devolucion> getDevoluciones(){
