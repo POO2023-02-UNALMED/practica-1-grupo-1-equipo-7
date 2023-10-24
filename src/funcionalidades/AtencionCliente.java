@@ -17,7 +17,7 @@ public class AtencionCliente {
 		
 		new Queja("Juan Perez", "Empleado", "Camilo Palacio", "Me cobro propina sin dar la autorización");
 		new Queja("Juan Perez", "Empleado", "Camilo Palacio", "Es muy grosero, me insulto por dejar, segun él, poca propina");
-		new Queja("Maria Lopez", "Sede", "Envigado", "No quisieron hacerme un domicilio");
+		new Queja("Maria Lopez", "Sede", "Sede: Envigado", "No quisieron hacerme un domicilio");
 	          
 		new Reseña("Anonimo", "Gran lugar para pasar el tiempo en familia, muy buena la atención", 4);
 		new Reseña("Julian Vargas", "Me gustaron los pozoles", 5);
@@ -54,6 +54,7 @@ public class AtencionCliente {
 	protected static List<Queja> QuejasOtros2 = Queja.getQuejasOtros();
 	protected static List<Queja> Quejas2 = Queja.getQuejas();
 	protected static ArrayList<Empleado> empleados = Empleado.getEmpleados();
+	private static ArrayList<Restaurante> sedes = Restaurante.getSedes();
 	
 	public static void main(String[] arg){
 		
@@ -539,9 +540,9 @@ public class AtencionCliente {
 					
 					System.out.println("Por favor, para continuar indique la sede de la cual quiere hacer su queja");
 					
-					System.out.println("1. Sede Las Americas");
+					System.out.println("1. Sede La America");
 			        System.out.println("2. Sede Sandiego");
-			        System.out.println("3. Sede Envigado");
+			        System.out.println("3. Sede: Envigado");
 			        System.out.println("4. Sede Belen");
 			        
 					Scanner inputsedeQ=new Scanner(System.in);
@@ -552,11 +553,11 @@ public class AtencionCliente {
 					switch (sedeQ) {
 					
 					case 1:
-						OtroQ = "Sede Las Americas";
+						OtroQ = "Sede: La America";
 						break;
 						
 					case 2:
-						OtroQ = "Sede Sandiego";
+						OtroQ = "Sede: Sandiego";
 						break;
 						
 					case 3:
@@ -564,7 +565,7 @@ public class AtencionCliente {
 						break;
 						
 					case 4:
-						OtroQ = "Sede Belen";
+						OtroQ = "Sede: Belen";
 						break;
 					
 					default:

@@ -78,7 +78,7 @@ public class Queja extends ServiciosClientes {
 		}
 		
 		if (this.tipo == "Sede") {
-			return "Nombre: " + super.cliente.getNombre() + "\n" + "Realizo una queja sobre la sede: " + this.sede.getUbicacion() + "\n"  + "'" + super.getTexto() + "'";
+			return "Nombre: " + super.cliente.getNombre() + "\n" + "Realizo una queja sobre la " + this.sede.getUbicacion() + "\n"  + "'" + super.getTexto() + "'";
 		}
 		
 		if (this.tipo == "Otro") {

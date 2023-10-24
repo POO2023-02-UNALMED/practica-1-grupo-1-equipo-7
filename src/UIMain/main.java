@@ -558,8 +558,7 @@ public class main {
 
 			
 		case 4:
-			System.out.println("Atención al cliente\n¿Que desea realizar?");
-
+			AtencionCliente.main(args);
 			break;
 
 		case 5:
