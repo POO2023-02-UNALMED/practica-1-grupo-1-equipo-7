@@ -41,12 +41,14 @@ public class main {
 		// por ahora lo trabajaré así, es posible que use un enumerado, si tienen alguna
 		// recomendación lo agradecería :)
 		new Item("Tortilla", 0, 0.50, "01/01/2024", Inventario.obtenerInventarios().get(0));
+		new Item("Tostadas", 0, 0.50, "01/01/2024", Inventario.obtenerInventarios().get(0));
+		new Item("Maiz", 0, 0.50, "01/01/2024", Inventario.obtenerInventarios().get(0));
 		new Item("Carne", 0, 1.00, "01/01/2024", Inventario.obtenerInventarios().get(0));
 		new Item("Cebolla", 100, 0.25, "01/01/2020", Inventario.obtenerInventarios().get(0));
 		new Item("Cilantro", 100, 0.25, "01/01/2024", Inventario.obtenerInventarios().get(0));
 		new Item("Tostada", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(3));
-		new Item("Queso", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(1));
-		new Item("Frijoles", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(2));
+		new Item("Queso", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(0));
+		new Item("Frijoles", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(0));
 		new Item("Masa de Pizza", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(0));
 		new Item("Salsa de Tomate", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(1));
 		new Item(" Champiñones verdes", 100, 0.50, "01/01/2020", Inventario.obtenerInventarios().get(0));
@@ -95,7 +97,6 @@ public class main {
 		ArrayList<Item> ingredientesTostadas = new ArrayList<>();
 		ingredientesTostadas.add(Item.buscarItem("Tostada"));
 		ingredientesTostadas.add(Item.buscarItem("Carne"));
-		ingredientesTostadas.add(Item.buscarItem("Cebolla"));
 		ingredientesTostadas.add(Item.buscarItem("Cilantro"));
 		ArrayList<Item> ingredientesQuesadillas = new ArrayList<>();
 		ingredientesQuesadillas.add(Item.buscarItem("Tortilla"));
@@ -386,6 +387,58 @@ public class main {
 							}
 
 						}
+						
+						
+						
+					case 4 : 
+						System.out.println("--------¿Desea registrar el articulo?---------");
+						System.out.println(" Si/No");
+						Scanner inputñ= new Scanner( System.in);
+						String YesorNot;
+						YesorNot=inputñ.nextLine();
+						if (YesorNot.equals("Si") || YesorNot.equals("si")) {
+							System.out.println("Nombre:");
+							System.out.println("Cantidad:");
+							System.out.println("Precio:");
+							System.out.println("Fecha de vencimiento:");
+							
+							
+							// Nombre 
+							Scanner input4= new Scanner(System.in);
+							String var4 = input4.nextLine();
+							// Cantidad 
+							Scanner input41= new Scanner(System.in);
+							int var41 = input41.nextInt();
+							
+							// Precio
+							Scanner input42= new Scanner(System.in);
+							int var42 = input42.nextInt();
+							
+							//Fecha de vencimiento
+							Scanner input43= new Scanner(System.in);
+							String var43 = input43.nextLine();
+							
+							
+							
+							if (Item.buscarItem(var4)!=null) {
+								Inventario.obtenerInventarios().get(opcion3-1).añadirItems(var4,var41 );
+								System.out.println("**Se ha añdido el item con exito**");
+								
+								
+								
+									
+								
+							}
+							else {
+								new Item(var4, var41, var42, var43, Inventario.obtenerInventarios().get(opcion3-1));// Aca estoy ************************************
+							}
+							
+						}
+						
+						
+						
+							
+					
 
 					}
 
