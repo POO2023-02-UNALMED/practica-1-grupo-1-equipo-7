@@ -75,7 +75,7 @@ public class AtencionCliente {
 		
 		case 1:
 			System.out.println("------------Sugerencias------------");
-			System.out.println("Ha seleccionado la opcion 1, Sugerencia,\\n¿Qué desea realizar?");
+			System.out.println("Ha seleccionado la opcion 1, Sugerencia,\n¿Qué desea realizar?");
 			
 			System.out.println("1. Realizar una nueva sugerencia");
 			System.out.println("2. Reporte de sugerencias");
