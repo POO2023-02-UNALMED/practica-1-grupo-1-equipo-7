@@ -155,20 +155,15 @@ public class main {
 
 	public static void main(String[] args) throws FileNotFoundException , IOException, ClassNotFoundException{
 		System.out.println(
-				"1. Ver menú\n2. Registro del restaurante\n3. Inventario\n4. Atención al cliente\n5. Reportes\n6. Pedidos\n7. Reservaciones\n8. Salir");
+				"1. Inventario\n2. Atención al cliente\n3. Reportes\n4. Pedidos\n5. Reservaciones\n6. Salir");
 		Cliente nuevoCliente = new Cliente(null, 0);
 		Scanner input1 = new Scanner(System.in);
 		int opcion;
 		opcion = input1.nextInt();
 
 		switch (opcion) {
+		
 		case 1:
-			System.out.println("Ver menú");
-			break;
-		case 2:
-			System.out.println("Registro del restaurante");
-			break;
-		case 3:
 			System.out.println("Inventario");
 
 			System.out.println("1.Salir");
@@ -557,28 +552,28 @@ public class main {
 			}break;
 
 			
-		case 4:
+		case 2:
 			AtencionCliente.main(args);
 			break;
 
-		case 5:
+		case 3:
 			System.out.println("Reportes");
 			Reportes.main(args);
 			break;
 			
-		case 6:
+		case 4:
 			System.out.println("Pedido");
 			GenerarPedido.main(args);
 			break;	
 
-		case 7:
+		case 5:
 			
 			Reservaciones.reservaciones(nuevoCliente);
 			Cliente micliente = new Cliente("Null", 0);
 			Reservaciones.reservaciones(micliente);
 			break;
 			
-		case 8:
+		case 6:
 
 			System.out.println("Salir");
 			System.exit(0);
