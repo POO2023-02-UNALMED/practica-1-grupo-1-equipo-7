@@ -20,7 +20,8 @@ public class Devolucion extends ServiciosClientes{
 	}
 	
 	public String toString() {
-		return "Cliente: " + this.cliente.getNombre() + " - CC. " + this.cliente.getId() + " Email: " + this.cliente.getEmail() + "\n" + 
+		return "N° Solicitud: " + this.getCodigoReferencia() + "\n" + 
+				"Cliente: " + this.cliente.getNombre() + " - CC. " + this.cliente.getId() + " - Email: " + this.cliente.getEmail() + "\n" + 
 				"Codigo de Factura: " + this.factura.getCodigo() + "\n" +
 				"Estado de la solicitud:  " + this.getEstado()+ "\n" +
 				"Motivo de la solicitud: " + this.getTexto();

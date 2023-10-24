@@ -8,14 +8,7 @@ public class AtencionCliente {
 	
 
 	static{
-		new Empleado("Juan Lopez", "Chef", 2000, 1);
-	    new Empleado("Pedro Sanchez", "Mesero", 1700, 1);
-	    new Empleado("Maria Ochoa", "Gerente", 3000, 2);
-	    new Empleado("Jose Correa", "Domiciliario", 1500, 2);
-	    new Empleado("Alejandra Diaz", "Servicios Varios", 1000, 2);
-	    new Empleado("Camilo Palacio", "Mesero", 1700, 1);
-	       
-	       
+	          
 		new Reseña("Anonimo", "Gran lugar para pasar el tiempo en familia, muy buena la atención", 4);
 		new Reseña("Julian Vargas", "Me gustaron los pozoles", 5);
 		new Reseña("Marta Wayne", "La comida estaba fria y tardaron mucho en atendernos, mal ahí", 2);
@@ -33,6 +26,7 @@ public class AtencionCliente {
 	
 	
 	public static List<Reseña> Recopilatorio2 = Reseña.Recopilatorio;
+	public static List<Devolucion> ListaDevoluciones2 = Devolucion.ListaDevoluciones;
 	
 	public static void main(String[] arg){
 		
@@ -473,8 +467,18 @@ public class AtencionCliente {
 					System.out.println("Ingrese su codigo de empleado:");
 					
 					Scanner inputD12=new Scanner(System.in);
+					Empleado emp;
 					int opcionD12;
 					opcionD12=inputD12.nextInt();
+					
+					emp = Empleado.buscarEmpleado(opcionD12);
+					
+					System.out.println("Bienvenid@ " + emp.getNombre()+ "\nA continucion se mostraran todas las solicitudes pendientes");
+					
+					for(Devolucion d: ListaDevoluciones2) {
+						System.out.println(d);
+						System.out.println("\n");}
+					
 					
 					
 					
