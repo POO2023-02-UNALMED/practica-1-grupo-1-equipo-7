@@ -34,13 +34,13 @@ public class Pedido  {
 		this.numeroOrden = numeroOrden;
 		this.cantidadPlatos = cantidadPlatos;
 		this.direccionPedido = direccionPedido;
-		this.tipoPedido = tipoPedido;
+		this.tipoPedido = "Pedido de Envio";
 	}
 	public void PedidoOnlinefisico(int numeroOrden, int cantidadPlatos, String direccionPedido, String tipoPedido) {
 		this.numeroOrden = numeroOrden;
 		this.cantidadPlatos = cantidadPlatos;
 		this.direccionPedido2 = direccionPedido;
-		this.tipoPedido= tipoPedido;
+		this.tipoPedido= "Pedido Fisico";
 	}
 	
 	

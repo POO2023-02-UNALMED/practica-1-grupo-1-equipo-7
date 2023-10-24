@@ -168,7 +168,7 @@ public class GenerarPedido {
 		
 				System.out.println("Productos escogidos");
 				// Enviar_una_notificación_dentro_de_la_aplicación_al_cliente
-				String mensaje2 = "Su pedido con el número de orden " + Pedido.getNumeroOrden() + " ha sido confirmado. Su pedido va en camino." + "\n";
+				String mensaje2 = "Su pedido con el número de orden "  + " ha sido confirmado. Su pedido va en camino." + "\n";
 				System.out.print(mensaje2);
 				
 				System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente."  + "\n");
@@ -238,9 +238,8 @@ public class GenerarPedido {
 						String opcionRR;
 						opcionRR = input9.nextLine();
 						if (opcionRR != "N"){
-							repetir case2;
-						}
-						else {
+							
+						
 							System.out.println("Gracias por su compra.");
 							System.out.println("Progama Terminado");
 				    }
