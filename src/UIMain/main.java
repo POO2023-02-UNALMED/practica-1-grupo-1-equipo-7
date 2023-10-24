@@ -229,13 +229,12 @@ public class main {
 				}
 				if (esc.equals("continuar")) {
 					System.out.println("1. Mostrar inventario");
-					System.out.println("2. Retirar item inventario");
+					System.out.println("2. Precio articulo inventario");
 					System.out.println("3. Revisar niveles de Stock");
 					System.out.println("4. Registrar artículo en inventario");
 					System.out.println("5. Renovar inventario");
 					System.out.println("6. Valor del inventario total");
-					System.out.println("7. Precio artículo del inventario");
-					System.out.println("Cambiar de sede");
+					System.out.println("7. Cambiar de sede");
 					Scanner inputf = new Scanner(System.in);
 					int opcionf;
 					opcionf = inputf.nextInt();
@@ -252,6 +251,7 @@ public class main {
 						System.out.println(Inventario.obtenerInventarios().get(opcion3 - 1).obtenerItemsSinStock());
 						System.out.println("Los siguientes platos se encuentran agotados: ");// le metí muy sabroso :#
 
+						
 						for (Plato g : Restaurante.getSedes().get(opcion3 - 1).getMenu()) {// implementacion de la
 																							// funcionalidad para
 																							// cambiar la disponibilidad
@@ -260,8 +260,7 @@ public class main {
 							g.disponibilidadPlato();
 							if (g.getDisponibilidad() == false) {
 
-								System.out.println("Para los " + g.getNombre() + " ,los ingredintes que faltan son: "
-										+ g.IngredientesFaltantes());
+								System.out.println("Para los " + g.getNombre() + " ,los ingredintes que faltan son: "+ g.IngredientesFaltantes());
 
 							}
 						}
@@ -404,4 +403,3 @@ public class main {
 
 		}
 	}
-

@@ -38,7 +38,16 @@ public class Devolucion extends ServiciosClientes{
 		this.Estado = nuevo;	
 	}
 	
-	
+	public static boolean buscarD(List<Devolucion> lista, int codigo) {
+		boolean a = false;
+		
+		for (Devolucion d: lista) {
+			if(d.getCodigoReferencia() == codigo) {
+				a = true;
+				break;
+			} break;
+		}return a;
+	}
 	
 	public static void removerDevolucion(int codigo) {
 		for(Devolucion del: Devolucion.ListaDevoluciones) {
