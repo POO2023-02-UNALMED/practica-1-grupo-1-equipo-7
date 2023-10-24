@@ -20,6 +20,15 @@ public class AtencionCliente {
 		new Reseña("Esteban Tabares", "La atención en el local de las Americas fue muy buena, hicimos un evento familiar y todo salio perfecto", 5);
 		new Reseña("Elizabeth Bennet", "La tortilla estaba dura pero lo demas muy rico", 3);
 		
+		new Devolucion("Juan Perez",5236,"juan@gmail.com",1,"No me senti satisfecho con el pedido");
+		new Devolucion("Juan Perez",5236,"juan@gmail.com",2,"Pese a que me comi todo no me gusto el sabor");
+		new Devolucion("Juan Perez",5236,"juan@gmail.com",3,"No me habia dado cuenta pero me cobraron más de lo que consumi");
+		new Devolucion("Juan Perez",5236,"juan@gmail.com",4,"Me parece una estafa todo lo que me cobraron por lo poco que consumi");
+		new Devolucion("Juan Perez",5236,"juan@gmail.com",5,"La propina me la cobraron sin yo dar permiso");
+		new Devolucion("Juan Perez",5236,"juan@gmail.com",6,"No me gusto la comida");
+		new Devolucion("Juan Perez",5236,"juan@gmail.com",7,"Escuche al mesero renegando por la cantidad de propina que deposite");
+	
+		
 	}
 	
 
@@ -560,6 +569,8 @@ public class AtencionCliente {
 			case 2: //Nueva solicitud
 				System.out.println("Para realizar una nueva solicitud por favor ingrese los siguientes datos");
 				
+				Devolucion D;
+				
 				String nombreD;
 				int id;
 				String correo;
@@ -584,16 +595,52 @@ public class AtencionCliente {
 				
 				System.out.println("Por favor espere unos segundos mientras verificamos los datos");
 				
-				Factura factura;
-				factura = Factura.buscarFactura(codfac);
+				boolean factura;
+				factura = Factura.existeFactura(codfac);
 				
+				if(factura == true) {
+					System.out.println("Sus datos son validos, por favor ingrese el motivo de su devolucion para continuar");
+					
+					Scanner razonD = new Scanner(System.in);
+					razon = razonD.nextLine();
+					
+					D = new Devolucion(nombreD,id,correo,codfac,razon);
+					ListaDevoluciones2.add(D);
+					
+					System.out.println("Todo listo, su solicitud ha sido creada y enviada con exito,\nNos estaremos comunicando con usted proximamente con la debida respuesta a su solicitud");
+					System.out.println("Saliendo");
+					
+					break;
+				}
 				
-				
-				
-				
+				if(factura == false) {
+					System.out.println("El numero de factura que ingreso no existe por lo tanto no es valido");
+					System.out.println("Saliendo");
+					break;
+				}
 				break;
 				
 			case 3: //Revisar estado de mi solicitud
+				
+				System.out.println("Por favor ingrese el n° de la solicitud");
+				
+				int numero;
+				Scanner numerod = new Scanner(System.in);
+				numero = numerod.nextInt();
+				
+				boolean bol;
+				bol = Devolucion.buscarD(ListaDevoluciones2, numero);
+				Devolucion delv;
+				delv = Devolucion.buscarD2(ListaDevoluciones2, numero);
+				
+				if (bol == true) {
+					System.out.println("Todo listo, mostando solicitud ... ");
+					System.out.println(delv);
+					System.out.println("\nSaliendo");
+					
+					break;
+				}
+				
 				break;
 			
 			case 4: //Salir
