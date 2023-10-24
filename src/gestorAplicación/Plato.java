@@ -9,8 +9,8 @@ import java.util.HashMap;
 
 public class Plato {
 	private String nombre;
-	private  final List<Item> ingredientes;
-	public static List<Plato> pl = new ArrayList<>();
+	private  final ArrayList<Item> ingredientes;
+	public static ArrayList<Plato> pl = new ArrayList<>();
 	private int precio;
 	private boolean disponibilidad=true;// esto es importante para mi funcionalidad :)
 	private static ArrayList<Plato> listadoplatos = new ArrayList<>();
@@ -109,18 +109,18 @@ public String getNombre() {
 		this.precio = precio;
 	}
 
+   
 	
     public ArrayList<String> getIngredientes() {
         if (ingredientes.isEmpty()) {
             return null;
         }
-        System.out.println("2.1");
         ArrayList<String> ingredientes = new ArrayList<>();
-        System.out.println(this.ingredientes);
         for (Item ingrediente : this.ingredientes) {
-            System.out.println(ingrediente);
+            if (ingrediente == null) {
+                continue;
+            }
             ingredientes.add(ingrediente.getNombre());
-            System.out.println("2.3");
         }
         return ingredientes;
         
@@ -176,11 +176,8 @@ public String getNombre() {
    public static Object[] getIngredientesSimilares(Plato plato1, Plato plato2){
         int ingredientesSimilares = 0;
         ArrayList<String> ingredientes = new ArrayList<>();
-        System.out.println("1.1");
         for(String ingrediente1 : plato1.getIngredientes()){
-            System.out.println("1.2");
             for(String ingrediente2 : plato2.getIngredientes()){
-                System.out.println("1.3");
                 if(ingrediente1.equals(ingrediente2) && !ingredientes.contains(ingrediente1)){
                     ingredientes.add(ingrediente1);
                     ingredientesSimilares++;

@@ -2,6 +2,7 @@ package UIMain;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -110,25 +111,25 @@ public class main {
 		ingredientesTamales.add(Item.buscarItem("Carne"));
 		ArrayList<Item> ingredientesEnchiladas = new ArrayList<>();
 		ingredientesEnchiladas.add(Item.buscarItem("Tortilla"));
-
+		ingredientesEnchiladas.add(Item.buscarItem("Queso"));
 		ingredientesEnchiladas.add(Item.buscarItem("Carne"));
-		List<Item> ingredientesPozol = new ArrayList<>();
+		ArrayList<Item> ingredientesPozol = new ArrayList<>();
 		ingredientesPozol.add(Item.buscarItem("Maiz"));
 		ingredientesPozol.add(Item.buscarItem("Carne"));
 		ingredientesPozol.add(Item.buscarItem("Cebolla"));
 		ingredientesPozol.add(Item.buscarItem("Cilantro"));
 		// le agregué los precios a cada plato, se puede cambiar esto:)
 		Plato tacos = new Plato("Tacos", ingredientesTacos, 2000);
-		
+		System.out.print(tacos.getIngredientes());
 
 		Plato tostadas = new Plato("Tostadas", ingredientesTostadas, 2000);
-		
+		System.out.print(ingredientesTostadas);
 		Plato quesadilla = new Plato("Quesadillas", ingredientesQuesadillas, 5000);
 		Plato sopes = new Plato("Sopes", ingredientesSopes, 6000);
 		Plato tamales = new Plato("Tamales", ingredientesTamales, 7000);
 		Plato enchilada = new Plato("Enchiladas", ingredientesEnchiladas, 8000);
-
-		ingredientesEnchiladas.add(Item.buscarItem("Queso"));
+		Plato pozol = new Plato("Pozol", ingredientesPozol, 9000);
+		
 
 	}
 
@@ -245,7 +246,23 @@ public class main {
 								.mostrarInventario(Restaurante.getSedes().get(opcion3 - 1));
 						break;
 					case 2:
-						System.out.print("");
+						
+						System.out.print("¿Cual articulo desea mirar?");
+						Scanner inputlk= new Scanner(System.in);
+						String art;
+						art= inputlk.nextLine();
+						List <String >listt= Arrays.asList(art.split(" "));
+						for (String i : listt) {
+						if (Item.buscarItem(i)!=null) {
+							System.out.println(  "El precio de "+Item.buscarItem(i).getNombre()+" "+Item.buscarItem(i).getPrecio());
+						}
+						if (Item.buscarItem(i)==null) {
+							System.out.println("El nombre de "+i +" no ha sido encontrado");
+						}
+						
+						}
+							
+						
 					case 3:
 						System.out.println("Los articulos sin stock son:");
 						System.out.println(Inventario.obtenerInventarios().get(opcion3 - 1).obtenerItemsSinStock());
@@ -387,9 +404,9 @@ public class main {
 
 		case 6:
 			
-			Reserva.reservaciones(nuevoCliente);
+			Reservaciones.reservaciones(nuevoCliente);
 			Cliente micliente = new Cliente("Null", 0);
-			Reserva.reservaciones(micliente);
+			Reservaciones.reservaciones(micliente);
 
 		case 7:
 
@@ -403,3 +420,4 @@ public class main {
 
 		}
 	}
+
