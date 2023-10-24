@@ -55,15 +55,52 @@ public class Item implements Serializable {
 	       //actualizar la cantidad de items 
 	        totalItems+=cantidad;
 	        
-	         //añadir estos items a inventario
+	        // añadir estos items a inventario
 	        inventario.añadirItems(this, cantidad);
 	        inventario.añadirAListadoItems(this);
 	        
 	    }
-	    
+	    public Item() {
+	    	
+	    }
 
+		//static{
+			//new Item("Tortilla", 100, 0.50,"01/01/2020");
+	        //new Item("Carne", 100, 1.00,"01/01/2020");
+	       // new Item("Cebolla", 100, 0.25,"01/01/2020");
+	       // new Item("Cilantro", 100, 0.25,"01/01/2020");
+	      //  new Item("Tostada", 100, 0.50,"01/01/2020");
+	      //  new Item("Queso", 100, 0.50,"01/01/2020");
+	       // new Item("Frijoles", 100, 0.50,"01/01/2020");
+	      //  new Item("Masa", 100, 0.50,"01/01/2020");
+	       // new Item("Salsa", 100, 0.50,"01/01/2020");
+	      //  new Item("Crema", 100, 0.50,"01/01/2020");
+	        //new Item("Maiz", 100, 0.50,"01/01/2020");
+	       // new Item("Sopa de Tomate", 100, 0.80, "01/01/2020");
+	       // new Item("Lasagna", 100, 1.50, "01/01/2020");
+	      //  new Item("Espárragos", 100, 1.00, "01/01/2020");
+	        //new Item("Sándwich de Pavo", 100, 1.20, "01/01/2020");
+	      //  new Item("Hamburguesa", 100, 1.50, "01/01/2020");
+	      //  new Item("Pizza Margarita", 100, 1.00, "01/01/2020");
+	      //  new Item("Pasta Alfredo", 100, 1.20, "01/01/2020");
+	      //  new Item("Sushi", 100, 2.50, "01/01/2020");
+	      //  new Item("Tacos de Pescado", 100, 1.25, "01/01/2020");
+	      //  new Item("Cerveza", 100, 2.00, "01/01/2020");
+	      //  new Item("Vino Tinto", 100, 3.00, "01/01/2020");
+	      //  new Item("Café", 100, 0.90, "01/01/2020");
+	      //  new Item("Té Verde", 100, 0.80, "01/01/2020");
+	       // new Item("Refresco de Cola", 100, 1.00, "01/01/2020");
+	       // new Item("Helado de Vainilla", 100, 1.20, "01/01/2020");
+	      //  new Item("Pastel de Chocolate", 100, 1.50, "01/01/2020");
+				        
+	//	} lo descomenté todo porque creo que no vamos a usar esto , si alguien sabe de otra cosa me avisa por favor soy andrés :)
 
-	     //Getter para el atributo "nombre"
+			
+		
+
+	
+
+	    // Getter para el atributo "nombre"
 	    public String getNombre() {
 	        return nombre;
 	    }

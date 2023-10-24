@@ -9,7 +9,7 @@ import gestorAplicación.*;
 			
 
 	        System.out.println("------------¿Qué tipo de reporte desea generar?------------");
-	        System.out.println("1. Reporte de Comisiones");
+	        System.out.println("1.Reporte de Comisiones");
 	        System.out.println("2.Recomendaciones");
 	        
 	        Scanner input1 = new Scanner(System.in);

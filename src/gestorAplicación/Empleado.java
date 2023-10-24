@@ -55,7 +55,7 @@ public class Empleado extends Persona {
         this.sueldo = sueldo;
     }
     public String toString(){
-        return super.toString() + "Cargo: " + cargo + " Sueldo: " + sueldo;
+        return super.toString() + " Cargo: " + cargo + " Sueldo: " + sueldo;
     }
     
     public String getCargo() {
@@ -82,13 +82,26 @@ public class Empleado extends Persona {
         return null;
     }
     
-    public static Empleado buscarEmpleadoXNombre(String nombre){
+    public static Empleado busquedaXNombre(String nombre) {
+    	Empleado empleado = null;
+    	
+    	for(Empleado empleados : empleados) {
+    		if(empleados.getNombre() == nombre) {
+    			empleado = empleados;
+    		}
+    	}
+    	return empleado;
+    }
+    
+    public static boolean existeEmpleado(String nombre){
+    	boolean a = false;
         for(Empleado empleado : empleados){
             if(empleado.getNombre() == nombre){
-                return empleado;
+                a = true;
+                break;
             }
         }
-        return null;
+        return a;
     }
 
 
