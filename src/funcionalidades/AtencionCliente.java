@@ -51,6 +51,11 @@ public class AtencionCliente {
 	protected static List<Sugerencia> SugerenciasSedes2 = Sugerencia.SugerenciasSedes;
 	protected static List<Sugerencia> SugerenciasOtros2 = Sugerencia.SugerenciasOtros;
 	protected static List<Sugerencia> Sugerencias2 = Sugerencia.Sugerencias;
+	protected static List<Queja> QuejasMenu2 = Queja.QuejasMenu;
+	protected static List<Queja> QuejasEmpleados2 = Queja.QuejasEmpleados;
+	protected static List<Queja> QuejasSedes2 = Queja.QuejasSedes;
+	protected static List<Queja> QuejasOtros2 = Queja.QuejasOtros;
+	public static List<Queja> Quejas2 = Queja.Quejas;
 	
 	public static void main(String[] arg){
 		
@@ -60,7 +65,7 @@ public class AtencionCliente {
 		System.out.println("1. Sugerencia");
 		System.out.println("2. Queja");
 		System.out.println("3. Reseña");
-		System.out.println("4. Solicitar Devolucion");
+		System.out.println("4. Devolucion");
 		System.out.println("5. Salir");
 		
 		Scanner input4=new Scanner(System.in);
@@ -84,6 +89,8 @@ public class AtencionCliente {
 			
 			switch(sug) {
 			case 1: //Nueva sugerencia
+				
+				Sugerencia suge = null;
 				
 				System.out.println("¿Sobre que desea realizar su sugerecia?");
 				System.out.println("1. Sobre el menu");
@@ -149,14 +156,16 @@ public class AtencionCliente {
 						TextoS = EditarS;
 					}
 					
-					if (opcionES == 2) {new Sugerencia(type, TextoS);}
+					if (opcionES == 2) {suge = new Sugerencia(type, TextoS);}
 					
 					System.out.println("Su sugerencia se ha enviado con exito");
-					System.out.println("1. Salir");
 					
-					Scanner inputSalirS = new Scanner(System.in);
-					int SalirS;
-					SalirS=inputSalirS.nextInt();
+					System.out.println("\n");
+					System.out.println(suge);
+					System.out.println("\n");
+					
+					System.out.println("Saliendo");
+					break;
 				}
 				
 				break;
@@ -182,179 +191,186 @@ public class AtencionCliente {
 					
 					emp = Empleado.buscarEmpleado(opcionS12);
 					
-					System.out.println("Bienvenid@ " + emp.getNombre()+ "\n¿Que reporte desea que le muestre?");
-					
-					System.out.println("1. Reporte de todas las sugerencias");
-					System.out.println("2. Reporte de sugerencias del menu");
-					System.out.println("3. Reporte de sugeencias sobre empleados");
-					System.out.println("4. Reporte de sugerencias de sede");
-					System.out.println("5. Salir");
-				
-				
-					int reportS;
-					Scanner reports = new Scanner(System.in);
-					reportS = reports.nextInt();
-					
-					switch(reportS) {
-					
-					case 1: //Reporte todas
+					if (emp != null) {
+						System.out.println("Bienvenid@ " + emp.getNombre()+ "\n¿Que reporte desea que le muestre?");
 						
-						System.out.println("Hay un total de (" + Sugerencia.cantidadSugerencias() + ") sugerencias. ¿Desea verlas?");
+						System.out.println("1. Reporte de todas las sugerencias");
+						System.out.println("2. Reporte de sugerencias del menu");
+						System.out.println("3. Reporte de sugeencias sobre empleados");
+						System.out.println("4. Reporte de sugerencias de sede");
+						System.out.println("5. Salir");
+					
+					
+						int reportS;
+						Scanner reports = new Scanner(System.in);
+						reportS = reports.nextInt();
 						
-						System.out.println("1. Si");
-						System.out.println("2. No");
-						int m;
-						Scanner mi = new Scanner(System.in);
-						m = mi.nextInt();
+						switch(reportS) {
 						
-						//si
-						if (m == 1) {
+						case 1: //Reporte todas
 							
-							for(Sugerencia d: Sugerencias2) {
-								System.out.println("\n");
-								System.out.println(d);
-								System.out.println("\n");
+							System.out.println("Hay un total de (" + Sugerencia.cantidadSugerencias() + ") sugerencias. ¿Desea verlas?");
+							
+							System.out.println("1. Si");
+							System.out.println("2. No");
+							int m;
+							Scanner mi = new Scanner(System.in);
+							m = mi.nextInt();
+							
+							//si
+							if (m == 1) {
+								
+								for(Sugerencia d: Sugerencias2) {
+									System.out.println("\n");
+									System.out.println(d);
+									System.out.println("\n");
+								}
+								
+								System.out.println("Saliendo");
+								
+								break;
 							}
 							
-							System.out.println("Saliendo");
+							//no
+							if (m == 2) {
+								System.out.println("Saliendo");
+								
+								 break;
+							}
+							
+							if (m != 1 && m != 2) {
+								System.out.println("Opcion invalida");
+								break;
+							}
 							
 							break;
-						}
-						
-						//no
-						if (m == 2) {
-							System.out.println("Saliendo");
 							
-							 break;
-						}
+							
+						case 2://Reporte menu
+							System.out.println("Hay un total de (" + Sugerencia.cantidadSugerenciasMenu() + ") sugerencias de tipo menu. ¿Desea verlas?");
+							
+							System.out.println("1. Si");
+							System.out.println("2. No");
+							int me;
+							Scanner mie = new Scanner(System.in);
+							me = mie.nextInt();
+							
+							//si
+							if (me == 1) {
+								
+								for(Sugerencia d: SugerenciasMenu2) {
+									System.out.println("\n");
+									System.out.println(d);
+									System.out.println("\n");
+								}
+								
+								System.out.println("Saliendo");
+								
+								break;
+							}
+							
+							//no
+							if (me == 2) {
+								System.out.println("Saliendo");
+								
+								 break;
+							}
+							
+							if (me != 1 && me != 2) {
+								System.out.println("Opcion invalida");
+								break;
+							}
+							
+							break;
+							
+						case 3://Reporte empleados
+							System.out.println("Hay un total de (" + Sugerencia.cantidadSugerenciasEmpleados() + ") sugerencias de tipo empleado. ¿Desea verlas?");
+							
+							System.out.println("1. Si");
+							System.out.println("2. No");
+							int ma;
+							Scanner mia = new Scanner(System.in);
+							ma = mia.nextInt();
+							
+							//si
+							if (ma == 1) {
+								
+								for(Sugerencia d: SugerenciasEmpleados2) {
+									System.out.println("\n");
+									System.out.println(d);
+									System.out.println("\n");
+								}
+								
+								System.out.println("Saliendo");
+								
+								break;
+							}
+							
+							//no
+							if (ma == 2) {
+								System.out.println("Saliendo");
+								
+								 break;
+							}
+							
+							if (ma == 1 && ma != 2) {
+								System.out.println("Opcion invalida");
+								break;
+							}
+							break;
 						
-						if (m != 1 && m != 2) {
+						case 4://Reporte sedes
+							System.out.println("Hay un total de (" + Sugerencia.cantidadSugerenciasSedes() + ") sugerencias de tipo sede. ¿Desea verlas?");
+							
+							System.out.println("1. Si");
+							System.out.println("2. No");
+							int mo;
+							Scanner mio = new Scanner(System.in);
+							mo = mio.nextInt();
+							
+							//si
+							if (mo == 1) {
+								
+								for(Sugerencia d: SugerenciasSedes2) {
+									System.out.println("\n");
+									System.out.println(d);
+									System.out.println("\n");
+								}
+								
+								System.out.println("Saliendo");
+								
+								break;
+							}
+							
+							//no
+							if (mo == 2) {
+								System.out.println("Saliendo");
+								
+								 break;
+							}
+							
+							if (mo != 1 && mo != 2) {
+								System.out.println("Opcion invalida");
+								break;
+							}
+							
+							break;
+							
+						case 5: //Salir;
+							break;
+						
+						default:
 							System.out.println("Opcion invalida");
 							break;
 						}
-						
-						break;
-						
-						
-					case 2://Reporte menu
-						System.out.println("Hay un total de (" + Sugerencia.cantidadSugerenciasMenu() + ") sugerencias de tipo menu. ¿Desea verlas?");
-						
-						System.out.println("1. Si");
-						System.out.println("2. No");
-						int me;
-						Scanner mie = new Scanner(System.in);
-						me = mie.nextInt();
-						
-						//si
-						if (me == 1) {
-							
-							for(Sugerencia d: SugerenciasMenu2) {
-								System.out.println("\n");
-								System.out.println(d);
-								System.out.println("\n");
-							}
-							
-							System.out.println("Saliendo");
-							
-							break;
-						}
-						
-						//no
-						if (me == 2) {
-							System.out.println("Saliendo");
-							
-							 break;
-						}
-						
-						if (me != 1 && me != 2) {
-							System.out.println("Opcion invalida");
-							break;
-						}
-						
-						break;
-						
-					case 3://Reporte empleados
-						System.out.println("Hay un total de (" + Sugerencia.cantidadSugerenciasEmpleados() + ") sugerencias de tipo empleado. ¿Desea verlas?");
-						
-						System.out.println("1. Si");
-						System.out.println("2. No");
-						int ma;
-						Scanner mia = new Scanner(System.in);
-						ma = mia.nextInt();
-						
-						//si
-						if (ma == 1) {
-							
-							for(Sugerencia d: SugerenciasEmpleados2) {
-								System.out.println("\n");
-								System.out.println(d);
-								System.out.println("\n");
-							}
-							
-							System.out.println("Saliendo");
-							
-							break;
-						}
-						
-						//no
-						if (ma == 2) {
-							System.out.println("Saliendo");
-							
-							 break;
-						}
-						
-						if (ma == 1 && ma != 2) {
-							System.out.println("Opcion invalida");
-							break;
-						}
-						break;
 					
-					case 4://Reporte sedes
-						System.out.println("Hay un total de (" + Sugerencia.cantidadSugerenciasSedes() + ") sugerencias de tipo sede. ¿Desea verlas?");
-						
-						System.out.println("1. Si");
-						System.out.println("2. No");
-						int mo;
-						Scanner mio = new Scanner(System.in);
-						mo = mio.nextInt();
-						
-						//si
-						if (mo == 1) {
-							
-							for(Sugerencia d: SugerenciasSedes2) {
-								System.out.println("\n");
-								System.out.println(d);
-								System.out.println("\n");
-							}
-							
-							System.out.println("Saliendo");
-							
-							break;
-						}
-						
-						//no
-						if (mo == 2) {
-							System.out.println("Saliendo");
-							
-							 break;
-						}
-						
-						if (mo != 1 && mo != 2) {
-							System.out.println("Opcion invalida");
-							break;
-						}
-						
-						break;
-						
-					case 5: //Salir;
-						break;
-					
-					default:
-						System.out.println("Opcion invalida");
-						break;
 					}
 					
-					
+					if(emp == null) {
+						System.out.println("El codigo es incorrecto");
+						System.out.println("Saliendo");
+						break;
+					}
 					
 					
 					break;
@@ -388,176 +404,434 @@ public class AtencionCliente {
 			
 		case 2:
 			System.out.println("------------Quejas------------");
-			System.out.println("Ha seleccionado la opcion 2, Quejas\nPor favor, a continuacion ingrese su nombre completo:");
+			System.out.println("Ha seleccionado la opcion 2, Quejas\n¿Que desea realizar?");
 			
-			Scanner inputNombreQ = new Scanner(System.in);
-			String NombreQ;
-			NombreQ = inputNombreQ.nextLine();
+			System.out.println("1. Realizar una nueva queja");	
+			System.out.println("2. Reporte de quejas");
+			System.out.println("3. Salir");
 			
-			System.out.println("¿Sobre que desea realizar su queja?");
+			int qj;
+			Scanner qja = new Scanner(System.in);
+			qj = qja.nextInt();
 			
-			System.out.println("1. Sobre el menu");
-			System.out.println("2. Sobre un empleado");
-			System.out.println("3. Sobre una de nuestras sedes");
-			System.out.println("4. Algun otro");
-			System.out.println("5. Salir");
+			switch(qj) {
 			
-			
-			String typeQ = null;
-			String OtroQ = null;
-			
-			Scanner inputQ = new Scanner(System.in);
-			int opcionQ;
-			opcionQ = inputQ.nextInt();
-			
-			switch(opcionQ) {
-			
-			case 1:
-				typeQ = "Menu";
+			case 1: //Nueva queja
 				
-				System.out.println("¿Sobre que platillo desea quejarse?");
+				Queja queja= null;
 				
-				Scanner inputplatoQ = new Scanner(System.in);
-				String platoQ;
-
-				Plato platoQueja;
-				platoQ = inputplatoQ.nextLine();
-
-				boolean pb;
-
+				System.out.println("Por favor, a continuacion ingrese su nombre completo:");
 				
-				platoQ = inputplatoQ.nextLine();
-				pb =Plato.existePlato(((String)platoQ));
-				System.out.println(Plato.existePlato(platoQ));
+				Scanner inputNombreQ = new Scanner(System.in);
+				String NombreQ;
+				NombreQ = inputNombreQ.nextLine();
+				
+				System.out.println("¿Sobre que desea realizar su queja?");
+				
+				System.out.println("1. Sobre el menu");
+				System.out.println("2. Sobre un empleado");
+				System.out.println("3. Sobre una de nuestras sedes");
+				System.out.println("4. Algun otro");
+				System.out.println("5. Salir");
 				
 				
-				if (pb == false) {
-					System.out.println("Este platillo no es parte de nuestro menu");
-					
-					opcionQ = 5;
-					
-					break;
-				}	
+				String typeQ = null;
+				String OtroQ = null;
 				
+				Scanner inputQ = new Scanner(System.in);
+				int opcionQ;
+				opcionQ = inputQ.nextInt();
 				
-				break;
-				
-			case 2:
-				typeQ = "Empleado";
-				
-				System.out.println("Por favor, para continuar ingrese el nombre del empleado");
-				
-				Scanner inputempleadoQ=new Scanner(System.in);
-				String empleadoQ;
-				boolean empleadoQueja;
-				empleadoQ=inputempleadoQ.nextLine();
-				
-				empleadoQueja = Empleado.existeEmpleado(empleadoQ);
-				if(empleadoQueja == false) {
-					System.out.println("Esta persona no pertenece a nuestro equipo de trabajo");
-					
-					opcionQ = 5;
-					
-					break;
-				}
-				
-				OtroQ = empleadoQ;
-				break;
-				
-			case 3:
-				typeQ = "Sede";
-				
-				System.out.println("Por favor, para continuar indique la sede de la cual quiere hacer su queja");
-				
-				System.out.println("1. Sede Las Americas");
-		        System.out.println("2. Sede Sandiego");
-		        System.out.println("3. Sede Envigado");
-		        System.out.println("4. Sede Belen");
-		        
-				Scanner inputsedeQ=new Scanner(System.in);
-				int sedeQ;
-				Restaurante sedeQueja;
-				sedeQ=inputsedeQ.nextInt();
-				
-				switch (sedeQ) {
+				switch(opcionQ) {
 				
 				case 1:
-					OtroQ = "Sede Las Americas";
+					typeQ = "Menu";
+					
+					System.out.println("Para poder continuar debe ingresar el nombre del plato del cual desea quejarse. ¿Cuenta con el nombre del plato?");
+					System.out.println("1. Si");
+					System.out.println("2. No");
+					
+					Scanner inputQP1=new Scanner(System.in);
+					int opcionQP1;
+					opcionQP1=inputQP1.nextInt();
+					
+					switch (opcionQP1) {
+					case 1: //Tiene nombre de PLATO
+						System.out.println("Ingrese el nombre del plato:");
+						
+						Scanner inputQP12=new Scanner(System.in);
+						String opcionQP12;
+						opcionQP12=inputQP12.nextLine();
+						OtroQ = opcionQP12;
+						
+						break;
+					case 2: //No tiene nombre de PLATO
+						System.out.println("Sin el nombre del plato no es posible realizar una queja especifica, le recomendamos escribir su queja en ''Algun Otro''");
+						System.out.println("Saliendo");
+						break;
+						
+					default:
+						System.out.println("Opcion invalida");
+						break;
+					}
+					
 					break;
 					
 				case 2:
-					OtroQ = "Sede Sandiego";
+					typeQ = "Empleado";
+
+					System.out.println("Para poder continuar debe ingresar el nombre del empleado del cual desea quejarse. ¿Cuenta con el nombre del empleado?");
+					System.out.println("1. Si");
+					System.out.println("2. No");
+					
+					Scanner inputQ1=new Scanner(System.in);
+					int opcionQ1;
+					opcionQ1=inputQ1.nextInt();
+					
+					switch (opcionQ1) {
+					case 1: //Tiene nombre de empleado
+						System.out.println("Ingrese el nombre del empleado:");
+						
+						Scanner inputQ12=new Scanner(System.in);
+						String opcionQ12;
+						opcionQ12=inputQ12.nextLine();
+						OtroQ = opcionQ12;
+					
+					
+						
+						break;
+					case 2: //No tiene nombre de empleado
+						System.out.println("Sin el nombre del empleado no es posible realizar una queja especifica, le recomendamos escribir su queja en ''Algun Otro''");
+						System.out.println("Saliendo");
+						break;
+						
+					default:
+						System.out.println("Opcion invalida");
+						break;
+					}
 					break;
 					
 				case 3:
-					OtroQ = "Sede Envigado";
-					break;
+					typeQ = "Sede";
 					
-				case 4:
-					OtroQ = "Sede Belen";
+					System.out.println("Por favor, para continuar indique la sede de la cual quiere hacer su queja");
+					
+					System.out.println("1. Sede Las Americas");
+			        System.out.println("2. Sede Sandiego");
+			        System.out.println("3. Sede Envigado");
+			        System.out.println("4. Sede Belen");
+			        
+					Scanner inputsedeQ=new Scanner(System.in);
+					int sedeQ;
+					Restaurante sedeQueja;
+					sedeQ=inputsedeQ.nextInt();
+					
+					switch (sedeQ) {
+					
+					case 1:
+						OtroQ = "Sede Las Americas";
+						break;
+						
+					case 2:
+						OtroQ = "Sede Sandiego";
+						break;
+						
+					case 3:
+						OtroQ = "Sede Envigado";
+						break;
+						
+					case 4:
+						OtroQ = "Sede Belen";
+						break;
+					
+					default:
+						System.out.println("Esta Sede no existe");
+						opcionQ = 5;
+						break;
+						
+					}
+					
 					break;
 				
+				case 4:
+					typeQ = "Algun otro";
+					
+					
+					OtroQ = null;
+					break;
+				
+				case 5:
+						System.out.println("Usted ha salido con exito");
+						break;
 				default:
-					System.out.println("Esta Sede no existe");
+					System.out.println("Opcion invalida");
 					opcionQ = 5;
 					break;
+				}
+				
+				if (opcionQ == 5) {break;}
+			
+				if (opcionQ != 5 && opcionQ >= 1 && opcionQ < 5) {
+					System.out.println("Por favor, a continuacion escriba su queja");
 					
+					Scanner inputTextoQ=new Scanner(System.in);
+					String TextoQ;
+					TextoQ=inputTextoQ.nextLine();
+					
+					System.out.println("Todo listo");
+					
+					System.out.println("1. Editar Queja");
+					System.out.println("2. Enviar Queja");
+					
+					Scanner inputOEditarQ=new Scanner(System.in);
+					int opcionEQ;
+					opcionEQ=inputOEditarQ.nextInt();
+					
+					if (opcionEQ == 1) {
+						
+						System.out.println("Ahora puede editar su queja");
+						Scanner inputEditarQ=new Scanner(System.in);
+						String EditarQ;
+						EditarQ=inputEditarQ.nextLine();
+						
+						TextoQ = EditarQ;
+					}
+					
+					if (opcionEQ == 2) {queja = new Queja(NombreQ, typeQ, OtroQ, TextoQ);}
+					
+					System.out.println("Su queja se ha enviado con exito");
+					
+					System.out.println("\n");
+					System.out.println(queja);
+					System.out.println("\n");
+					
+					System.out.println("Saliendo");
+					break;
 				}
 				
 				break;
-			
-			case 4:
-				typeQ = "Algun otro";
 				
+			case 2: //Reporte quejas
 				
-				OtroQ = null;
+				System.out.println("Para poder continuar debe ingresar su codigo de empleado. ¿Cuenta con un codigo de empleado?");
+				System.out.println("1. Si");
+				System.out.println("2. No");
+				
+				Scanner inputS1=new Scanner(System.in);
+				int opcionS1;
+				opcionS1=inputS1.nextInt();
+				
+				switch (opcionS1) {
+				case 1: //Tiene codigo de empleado
+					System.out.println("Ingrese su codigo de empleado:");
+					
+					Scanner inputS12=new Scanner(System.in);
+					Empleado emp;
+					int opcionS12;
+					opcionS12=inputS12.nextInt();
+					
+					emp = Empleado.buscarEmpleado(opcionS12);
+					
+					if(emp != null) {
+						System.out.println("Bienvenid@ " + emp.getNombre()+ "\n¿Que reporte desea que le muestre?");
+						
+						System.out.println("1. Reporte de todas las quejas");
+						System.out.println("2. Reporte de quejas del menu");
+						System.out.println("3. Reporte de quejas sobre empleados");
+						System.out.println("4. Reporte de quejas de sede");
+						System.out.println("5. Reporte de amonestaciones");
+						System.out.println("6. Salir");
+						
+						int reportQ;
+						Scanner report = new Scanner(System.in);
+						reportQ = report.nextInt();
+						
+						switch (reportQ) {
+						
+						case 1: //Reporte todas
+							
+							System.out.println("Hay un total de (" + Queja.cantidadQuejas() + ") Quejas. ¿Desea verlas?");
+							
+							System.out.println("1. Si");
+							System.out.println("2. No");
+							int m;
+							Scanner mi = new Scanner(System.in);
+							m = mi.nextInt();
+							
+							//si
+							if (m == 1) {
+								
+								for(Queja d: Quejas2) {
+									System.out.println("\n");
+									System.out.println(d);
+									System.out.println("\n");
+								}
+								
+								System.out.println("Saliendo");
+								
+								break;
+							}
+							
+							//no
+							if (m == 2) {
+								System.out.println("Saliendo");
+								
+								 break;
+							}
+							
+							if (m != 1 && m != 2) {
+								System.out.println("Opcion invalida");
+								break;
+							}
+							
+							break;
+							
+							
+						case 2://Reporte menu
+							System.out.println("Hay un total de (" + Queja.cantidadQuejasMenu() + ") Quejas de tipo menu. ¿Desea verlas?");
+							
+							System.out.println("1. Si");
+							System.out.println("2. No");
+							int me;
+							Scanner mie = new Scanner(System.in);
+							me = mie.nextInt();
+							
+							//si
+							if (me == 1) {
+								
+								for(Queja d: QuejasMenu2) {
+									System.out.println("\n");
+									System.out.println(d);
+									System.out.println("\n");
+								}
+								
+								System.out.println("Saliendo");
+								
+								break;
+							}
+							
+							//no
+							if (me == 2) {
+								System.out.println("Saliendo");
+								
+								 break;
+							}
+							
+							if (me != 1 && me != 2) {
+								System.out.println("Opcion invalida");
+								break;
+							}
+							
+							break;
+							
+						case 3://Reporte empleados
+							System.out.println("Hay un total de (" + Queja.cantidadQuejasEmpleados() + ") quejas de tipo empleado. ¿Desea verlas?");
+							
+							System.out.println("1. Si");
+							System.out.println("2. No");
+							int ma;
+							Scanner mia = new Scanner(System.in);
+							ma = mia.nextInt();
+							
+							//si
+							if (ma == 1) {
+								
+								for(Queja d: QuejasEmpleados2) {
+									System.out.println("\n");
+									System.out.println(d);
+									System.out.println("\n");
+								}
+								
+								System.out.println("Saliendo");
+								
+								break;
+							}
+							
+							//no
+							if (ma == 2) {
+								System.out.println("Saliendo");
+								
+								 break;
+							}
+							
+							if (ma == 1 && ma != 2) {
+								System.out.println("Opcion invalida");
+								break;
+							}
+							break;
+						
+						case 4://Reporte sedes
+							System.out.println("Hay un total de (" + Queja.cantidadQuejasSedes() + ") quejas de tipo sede. ¿Desea verlas?");
+							
+							System.out.println("1. Si");
+							System.out.println("2. No");
+							int mo;
+							Scanner mio = new Scanner(System.in);
+							mo = mio.nextInt();
+							
+							//si
+							if (mo == 1) {
+								
+								for(Queja d: QuejasSedes2) {
+									System.out.println("\n");
+									System.out.println(d);
+									System.out.println("\n");
+								}
+								
+								System.out.println("Saliendo");
+								
+								break;
+							}
+							
+							//no
+							if (mo == 2) {
+								System.out.println("Saliendo");
+								
+								 break;
+							}
+							
+							if (mo != 1 && mo != 2) {
+								System.out.println("Opcion invalida");
+								break;
+							}
+							
+							break;
+						
+						case 5: //Amonestaciones
+							break;
+						
+						case 6://Salir
+							break;
+							
+						default:
+							System.out.println("Opcion invalida");
+							break;
+						}
+					
+					}
+					
+					if(emp == null) {
+						System.out.println("El codigo es incorrecto");
+						System.out.println("Saliendo");
+						break;
+					}
+				
 				break;
-			
-			case 5:
-					System.out.println("Usted ha salido con exito");
+				
+				case 2: //No tiene el codigo de empleado
 					break;
+					
+				default:
+					System.out.println("Opcion invalida");
+					break;
+				}
+				
+			case 3: //Salir
+				break;
+				
 			default:
 				System.out.println("Opcion invalida");
-				opcionQ = 5;
-				break;
-			}
-			
-			if (opcionQ == 5) {break;}
-		
-			if (opcionQ != 5 && opcionQ >= 1) {
-				System.out.println("Por favor, a continuacion escriba su queja");
-				
-				Scanner inputTextoQ=new Scanner(System.in);
-				String TextoQ;
-				TextoQ=inputTextoQ.nextLine();
-				
-				System.out.println("Todo listo");
-				
-				System.out.println("1. Editar Queja");
-				System.out.println("2. Enviar Queja");
-				
-				Scanner inputOEditarQ=new Scanner(System.in);
-				int opcionEQ;
-				opcionEQ=inputOEditarQ.nextInt();
-				
-				if (opcionEQ == 1) {
-					
-					System.out.println("Ahora puede editar su queja");
-					Scanner inputEditarQ=new Scanner(System.in);
-					String EditarQ;
-					EditarQ=inputEditarQ.nextLine();
-					
-					TextoQ = EditarQ;
-				}
-				
-				if (opcionEQ == 2) {new Queja(NombreQ, typeQ, OtroQ, TextoQ);}
-				
-				System.out.println("Su queja se ha enviado con exito");
-				System.out.println("1. Salir");
-				
-				Scanner inputSalirQ = new Scanner(System.in);
-				int SalirQ;
-				SalirQ=inputSalirQ.nextInt();
+				qj = 3;
 				break;
 			}
 				
@@ -735,80 +1009,88 @@ public class AtencionCliente {
 					
 					emp = Empleado.buscarEmpleado(opcionD12);
 					
-					System.out.println("Bienvenid@ " + emp.getNombre()+ "\nA continucion se mostraran todas las solicitudes pendientes");
-					
-					for(Devolucion d: ListaDevoluciones2) {
-						System.out.println("\n");
-						System.out.println(d);
-						System.out.println("\n");
-					}
-					
-					System.out.println("¿Desea revisar y cambiar el estado de una solucitud?");
-					
-					System.out.println("1. Si");
-					System.out.println("2. No/Salir");
-					
-					Scanner i = new Scanner(System.in);
-					int j;
-					j = i.nextInt();
-					
-					if (j == 2) {break;}
-					if (j == 1) {
+					if(emp != null) {
+						System.out.println("Bienvenid@ " + emp.getNombre()+ "\nA continucion se mostraran todas las solicitudes pendientes");
 						
-						System.out.println("Por favor ingrese el numero de la solicitud que desea revisar");
-						
-						Scanner num = new Scanner(System.in);
-						int n;
-						n = num.nextInt();
-						
-						System.out.println("¿Desea aprobar o denegar la solicitud?");
-						
-						System.out.println("1. Aprobar");
-						System.out.println("2. Denegar");
-						
-						
-						int m;
-						Scanner mun = new Scanner(System.in);
-						m = mun.nextInt();
-						
-						//Denegar
-						if (m == 2)  {
-							
-							System.out.println("Para poder denegar la solicitud por favor indique la razon: ");
-							Scanner text = new Scanner(System.in);
-							String t;
-							t = text.nextLine();
-							
-							Devolucion delv;
-							delv = Devolucion.buscarD2(ListaDevoluciones2, n);
-							
-							delv.setT(t);
-							delv.setEstado("Denegada");
-							
-							System.out.println("Todo listo, la solicitud fue denegada con exito\n");
-							System.out.println(delv);
-							System.out.println("\nSaliendo");
-							break;
-							
+						for(Devolucion d: ListaDevoluciones2) {
+							System.out.println("\n");
+							System.out.println(d);
+							System.out.println("\n");
 						}
 						
-						//Aprobar
-						if (m == 1) {
+						System.out.println("¿Desea revisar y cambiar el estado de una solucitud?");
+						
+						System.out.println("1. Si");
+						System.out.println("2. No/Salir");
+						
+						Scanner i = new Scanner(System.in);
+						int j;
+						j = i.nextInt();
+						
+						if (j == 2) {break;}
+						if (j == 1) {
 							
-							Devolucion delv;
-							delv = Devolucion.buscarD2(ListaDevoluciones2, n);
+							System.out.println("Por favor ingrese el numero de la solicitud que desea revisar");
 							
-							delv.setEstado("Aprobada");
-							System.out.println("Todo listo, la solicitud fue aprobada con exito\n");
-							System.out.println(delv);
-							System.out.println("\nSaliendo");
+							Scanner num = new Scanner(System.in);
+							int n;
+							n = num.nextInt();
+							
+							System.out.println("¿Desea aprobar o denegar la solicitud?");
+							
+							System.out.println("1. Aprobar");
+							System.out.println("2. Denegar");
+							
+							
+							int m;
+							Scanner mun = new Scanner(System.in);
+							m = mun.nextInt();
+							
+							//Denegar
+							if (m == 2)  {
+								
+								System.out.println("Para poder denegar la solicitud por favor indique la razon: ");
+								Scanner text = new Scanner(System.in);
+								String t;
+								t = text.nextLine();
+								
+								Devolucion delv;
+								delv = Devolucion.buscarD2(ListaDevoluciones2, n);
+								
+								delv.setT(t);
+								delv.setEstado("Denegada");
+								
+								System.out.println("Todo listo, la solicitud fue denegada con exito\n");
+								System.out.println(delv);
+								System.out.println("\nSaliendo");
+								break;
+								
+							}
+							
+							//Aprobar
+							if (m == 1) {
+								
+								Devolucion delv;
+								delv = Devolucion.buscarD2(ListaDevoluciones2, n);
+								
+								delv.setEstado("Aprobada");
+								System.out.println("Todo listo, la solicitud fue aprobada con exito\n");
+								System.out.println(delv);
+								System.out.println("\nSaliendo");
+								break;
+								
+							}
 							break;
-							
 						}
-						break;
+						if (j != 1 || j != 2) {
+							System.out.println("Opcion invalida");
+							break;
+						}
 					}
-					if (j != 1 || j != 2) {
-						System.out.println("Opcion invalida");
+					
+					if(emp == null) {
+						System.out.println("El codigo es incorrecto");
+						System.out.println("Saliendo");
 						break;
 					}
 					

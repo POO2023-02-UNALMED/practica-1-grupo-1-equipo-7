@@ -8,10 +8,11 @@ public class Queja extends ServiciosClientes {
 	protected Plato plato;
 	protected String tipo;
 	protected static int count;
-	protected static List<Queja> QuejasMenu = new ArrayList<>();
-	protected static List<Queja> QuejasEmpleados = new ArrayList<>();
-	protected static List<Queja> QuejasSedes = new ArrayList<>();
-	protected static List<Queja> QuejasOtros = new ArrayList<>();
+	public static List<Queja> Quejas = new ArrayList<>();
+	public static List<Queja> QuejasMenu = new ArrayList<>();
+	public static List<Queja> QuejasEmpleados = new ArrayList<>();
+	public static List<Queja> QuejasSedes = new ArrayList<>();
+	public static List<Queja> QuejasOtros = new ArrayList<>();
 	
 	public Queja() {
 		this(null, "Otro", null, null);
@@ -60,6 +61,8 @@ public class Queja extends ServiciosClientes {
 			Queja.QuejasOtros.add(this);
 		}
 		
+		Queja.Quejas.add(this);
+		
 	}
 	
 	@Override
@@ -96,39 +99,39 @@ public class Queja extends ServiciosClientes {
 	    	return this.empleado.countAmonestaciones + 1;
 	    }
 	
-	public List<Queja> getQuejasMenu() {
+	public static List<Queja> getQuejasMenu() {
 		return QuejasMenu;
 	}
 	
-	public List<Queja> getQuejasEmpleados(){
+	public static List<Queja> getQuejasEmpleados(){
 		return QuejasEmpleados;
 	}
 	
-	public List<Queja> getQuejasSedes(){
+	public static List<Queja> getQuejasSedes(){
 		return QuejasSedes;
 	}
 	
-	public List<Queja> getQuejasOtros(){
+	public static List<Queja> getQuejasOtros(){
 		return QuejasOtros;
 	}
 	
-	public int cantidadQuejas() {
+	public static int cantidadQuejas() {
 		return count;
 	}
 	
-	public int cantidadQuejasMenu() {
+	public static int cantidadQuejasMenu() {
 		return QuejasMenu.size();
 	}
 	
-	public int cantidadQuejasEmpleados() {
+	public static int cantidadQuejasEmpleados() {
 		return QuejasEmpleados.size();
 	}
 	
-	public int cantidadQuejasSedes() {
+	public static int cantidadQuejasSedes() {
 		return QuejasSedes.size();
 	}
 	
-	public int cantidadQuejasOtros() {
+	public static int cantidadQuejasOtros() {
 		return QuejasOtros.size();
 	}
 	

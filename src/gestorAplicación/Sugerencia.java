@@ -44,7 +44,7 @@ public class Sugerencia extends ServiciosClientes{
 	
 	@Override
 	public String toString() {
-		return super.cliente.getNombre() + " hizo la siguiente sugerencia: " + "\n" + super.getTexto();
+		return "N° referencia: " + this.getCodigoReferencia() + "\nSugerencia tipo: " + this.getTipo() + "\n" + "''" + super.getTexto() + "''";
 	}
 	
 	public String getTipo() {

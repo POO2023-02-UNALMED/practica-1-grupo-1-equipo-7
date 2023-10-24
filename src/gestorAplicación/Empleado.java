@@ -92,6 +92,7 @@ public class Empleado extends Persona {
     	for(Empleado empleados : empleados) {
     		if(empleados.getNombre() == nombre) {
     			empleado = empleados;
+    			continue;
     		}
     	}
     	return empleado;
@@ -102,7 +103,7 @@ public class Empleado extends Persona {
         for(Empleado empleado : empleados){
             if(empleado.getNombre() == nombre){
                 a = true;
-                break;
+                continue;
             }
         }
         return a;
