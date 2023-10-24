@@ -87,8 +87,7 @@ public class GenerarPedido {
 				}
 				
 			}
-		break;
-			
+	
 
 		case 2:
 			System.out.println("2. Pedido de envio");
@@ -149,10 +148,7 @@ public class GenerarPedido {
 				    }
 				}
 			}
-			break;
-		default:
-            System.out.println("Opcion no valida");
-            break;
+			
 		}
 	}
 
