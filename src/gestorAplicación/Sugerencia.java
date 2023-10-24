@@ -5,10 +5,11 @@ public class Sugerencia extends ServiciosClientes{
 
 	protected String tipo;
 	private static int count;
-	protected static List<Sugerencia> SugerenciasMenu = new ArrayList<>();
-	protected static List<Sugerencia> SugerenciasEmpleados = new ArrayList<>();
-	protected static List<Sugerencia> SugerenciasSedes = new ArrayList<>();
-	protected static List<Sugerencia> SugerenciasOtros = new ArrayList<>();
+	public static List<Sugerencia> Sugerencias = new ArrayList<>();
+	public static List<Sugerencia> SugerenciasMenu = new ArrayList<>();
+	public static List<Sugerencia> SugerenciasEmpleados = new ArrayList<>();
+	public static List<Sugerencia> SugerenciasSedes = new ArrayList<>();
+	public static List<Sugerencia> SugerenciasOtros = new ArrayList<>();
 	
 	
 	
@@ -37,6 +38,7 @@ public class Sugerencia extends ServiciosClientes{
 		if (tipe == "Otro" || tipe == null) {
 			Sugerencia.SugerenciasOtros.add(this);
 		}
+		Sugerencia.Sugerencias.add(this);
 		
 	}
 	
@@ -53,39 +55,39 @@ public class Sugerencia extends ServiciosClientes{
 		this.tipo = tipe;
 	}
 	
-	public List<Sugerencia> getSugerenciasMenu() {
+	public static List<Sugerencia> getSugerenciasMenu() {
 		return SugerenciasMenu;
 	}
 	
-	public List<Sugerencia> getSugerenciasEmpleados(){
+	public static List<Sugerencia> getSugerenciasEmpleados(){
 		return SugerenciasEmpleados;
 	}
 	
-	public List<Sugerencia> getSugerenciasSedes(){
+	public static List<Sugerencia> getSugerenciasSedes(){
 		return SugerenciasSedes;
 	}
 	
-	public List<Sugerencia> getSugerenciasOtros(){
+	public static List<Sugerencia> getSugerenciasOtros(){
 		return SugerenciasOtros;
 	}
 	
-	public int cantidadSugerencias() {
+	public static int cantidadSugerencias() {
 		return count;
 	}
 	
-	public int cantidadSugerenciasMenu() {
+	public static int cantidadSugerenciasMenu() {
 		return SugerenciasMenu.size();
 	}
 	
-	public int cantidadSugerenciasEmpleados() {
+	public static int cantidadSugerenciasEmpleados() {
 		return SugerenciasEmpleados.size();
 	}
 	
-	public int cantidadSugerenciasSedes() {
+	public static int cantidadSugerenciasSedes() {
 		return SugerenciasSedes.size();
 	}
 	
-	public int cantidadSugerenciasOtros() {
+	public static int cantidadSugerenciasOtros() {
 		return SugerenciasOtros.size();
 	}
 	
