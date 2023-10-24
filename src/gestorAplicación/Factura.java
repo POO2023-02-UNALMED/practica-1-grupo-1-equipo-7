@@ -74,6 +74,17 @@ public class Factura {
     public void setTotal(int total){
         this.total = total;
     }
+    
+    public static boolean existeFactura(int codigo) {
+    	boolean a = false;
+    	for(Factura factura : facturas) {
+    		if(factura.getCodigo() == codigo) {
+    			a = true;
+    			break;
+    		}break;
+    } return a;
+    	}
+    
     public static Factura buscarFactura(int codigo){
         for(Factura factura : facturas){
             if(factura.getCodigo() == codigo){

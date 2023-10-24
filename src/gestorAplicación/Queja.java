@@ -62,7 +62,8 @@ public class Queja extends ServiciosClientes {
 		
 	}
 	
-	public String MostrarQuejas() {
+	@Override
+	public String toString() {
 		if (this.tipo == "Menu") {
 			return "Nombre: " + super.cliente.getNombre() + "\n" + "Realizo una queja sobre el platillo: " + this.plato.getNombre() +  "\n" + "'" + super.getTexto() + "'";
 		}

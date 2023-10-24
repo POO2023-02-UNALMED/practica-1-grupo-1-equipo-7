@@ -184,6 +184,7 @@ public String getNombre() {
                 }
             }
         }
+
         return new Object[]{ingredientesSimilares, ingredientes};
     }
     

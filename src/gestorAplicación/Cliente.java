@@ -127,8 +127,8 @@ public class Cliente extends Persona {
 				if ((int) ingredientesSimilares[0] >= 3 && !platoPreferido.contains(plato)
 						&& !platosRecomendados.contains(plato)) {
 					platosRecomendados.add(plato);
-					for (String ingrediente : (ArrayList<String>) ingredientesSimilares[1]) {
-						if (!ingredientes.contains(ingrediente)) {
+					for (String ingrediente : plato.getIngredientes()) {
+						if (!ingredientes.contains(ingrediente) ) {
 							ingredientes.add(ingrediente);
 						}
 					}
@@ -184,7 +184,7 @@ public class Cliente extends Persona {
 			for (String ingrediente : ingredientes) {
 				if (plato.getIngredientes().contains(ingrediente) && !platosRecomendados.contains(plato)) {
 					ingredientesSimilares++;
-					if (ingredientesSimilares >= 3 && !plato.getIngredientes().contains(item)
+					if (ingredientesSimilares > 2 && !plato.getIngredientes().contains(item)
 							&& plato.getIngredientes().contains(itemAgregar)) {
 						platosRecomendados.add(plato);
 					}

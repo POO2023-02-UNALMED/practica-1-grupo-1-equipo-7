@@ -2,6 +2,8 @@ package funcionalidades;
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.Scanner;
+
+import UIMain.main;
 import gestorAplicación.*;
 
 	public class Reportes {
@@ -66,7 +68,8 @@ import gestorAplicación.*;
 								System.out.println("El total de comisiones : " + empleado.calcularPropinas(opcion, fechaInicio, fechaFin));
 							}
 						}
-	            	break;
+						System.out.println("-----------------------------------");
+	            	main.main(args);
 
 					case 2:
 	            		System.out.println("Comisiones por sede");
@@ -91,7 +94,8 @@ import gestorAplicación.*;
 							}
 						}
 					}
-					break;
+					System.out.println("-----------------------------------");
+					main.main(args);
 	
 	            
 	        case 2:
@@ -124,8 +128,8 @@ import gestorAplicación.*;
 								System.out.println(plato.getNombre());
 							}
 						}
-
-	        			break;
+						System.out.println("-----------------------------------");
+	        			main.main(args);
 	        		case 2:
 	        			System.out.println("------------Platos recomendados------------");
 						System.out.println("Ingrese el codigo del cliente:");
@@ -211,14 +215,19 @@ import gestorAplicación.*;
 
 							
 
-						}		
+						}
+						
+
+								
 	        			
 	        	}
-	        	break;
+				System.out.println("-----------------------------------");
+	        	main.main(args);
 	            		
 	        default:
 	            System.out.println("Opcion no valida");
-	            break;
+				System.out.println("-----------------------------------");
+	            main.main(args);
 
 		}
 	input1.close();

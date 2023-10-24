@@ -1,7 +1,8 @@
 package gestorAplicación;
+import java.io.Serializable;
 
 
-public class ServiciosClientes {
+public class ServiciosClientes{
 	
 	protected Cliente cliente;
 	protected String texto;
