@@ -5,8 +5,8 @@ import gestorAplicación.*;
 
 public class AtencionCliente {
 	
-	public static List<Reseña> Recopilatorio = new ArrayList<>();
 	
+
 	static{
 		
 		new Reseña("Anonimo", "Gran lugar para pasar el tiempo en familia, muy buena la atención", 4);
@@ -22,6 +22,10 @@ public class AtencionCliente {
 		
 	}
 	
+
+	
+	
+	public static List<Reseña> Recopilatorio2 = Reseña.Recopilatorio;
 	
 	public static void main(String[] arg){
 		
@@ -149,12 +153,12 @@ public class AtencionCliente {
 				
 				Scanner inputplatoQ = new Scanner(System.in);
 				String platoQ;
-<<<<<<< Updated upstream
+
 				Plato platoQueja;
 				platoQ = inputplatoQ.nextLine();
-=======
+
 				boolean pb;
->>>>>>> Stashed changes
+
 				
 				platoQ = inputplatoQ.nextLine();
 				pb =Plato.existePlato(((String)platoQ));
@@ -317,7 +321,7 @@ public class AtencionCliente {
 			case 1:
 				System.out.println("Mostrando recopilatorio de reseñas ...");
 				
-				for(Reseña rsñ: AtencionCliente.Recopilatorio) {
+				for(Reseña rsñ: Recopilatorio2) {
 					System.out.println(rsñ);
 					System.out.println("\n");
 				}
@@ -400,7 +404,7 @@ public class AtencionCliente {
 					}
 				}
 				if (opcionER == 2) {reseñaNueva = new Reseña(NombreR, reseñaN, cant);}
-				funcionalidades.AtencionCliente.Recopilatorio.add(reseñaNueva);
+				Recopilatorio2.add(reseñaNueva);
 				
 				System.out.println("Su reseña se ha enviado con exito");
 				System.out.println("1. Salir");
@@ -415,7 +419,7 @@ public class AtencionCliente {
 				if (finR ==2) {
 					System.out.println("Mostrando recopilatorio de reseñas");
 					
-					for(Reseña rsña: AtencionCliente.Recopilatorio) {
+					for(Reseña rsña: Recopilatorio2) {
 						System.out.println(rsña);
 						System.out.println("\n");
 					}

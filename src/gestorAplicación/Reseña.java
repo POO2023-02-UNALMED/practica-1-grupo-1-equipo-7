@@ -6,7 +6,7 @@ import java.util.*;
 public class Reseña extends ServiciosClientes{
 
 	protected int calificacion;
-	
+	public static List<Reseña> Recopilatorio = new ArrayList<>();
 	private static int countCalificaciones;	
 	private static int count;
 	
@@ -15,7 +15,7 @@ public class Reseña extends ServiciosClientes{
 		this.calificacion = calificacion;
 		count++;
 		countCalificaciones = countCalificaciones + calificacion;
-		funcionalidades.AtencionCliente.Recopilatorio.add(this);
+		Reseña.Recopilatorio.add(this);
 		
 		
 	}
@@ -45,7 +45,7 @@ public class Reseña extends ServiciosClientes{
 	}
 	
 	public static List<Reseña> getRecopilatorio(){
-		return funcionalidades.AtencionCliente.Recopilatorio;
+		return Reseña.Recopilatorio;
 	}
 	
 	@Override
@@ -65,7 +65,7 @@ public class Reseña extends ServiciosClientes{
 	}
 	
 	public static void main (String[] arg) {
-		for(Reseña rsñ: funcionalidades.AtencionCliente.Recopilatorio) {
+		for(Reseña rsñ: Reseña.Recopilatorio) {
 			System.out.println(rsñ);
 			System.out.println("\n");
 		}
