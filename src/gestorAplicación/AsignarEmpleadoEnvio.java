@@ -1,31 +1,32 @@
 package gestorAplicación;
 
-public class AsignarEmpleadoEnvio{
+public class AsignarEmpleadoEnvio extends Empleado{
 	 private String referenciaPedido;
-	 PedidoOnlineEnvio numeroOrden;
-	 PedidoOnlineEnvio estadoPedido;
-	 PedidoOnlineEnvio direccionPedido;
+	 int numeroOrden;
+	 String estadoPedido;
+	String direccionPedido;
 	 Empleado empleado;
 	 //constructor7
-	 public AsignarEmpleadoEnvio() {
-		 
-	 }
-	
-	public AsignarEmpleadoEnvio(String referenciaPedido, PedidoOnlineEnvio numeroOrden, Empleado empleado, PedidoOnlineEnvio estadoPedido, PedidoOnlineEnvio direccionPedido) {
-		 this.referenciaPedido = referenciaPedido;
+	 
+	public AsignarEmpleadoEnvio(String nombre, String cargo, int sueldo, int codigoSede, String referenciaPedido, int numeroOrden, String estadoPedido, String direccionPedido) {
+		super(nombre, cargo, sueldo, codigoSede); 
+		this.referenciaPedido = referenciaPedido;
 		 this.direccionPedido = direccionPedido;
 		 this.referenciaPedido = referenciaPedido;
 		 this.numeroOrden = numeroOrden;
-		 this.empleado = empleado;
-		 this.asignarDomiciliario(empleado);
-	 }
-
+		
 	
-	 public void asignarDomiciliario(Empleado domiciliario) {
-	        this.empleado = domiciliario;
 	 }
+	public void asignarEmpleado(Empleado empleado) {
+		Empleado Domiciliario = asignarDomiciliario("Juan David", "Domiciliario", 20000, 123, 161223, "ACDC", 1612, "True", "Calle 16");
+	}
 	
-	 //getters and setters
+	public Empleado asignarDomiciliario(String string, String string2, int i, int j, int k, String string3, int l,
+			String string4, String string5) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	//getters and setters
 	 public String getReferenciaPedido() {
 		 return referenciaPedido;
 		 
