@@ -155,7 +155,8 @@ public class AtencionCliente {
 						TextoS = EditarS;
 					}
 					
-					if (opcionES == 2) {suge = new Sugerencia(type, TextoS);}
+					Sugerencia suger = new Sugerencia(type, TextoS);
+					suge = suger;
 					
 					System.out.println("Su sugerencia se ha enviado con exito");
 					
