@@ -432,13 +432,54 @@ public class main {
 							else {
 								new Item(var4, var41, var42, var43, Inventario.obtenerInventarios().get(opcion3-1));// Aca estoy ************************************
 							}
+							break;
+							
+						}
+					case 5:
+						System.out.print("------¿Desea renovar inventario?------");
+						System.out.print("S/N");
+						Scanner inputk40=new Scanner(System.in);
+						String vark40;
+						vark40=inputk40.nextLine();
+						if (vark40=="S") {
+							Inventario.obtenerInventarios().get(opcion3-1).resetearInventario();
+							Inventario.mostrarInventario(Restaurante.getSedes().get(opcion3-1));
+						}
+						else {}
+						break;
+						
+						
+						
+						
+						
+						
+						
+							
+					case 6 :
+						System.out.print("----¿Desea ver el valor de los articulos?----");
+						System.out.print("S/N");
+						Scanner inpujtñ45 = new Scanner (System.in);
+						String var450k= inpujtñ45.nextLine();
+						if (var450k.equals("S")) {
+							float precioTotal=0;
+							for (String  k: Restaurante.getSedes().get(opcion3-1).getInventario().getDiccionarioItems().keySet() ) {
+								if ( Item.buscarItem(k)!=null) {
+									precioTotal+=Item.buscarItem(k).getPrecio();
+									System.out.println(k+" tiene un precio de "+Item.buscarItem(k).getPrecio());
+									
+								}
+									
+								
+							}
+							System.out.println("Precio total = "+ precioTotal);
+						}
+						else {
 							
 						}
 						
 						
-						
 							
-					
+						
 
 					}
 

@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.time.LocalDate;
 
-public class Pedido {
+public class Pedido  {
 	private Cliente cliente;
 	private Empleado empleado;
 	private int numeroOrden;
@@ -16,6 +16,8 @@ public class Pedido {
 	private static List<Pedido> Pedidos =new ArrayList<>();
 	private Restaurante restaurante;
 	private Factura factura;
+	private int cantidadPlatos;
+	private String direccionPedido2;
 	
 	//Constructor
 	
@@ -28,10 +30,24 @@ public class Pedido {
 		Pedido.Pedidos.add(this);
 		factura = new Factura(cliente.getCodigo(), empleado.getCodigo(), restaurante.getCodigoSede(), LocalDate.of(2020, 01, 01), 0, platos);
 	}
-	 public String toString() {
-	        return "Nombre del cliente " + cliente + "\nDirección: " + direccionPedido + "\nCantidad de platos: " + platos
-	                + "\ntipo de pedido: " + tipoPedido  + "\nEmpleados encargado del envio: " + empleado;
-	    }
+	public void PedidoOnlineEnvio(int numeroOrden, int cantidadPlatos, String direccionPedido, String tipoPedido) {
+		this.numeroOrden = numeroOrden;
+		this.cantidadPlatos = cantidadPlatos;
+		this.direccionPedido = direccionPedido;
+		this.tipoPedido = "Pedido de Envio";
+	}
+	public void PedidoOnlinefisico(int numeroOrden, int cantidadPlatos, String direccionPedido, String tipoPedido) {
+		this.numeroOrden = numeroOrden;
+		this.cantidadPlatos = cantidadPlatos;
+		this.direccionPedido2 = direccionPedido;
+		this.tipoPedido= "Pedido Fisico";
+	}
+	
+	
+	public String toString() {
+		return "Nombre del cliente " + cliente + "\nDirección: " + direccionPedido + "\nCantidad de platos: " + platos
+				+ "\ntipo de pedido: " + tipoPedido  + "\nEmpleados encargado del envio: " + empleado;
+	}
 	
 	public double getPrecioTotal(ArrayList<Plato> platos) {
 		double precioTotal = 0;
@@ -59,6 +75,13 @@ public class Pedido {
 
 	public void setTipoPedido(String tipoPedido) {
 		this.tipoPedido = tipoPedido;
+	}
+	public int getNumeroOrden() {
+		return numeroOrden;
+	}
+
+	public void setNumeroOrden(int numeroOrden) {
+		this.numeroOrden = numeroOrden;
 	}
 	 
 	

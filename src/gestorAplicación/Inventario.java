@@ -95,7 +95,7 @@ public class Inventario  {
         }
     }
     // mostrar inventario 
-    public void mostrarInventario(Restaurante restaurante) {
+    public static  void mostrarInventario(Restaurante restaurante) {
     	System.out.print("inventario de "+ restaurante.getDireccion());
     	
          for (Map.Entry<String, Integer> entry : restaurante.getInventario().diccionarioItems.entrySet()) {
@@ -228,7 +228,9 @@ public class Inventario  {
 	public void setListadoItems(List<Item> listadoItems) {
 		this.listadoItems = listadoItems;
 	}
-    
+    public void resetearInventario() {
+    	this.diccionarioItems= new HashMap<>();// metodo para rsetear el dicionario.
+    }
     	
     
    
