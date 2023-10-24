@@ -5,11 +5,11 @@ public class Sugerencia extends ServiciosClientes{
 
 	protected String tipo;
 	private static int count;
-	public static List<Sugerencia> Sugerencias = new ArrayList<>();
-	public static List<Sugerencia> SugerenciasMenu = new ArrayList<>();
-	public static List<Sugerencia> SugerenciasEmpleados = new ArrayList<>();
-	public static List<Sugerencia> SugerenciasSedes = new ArrayList<>();
-	public static List<Sugerencia> SugerenciasOtros = new ArrayList<>();
+	protected static List<Sugerencia> Sugerencias = new ArrayList<>();
+	protected static List<Sugerencia> SugerenciasMenu = new ArrayList<>();
+	protected static List<Sugerencia> SugerenciasEmpleados = new ArrayList<>();
+	protected static List<Sugerencia> SugerenciasSedes = new ArrayList<>();
+	protected static List<Sugerencia> SugerenciasOtros = new ArrayList<>();
 	
 	
 	
@@ -68,6 +68,10 @@ public class Sugerencia extends ServiciosClientes{
 	}
 	
 	public static List<Sugerencia> getSugerenciasOtros(){
+		return SugerenciasOtros;
+	}
+	
+	public static List<Sugerencia> getSugerencias(){
 		return SugerenciasOtros;
 	}
 	

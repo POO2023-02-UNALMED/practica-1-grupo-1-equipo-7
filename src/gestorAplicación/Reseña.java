@@ -6,7 +6,7 @@ import java.util.*;
 public class Reseña extends ServiciosClientes{
 
 	protected int calificacion;
-	public static List<Reseña> Recopilatorio = new ArrayList<>();
+	protected static List<Reseña> Recopilatorio = new ArrayList<>();
 	private static int countCalificaciones;	
 	private static int count;
 	

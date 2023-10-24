@@ -8,11 +8,11 @@ public class Queja extends ServiciosClientes {
 	protected Plato plato;
 	protected String tipo;
 	protected static int count;
-	public static List<Queja> Quejas = new ArrayList<>();
-	public static List<Queja> QuejasMenu = new ArrayList<>();
-	public static List<Queja> QuejasEmpleados = new ArrayList<>();
-	public static List<Queja> QuejasSedes = new ArrayList<>();
-	public static List<Queja> QuejasOtros = new ArrayList<>();
+	protected static List<Queja> Quejas = new ArrayList<>();
+	protected static List<Queja> QuejasMenu = new ArrayList<>();
+	protected static List<Queja> QuejasEmpleados = new ArrayList<>();
+	protected static List<Queja> QuejasSedes = new ArrayList<>();
+	protected static List<Queja> QuejasOtros = new ArrayList<>();
 	
 	public Queja() {
 		this(null, "Otro", null, null);
@@ -42,10 +42,11 @@ public class Queja extends ServiciosClientes {
 				Empleado emp;
 				emp = Empleado.busquedaXNombre(nombreAlgo);
 				this.empleado = emp;
+				Queja.nuevaAmonestacion(emp);
 			}
 			
 			Queja.QuejasEmpleados.add(this);
-			this.nuevaAmonestacion();
+			
 		}
 		
 		if (tipo == "Sede") {
@@ -95,10 +96,18 @@ public class Queja extends ServiciosClientes {
 		this.tipo = tipe;
 	}
 	
-	 public int nuevaAmonestacion() {
-	    	return this.empleado.countAmonestaciones + 1;
+	 public static void nuevaAmonestacion(Empleado e) {
+	    	 e.setCountAmonestaciones();
 	    }
-	
+	 
+	 public static String cantidadAmonestaciones(Empleado empleado) {
+			 return "Nombre empleado: " + empleado.getNombre() + " tiene (" + empleado.getCountAmonestaciones() + ")";
+	 }
+	 
+	 public static List<Queja> getQuejas() {
+			return Quejas;
+		}
+	 
 	public static List<Queja> getQuejasMenu() {
 		return QuejasMenu;
 	}

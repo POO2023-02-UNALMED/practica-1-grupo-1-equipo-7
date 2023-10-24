@@ -5,7 +5,7 @@ public class Devolucion extends ServiciosClientes{
 	protected Factura factura;
 	protected String Estado;
 	protected String t;
-	public static List<Devolucion> ListaDevoluciones = new ArrayList<>();
+	protected static List<Devolucion> ListaDevoluciones = new ArrayList<>();
 	private static int count;
 	
 	
@@ -97,7 +97,7 @@ public class Devolucion extends ServiciosClientes{
 		}return a;
 	}
 	
-	public List<Devolucion> getDevoluciones(){
+	public static List<Devolucion> getDevoluciones(){
 		return ListaDevoluciones;
 	}
 	

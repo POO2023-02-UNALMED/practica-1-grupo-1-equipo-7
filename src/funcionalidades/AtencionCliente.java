@@ -41,21 +41,19 @@ public class AtencionCliente {
 		
 	}
 	
-
-	
-	
-	public static List<Reseña> Recopilatorio2 = Reseña.Recopilatorio;
-	public static List<Devolucion> ListaDevoluciones2 = Devolucion.ListaDevoluciones;
-	protected static List<Sugerencia> SugerenciasMenu2 = Sugerencia.SugerenciasMenu;
-	protected static List<Sugerencia> SugerenciasEmpleados2 = Sugerencia.SugerenciasEmpleados;
-	protected static List<Sugerencia> SugerenciasSedes2 = Sugerencia.SugerenciasSedes;
-	protected static List<Sugerencia> SugerenciasOtros2 = Sugerencia.SugerenciasOtros;
-	protected static List<Sugerencia> Sugerencias2 = Sugerencia.Sugerencias;
-	protected static List<Queja> QuejasMenu2 = Queja.QuejasMenu;
-	protected static List<Queja> QuejasEmpleados2 = Queja.QuejasEmpleados;
-	protected static List<Queja> QuejasSedes2 = Queja.QuejasSedes;
-	protected static List<Queja> QuejasOtros2 = Queja.QuejasOtros;
-	public static List<Queja> Quejas2 = Queja.Quejas;
+	public static List<Reseña> Recopilatorio2 = Reseña.getRecopilatorio();
+	public static List<Devolucion> ListaDevoluciones2 = Devolucion.getDevoluciones();
+	protected static List<Sugerencia> SugerenciasMenu2 = Sugerencia.getSugerenciasMenu();
+	protected static List<Sugerencia> SugerenciasEmpleados2 = Sugerencia.getSugerenciasEmpleados();
+	protected static List<Sugerencia> SugerenciasSedes2 = Sugerencia.getSugerenciasSedes();
+	protected static List<Sugerencia> SugerenciasOtros2 = Sugerencia.getSugerenciasOtros();
+	protected static List<Sugerencia> Sugerencias2 = Sugerencia.getSugerencias();
+	protected static List<Queja> QuejasMenu2 = Queja.getQuejasMenu();
+	protected static List<Queja> QuejasEmpleados2 = Queja.getQuejasEmpleados();
+	protected static List<Queja> QuejasSedes2 = Queja.getQuejasSedes();
+	protected static List<Queja> QuejasOtros2 = Queja.getQuejasOtros();
+	protected static List<Queja> Quejas2 = Queja.getQuejas();
+	protected static ArrayList<Empleado> empleados = Empleado.getEmpleados();
 	
 	public static void main(String[] arg){
 		
@@ -196,7 +194,7 @@ public class AtencionCliente {
 						
 						System.out.println("1. Reporte de todas las sugerencias");
 						System.out.println("2. Reporte de sugerencias del menu");
-						System.out.println("3. Reporte de sugeencias sobre empleados");
+						System.out.println("3. Reporte de sugerencias sobre empleados");
 						System.out.println("4. Reporte de sugerencias de sede");
 						System.out.println("5. Salir");
 					
@@ -209,37 +207,42 @@ public class AtencionCliente {
 						
 						case 1: //Reporte todas
 							
-							System.out.println("Hay un total de (" + Sugerencia.cantidadSugerencias() + ") sugerencias. ¿Desea verlas?");
+							System.out.println("Hay un total de (" + Sugerencia.cantidadSugerencias() + ") sugerencias.");
 							
-							System.out.println("1. Si");
-							System.out.println("2. No");
-							int m;
-							Scanner mi = new Scanner(System.in);
-							m = mi.nextInt();
-							
-							//si
-							if (m == 1) {
+							if (Sugerencia.cantidadSugerencias() > 0) {
 								
-								for(Sugerencia d: Sugerencias2) {
-									System.out.println("\n");
-									System.out.println(d);
-									System.out.println("\n");
+								System.out.println("¿Desea verlas?");
+								System.out.println("1. Si");
+								System.out.println("2. No");
+								int m;
+								Scanner mi = new Scanner(System.in);
+								m = mi.nextInt();
+								
+								//si
+								if (m == 1) {
+									
+									for(Sugerencia d: Sugerencias2) {
+										System.out.println("\n");
+										System.out.println(d);
+										System.out.println("\n");
+									}
+									
+									System.out.println("Saliendo");
+									
+									break;
 								}
 								
-								System.out.println("Saliendo");
+								//no
+								if (m == 2) {
+									System.out.println("Saliendo");
+									
+									 break;
+								}
 								
-								break;
-							}
-							
-							//no
-							if (m == 2) {
-								System.out.println("Saliendo");
-								
-								 break;
-							}
-							
-							if (m != 1 && m != 2) {
-								System.out.println("Opcion invalida");
+								if (m != 1 && m != 2) {
+									System.out.println("Opcion invalida");
+									break;
+								}
 								break;
 							}
 							
@@ -247,110 +250,123 @@ public class AtencionCliente {
 							
 							
 						case 2://Reporte menu
-							System.out.println("Hay un total de (" + Sugerencia.cantidadSugerenciasMenu() + ") sugerencias de tipo menu. ¿Desea verlas?");
+							System.out.println("Hay un total de (" + Sugerencia.cantidadSugerenciasMenu() + ") sugerencias de tipo menu.");
 							
-							System.out.println("1. Si");
-							System.out.println("2. No");
-							int me;
-							Scanner mie = new Scanner(System.in);
-							me = mie.nextInt();
-							
-							//si
-							if (me == 1) {
+							if(Sugerencia.cantidadSugerenciasMenu() > 0) {
+								System.out.println("¿Desea verlas?");
+								System.out.println("1. Si");
+								System.out.println("2. No");
+								int me;
+								Scanner mie = new Scanner(System.in);
+								me = mie.nextInt();
 								
-								for(Sugerencia d: SugerenciasMenu2) {
-									System.out.println("\n");
-									System.out.println(d);
-									System.out.println("\n");
+								//si
+								if (me == 1) {
+									
+									for(Sugerencia d: SugerenciasMenu2) {
+										System.out.println("\n");
+										System.out.println(d);
+										System.out.println("\n");
+									}
+									
+									System.out.println("Saliendo");
+									
+									break;
 								}
 								
-								System.out.println("Saliendo");
+								//no
+								if (me == 2) {
+									System.out.println("Saliendo");
+									
+									 break;
+								}
 								
+								if (me != 1 && me != 2) {
+									System.out.println("Opcion invalida");
+									break;
+								}
 								break;
 							}
-							
-							//no
-							if (me == 2) {
-								System.out.println("Saliendo");
-								
-								 break;
-							}
-							
-							if (me != 1 && me != 2) {
-								System.out.println("Opcion invalida");
-								break;
-							}
-							
 							break;
 							
 						case 3://Reporte empleados
-							System.out.println("Hay un total de (" + Sugerencia.cantidadSugerenciasEmpleados() + ") sugerencias de tipo empleado. ¿Desea verlas?");
+							System.out.println("Hay un total de (" + Sugerencia.cantidadSugerenciasEmpleados() + ") sugerencias de tipo empleado.");
 							
-							System.out.println("1. Si");
-							System.out.println("2. No");
-							int ma;
-							Scanner mia = new Scanner(System.in);
-							ma = mia.nextInt();
+							if(Sugerencia.cantidadSugerenciasEmpleados()> 0) {
 							
-							//si
-							if (ma == 1) {
+								System.out.println("¿Desea verlas?");
+								System.out.println("1. Si");
+								System.out.println("2. No");
+								int ma;
+								Scanner mia = new Scanner(System.in);
+								ma = mia.nextInt();
 								
-								for(Sugerencia d: SugerenciasEmpleados2) {
-									System.out.println("\n");
-									System.out.println(d);
-									System.out.println("\n");
+								//si
+								if (ma == 1) {
+									
+									for(Sugerencia d: SugerenciasEmpleados2) {
+										System.out.println("\n");
+										System.out.println(d);
+										System.out.println("\n");
+									}
+									
+									System.out.println("Saliendo");
+									
+									break;
 								}
 								
-								System.out.println("Saliendo");
+								//no
+								if (ma == 2) {
+									System.out.println("Saliendo");
+									
+									 break;
+								}
 								
-								break;
-							}
-							
-							//no
-							if (ma == 2) {
-								System.out.println("Saliendo");
-								
-								 break;
-							}
-							
-							if (ma == 1 && ma != 2) {
-								System.out.println("Opcion invalida");
+								if (ma == 1 && ma != 2) {
+									System.out.println("Opcion invalida");
+									break;
+								}
 								break;
 							}
 							break;
 						
 						case 4://Reporte sedes
-							System.out.println("Hay un total de (" + Sugerencia.cantidadSugerenciasSedes() + ") sugerencias de tipo sede. ¿Desea verlas?");
+							System.out.println("Hay un total de (" + Sugerencia.cantidadSugerenciasSedes() + ") sugerencias de tipo sede.");
 							
-							System.out.println("1. Si");
-							System.out.println("2. No");
-							int mo;
-							Scanner mio = new Scanner(System.in);
-							mo = mio.nextInt();
+							if(Sugerencia.cantidadSugerenciasSedes() >0) {
 							
-							//si
-							if (mo == 1) {
+								System.out.println("¿Desea verlas?");
+								System.out.println("1. Si");
+								System.out.println("2. No");
+								int mo;
+								Scanner mio = new Scanner(System.in);
+								mo = mio.nextInt();
 								
-								for(Sugerencia d: SugerenciasSedes2) {
-									System.out.println("\n");
-									System.out.println(d);
-									System.out.println("\n");
+								//si
+								if (mo == 1) {
+									
+									for(Sugerencia d: SugerenciasSedes2) {
+										System.out.println("\n");
+										System.out.println(d);
+										System.out.println("\n");
+									}
+									
+									System.out.println("Saliendo");
+									
+									break;
 								}
 								
-								System.out.println("Saliendo");
+								//no
+								if (mo == 2) {
+									System.out.println("Saliendo");
+									
+									 break;
+								}
 								
-								break;
-							}
-							
-							//no
-							if (mo == 2) {
-								System.out.println("Saliendo");
-								
-								 break;
-							}
-							
-							if (mo != 1 && mo != 2) {
-								System.out.println("Opcion invalida");
+								if (mo != 1 && mo != 2) {
+									System.out.println("Opcion invalida");
+									break;
+								}
 								break;
 							}
 							
@@ -650,37 +666,42 @@ public class AtencionCliente {
 						
 						case 1: //Reporte todas
 							
-							System.out.println("Hay un total de (" + Queja.cantidadQuejas() + ") Quejas. ¿Desea verlas?");
+							System.out.println("Hay un total de (" + Queja.cantidadQuejas() + ") Quejas.");
 							
-							System.out.println("1. Si");
-							System.out.println("2. No");
-							int m;
-							Scanner mi = new Scanner(System.in);
-							m = mi.nextInt();
+							if(Queja.cantidadQuejas() > 0) {
 							
-							//si
-							if (m == 1) {
+								System.out.println("¿Desea verlas?");
+								System.out.println("1. Si");
+								System.out.println("2. No");
+								int m;
+								Scanner mi = new Scanner(System.in);
+								m = mi.nextInt();
 								
-								for(Queja d: Quejas2) {
-									System.out.println("\n");
-									System.out.println(d);
-									System.out.println("\n");
+								//si
+								if (m == 1) {
+									
+									for(Queja d: Quejas2) {
+										System.out.println("\n");
+										System.out.println(d);
+										System.out.println("\n");
+									}
+									
+									System.out.println("Saliendo");
+									
+									break;
 								}
 								
-								System.out.println("Saliendo");
+								//no
+								if (m == 2) {
+									System.out.println("Saliendo");
+									
+									 break;
+								}
 								
-								break;
-							}
-							
-							//no
-							if (m == 2) {
-								System.out.println("Saliendo");
-								
-								 break;
-							}
-							
-							if (m != 1 && m != 2) {
-								System.out.println("Opcion invalida");
+								if (m != 1 && m != 2) {
+									System.out.println("Opcion invalida");
+									break;
+								}
 								break;
 							}
 							
@@ -688,116 +709,140 @@ public class AtencionCliente {
 							
 							
 						case 2://Reporte menu
-							System.out.println("Hay un total de (" + Queja.cantidadQuejasMenu() + ") Quejas de tipo menu. ¿Desea verlas?");
+							System.out.println("Hay un total de (" + Queja.cantidadQuejasMenu() + ") Quejas de tipo menu.");
 							
-							System.out.println("1. Si");
-							System.out.println("2. No");
-							int me;
-							Scanner mie = new Scanner(System.in);
-							me = mie.nextInt();
+							if(Queja.cantidadQuejasMenu() > 0) {
 							
-							//si
-							if (me == 1) {
+								System.out.println("¿Desea verlas?");
+								System.out.println("1. Si");
+								System.out.println("2. No");
+								int me;
+								Scanner mie = new Scanner(System.in);
+								me = mie.nextInt();
 								
-								for(Queja d: QuejasMenu2) {
-									System.out.println("\n");
-									System.out.println(d);
-									System.out.println("\n");
+								//si
+								if (me == 1) {
+									
+									for(Queja d: QuejasMenu2) {
+										System.out.println("\n");
+										System.out.println(d);
+										System.out.println("\n");
+									}
+									
+									System.out.println("Saliendo");
+									
+									break;
 								}
 								
-								System.out.println("Saliendo");
+								//no
+								if (me == 2) {
+									System.out.println("Saliendo");
+									
+									 break;
+								}
 								
+								if (me != 1 && me != 2) {
+									System.out.println("Opcion invalida");
+									break;
+								}
 								break;
 							}
-							
-							//no
-							if (me == 2) {
-								System.out.println("Saliendo");
-								
-								 break;
-							}
-							
-							if (me != 1 && me != 2) {
-								System.out.println("Opcion invalida");
-								break;
-							}
-							
 							break;
 							
 						case 3://Reporte empleados
-							System.out.println("Hay un total de (" + Queja.cantidadQuejasEmpleados() + ") quejas de tipo empleado. ¿Desea verlas?");
+							System.out.println("Hay un total de (" + Queja.cantidadQuejasEmpleados() + ") quejas de tipo empleado.");
 							
-							System.out.println("1. Si");
-							System.out.println("2. No");
-							int ma;
-							Scanner mia = new Scanner(System.in);
-							ma = mia.nextInt();
+							if(Queja.cantidadQuejasEmpleados() > 0) {
 							
-							//si
-							if (ma == 1) {
+								System.out.println("¿Desea verlas?");
+								System.out.println("1. Si");
+								System.out.println("2. No");
+								int ma;
+								Scanner mia = new Scanner(System.in);
+								ma = mia.nextInt();
 								
-								for(Queja d: QuejasEmpleados2) {
-									System.out.println("\n");
-									System.out.println(d);
-									System.out.println("\n");
+								//si
+								if (ma == 1) {
+									
+									for(Queja d: QuejasEmpleados2) {
+										System.out.println("\n");
+										System.out.println(d);
+										System.out.println("\n");
+									}
+									
+									System.out.println("Saliendo");
+									
+									break;
 								}
 								
-								System.out.println("Saliendo");
+								//no
+								if (ma == 2) {
+									System.out.println("Saliendo");
+									
+									 break;
+								}
 								
-								break;
-							}
-							
-							//no
-							if (ma == 2) {
-								System.out.println("Saliendo");
-								
-								 break;
-							}
-							
-							if (ma == 1 && ma != 2) {
-								System.out.println("Opcion invalida");
+								if (ma == 1 && ma != 2) {
+									System.out.println("Opcion invalida");
+									break;
+								}
 								break;
 							}
 							break;
 						
 						case 4://Reporte sedes
-							System.out.println("Hay un total de (" + Queja.cantidadQuejasSedes() + ") quejas de tipo sede. ¿Desea verlas?");
+							System.out.println("Hay un total de (" + Queja.cantidadQuejasSedes() + ") quejas de tipo sede.");
 							
-							System.out.println("1. Si");
-							System.out.println("2. No");
-							int mo;
-							Scanner mio = new Scanner(System.in);
-							mo = mio.nextInt();
-							
-							//si
-							if (mo == 1) {
+							if(Queja.cantidadQuejasSedes() > 0) {
 								
-								for(Queja d: QuejasSedes2) {
-									System.out.println("\n");
-									System.out.println(d);
-									System.out.println("\n");
+							
+								System.out.println("¿Desea verlas?");
+								System.out.println("1. Si");
+								System.out.println("2. No");
+								int mo;
+								Scanner mio = new Scanner(System.in);
+								mo = mio.nextInt();
+								
+								//si
+								if (mo == 1) {
+									
+									for(Queja d: QuejasSedes2) {
+										System.out.println("\n");
+										System.out.println(d);
+										System.out.println("\n");
+									}
+									
+									System.out.println("Saliendo");
+									
+									break;
 								}
 								
-								System.out.println("Saliendo");
+								//no
+								if (mo == 2) {
+									System.out.println("Saliendo");
+									
+									 break;
+								}
 								
-								break;
-							}
-							
-							//no
-							if (mo == 2) {
-								System.out.println("Saliendo");
-								
-								 break;
-							}
-							
-							if (mo != 1 && mo != 2) {
-								System.out.println("Opcion invalida");
+								if (mo != 1 && mo != 2) {
+									System.out.println("Opcion invalida");
+									break;
+								}
 								break;
 							}
 							
 							break;
 						
 						case 5: //Amonestaciones
+							
+							System.out.println("Mostrando amonestaciones ...");
+							
+							for(Empleado empl: empleados) {
+								System.out.println("\n");
+								System.out.println(Queja.cantidadAmonestaciones(empl));
+							}
+							
+							System.out.println("\nSaliendo");
 							break;
 						
 						case 6://Salir
@@ -856,7 +901,7 @@ public class AtencionCliente {
 			
 			switch(opcionR) {
 			
-			case 1:
+			case 1: //Recopilatorio de reseñas
 				System.out.println("Mostrando recopilatorio de reseñas ...");
 				
 				for(Reseña rsñ: Recopilatorio2) {
@@ -867,7 +912,7 @@ public class AtencionCliente {
 				break;
 				
 				
-			case 2:
+			case 2: //Nueva reseña
 				
 				System.out.println("¿Desea que su reseña sea anonima?");
 				System.out.println("1. Si");
@@ -966,7 +1011,8 @@ public class AtencionCliente {
 				break;
 				
 				
-			case 3: break;
+			case 3: //Salir
+				break;
 			
 			default:
 				System.out.println("Opcion invalida");
