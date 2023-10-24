@@ -81,40 +81,41 @@ public class AtencionCliente {
 			
 			}
 			if (opcions== 5) {break;}
-			System.out.println("Por favor, a continuacion escriba su sugerencia");
-			
-			Scanner inputTextoS=new Scanner(System.in);
-			String TextoS;
-			TextoS=inputTextoS.nextLine();
-			
-			System.out.println("Todo listo");
-			
-			System.out.println("1. Editar Sugerencia");
-			System.out.println("2. Enviar Sugerencia");
-			
-			Scanner inputOEditarS=new Scanner(System.in);
-			int opcionES;
-			opcionES=inputOEditarS.nextInt();
-			
-			if (opcionES == 1) {
+			if (opcions != 5 && opcions>= 1) {
+				System.out.println("Por favor, a continuacion escriba su sugerencia");
 				
-				System.out.println("Ahora puede editar su sugerencia");
-				Scanner inputEditarS=new Scanner(System.in);
-				String EditarS;
-				EditarS=inputEditarS.nextLine();
+				Scanner inputTextoS=new Scanner(System.in);
+				String TextoS;
+				TextoS=inputTextoS.nextLine();
 				
-				TextoS = EditarS;
+				System.out.println("Todo listo");
+				
+				System.out.println("1. Editar Sugerencia");
+				System.out.println("2. Enviar Sugerencia");
+				
+				Scanner inputOEditarS=new Scanner(System.in);
+				int opcionES;
+				opcionES=inputOEditarS.nextInt();
+				
+				if (opcionES == 1) {
+					
+					System.out.println("Ahora puede editar su sugerencia");
+					Scanner inputEditarS=new Scanner(System.in);
+					String EditarS;
+					EditarS=inputEditarS.nextLine();
+					
+					TextoS = EditarS;
+				}
+				
+				if (opcionES == 2) {new Sugerencia(type, TextoS);}
+				
+				System.out.println("Su sugerencia se ha enviado con exito");
+				System.out.println("1. Salir");
+				
+				Scanner inputSalirS = new Scanner(System.in);
+				int SalirS;
+				SalirS=inputSalirS.nextInt();
 			}
-			
-			if (opcionES == 2) {new Sugerencia(type, TextoS);}
-			
-			System.out.println("Su sugerencia se ha enviado con exito");
-			System.out.println("1. Salir");
-			
-			Scanner inputSalirS = new Scanner(System.in);
-			int SalirS;
-			SalirS=inputSalirS.nextInt();
-			
 			
 			break;
 		
