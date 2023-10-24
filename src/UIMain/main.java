@@ -477,7 +477,7 @@ public class main {
 						Scanner inputk40=new Scanner(System.in);
 						String vark40;
 						vark40=inputk40.nextLine();
-						if (vark40=="S") {
+						if (vark40.equals("S")) {
 							Inventario.obtenerInventarios().get(opcion3-1).resetearInventario();
 							Inventario.mostrarInventario(Restaurante.getSedes().get(opcion3-1));
 						}
