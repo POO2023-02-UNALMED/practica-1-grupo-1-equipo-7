@@ -188,7 +188,7 @@ public class Reservaciones {
 				
 				FileInputStream fileInputStream = new FileInputStream("fichero.txt");
 				ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-				Reserva reservaFichero = (Reserva) objectInputStream.readObject();
+				Reserva reservaFichero = (Reserva) objectInputStream.readObject(miReserva);
 				objectInputStream.close();
 
 		

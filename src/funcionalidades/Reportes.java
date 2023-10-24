@@ -1,5 +1,7 @@
 package funcionalidades;
 import java.util.ArrayList;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -7,7 +9,7 @@ import UIMain.main;
 import gestorAplicación.*;
 
 	public class Reportes {
-	    public static void main(String[] args) {
+	    public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException, IOException {
 			
 
 	        System.out.println("------------¿Qué tipo de reporte desea generar?------------");
