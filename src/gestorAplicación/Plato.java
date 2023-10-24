@@ -18,7 +18,7 @@ public class Plato {
 	private  static Map <Plato, List<Item>> platos=new HashMap<>();
 	
 	//Constructor 
-	public Plato(String nombre, List<Item> ingredientes, int precio) {
+	public Plato(String nombre, ArrayList<Item> ingredientes, int precio) {
 		this.nombre=nombre;
 		this.ingredientes=ingredientes;
 		platos.put(this, ingredientes);
@@ -28,6 +28,7 @@ public class Plato {
 	}
     static{
         ArrayList<Item> ingredientesTacos = new ArrayList<>();
+        System.out.println(Item.buscarItem("Tortilla"));
         ingredientesTacos.add(Item.buscarItem("Tortilla"));
         ingredientesTacos.add(Item.buscarItem("Carne"));
         ingredientesTacos.add(Item.buscarItem("Cebolla"));
@@ -68,6 +69,15 @@ public class Plato {
         Plato tamales= new Plato("Tamales", ingredientesTamales,7000);
         Plato enchilada=new Plato("Enchiladas", ingredientesEnchiladas,8000);
         Plato pozol=new Plato("Pozol", ingredientesPozol,4000);
+
+        System.out.println(tacos.getIngredientes());
+        System.out.println(tostadas.getIngredientes());
+        System.out.println(quesadilla.getIngredientes());
+        System.out.println(sopes.getIngredientes());
+        System.out.println(tamales.getIngredientes());
+        System.out.println(enchilada.getIngredientes());
+        System.out.println(pozol.getIngredientes());
+
         
     }
 	 // Getter para el atributo "nombre"
@@ -103,15 +113,23 @@ public class Plato {
 		this.precio = precio;
 	}
 
-	// Getter para el atributo "ingredientes" Arreglar
-    public List<String> getIngredientes() {
-        List<String> ingredientes = new ArrayList<>();
+	
+    public ArrayList<String> getIngredientes() {
+        if (ingredientes.isEmpty()) {
+            return null;
+        }
+        System.out.println("2.1");
+        ArrayList<String> ingredientes = new ArrayList<>();
+        System.out.println(this.ingredientes);
         for (Item ingrediente : this.ingredientes) {
+            System.out.println(ingrediente);
             ingredientes.add(ingrediente.getNombre());
+            System.out.println("2.3");
         }
         return ingredientes;
-        
+          
     }
+
     public void mostrarInformacionDetallada() {
         System.out.println("Nombre del Plato: " + nombre);
         System.out.println("Ingredientes:");
@@ -152,8 +170,11 @@ public class Plato {
     public static Object[] getIngredientesSimilares(Plato plato1, Plato plato2){
         int ingredientesSimilares = 0;
         ArrayList<String> ingredientes = new ArrayList<>();
+        System.out.println("1.1");
         for(String ingrediente1 : plato1.getIngredientes()){
+            System.out.println("1.2");
             for(String ingrediente2 : plato2.getIngredientes()){
+                System.out.println("1.3");
                 if(ingrediente1.equals(ingrediente2) && !ingredientes.contains(ingrediente1)){
                     ingredientes.add(ingrediente1);
                     ingredientesSimilares++;

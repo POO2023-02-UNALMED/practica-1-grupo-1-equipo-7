@@ -2,11 +2,11 @@ package funcionalidades;
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.Scanner;
-
 import gestorAplicación.*;
 
 	public class Reportes {
 	    public static void main(String[] args) {
+			
 
 	        System.out.println("------------¿Qué tipo de reporte desea generar?------------");
 	        System.out.println("1. Reporte de Comisiones");
@@ -79,12 +79,12 @@ import gestorAplicación.*;
 						}
 						else{
 							Restaurante sede = Restaurante.buscarSede(opcion);
-							System.out.println("El nombre de la sede es: " + sede.getNombre());
-							System.out.println("Reporte de Comisiones para la sede: " + sede.getNombre());
+							System.out.println("Reporte para la " + sede.getUbicacion());
+							System.out.println("Reporte de Comisiones para el restaurante: " + sede.getNombre());
 
 							ArrayList<Factura> facturas = Factura.buscarFacturasPorSede(opcion);
 							if(facturas.size() == 0){
-								System.out.println("No hay facturas en ese rango de fechas");
+								System.out.println("No hay facturas en esta sede");
 							}
 							else{
 								System.out.println("El total de comisiones : " + sede.calcularPropinasPorSede(opcion));
@@ -93,7 +93,7 @@ import gestorAplicación.*;
 					}
 					break;
 	
-	            //Aqui se puede detallar las ventas por sede, por ejemplo, ventas por dia, ventas por mes, ventas por año, etc.
+	            
 	        case 2:
 	        	
 	        	System.out.println("------------Recomendaciones------------");
