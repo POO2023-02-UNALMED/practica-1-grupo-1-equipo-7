@@ -44,6 +44,9 @@ public class main {
 		new Mesa("Mesa siete", "Cuatro o más personas", "Sede: Sandiego");
 		new Mesa("Mesa tres", "Dos personas", "Sede: Envigado");
 
+		
+		
+		
 		// por ahora lo trabajaré así, es posible que use un enumerado, si tienen alguna
 		// recomendación lo agradecería :)
 		new Item("Tortilla", 0, 0.50, "01/01/2024", Inventario.obtenerInventarios().get(0));
@@ -145,7 +148,7 @@ public class main {
 
 	public static void main(String[] args) throws FileNotFoundException , IOException, ClassNotFoundException{
 		System.out.println(
-				"1. Ver menú\n2. Registro del restaurante\n3. Inventario\n4. Atención al cliente\n5. Reportes\n6. Reservaciones\n7. Salir");
+				"1. Ver menú\n2. Registro del restaurante\n3. Inventario\n4. Atención al cliente\n5. Reportes\n6. Reservaciones\n7 Pedidos\n8. Salir");
 		Cliente nuevoCliente = new Cliente(null, 0);
 		Scanner input1 = new Scanner(System.in);
 		int opcion;
@@ -538,8 +541,11 @@ public class main {
 			Reservaciones.reservaciones(nuevoCliente);
 			Cliente micliente = new Cliente("Null", 0);
 			Reservaciones.reservaciones(micliente);
+			
+		
+		
 
-		case 7:
+		case 8:
 
 			System.out.println("Salir");
 			System.exit(0);
