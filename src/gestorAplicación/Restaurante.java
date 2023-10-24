@@ -37,16 +37,28 @@ public class Restaurante {
 		ArrayList<Plato> menu1 = new ArrayList<Plato>();
 		for (Plato platos : Plato.getPlatos().keySet()) {
             menu1.add(platos);
-        }
+		}
+        ArrayList<Plato> menu2 = new ArrayList<Plato>();
+    	for (Plato platosmenu2 : Plato.getPlatos().keySet()) {
+            menu2.add(platosmenu2);
+    	}
+    	ArrayList<Plato> menu3 = new ArrayList<Plato>();
+    	for (Plato platosmenu3 : Plato.getPlatos().keySet()) {
+            menu3.add(platosmenu3);
+    	}
+    	ArrayList<Plato> menu4 = new ArrayList<Plato>();
+    	for (Plato platosmenu4 : Plato.getPlatos().keySet()) {
+            menu4.add(platosmenu4);
+    	}
+	
 		
 		new Restaurante("La Casa de Toño", "Sede: Las Americas", "Calle 1", new Inventario(), new Caja(), 1234567,
-				new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
+				new Date(),  menu4, new ArrayList<Mesa>());
 		new Restaurante("La Casa de Toño", "Sede: Envigado", "Calle 2", new Inventario(), new Caja(), 1234567,
-				new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
+				new Date(), menu3, new ArrayList<Mesa>());
 		new Restaurante("La Casa de Toño", "Sede: Sandiego", "Calle 3", new Inventario(), new Caja(), 1234567,
-				new Date(), new ArrayList<Plato>(), new ArrayList<Mesa>());
-		new Restaurante("La Casa de Toño", "Sede: Belen", "Calle 4", new Inventario(), new Caja(), 1234567, new Date(),
-				menu1, new ArrayList<Mesa>());
+				new Date(), menu2, new ArrayList<Mesa>());
+		new Restaurante("La Casa de Toño", "Sede: Belen", "Calle 4", new Inventario(), new Caja(), 1234567, new Date(), menu1, new ArrayList<Mesa>());
 		
 
 	}
@@ -115,7 +127,7 @@ public class Restaurante {
 			}
 		}
 		return null;
-
+	
 	}
 
 	public ArrayList<Mesa> getMesas() {
