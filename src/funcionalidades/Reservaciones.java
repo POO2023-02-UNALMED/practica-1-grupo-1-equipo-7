@@ -25,13 +25,13 @@ public class Reservaciones {
 
 	public static void reservaciones(Cliente nuevoCliente)throws FileNotFoundException , IOException, ClassNotFoundException {
 		
-		etiqueta: while (true) {
+		    while (true) {
 
 			System.out.println(" -------Reservaciones---------");
 			System.out.println("¿Qué le gustaría hacer?");
 			System.out.println("1. Reservar");
 			System.out.println("2. Cancelar o modificar la reserva");
-			System.out.println("3. Volver al menú principal");
+			System.out.println("3. Salir");
 			int opcion = input1.nextInt();
 
 			switch (opcion) {
@@ -47,8 +47,10 @@ public class Reservaciones {
 				break;
 
 			case 3:
-				break etiqueta;
 
+				System.out.println("Salir");
+				System.exit(0);
+				
 			default:
 
 				System.out.println("Opción Inválida");
