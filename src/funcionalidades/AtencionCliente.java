@@ -581,7 +581,7 @@ public class AtencionCliente {
 					typeQ = "Algun otro";
 					
 					
-					OtroQ = null;
+					OtroQ = "Otro";
 					break;
 				
 				case 5: //Salir
