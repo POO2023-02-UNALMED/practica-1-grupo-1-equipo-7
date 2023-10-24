@@ -227,7 +227,14 @@ public class Inventario implements Serializable {
 		this.listadoItems = listadoItems;
 	}
     public void resetearInventario() {
-    	this.diccionarioItems= new HashMap<>();// metodo para rsetear el dicionario.
+    	Integer num=0;
+    	
+    	for (String i: this.diccionarioItems.keySet()) {
+    		this.diccionarioItems.put(i, num);
+    	}
+    	
+    	
+    	;// metodo para rsetear el dicionario.
     }
     	
     
