@@ -73,6 +73,7 @@ public class GenerarPedido {
 					Scanner input5= new Scanner(System.in);
 					String opcion4;
 					opcion4 = input5.nextLine();
+					//tengo varios problemas con estos condicionales
 					if(opcion4 == "N" || opcion4 != "n" ){
 						System.out.println("Pedido confirmado");
 						System.out.println("Productos escogidos");
@@ -83,16 +84,16 @@ public class GenerarPedido {
 						Scanner input9= new Scanner(System.in);
 						String opcionRR;
 						opcionRR = input9.nextLine();
-						if (opcionRR != "N" || opcionRR == "n"){
+						//tengo varios problemas con estos condicionales
+						if (opcionRR == "N"){
 							System.out.println("------------Su pedido estará listo cuando llegue.------------");
 							System.out.println("------------Gracias por su compra.------------");
 							System.out.println("Progama Terminado");
-							break;
 							}
 						
 						else {
 							System.out.println("Pedido cancelado, por favor realizar de nuevo el proceso");
-							break;
+							
 							}
 						}
 					else {
