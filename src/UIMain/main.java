@@ -44,7 +44,16 @@ public class main {
 		new Mesa("Mesa siete", "Cuatro o más personas", "Sede: Sandiego");
 		new Mesa("Mesa tres", "Dos personas", "Sede: Envigado");
 
-		
+		//Listas Manuel :D
+				new PedidoOnlinefisico(6253, 2, "Calle 2", " Pedido Fisico" );
+				new PedidoOnlineEnvio(4544, 1, "Calle 2", " Pedido de envio" );
+				new PedidoOnlinefisico(3948, 3, "Calle 2", " Pedido Fisico" );
+				new PedidoOnlineEnvio(1234, 1, "Calle 2", " Pedido de Envio" );
+				
+				new Pedido(null, "Calle 2", " Pedido Fisico", new Restaurante(), new Cliente("David Gonzales", 123), new Empleado("Jose", "Domiciliario", 20000, 4791));
+				new Pedido(null, "Calle 17 - 2", " Pedido de Envio", new Restaurante(), new Cliente("Andres Gutierres", 324), new Empleado("Daniel", "Domiciliario", 20000, 4791));
+				new Pedido(null, "Calle 22 - 1", " Pedido de Envio", new Restaurante(), new Cliente("Carlos Duque", 456), new Empleado("Jose", "Domiciliario", 20000, 4791));
+				new Pedido(null, "Calle 5 - 2", " Pedido Fisico", new Restaurante(), new Cliente("Carolina Leño", 145), new Empleado("Daniel", "Domiciliario", 20000, 4791));
 		
 		
 		// por ahora lo trabajaré así, es posible que use un enumerado, si tienen alguna
@@ -129,11 +138,9 @@ public class main {
 		ingredientesPozol.add(Item.buscarItem("Cebolla"));
 		ingredientesPozol.add(Item.buscarItem("Cilantro"));
 		// le agregué los precios a cada plato, se puede cambiar esto:)
+		
 		Plato tacos = new Plato("Tacos", ingredientesTacos, 2000);
-		
-
 		Plato tostadas = new Plato("Tostadas", ingredientesTostadas, 2000);
-		
 		Plato quesadilla = new Plato("Quesadillas", ingredientesQuesadillas, 5000);
 		Plato sopes = new Plato("Sopes", ingredientesSopes, 6000);
 		Plato tamales = new Plato("Tamales", ingredientesTamales, 7000);
@@ -148,7 +155,7 @@ public class main {
 
 	public static void main(String[] args) throws FileNotFoundException , IOException, ClassNotFoundException{
 		System.out.println(
-				"1. Ver menú\n2. Registro del restaurante\n3. Inventario\n4. Atención al cliente\n5. Reportes\n6. Reservaciones\n7 Pedidos\n8. Salir");
+				"1. Ver menú\n2. Registro del restaurante\n3. Inventario\n4. Atención al cliente\n5. Reportes\n6. Reservaciones\n7. Pedidos\n8. Salir");
 		Cliente nuevoCliente = new Cliente(null, 0);
 		Scanner input1 = new Scanner(System.in);
 		int opcion;
@@ -544,9 +551,12 @@ public class main {
 			Cliente micliente = new Cliente("Null", 0);
 			Reservaciones.reservaciones(micliente);
 			
-		
-		
+		case 7:
+			System.out.println("Pedido");
+			GenerarPedido.main(args);
+			break;
 
+			
 		case 8:
 
 			System.out.println("Salir");

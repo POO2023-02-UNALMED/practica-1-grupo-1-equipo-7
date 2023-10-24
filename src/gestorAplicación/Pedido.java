@@ -30,10 +30,10 @@ public class Pedido  {
 		Pedido.Pedidos.add(this);
 		factura = new Factura(cliente.getCodigo(), empleado.getCodigo(), restaurante.getCodigoSede(), LocalDate.of(2020, 01, 01), 0, platos);
 	}
-	public void PedidoOnlineEnvio() {
+	public static void PedidoOnlineEnvio() {
 		
 	}
-	public void PedidoOnlinefisico() {
+	public static void PedidoOnlinefisico() {
 	
 	}
 	public void PedidoOnlineEnvio(int numeroOrden, int cantidadPlatos, String direccionPedido, String tipoPedido) {
