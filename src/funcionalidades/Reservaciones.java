@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import basedatos.Deserializacion;
+import basedatos.Serializacion;
 import gestorAplicación.Caja;
 import gestorAplicación.Cliente;
 import gestorAplicación.Inventario;
@@ -47,7 +49,6 @@ public class Reservaciones {
 				break;
 
 			case 3:
-
 				System.out.println("Salir");
 				System.exit(0);
 				
@@ -56,7 +57,7 @@ public class Reservaciones {
 				System.out.println("Opción Inválida");
 
 			}
-			break;
+			
 		}
 	}
 
@@ -182,18 +183,8 @@ public class Reservaciones {
 				Reserva miReserva = new Reserva(nuevoCliente, sedeElegida, miMesa, miHorario);
 				System.out.println(miReserva.toString());
 				
+				Serializacion.serializarReserva(miReserva, "fichero.txt");
 				
-				FileOutputStream fileOutputStream = new FileOutputStream("fichero.txt");
-				ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-				objectOutputStream.writeObject(miReserva);
-				objectOutputStream.close();
-				
-				FileInputStream fileInputStream = new FileInputStream("fichero.txt");
-				ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-				Reserva reservaFichero = (Reserva) objectInputStream.readObject();
-				objectInputStream.close();
-
-		
 				
 				break creando;
 			}

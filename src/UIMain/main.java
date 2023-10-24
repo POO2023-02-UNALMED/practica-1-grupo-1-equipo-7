@@ -572,6 +572,8 @@ public class main {
 			Reservaciones.reservaciones(nuevoCliente);
 			Cliente micliente = new Cliente("Null", 0);
 			Reservaciones.reservaciones(micliente);
+			break;
+			
 			
 		case 7:
 			System.out.println("Pedido");
