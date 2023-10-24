@@ -40,7 +40,8 @@ public class Sugerencia extends ServiciosClientes{
 		
 	}
 	
-	public String MostrarSugerencias() {
+	@Override
+	public String toString() {
 		return super.cliente.getNombre() + " hizo la siguiente sugerencia: " + "\n" + super.getTexto();
 	}
 	

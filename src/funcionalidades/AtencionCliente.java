@@ -520,7 +520,7 @@ public class AtencionCliente {
 							delv = Devolucion.buscarD2(ListaDevoluciones2, n);
 							
 							delv.setT(t);
-							delv.setEstado("Denegado");
+							delv.setEstado("Denegada");
 							
 							System.out.println("Todo listo, la solicitud fue denegada con exito\n");
 							System.out.println(delv);
@@ -535,17 +535,14 @@ public class AtencionCliente {
 							Devolucion delv;
 							delv = Devolucion.buscarD2(ListaDevoluciones2, n);
 							
-							delv.setEstado("Aprobado");
+							delv.setEstado("Aprobada");
 							System.out.println("Todo listo, la solicitud fue aprobada con exito\n");
 							System.out.println(delv);
 							System.out.println("\nSaliendo");
 							break;
 							
 						}
-						
-						
-						
-						
+						break;
 					}
 					
 					
@@ -553,25 +550,53 @@ public class AtencionCliente {
 					break;
 					
 				case 2: //No tiene codigo de empleado
+					System.out.println("Lo siento, tiene que tener un codigo de empleado para poder ingresar");
+					System.out.println("Saliendo");
 					break;
 				}
 				
-				if(opcionD1 == 1) {
-					
-					
-				}
-				
-				
-				
 				break;
 			
-			case 2:
+			case 2: //Nueva solicitud
+				System.out.println("Para realizar una nueva solicitud por favor ingrese los siguientes datos");
+				
+				String nombreD;
+				int id;
+				String correo;
+				int codfac;
+				String razon;
+				
+				System.out.println("Ingresar Nombre completo:");
+				Scanner nombred= new Scanner(System.in);
+				nombreD = nombred.nextLine();
+				
+				System.out.println("Ingresar Cedula:");
+				Scanner idD = new Scanner(System.in);
+				id = idD.nextInt();
+				
+				System.out.println("Ingresar Correo:");
+				Scanner correoD = new Scanner(System.in);
+				correo = correoD.nextLine();
+				
+				System.out.println("Ingresar el codigo de su factura: ");
+				Scanner codfacD = new Scanner(System.in);
+				codfac = codfacD.nextInt();
+				
+				System.out.println("Por favor espere unos segundos mientras verificamos los datos");
+				
+				Factura factura;
+				factura = Factura.buscarFactura(codfac);
+				
+				
+				
+				
+				
 				break;
 				
-			case 3:
+			case 3: //Revisar estado de mi solicitud
 				break;
 			
-			case 4:
+			case 4: //Salir
 				break;
 				
 			default:
