@@ -20,6 +20,7 @@ public class Caja  {
         
         this.dineroCaja = dineroCaja;
         this.numeroDeSerie = numeroDeSerie;
+        listadoCajas.add(this);
 
         
         
@@ -80,7 +81,7 @@ public class Caja  {
 
 
     
-    public String  Compra(Item objeto, double precio, int cantidad, Restaurante restauranteAsociado) {
+    public String  Compra(Item objeto, double precio, int cantidad, Restaurante restauranteAsociado) {// compra del restaurante 
         double costoTotal = precio * cantidad;
 
         // Verificar si hay suficiente dinero en la caja para realizar la compra
@@ -92,7 +93,7 @@ public class Caja  {
             totalEgresos += costoTotal;
 
             // Actualizar el inventario de la sede asociada
-            restauranteAsociado.getInventario().añadirItems(objeto, cantidad);
+            restauranteAsociado.getInventario().añadirItems(objeto.getNombre(), cantidad);
             return("Compra exitosa");
         } else {
             return "No hay suficiente dinero en la caja para realizar la compra. Debe ingresar dinero en caja  para hacer posible la compra";

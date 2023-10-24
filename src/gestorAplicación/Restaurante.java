@@ -31,6 +31,7 @@ public class Restaurante {
 	private static HashMap<Integer, String> facturas;
 	private int codigoSede;
 	private ArrayList<String> disponibilidad;
+	private static int contadorSedes = 0;
 
 	//No quitar
 	static {
@@ -74,7 +75,7 @@ public class Restaurante {
 		this.mesas = mesas;
 		this.inventario = inventario;
 		this.caja = caja;
-		this.codigoSede += 1;
+		this.codigoSede = contadorSedes++;
 		sedes.add(this);
 		this.disponibilidad = new ArrayList<>(Arrays.asList("2023-10-25 14:00 PM", "2023-10-25 18:00 PM",
 				"2023-10-26 12:00 PM", "2023-10-30 11:00 AM"));
@@ -287,6 +288,11 @@ public class Restaurante {
 		}
 		return sedesDisponibles;
 
+	}
+
+	public Inventario getInventario() {
+		return this.inventario;
+		
 	}
 
 
