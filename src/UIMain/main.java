@@ -110,25 +110,22 @@ public class main {
 		ingredientesTamales.add(Item.buscarItem("Carne"));
 		ArrayList<Item> ingredientesEnchiladas = new ArrayList<>();
 		ingredientesEnchiladas.add(Item.buscarItem("Tortilla"));
-
+		ingredientesEnchiladas.add(Item.buscarItem("Queso"));
 		ingredientesEnchiladas.add(Item.buscarItem("Carne"));
-		List<Item> ingredientesPozol = new ArrayList<>();
+		ArrayList<Item> ingredientesPozol = new ArrayList<>();
 		ingredientesPozol.add(Item.buscarItem("Maiz"));
 		ingredientesPozol.add(Item.buscarItem("Carne"));
 		ingredientesPozol.add(Item.buscarItem("Cebolla"));
 		ingredientesPozol.add(Item.buscarItem("Cilantro"));
 		// le agregué los precios a cada plato, se puede cambiar esto:)
 		Plato tacos = new Plato("Tacos", ingredientesTacos, 2000);
-		System.out.print(tacos.getIngredientes());
-
 		Plato tostadas = new Plato("Tostadas", ingredientesTostadas, 2000);
-		System.out.print(ingredientesTostadas);
 		Plato quesadilla = new Plato("Quesadillas", ingredientesQuesadillas, 5000);
 		Plato sopes = new Plato("Sopes", ingredientesSopes, 6000);
 		Plato tamales = new Plato("Tamales", ingredientesTamales, 7000);
 		Plato enchilada = new Plato("Enchiladas", ingredientesEnchiladas, 8000);
-
-		ingredientesEnchiladas.add(Item.buscarItem("Queso"));
+		Plato pozol = new Plato("Pozol", ingredientesPozol, 9000);
+		
 
 	}
 
@@ -404,4 +401,5 @@ public class main {
 
 		}
 	}
+
 

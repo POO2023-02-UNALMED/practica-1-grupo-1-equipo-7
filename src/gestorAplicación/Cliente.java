@@ -33,7 +33,6 @@ public class Cliente extends Persona {
 	}
 
 	static {
-		new Cliente("Anonimo", 0);
 		new Cliente("Juan Perez", 5236, "Calle 1", "1234567", "juan@gmail.com", "2020-01-01");
 		new Cliente("Maria Lopez", 7423, "Calle 2", "8765432", "1234", "2020-01-01");
 		new Cliente("Julian Vargas", 7162, "Carrera 65", "4630245", "nose@gmail.com", "2020-01-02");
@@ -116,20 +115,15 @@ public class Cliente extends Persona {
 
 	public static Object[] buscarPlatoRecomendado(int codigoCliente) {
 		ArrayList<Plato> platoPreferido = buscarPlatoPreferido(codigoCliente);
-		System.out.println("1");
 		if (platoPreferido == null) {
 			return null;
 		}
 		ArrayList<String> ingredientes = new ArrayList<>();
 		ArrayList<Plato> platosRecomendados = new ArrayList<>();
 		Object[] ingredientesSimilares = new Object[2];
-		System.out.println("2");
 		for (Plato plato : Plato.getPlatos().keySet()) {
-			System.out.println("3");
 			for (Plato preferido : platoPreferido) {
-				System.out.println("4");
 				ingredientesSimilares = Plato.getIngredientesSimilares(plato, preferido);
-				System.out.println("5");
 				if ((int) ingredientesSimilares[0] >= 3 && !platoPreferido.contains(plato)
 						&& !platosRecomendados.contains(plato)) {
 					platosRecomendados.add(plato);

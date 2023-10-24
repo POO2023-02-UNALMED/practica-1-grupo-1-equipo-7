@@ -56,7 +56,7 @@ public class Item implements Serializable {
 	        totalItems+=cantidad;
 	        
 	        // añadir estos items a inventario
-	        inventario.añadirItems(this, cantidad);
+	        //inventario.añadirItems(this, cantidad);
 	        inventario.añadirAListadoItems(this);
 	        
 	    }
