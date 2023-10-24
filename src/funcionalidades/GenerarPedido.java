@@ -92,11 +92,10 @@ public class GenerarPedido {
 	Plato enchilada = new Plato("Enchiladas", ingredientesEnchiladas, 8000);
 	Plato pozol = new Plato("Pozol", ingredientesPozol, 9000);
 	
-	new Pedido(null, "Calle 2", " Pedido Fisico", new Restaurante(), new Cliente("David Gonzales", 123), new Empleado("Jose", "Domiciliario", 20000, 4791));
-	new Pedido(null, "Calle 17 - 2", " Pedido de Envio", new Restaurante(), new Cliente("Andres Gutierres", 324), new Empleado("Daniel", "Domiciliario", 20000, 4791));
-	new Pedido(null, "Calle 22 - 1", " Pedido de Envio", new Restaurante(), new Cliente("Carlos Duque", 456), new Empleado("Jose", "Domiciliario", 20000, 4791));
-	new Pedido(null, "Calle 5 - 2", " Pedido Fisico", new Restaurante(), new Cliente("Carolina Leño", 145), new Empleado("Daniel", "Domiciliario", 20000, 4791));
-	
+	new PedidoOnlineEnvio(6253, 2, "Calle 2", " Pedido Fisico" );
+	new PedidoOnlineEnvio(4544, 1, "Calle 2", " Pedido de envio" );
+	new PedidoOnlineEnvio(3948, 3, "Calle 2", " Pedido Fisico" );
+	new PedidoOnlineEnvio(1234, 1, "Calle 2", " Pedido de Envio" );
 	
 	
 	}
@@ -111,6 +110,7 @@ public class GenerarPedido {
 		boolean repetir;
 		byte opciones;
 		String salir;
+		
 		System.out.println("------------¿Qué tipo de pedido desea?------------");
 		System.out.println("1. Pedido Fisico");
 	    System.out.println("2. Pedido de envio");
@@ -121,8 +121,8 @@ public class GenerarPedido {
 	switch(opcion){
 	
     case 1:
-    	System.out.println("1. Pedido Fisico");
-    	System.out.println("Nuestras sedes disponibles");
+    	System.out.println("Ha seleccionado - 1. Pedido Fisico");
+    	System.out.println("------------Nuestras sedes disponibles------------");
 		int i;
 	    for( i=0; i< Restaurante.getSedes().size(); i++) {
 	    	System.out.println(i+1 + ". " + Restaurante.getSedes().get(i).getUbicacion());
@@ -141,47 +141,58 @@ public class GenerarPedido {
 			for(Plato platos : Restaurante.getMenu(sede)) {
 				System.out.println(j++ + ". " + platos.getNombre() + " " + platos.getPrecio());
 			}
-			System.out.println("¿Cuantos platos desea ordenar?");
+			System.out.println("------------¿Cuantos platos desea ordenar?------------");
 			Scanner input3= new Scanner(System.in);
 		    int opcion2;
 			opcion2 = input3.nextInt();
 			ArrayList<Plato> platos = new ArrayList<>();
+			
 			for(int k = 0; k < opcion2; k++) {
-				System.out.println("Ingrese el nombre del plato");
+				System.out.println("------------Ingrese el nombre del plato (Tal cual aparece en el menu)------------");
 				Scanner input4= new Scanner(System.in);
 			    String opcion3;
 				opcion3 = input4.nextLine();
 				platos.add(Plato.buscarPlato(opcion3));
-			}
-			System.out.println("Confirma tus productos");
-			for(Plato plato : platos) {
-				System.out.println(plato.getNombre() + " " + plato.getPrecio());
-			}
-			System.out.println("¿Desea confirmar su pedido? (S/N)");
-			Scanner input5= new Scanner(System.in);
-		    String opcion4;
-			opcion4 = input5.nextLine();
-			if(opcion4 == "S"){
-				System.out.println("Pedido confirmado");
-			}
+				if(Plato.buscarPlato(opcion3) == null) {
+					System.out.println("Opción invalida");
+				}
+				else {
+			
+					System.out.println("Confirma tus productos");
+						for(Plato plato : platos) {
+							
+							System.out.println(plato.getNombre() + " " + plato.getPrecio());
+							
+							System.out.println("------------¿Desea confirmar su pedido? (S/N)------------");
+							Scanner input5= new Scanner(System.in);
+							String opcion4;
+							opcion4 = input5.nextLine();
+							if(opcion4 == "S"){
+								System.out.println("Pedido confirmado");
+							
+							}
+						}
+					}
+				}
 				
 		
 				System.out.println("Productos escogidos");
-				// Enviar_una_notificación_dentro_de_la_aplicación_al_cliente
-				String mensaje2 = "Su pedido con el número de orden "  + " ha sido confirmado. Su pedido va en camino." + "\n";
+				for(Pedido pedidos : Pedido.getNumeroOrden()) {
+				String mensaje2 = "------------Su pedido con el número de orden "  + + " ha sido confirmado. Su pedido va en camino.------------" + "\n";
 				System.out.print(mensaje2);
 				
 				System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente."  + "\n");
-				System.out.println("¿Desea ordenar algo mas (S/N)?");
+				System.out.println("------------¿Desea ordenar algo mas (S/N)?------------");
 				Scanner input9= new Scanner(System.in);
 				String opcionRR;
 				opcionRR = input9.nextLine();
-				if (opcionRR != "N"){
-					System.out.println("Gracias por su compra.");
+				if (opcionRR != "S"){
+					System.out.println("------------Gracias por su compra.------------");
 					System.out.println("Progama Terminado");
 				}
-				
-			}
+			break;
+				}
+		}
 
 		case 2:
 			System.out.println("2. Pedido de envio");
@@ -191,7 +202,7 @@ public class GenerarPedido {
 		    for( i2=0; i2<Restaurante.getSedes().size(); i2++) {
 		    	System.out.println(i2+1 + ". " + Restaurante.getSedes().get(i2).getUbicacion());
 		    }
-			System.out.println("¿En donde desea recojer el pedido? Recuerde que debe ser una sede cerca de su casa.");
+			System.out.println("¿Que sede desea elejir? Recuerde que debe ser una sede cerca de su casa.");
 			Scanner inputS2= new Scanner(System.in);
 		    int opcion2;
 			opcion2 = inputS2.nextInt();
@@ -210,8 +221,8 @@ public class GenerarPedido {
 			    int opcionP;
 				opcionP = input3.nextInt();
 				ArrayList<Plato> platos = new ArrayList<>();
-				for(int k = 0; k < opcion2; k++) {
-					System.out.println("Ingrese el nombre del plato");
+				for(int L = 0; L < opcionP; L++) {
+					System.out.println("Ingrese el nombre del plato (Tal cual aparece en el menu)");
 					Scanner input4= new Scanner(System.in);
 				    String opcion3;
 					opcion3 = input4.nextLine();
@@ -220,35 +231,46 @@ public class GenerarPedido {
 				System.out.println("Confirma tus productos");
 				for(Plato plato : platos) {
 					System.out.println(plato.getNombre() + " " + plato.getPrecio());
+					System.out.println(plato.calcularPrecioTotal());
 				}
 				System.out.println("¿Desea confirmar su pedido? (S/N)");
 				Scanner input5= new Scanner(System.in);
 			    String opcion4;
 				opcion4 = input5.nextLine();
-				if(opcion4 == "S"){
+				if(opcion4 == "N"){
+					System.out.println("Ingrese el nombre del plato");
+					Scanner inputN= new Scanner(System.in);
+				    String opcion3;
+					opcion3 = inputN.nextLine();
+					platos.add(Plato.buscarPlato(opcion3));
+				}
+				else {
 					System.out.println("Pedido confirmado");
-					 System.out.println("Productos escogidos");
+					System.out.println("Productos escogidos");
 						// Enviar_una_notificación_dentro_de_la_aplicación_al_cliente
-						String mensaje2 = "Su pedido con el número de orden "  + " ha sido confirmado." + "\n"+ "Su pedido va en camino.";
+						String mensaje2 = "Su pedido ha sido confirmado." + "\n"+ "Su pedido va en camino. ";
 						System.out.print(mensaje2);
 
-						System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente.");
+						System.out.println(" Pedido confirmado en la aplicación y notificación enviada al cliente. ");
 						System.out.println("¿Desea ordenar algo mas? (S/N)");
 						Scanner input9= new Scanner(System.in);
 						String opcionRR;
 						opcionRR = input9.nextLine();
-						if (opcionRR != "N"){
-							
-						
+						if (opcionRR != "S"){
 							System.out.println("Gracias por su compra.");
 							System.out.println("Progama Terminado");
-				    }
+					}
+					
 				}
 			}
-			
 		}
 	}
 }
+
+
+	
+	
+
 	
 
 

@@ -136,7 +136,7 @@ public String getNombre() {
     }
     
 
-    private String calcularPrecioTotal() {
+    public String calcularPrecioTotal() {
         double precioTotal = 0;
         for (Item ingrediente : ingredientes) {
             precioTotal += ingrediente.getPrecio();
