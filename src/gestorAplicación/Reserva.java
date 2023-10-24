@@ -62,7 +62,7 @@ public class Reserva {
 
 	public static void reservaciones(Cliente nuevoCliente) {
 
-		while (true) {
+		etiqueta: while (true) {
 
 			System.out.println(" -------Reservaciones---------");
 			System.out.println("¿Qué le gustaría hacer?");
@@ -84,7 +84,7 @@ public class Reserva {
 				break;
 				
 			case 3:
-				break;
+				break etiqueta;
 
 			default:
 
@@ -185,9 +185,10 @@ public class Reserva {
 			System.out.println("No hay sedes disponibles para hacer su reserva");
 		} else {
 			System.out.println("Sedes disponibles para hacer su reserva");
-			for (Restaurante restaurante : sedesEncontradas) {
-				System.out.println(restaurante.getUbicacion());
+			for (int i = 0; i < sedesEncontradas.size(); i++) {
+				System.out.println((i + 1) + ". " + sedesEncontradas.get(i).getUbicacion());
 			}
+			
 
 			System.out.println("Ingrese la opción de la sede [1-" + sedesEncontradas.size() + "]:");
 			int opSede = input1.nextInt();
