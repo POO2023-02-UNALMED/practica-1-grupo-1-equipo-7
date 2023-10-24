@@ -397,9 +397,9 @@ public class main {
 
 		case 6:
 			
-			Reserva.reservaciones(nuevoCliente);
+			Reservaciones.reservaciones(nuevoCliente);
 			Cliente micliente = new Cliente("Null", 0);
-			Reserva.reservaciones(micliente);
+			Reservaciones.reservaciones(micliente);
 
 		case 7:
 
