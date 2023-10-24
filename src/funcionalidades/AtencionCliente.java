@@ -8,7 +8,14 @@ public class AtencionCliente {
 	
 
 	static{
-		
+		new Empleado("Juan Lopez", "Chef", 2000, 1);
+	    new Empleado("Pedro Sanchez", "Mesero", 1700, 1);
+	    new Empleado("Maria Ochoa", "Gerente", 3000, 2);
+	    new Empleado("Jose Correa", "Domiciliario", 1500, 2);
+	    new Empleado("Alejandra Diaz", "Servicios Varios", 1000, 2);
+	    new Empleado("Camilo Palacio", "Mesero", 1700, 1);
+	       
+	       
 		new Reseña("Anonimo", "Gran lugar para pasar el tiempo en familia, muy buena la atención", 4);
 		new Reseña("Julian Vargas", "Me gustaron los pozoles", 5);
 		new Reseña("Marta Wayne", "La comida estaba fria y tardaron mucho en atendernos, mal ahí", 2);
@@ -438,6 +445,69 @@ public class AtencionCliente {
 			break;
 
 		case 4:
+			System.out.println("------------Devoluciones------------");
+			System.out.println("Ha seleccionado la opcion 4, Devoluciones.\n¿Que desea realizar?");
+			
+			System.out.println("1. Ver las solicitudes de Devoluciones");
+			System.out.println("2. Realizar una nueva solicitud");
+			System.out.println("3. Revisar el estado de mi solicitud");
+			System.out.println("4. Salir");
+			
+	
+			Scanner inputD=new Scanner(System.in);
+			int opcionD;
+			opcionD=inputD.nextInt();
+			
+			switch(opcionD) {
+			case 1:
+				System.out.println("Para poder continuar debe ingresar su codigo de empleado. ¿Cuenta con un codigo de empleado?");
+				System.out.println("1. Si");
+				System.out.println("2. No");
+				
+				Scanner inputD1=new Scanner(System.in);
+				int opcionD1;
+				opcionD1=inputD1.nextInt();
+				
+				switch (opcionD1) {
+				case 1:
+					System.out.println("Ingrese su codigo de empleado:");
+					
+					Scanner inputD12=new Scanner(System.in);
+					int opcionD12;
+					opcionD12=inputD12.nextInt();
+					
+					
+					
+					
+					break;
+					
+				case 2:
+					break;
+				}
+				
+				if(opcionD1 == 1) {
+					
+					
+				}
+				
+				
+				
+				break;
+			
+			case 2:
+				break;
+				
+			case 3:
+				break;
+			
+			case 4:
+				break;
+				
+			default:
+				System.out.println("Opcion invalida");
+				break;
+			}
+			
 			break;
 			
 			
