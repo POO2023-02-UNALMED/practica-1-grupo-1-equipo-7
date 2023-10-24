@@ -1,8 +1,6 @@
 package gestorAplicación;
 import java.util.List;
-
-
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
@@ -10,7 +8,7 @@ import java.util.HashMap;
 
 
 
-public class Inventario  {
+public class Inventario implements Serializable {
 	
 	
 	
@@ -95,7 +93,7 @@ public class Inventario  {
         }
     }
     // mostrar inventario 
-    public void mostrarInventario(Restaurante restaurante) {
+    public static  void mostrarInventario(Restaurante restaurante) {
     	System.out.print("inventario de "+ restaurante.getDireccion());
     	
          for (Map.Entry<String, Integer> entry : restaurante.getInventario().diccionarioItems.entrySet()) {

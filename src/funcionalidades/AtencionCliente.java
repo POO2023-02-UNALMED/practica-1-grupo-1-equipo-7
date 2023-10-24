@@ -8,12 +8,22 @@ public class AtencionCliente {
 	
 
 	static{
+		
+		new Sugerencia("Empleado", "Habian pocos meseros, la atencion fue excelente pero algo lenta por la falta de personal");
+		new Sugerencia("Empleado", "Más personal de servicios");
+		new Sugerencia("Menu", "Deberian vender hamburguesas");
+		new Sugerencia("Sede", "Deberian hacer otra sede en el norte");
+		new Sugerencia("Otro", "Las sillas deberian ser más comodas");
+		
+		new Queja("Juan Perez", "Empleado", "Camilo Palacio", "Me cobro propina sin dar la autorización");
+		new Queja("Juan Perez", "Empleado", "Camilo Palacio", "Es muy grosero, me insulto por dejar, segun él, poca propina");
+		new Queja("Maria Lopez", "Menu", "Tacos", "La salsa es muy extravagante, no permite que se disfrute el plato");
 	          
 		new Reseña("Anonimo", "Gran lugar para pasar el tiempo en familia, muy buena la atención", 4);
 		new Reseña("Julian Vargas", "Me gustaron los pozoles", 5);
 		new Reseña("Marta Wayne", "La comida estaba fria y tardaron mucho en atendernos, mal ahí", 2);
 		new Reseña("Barbara Gordon", "Muy buen servicio a domicilio, todo llego a tiempo y recien hecho", 5);
-		new Reseña("Anonimo", "Que fea la sede de Bello, casi nos roban al salir", 1);
+		new Reseña("Anonimo", "Que fea la sede de Belen, casi nos roban al salir", 1);
 		new Reseña("Anonimo", "Mi mujer se enfermo despues de comer en una de sus sedes", 1);
 		new Reseña("Carol Diaz", "Excelente atención", 5);
 		new Reseña("Santiago Lopez", "Muy buenas porciones y de sabor delicioso", 5);
@@ -36,6 +46,11 @@ public class AtencionCliente {
 	
 	public static List<Reseña> Recopilatorio2 = Reseña.Recopilatorio;
 	public static List<Devolucion> ListaDevoluciones2 = Devolucion.ListaDevoluciones;
+	protected static List<Sugerencia> SugerenciasMenu2 = Sugerencia.SugerenciasMenu;
+	protected static List<Sugerencia> SugerenciasEmpleados2 = Sugerencia.SugerenciasEmpleados;
+	protected static List<Sugerencia> SugerenciasSedes2 = Sugerencia.SugerenciasSedes;
+	protected static List<Sugerencia> SugerenciasOtros2 = Sugerencia.SugerenciasOtros;
+	protected static List<Sugerencia> Sugerencias2 = Sugerencia.Sugerencias;
 	
 	public static void main(String[] arg){
 		
@@ -56,76 +71,316 @@ public class AtencionCliente {
 		
 		case 1:
 			System.out.println("------------Sugerencias------------");
-			System.out.println("Ha seleccionado la opcion 1, Sugerencia, ¿Sobre que desea realizar su sugerecia?");
+			System.out.println("Ha seleccionado la opcion 1, Sugerencia,\\n¿Qué desea realizar?");
 			
-			System.out.println("1. Sobre el menu");
-			System.out.println("2. Sobre un empleado");
-			System.out.println("3. Sobre una de nuestras sedes");
-			System.out.println("4. Algun otro");
-			System.out.println("5. Salir");
+			System.out.println("1. Realizar una nueva sugerencia");
+			System.out.println("2. Reporte de sugerencias");
+			System.out.println("3. Salir");
 			
-			String type = null;			
 			
-			Scanner inputs=new Scanner(System.in);
-			int opcions;
-			opcions=inputs.nextInt();
+			int sug;
+			Scanner sugS = new Scanner(System.in);
+			sug = sugS.nextInt();
 			
-			switch(opcions) {
-			
-			case 1:
-				type = "Menu";
+			switch(sug) {
+			case 1: //Nueva sugerencia
 				
-			case 2:
-				type = "Empleado";
+				System.out.println("¿Sobre que desea realizar su sugerecia?");
+				System.out.println("1. Sobre el menu");
+				System.out.println("2. Sobre un empleado");
+				System.out.println("3. Sobre una de nuestras sedes");
+				System.out.println("4. Algun otro");
+				System.out.println("5. Salir");
 				
-			case 3:
-				type = "Sede";
-			
-			case 4:
-				type = "otro";
-			
-			case 5:
+				String type = null;			
+				
+				Scanner inputs=new Scanner(System.in);
+				int opcions;
+				opcions=inputs.nextInt();
+				
+				switch(opcions) {
+				
+				case 1:
+					type = "Menu";
 					break;
-			default:
-				System.out.println("Opcion invalida");
-			
-			}
-			if (opcions== 5) {break;}
-			if (opcions != 5 && opcions>= 1) {
-				System.out.println("Por favor, a continuacion escriba su sugerencia");
-				
-				Scanner inputTextoS=new Scanner(System.in);
-				String TextoS;
-				TextoS=inputTextoS.nextLine();
-				
-				System.out.println("Todo listo");
-				
-				System.out.println("1. Editar Sugerencia");
-				System.out.println("2. Enviar Sugerencia");
-				
-				Scanner inputOEditarS=new Scanner(System.in);
-				int opcionES;
-				opcionES=inputOEditarS.nextInt();
-				
-				if (opcionES == 1) {
 					
-					System.out.println("Ahora puede editar su sugerencia");
-					Scanner inputEditarS=new Scanner(System.in);
-					String EditarS;
-					EditarS=inputEditarS.nextLine();
+				case 2:
+					type = "Empleado";
+					break;
 					
-					TextoS = EditarS;
+				case 3:
+					type = "Sede";
+					break;
+					
+				case 4:
+					type = "otro";
+					break;
+					
+				case 5:
+						break;
+				default:
+					System.out.println("Opcion invalida");
+					break;
+				}
+
+				if (opcions != 5 && opcions>= 1 && opcions < 5) {
+					System.out.println("Por favor, a continuacion escriba su sugerencia");
+					
+					Scanner inputTextoS=new Scanner(System.in);
+					String TextoS;
+					TextoS=inputTextoS.nextLine();
+					
+					System.out.println("Todo listo");
+					
+					System.out.println("1. Editar Sugerencia");
+					System.out.println("2. Enviar Sugerencia");
+					
+					Scanner inputOEditarS=new Scanner(System.in);
+					int opcionES;
+					opcionES=inputOEditarS.nextInt();
+					
+					if (opcionES == 1) {
+						
+						System.out.println("Ahora puede editar su sugerencia");
+						Scanner inputEditarS=new Scanner(System.in);
+						String EditarS;
+						EditarS=inputEditarS.nextLine();
+						
+						TextoS = EditarS;
+					}
+					
+					if (opcionES == 2) {new Sugerencia(type, TextoS);}
+					
+					System.out.println("Su sugerencia se ha enviado con exito");
+					System.out.println("1. Salir");
+					
+					Scanner inputSalirS = new Scanner(System.in);
+					int SalirS;
+					SalirS=inputSalirS.nextInt();
 				}
 				
-				if (opcionES == 2) {new Sugerencia(type, TextoS);}
+				break;
 				
-				System.out.println("Su sugerencia se ha enviado con exito");
-				System.out.println("1. Salir");
+			case 2: //Reporte de sugerencias
 				
-				Scanner inputSalirS = new Scanner(System.in);
-				int SalirS;
-				SalirS=inputSalirS.nextInt();
+				System.out.println("Para poder continuar debe ingresar su codigo de empleado. ¿Cuenta con un codigo de empleado?");
+				System.out.println("1. Si");
+				System.out.println("2. No");
+				
+				Scanner inputS1=new Scanner(System.in);
+				int opcionS1;
+				opcionS1=inputS1.nextInt();
+				
+				switch (opcionS1) {
+				case 1: //Tiene codigo de empleado
+					System.out.println("Ingrese su codigo de empleado:");
+					
+					Scanner inputS12=new Scanner(System.in);
+					Empleado emp;
+					int opcionS12;
+					opcionS12=inputS12.nextInt();
+					
+					emp = Empleado.buscarEmpleado(opcionS12);
+					
+					System.out.println("Bienvenid@ " + emp.getNombre()+ "\n¿Que reporte desea que le muestre?");
+					
+					System.out.println("1. Reporte de todas las sugerencias");
+					System.out.println("2. Reporte de sugerencias del menu");
+					System.out.println("3. Reporte de sugeencias sobre empleados");
+					System.out.println("4. Reporte de sugerencias de sede");
+					System.out.println("5. Salir");
+				
+				
+					int reportS;
+					Scanner reports = new Scanner(System.in);
+					reportS = reports.nextInt();
+					
+					switch(reportS) {
+					
+					case 1: //Reporte todas
+						
+						System.out.println("Hay un total de (" + Sugerencia.cantidadSugerencias() + ") sugerencias. ¿Desea verlas?");
+						
+						System.out.println("1. Si");
+						System.out.println("2. No");
+						int m;
+						Scanner mi = new Scanner(System.in);
+						m = mi.nextInt();
+						
+						//si
+						if (m == 1) {
+							
+							for(Sugerencia d: Sugerencias2) {
+								System.out.println("\n");
+								System.out.println(d);
+								System.out.println("\n");
+							}
+							
+							System.out.println("Saliendo");
+							
+							break;
+						}
+						
+						//no
+						if (m == 2) {
+							System.out.println("Saliendo");
+							
+							 break;
+						}
+						
+						if (m != 1 && m != 2) {
+							System.out.println("Opcion invalida");
+							break;
+						}
+						
+						break;
+						
+						
+					case 2://Reporte menu
+						System.out.println("Hay un total de (" + Sugerencia.cantidadSugerenciasMenu() + ") sugerencias de tipo menu. ¿Desea verlas?");
+						
+						System.out.println("1. Si");
+						System.out.println("2. No");
+						int me;
+						Scanner mie = new Scanner(System.in);
+						me = mie.nextInt();
+						
+						//si
+						if (me == 1) {
+							
+							for(Sugerencia d: SugerenciasMenu2) {
+								System.out.println("\n");
+								System.out.println(d);
+								System.out.println("\n");
+							}
+							
+							System.out.println("Saliendo");
+							
+							break;
+						}
+						
+						//no
+						if (me == 2) {
+							System.out.println("Saliendo");
+							
+							 break;
+						}
+						
+						if (me != 1 && me != 2) {
+							System.out.println("Opcion invalida");
+							break;
+						}
+						
+						break;
+						
+					case 3://Reporte empleados
+						System.out.println("Hay un total de (" + Sugerencia.cantidadSugerenciasEmpleados() + ") sugerencias de tipo empleado. ¿Desea verlas?");
+						
+						System.out.println("1. Si");
+						System.out.println("2. No");
+						int ma;
+						Scanner mia = new Scanner(System.in);
+						ma = mia.nextInt();
+						
+						//si
+						if (ma == 1) {
+							
+							for(Sugerencia d: SugerenciasEmpleados2) {
+								System.out.println("\n");
+								System.out.println(d);
+								System.out.println("\n");
+							}
+							
+							System.out.println("Saliendo");
+							
+							break;
+						}
+						
+						//no
+						if (ma == 2) {
+							System.out.println("Saliendo");
+							
+							 break;
+						}
+						
+						if (ma == 1 && ma != 2) {
+							System.out.println("Opcion invalida");
+							break;
+						}
+						break;
+					
+					case 4://Reporte sedes
+						System.out.println("Hay un total de (" + Sugerencia.cantidadSugerenciasSedes() + ") sugerencias de tipo sede. ¿Desea verlas?");
+						
+						System.out.println("1. Si");
+						System.out.println("2. No");
+						int mo;
+						Scanner mio = new Scanner(System.in);
+						mo = mio.nextInt();
+						
+						//si
+						if (mo == 1) {
+							
+							for(Sugerencia d: SugerenciasSedes2) {
+								System.out.println("\n");
+								System.out.println(d);
+								System.out.println("\n");
+							}
+							
+							System.out.println("Saliendo");
+							
+							break;
+						}
+						
+						//no
+						if (mo == 2) {
+							System.out.println("Saliendo");
+							
+							 break;
+						}
+						
+						if (mo != 1 && mo != 2) {
+							System.out.println("Opcion invalida");
+							break;
+						}
+						
+						break;
+						
+					case 5: //Salir;
+						break;
+					
+					default:
+						System.out.println("Opcion invalida");
+						break;
+					}
+					
+					
+					
+					
+					break;
+					
+				case 2://No tiene codigo de empleado
+					System.out.println("Lo siento, tiene que tener un codigo de empleado para poder ingresar");
+					System.out.println("Saliendo");
+					break;
+					
+				default:
+					System.out.println("Opcion invalida");
+					break;
+				}
+				break;
+				
+			case 3: //Salir
+				break;
+				
+			default:
+				System.out.println("Opcion invalida");
+				sug = 3;
+				break;
 			}
+			
+				
+
 			
 			break;
 		
@@ -182,8 +437,6 @@ public class AtencionCliente {
 					opcionQ = 5;
 					
 					break;
-					
-					
 				}	
 				
 				
@@ -485,6 +738,7 @@ public class AtencionCliente {
 					System.out.println("Bienvenid@ " + emp.getNombre()+ "\nA continucion se mostraran todas las solicitudes pendientes");
 					
 					for(Devolucion d: ListaDevoluciones2) {
+						System.out.println("\n");
 						System.out.println(d);
 						System.out.println("\n");
 					}
@@ -553,7 +807,10 @@ public class AtencionCliente {
 						}
 						break;
 					}
-					
+					if (j != 1 || j != 2) {
+						System.out.println("Opcion invalida");
+						break;
+					}
 					
 					
 					break;
@@ -561,6 +818,10 @@ public class AtencionCliente {
 				case 2: //No tiene codigo de empleado
 					System.out.println("Lo siento, tiene que tener un codigo de empleado para poder ingresar");
 					System.out.println("Saliendo");
+					break;
+					
+				default:
+					System.out.println("Opcion invalida");
 					break;
 				}
 				
@@ -648,6 +909,7 @@ public class AtencionCliente {
 				
 			default:
 				System.out.println("Opcion invalida");
+				opcionD = 4;
 				break;
 			}
 			

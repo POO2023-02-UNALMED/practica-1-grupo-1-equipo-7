@@ -1,11 +1,12 @@
 package gestorAplicación;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 
-public class Restaurante {
+public class Restaurante implements Serializable{
 
 	private String nombre;
 	static HashMap<Integer, Float> incentivos = new HashMap<Integer, Float>() {
