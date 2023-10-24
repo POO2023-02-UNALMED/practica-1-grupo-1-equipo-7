@@ -20,11 +20,6 @@ public class Mesa {
 		listaMesas.add(this);
 	}
 	
-	public void asignarCliente(Cliente cliente) {
-		Mesa.cliente = cliente;
-		Mesa.cliente.setMesa(this);
-	}
-	
 	public String getTipoMesa() {
 		return this.tipoMesa;
 	}

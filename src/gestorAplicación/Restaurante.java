@@ -34,7 +34,7 @@ public class Restaurante {
 	private static int contadorSedes = 0;
 
 	//No quitar
-	static {
+	/*static {
 		ArrayList<Plato> menu1 = new ArrayList<Plato>();
 		for (Plato platos : Plato.getPlatos().keySet()) {
             menu1.add(platos);
@@ -62,7 +62,7 @@ public class Restaurante {
 		new Restaurante("La Casa de Toño", "Sede: Belen", "Calle 4", new Inventario(), new Caja(), 1234567, new Date(), menu1, new ArrayList<Mesa>());
 		
 
-	}
+	}*/
 
 	public Restaurante(String nombre, String ubicacion, String direccion, Inventario inventario, Caja caja,
 			int telefono, Date horario, ArrayList<Plato> menu, ArrayList<Mesa> mesas) {
