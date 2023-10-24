@@ -119,7 +119,7 @@ public class AtencionCliente {
 					break;
 					
 				case 4:
-					type = "otro";
+					type = "Otro";
 					break;
 					
 				case 5:
