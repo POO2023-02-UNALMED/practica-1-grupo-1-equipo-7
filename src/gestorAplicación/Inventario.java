@@ -93,15 +93,7 @@ public class Inventario implements Serializable {
         }
     }
     // mostrar inventario 
-    public static  void mostrarInventario(Restaurante restaurante) {
-    	System.out.print("inventario de "+ restaurante.getDireccion());
-    	
-         for (Map.Entry<String, Integer> entry : restaurante.getInventario().diccionarioItems.entrySet()) {
-             String  clave = entry.getKey();
-             Integer valor = entry.getValue();
-             System.out.println(clave + ": " + valor);
-         }
-     }
+    
    
     
     

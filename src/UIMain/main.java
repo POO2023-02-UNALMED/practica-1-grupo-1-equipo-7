@@ -273,8 +273,15 @@ public class main {
 
 					switch (opcionf) {
 					case 1:
+						System.out.println("inventario de "+ "Restaurante ubicado en "+  Restaurante.getSedes().get(opcion3-1).getUbicacion());
 						Inventario.obtenerInventarios().get(opcion3 - 1);
-						Inventario.mostrarInventario(Restaurante.getSedes().get(opcion3 - 1));
+						 for (Map.Entry<String, Integer> entry : Restaurante.getSedes().get(opcion3-1).getInventario().getDiccionarioItems().entrySet()) {
+				             String  clave = entry.getKey();
+				             Integer valor = entry.getValue();
+				             System.out.println(clave + ": " + valor);
+				         }
+						
+						
 						break;
 					case 2:
 						
@@ -395,14 +402,23 @@ public class main {
 									} else {
 										System.out.println("El stock ha sido  actualizado:");
 										Inventario.obtenerInventarios().get(opcion3 - 1);
-										Inventario.mostrarInventario(Restaurante.getSedes().get(opcion3 - 1));
+										
+										System.out.println("inventario de "+ "Restaurante ubicado en "+  Restaurante.getSedes().get(opcion3-1).getUbicacion());
+										Inventario.obtenerInventarios().get(opcion3 - 1);
+										 for (Map.Entry<String, Integer> entry : Restaurante.getSedes().get(opcion3-1).getInventario().getDiccionarioItems().entrySet()) {
+								             String  clave = entry.getKey();
+								             Integer valor = entry.getValue();
+								             System.out.println(clave + ": " + valor);
+								         }
+									
 										System.out.println("1.Volver");
 										System.out.println("2.Salir ");
 										Scanner inpuj8 = new Scanner(System.in);
 										int num231;
 										num231 = inpuj8.nextInt();
 										if (num231 == 2) {
-											Comparador = false;
+											System.exit(0);
+											
 										}
 										if (num231 == 1) {
 
@@ -412,13 +428,13 @@ public class main {
 								}
 
 								if (num23 == 2) {
-									Comparador = false;
+									System.exit(0);
 								}
 
 							}
 
 						}
-						
+						break;
 						
 						
 					case 4 : 
@@ -479,7 +495,13 @@ public class main {
 						vark40=inputk40.nextLine();
 						if (vark40.equals("S")) {
 							Inventario.obtenerInventarios().get(opcion3-1).resetearInventario();
-							Inventario.mostrarInventario(Restaurante.getSedes().get(opcion3-1));
+							System.out.println("inventario de "+ "Restaurante ubicado en "+  Restaurante.getSedes().get(opcion3-1).getUbicacion());
+							Inventario.obtenerInventarios().get(opcion3 - 1);
+							 for (Map.Entry<String, Integer> entry : Restaurante.getSedes().get(opcion3-1).getInventario().getDiccionarioItems().entrySet()) {
+					             String  clave = entry.getKey();
+					             Integer valor = entry.getValue();
+					             System.out.println(clave + ": " + valor);
+					         }
 						}
 						else {}
 						break;
