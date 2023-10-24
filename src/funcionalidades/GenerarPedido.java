@@ -12,12 +12,6 @@ import java.util.HashMap;
 import java.util.Arrays;
 
 public class GenerarPedido {
-	
-	
-
-
-	
-	
 
 	//inicia_la_funcionalidad
 	public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException, IOException {
@@ -73,45 +67,51 @@ public class GenerarPedido {
 				else {
 			
 					System.out.println("Confirma tus productos");
-						for(Plato plato : platos) {
-							
-							System.out.println(plato.getNombre() + " " + plato.getPrecio());
-							
-							System.out.println("------------¿Desea confirmar su pedido? (S/N)------------");
-							Scanner input5= new Scanner(System.in);
-							String opcion4;
-							opcion4 = input5.nextLine();
-							if(opcion4 == "S"){
-								System.out.println("Pedido confirmado");
-							
+					for(Plato plato : platos) {
+					System.out.println(plato.getNombre() + " " + plato.getPrecio());
+					System.out.println("------------¿Desea confirmar su pedido? (S/N)------------");
+					Scanner input5= new Scanner(System.in);
+					String opcion4;
+					opcion4 = input5.nextLine();
+					if(opcion4 == "N" || opcion4 != "n" ){
+						System.out.println("Pedido confirmado");
+						System.out.println("Productos escogidos");
+						String mensaje2 = "------------Su pedido ha sido confirmado.------------" + "\n";
+						System.out.print(mensaje2);
+						System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente."  + "\n");
+						System.out.println("------------¿Desea ordenar algo mas (S/N)?------------");
+						Scanner input9= new Scanner(System.in);
+						String opcionRR;
+						opcionRR = input9.nextLine();
+						if (opcionRR != "N" || opcionRR == "n"){
+							System.out.println("------------Su pedido estará listo cuando llegue.------------");
+							System.out.println("------------Gracias por su compra.------------");
+							System.out.println("Progama Terminado");
+							break;
+							}
+						
+						else {
+							System.out.println("Pedido cancelado, por favor realizar de nuevo el proceso");
+							break;
 							}
 						}
+					else {
+						System.out.println("Pedido cancelado, por favor realizar de nuevo el proceso");
+						break;
 					}
 				}
-				
-		
-				System.out.println("Productos escogidos");
-			
-				String mensaje2 = "------------Su pedido ha sido confirmado.------------" + "\n";
-				System.out.print(mensaje2);
-				
-				System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente."  + "\n");
-				System.out.println("------------¿Desea ordenar algo mas (S/N)?------------");
-				Scanner input9= new Scanner(System.in);
-				String opcionRR;
-				opcionRR = input9.nextLine();
-				if (opcionRR != "S"){
-					System.out.println("------------Su pedido estará listo cuando llegue.------------");
-					System.out.println("------------Gracias por su compra.------------");
-					System.out.println("Progama Terminado");
-				}
-			break;
-				
+			}
 		}
+	 break;
+	}
+						
+					
+			
+	
+		
 
 		case 2:
 			System.out.println("2. Pedido de envio");
-			
 			System.out.println("Nuestras sedes disponibles");
 			int i2;
 		    for( i2=0; i2<Restaurante.getSedes().size(); i2++) {
@@ -146,41 +146,36 @@ public class GenerarPedido {
 				System.out.println("Confirma tus productos");
 				for(Plato plato : platos) {
 					System.out.println(plato.getNombre() + " " + plato.getPrecio());
-					System.out.println(plato.calcularPrecioTotal());
+					
 				}
 				System.out.println("¿Desea confirmar su pedido? (S/N)");
 				Scanner input5= new Scanner(System.in);
 			    String opcion4;
 				opcion4 = input5.nextLine();
-				if(opcion4 == "N"){
-					System.out.println("Ingrese el nombre del plato");
-					Scanner inputN= new Scanner(System.in);
-				    String opcion3;
-					opcion3 = inputN.nextLine();
-					platos.add(Plato.buscarPlato(opcion3));
-				}
-				else {
-					System.out.println("Pedido confirmado");
-					System.out.println("Productos escogidos");
-						// Enviar_una_notificación_dentro_de_la_aplicación_al_cliente
-						String mensaje2 = "Su pedido ha sido confirmado." + "\n"+ "Su pedido va en camino. ";
-						System.out.print(mensaje2);
-
-						System.out.println(" Pedido confirmado en la aplicación y notificación enviada al cliente. ");
-						System.out.println("¿Desea ordenar algo mas? (S/N)");
-						Scanner input9= new Scanner(System.in);
-						String opcionRR;
-						opcionRR = input9.nextLine();
-						if (opcionRR != "S"){
-							System.out.println("Gracias por su compra.");
-							System.out.println("Progama Terminado");
-					}
-					
+				
+				if(opcion4 == "N"  ){
+					System.out.println("Pedido cancelado, por favor realizar de nuevo el proceso");
+					break;
 				}
 			}
 		}
 	}
 }
+
+	
+
+		
+	
+	
+
+				
+
+
+
+
+
+		
+
 
 
 	
