@@ -1002,7 +1002,7 @@ public class AtencionCliente {
 						cant = cant2;
 					}
 				}
-				if (opcionER == 2) {reseñaNueva = new Reseña(NombreR, reseñaN, cant);}
+				reseñaNueva = new Reseña(NombreR, reseñaN, cant);
 				Recopilatorio2.add(reseñaNueva);
 				
 				System.out.println("Su reseña se ha enviado con exito");
