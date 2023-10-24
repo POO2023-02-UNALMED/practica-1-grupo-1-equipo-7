@@ -13,23 +13,28 @@ public class Plato {
 	public static List<Plato> pl = new ArrayList<>();
 	private int precio;
 	private boolean disponibilidad=true;// esto es importante para mi funcionalidad :)
-	
+	private static ArrayList<Plato> listadoplatos = new ArrayList<>();
 	
 	//plato asociado a ingredientes 
 	private  static Map <Plato, List<Item>> platos=new HashMap<>();
 	
 	//Constructor 
-	public Plato(String nombre, List<Item> ingredientes, int precio) {
+	public Plato(String nombre, ArrayList<Item> ingredientes, int precio) {
 		this.nombre=nombre;
 		this.ingredientes=ingredientes;
 		platos.put(this, ingredientes);
 		this.precio=precio;
+
+		listadoplatos.add(this);
+
 		Plato.pl.add(this);
+
 		
 		
 	}
-    static{
+    /*static{
         ArrayList<Item> ingredientesTacos = new ArrayList<>();
+        System.out.println(Item.buscarItem("Tortilla"));
         ingredientesTacos.add(Item.buscarItem("Tortilla"));
         ingredientesTacos.add(Item.buscarItem("Carne"));
         ingredientesTacos.add(Item.buscarItem("Cebolla"));
@@ -53,11 +58,9 @@ public class Plato {
         ingredientesTamales.add(Item.buscarItem("Carne"));
         ArrayList<Item> ingredientesEnchiladas = new ArrayList<>();
         ingredientesEnchiladas.add(Item.buscarItem("Tortilla"));
-        ingredientesEnchiladas.add(Item.buscarItem("Cilantro"));
-        ingredientesEnchiladas.add(Item.buscarItem("Queso"));
-        ingredientesEnchiladas.add(Item.buscarItem("Crema"));
+       
         ingredientesEnchiladas.add(Item.buscarItem("Carne"));
-        ArrayList<Item> ingredientesPozol = new ArrayList<>();
+        List<Item> ingredientesPozol = new ArrayList<>();
         ingredientesPozol.add(Item.buscarItem("Maiz"));
         ingredientesPozol.add(Item.buscarItem("Carne"));
         ingredientesPozol.add(Item.buscarItem("Cebolla"));
@@ -71,9 +74,10 @@ public class Plato {
         Plato enchilada=new Plato("Enchiladas", ingredientesEnchiladas,8000);
         Plato pozol=new Plato("Pozol", ingredientesPozol,4000);
         
-    }
+    }*/
 	 // Getter para el atributo "nombre"
-    public String getNombre() {
+   
+public String getNombre() {
         return nombre;
     }
 
@@ -105,11 +109,18 @@ public class Plato {
 		this.precio = precio;
 	}
 
-	// Getter para el atributo "ingredientes" Arreglar
-    public List<String> getIngredientes() {
-        List<String> ingredientes = new ArrayList<>();
+	
+    public ArrayList<String> getIngredientes() {
+        if (ingredientes.isEmpty()) {
+            return null;
+        }
+        System.out.println("2.1");
+        ArrayList<String> ingredientes = new ArrayList<>();
+        System.out.println(this.ingredientes);
         for (Item ingrediente : this.ingredientes) {
+            System.out.println(ingrediente);
             ingredientes.add(ingrediente.getNombre());
+            System.out.println("2.3");
         }
         return ingredientes;
         
@@ -162,11 +173,14 @@ public class Plato {
         return plato.getNombre();
     }
 
-    public static Object[] getIngredientesSimilares(Plato plato1, Plato plato2){
+   /* public static Object[] getIngredientesSimilares(Plato plato1, Plato plato2){
         int ingredientesSimilares = 0;
         ArrayList<String> ingredientes = new ArrayList<>();
+        System.out.println("1.1");
         for(String ingrediente1 : plato1.getIngredientes()){
+            System.out.println("1.2");
             for(String ingrediente2 : plato2.getIngredientes()){
+                System.out.println("1.3");
                 if(ingrediente1.equals(ingrediente2) && !ingredientes.contains(ingrediente1)){
                     ingredientes.add(ingrediente1);
                     ingredientesSimilares++;
@@ -174,11 +188,14 @@ public class Plato {
             }
         }
         return new Object[]{ingredientesSimilares, ingredientes};
-    }
+    }*/
     
     // con esto miramíamos la disponibilidad del plato, no sé si va acá o va en la funcionalidad, si algo lo paso al implementarla :)+++++++++++++++++++++++++++++++++++++
     public void   disponibilidadPlato() {
     	for(Item i:ingredientes ) {
+    		if (i==null){
+    			continue;
+    		}
     		if (i.getInventario().haySuficienteStock(i, 1)==false) {
     			this.disponibilidad=false;
     			
@@ -188,6 +205,56 @@ public class Plato {
     	
     	
     }
+    	
+    	
+    	
+    	
+    	
+    
+    public List<String> IngredientesFaltantes() {// Andres
+    	
+    	List<String> listadoFaltantes = new ArrayList<>();
+    	
+    	for(Item i :this.ingredientes) {
+		
+				
+				
+			
+			if (i==null) {
+				
+				continue;
+			}
+			
+			
+			 if(i.getInventario().haySuficienteStock(i, 1)==false) {
+
+
+				 listadoFaltantes.add(i.getNombre());
+			
+			
+		}
+    }
+			
+			 return listadoFaltantes;	
+		
+	}
+    
+    	
+    
+
+	public static ArrayList<Plato> getListadoplatos() {
+		return listadoplatos;
+	}
+
+	@Override
+	public String toString() {
+		return "Plato [nombre=" + nombre + ", ingredientes=" + ingredientes + ", precio=" + precio + ", disponibilidad="
+				+ disponibilidad + "]";
+	}
+	
+
+
+    
     
     
   
