@@ -8,12 +8,22 @@ public class AtencionCliente {
 	
 
 	static{
+		
+		new Sugerencia("Empleado", "Habian pocos meseros, la atencion fue excelente pero algo lenta por la falta de personal");
+		new Sugerencia("Empleado", "Más personal de servicios");
+		new Sugerencia("Menu", "Deberian vender hamburguesas");
+		new Sugerencia("Sede", "Deberian hacer otra sede en el norte");
+		new Sugerencia("Otro", "Las sillas deberian ser más comodas");
+		
+		new Queja("Juan Perez", "Empleado", "Camilo Palacio", "Me cobro propina sin dar la autorización");
+		new Queja("Juan Perez", "Empleado", "Camilo Palacio", "Es muy grosero, me insulto por dejar, segun él, poca propina");
+		new Queja("Maria Lopez", "Menu", "Tacos", "La salsa es muy extravagante, no permite que se disfrute el plato");
 	          
 		new Reseña("Anonimo", "Gran lugar para pasar el tiempo en familia, muy buena la atención", 4);
 		new Reseña("Julian Vargas", "Me gustaron los pozoles", 5);
 		new Reseña("Marta Wayne", "La comida estaba fria y tardaron mucho en atendernos, mal ahí", 2);
 		new Reseña("Barbara Gordon", "Muy buen servicio a domicilio, todo llego a tiempo y recien hecho", 5);
-		new Reseña("Anonimo", "Que fea la sede de Bello, casi nos roban al salir", 1);
+		new Reseña("Anonimo", "Que fea la sede de Belen, casi nos roban al salir", 1);
 		new Reseña("Anonimo", "Mi mujer se enfermo despues de comer en una de sus sedes", 1);
 		new Reseña("Carol Diaz", "Excelente atención", 5);
 		new Reseña("Santiago Lopez", "Muy buenas porciones y de sabor delicioso", 5);
@@ -485,6 +495,7 @@ public class AtencionCliente {
 					System.out.println("Bienvenid@ " + emp.getNombre()+ "\nA continucion se mostraran todas las solicitudes pendientes");
 					
 					for(Devolucion d: ListaDevoluciones2) {
+						System.out.println("\n");
 						System.out.println(d);
 						System.out.println("\n");
 					}
