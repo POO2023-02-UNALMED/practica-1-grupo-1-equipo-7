@@ -27,11 +27,7 @@ public class Reservaciones {
 		restaurante.add(new Sedes("Envigado", " Carrera 43 N° 38 sur 35", 350, inventario2, new Caja(10000000, 21346)));
 		restaurante.add(new Sedes("Sandiego", " Carrera 33#27-105", 380, inventario3, new Caja(10000000, 21347)));
 		restaurante.add(new Sedes("Belen", " Carrera 42#33-A", 380, inventario4, new Caja(10000000, 21347)));
-
-
-	}
-
-	public static void main(String[] args) {
+		
 		
 		new Mesa("Mesa uno", "Dos personas", "Sede: Las Americas");
 		new Mesa("Mesa dos", "Tres personas", "Sede: Envigado");
@@ -40,9 +36,22 @@ public class Reservaciones {
 		new Mesa("Mesa siete", "Tres personas", "Sede: Las Americas");
 		new Mesa("Mesa siete", "Cuatro o más personas", "Sede: Sandiego");
 		new Mesa("Mesa tres", "Dos personas", "Sede: Envigado");
-		Cliente nuevoCliente = new Cliente(null, 0);
 
-		System.out.println("1. Reservaciones\n2. Salir");
+
+	}
+
+	public static void main(String[] args) {
+		
+//		new Mesa("Mesa uno", "Dos personas", "Sede: Las Americas");
+//		new Mesa("Mesa dos", "Tres personas", "Sede: Envigado");
+//		new Mesa("Mesa tres", "Cuatro o más personas", "Sede: Belen");
+//		new Mesa("Mesa cinco", "Dos personas", "Sede: Belen");
+//		new Mesa("Mesa siete", "Tres personas", "Sede: Las Americas");
+//		new Mesa("Mesa siete", "Cuatro o más personas", "Sede: Sandiego");
+//		new Mesa("Mesa tres", "Dos personas", "Sede: Envigado");
+
+		System.out.println("6. Reservaciones\n7. Salir");
+		Cliente nuevoCliente = new Cliente(null, 0);
 		Scanner input1 = new Scanner(System.in);
 		int opcion;
 		opcion = input1.nextInt();
@@ -50,13 +59,13 @@ public class Reservaciones {
 
 		switch (opcion) {
 
-		case 1:
+		case 6:
 
 			Reserva.reservaciones(nuevoCliente);
 			Cliente micliente = new Cliente("Null", 0);
 			Reserva.reservaciones(micliente);
 
-		case 2:
+		case 7:
 
 			System.out.println("Salir");
 			System.exit(0);
