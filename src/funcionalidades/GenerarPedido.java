@@ -142,7 +142,7 @@ public class GenerarPedido {
 						Scanner input9= new Scanner(System.in);
 						String opcionRR;
 						opcionRR = input9.nextLine();
-						if (opcionRR != "y"){
+						if (opcionRR != "N"){
 							System.out.println("Gracias por su compra.");
 							System.out.println("Progama Terminado");
 				    }
