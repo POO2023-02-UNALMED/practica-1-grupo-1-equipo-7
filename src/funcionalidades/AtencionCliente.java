@@ -659,6 +659,7 @@ public class AtencionCliente {
 			
 		default:
 			System.out.println("Opcion invalida");
+			break;
 		}
 		
 	}
