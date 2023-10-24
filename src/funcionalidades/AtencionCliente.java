@@ -578,7 +578,7 @@ public class AtencionCliente {
 					break;
 				
 				case 4:
-					typeQ = "Algun otro";
+					typeQ = "Otro";
 					
 					
 					OtroQ = "Otro";
