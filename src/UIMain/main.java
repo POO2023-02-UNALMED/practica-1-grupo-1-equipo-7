@@ -1,6 +1,12 @@
 package UIMain;
 
 import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -137,7 +143,7 @@ public class main {
 	// esto se puede cambiar y meter a una lista en sedes, e iterar y si la opcion
 	// elegida es igual elegirlo:)
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException , IOException, ClassNotFoundException{
 		System.out.println(
 				"1. Ver menú\n2. Registro del restaurante\n3. Inventario\n4. Atención al cliente\n5. Reportes\n6. Reservaciones\n7. Salir");
 		Cliente nuevoCliente = new Cliente(null, 0);

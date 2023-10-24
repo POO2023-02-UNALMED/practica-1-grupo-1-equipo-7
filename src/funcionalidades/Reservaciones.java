@@ -1,5 +1,11 @@
 package funcionalidades;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -17,7 +23,8 @@ public class Reservaciones {
 
 	static Scanner input1 = new Scanner(System.in);
 
-	public static void reservaciones(Cliente nuevoCliente) {
+	public static void reservaciones(Cliente nuevoCliente)throws FileNotFoundException , IOException, ClassNotFoundException {
+		
 		etiqueta: while (true) {
 
 			System.out.println(" -------Reservaciones---------");
@@ -51,7 +58,7 @@ public class Reservaciones {
 		}
 	}
 
-	public static void generarReserva(Cliente nuevoCliente) {
+	public static void generarReserva(Cliente nuevoCliente)throws FileNotFoundException , IOException, ClassNotFoundException {
 
 		String miHorario = null;
 		String miMesa = null;
@@ -172,6 +179,20 @@ public class Reservaciones {
 
 				Reserva miReserva = new Reserva(nuevoCliente, sedeElegida, miMesa, miHorario);
 				System.out.println(miReserva.toString());
+				
+				
+				FileOutputStream fileOutputStream = new FileOutputStream("fichero.txt");
+				ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+				objectOutputStream.writeObject(miReserva);
+				objectOutputStream.close();
+				
+				FileInputStream fileInputStream = new FileInputStream("fichero.txt");
+				ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+				Reserva reservaFichero = (Reserva) objectInputStream.readObject();
+				objectInputStream.close();
+
+		
+				
 				break creando;
 			}
 
@@ -334,10 +355,9 @@ public class Reservaciones {
 			System.out.println("No hay sedes disponibles para hacer su reserva");
 		} else {
 			System.out.println("Sedes disponibles para hacer su reserva");
-			for (Restaurante restaurante : sedesEncontradas) {
-				System.out.println(restaurante.getUbicacion());
+			for (int i = 0; i < sedesEncontradas.size(); i++) {
+				System.out.println((i + 1) + ". " + sedesEncontradas.get(i).getUbicacion());
 			}
-
 			System.out.println("Ingrese la opción de la sede [1-" + sedesEncontradas.size() + "]:");
 			int opSede = input1.nextInt();
 

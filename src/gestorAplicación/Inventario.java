@@ -1,8 +1,6 @@
 package gestorAplicación;
 import java.util.List;
-
-
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
@@ -10,7 +8,7 @@ import java.util.HashMap;
 
 
 
-public class Inventario  {
+public class Inventario implements Serializable {
 	
 	
 	
