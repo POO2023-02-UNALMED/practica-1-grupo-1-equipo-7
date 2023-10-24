@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class GenerarPedido {
 	
+	
 	//inicia_la_funcionalidad
 	public static void main(String[] args) {
 		boolean repetir;
@@ -86,7 +87,7 @@ public class GenerarPedido {
 				}
 				
 			}
-		
+		break;
 			
 
 		case 2:
@@ -148,9 +149,13 @@ public class GenerarPedido {
 				    }
 				}
 			}
-		   
+			break;
+		default:
+            System.out.println("Opcion no valida");
+            break;
 		}
 	}
+
 }
 	
 
