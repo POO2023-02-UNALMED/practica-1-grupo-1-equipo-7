@@ -4,6 +4,7 @@ import java.util.*;
 public class Devolucion extends ServiciosClientes{
 	protected Factura factura;
 	protected String Estado;
+	protected String t;
 	public static List<Devolucion> ListaDevoluciones = new ArrayList<>();
 	private static int count;
 	
@@ -20,21 +21,48 @@ public class Devolucion extends ServiciosClientes{
 	}
 	
 	public String toString() {
-		return "N° Solicitud: " + this.getCodigoReferencia() + "\n" + 
+		String a = null;
+		if (this.getEstado() == "Pendiente") {
+				
+				a = "N° Solicitud: " + this.getCodigoReferencia() + "\n" + 
 				"Cliente: " + this.cliente.getNombre() + " - CC. " + this.cliente.getId() + " - Email: " + this.cliente.getEmail() + "\n" + 
 				"Codigo de Factura: " + this.factura.getCodigo() + "\n" +
 				"Estado de la solicitud:  " + this.getEstado()+ "\n" +
-				"Motivo de la solicitud: " + this.getTexto();
-				
+				"Motivo de la solicitud: " + this.getTexto();}
+		
+		if(this.getEstado() == "Denegada") {
+			
+			a = "N° Solicitud: " + this.getCodigoReferencia() + "\n" + 
+				"Cliente: " + this.cliente.getNombre() + " - CC. " + this.cliente.getId() + " - Email: " + this.cliente.getEmail() + "\n" + 
+				"Estado de la solicitud:  " + this.getEstado()+ "\n" +
+				"Motivo de rechazo: " + this.getT() + "\n" +
+				"La solicitud fue negada, se enviara un correo al cliente con la decision tomada";
+		}
+		
+		if(this.getEstado() == "Aprobada" ) {
+			a =	"N° Solicitud: " + this.getCodigoReferencia() + "\n" + 
+				"Cliente: " + this.cliente.getNombre() + " - CC. " + this.cliente.getId() + " - Email: " + this.cliente.getEmail() + "\n" + 
+				"Estado de la solicitud:  " + this.getEstado()+ "\n" +
+				"La solicitud fue aprobada, se enviara un correo al cliente con la decision tomada y los pasos a seguir para hacer efectiva su solicitud";
+		}
+		return a;		
 	}
 	
 	public int getCantidadDevoluciones() {
 		return count;
 	}
+	public String getT() {
+		return t;
+	}
+	
+	public void setT(String t) {
+		this.t = t;
+	}
+	
 	
 	public String getEstado() {return Estado;}
 	
-	public void cambiarEstado(String nuevo) {
+	public void setEstado(String nuevo) {
 		this.Estado = nuevo;	
 	}
 	
@@ -55,6 +83,17 @@ public class Devolucion extends ServiciosClientes{
 				Devolucion.ListaDevoluciones.remove(del);
 			}
 		}
+	}
+	
+	public static Devolucion buscarD2(List<Devolucion> lista, int codigo) {
+		Devolucion a = null;
+		
+		for (Devolucion d: lista) {
+			if(d.getCodigoReferencia() == codigo) {
+				a = d;
+				break;
+			} break;
+		}return a;
 	}
 	
 	public List<Devolucion> getDevoluciones(){
