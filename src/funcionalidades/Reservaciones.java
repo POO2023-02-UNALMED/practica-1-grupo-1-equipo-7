@@ -49,16 +49,15 @@ public class Reservaciones {
 				break;
 
 			case 3:
-
 				System.out.println("Salir");
-				break;
+				System.exit(0);
 				
 			default:
 
 				System.out.println("Opción Inválida");
 
 			}
-			break;
+			
 		}
 	}
 
