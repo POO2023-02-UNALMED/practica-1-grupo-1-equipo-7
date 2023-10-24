@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.List;
 
 import gestorAplicación.Item;
+import gestorAplicación.Reserva;
 
 public class Serializacion {
     
@@ -38,6 +39,20 @@ public class Serializacion {
             e.printStackTrace();
         }
     }
+    
+    public static void serializarReserva(Reserva miReserva, String fichero) throws IOException {
+    	try {
+            FileOutputStream fileOutputStream = new FileOutputStream("fichero.txt");
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(miReserva);
+            objectOutputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    
+    
 // esto es para hecr una prueba 
     public static void main(String[] args) {
         // Crear un objeto que deseas serializar
@@ -46,6 +61,7 @@ public class Serializacion {
         // Llamar al método para serializar
         Serializacion.serializar(n);
     }
+    
 }
 
 

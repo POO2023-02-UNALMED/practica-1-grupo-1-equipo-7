@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
+import gestorAplicación.Reserva;
+
 public class Deserializacion {
 	
 	public static void deserealizar(Object objeto, String archivo ) {
@@ -18,4 +20,20 @@ public class Deserializacion {
 	    e.printStackTrace();
 	}
 
-}}
+}
+	
+	public static Reserva deserializarReserva(String fichero) {
+        try {
+            FileInputStream fileInputStream = new FileInputStream("fichero.txt");
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            Reserva reserva = (Reserva) objectInputStream.readObject();
+            objectInputStream.close();
+            return reserva;
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null; 
+        }
+	}
+
+
+}
