@@ -87,7 +87,6 @@ public class GenerarPedido {
 					}
 					else {
 						System.out.println("Pedido cancelado, por favor realizar de nuevo el proceso");
-							System.out.println("Pedido cancelado, por favor realizar de nuevo el proceso");
 							
 							}	
 					
@@ -144,12 +143,23 @@ public class GenerarPedido {
 			    String opcion4;
 				opcion4 = input5.nextLine();
 				
-				if(opcion4 == "N"  ){
+				if(opcion4.equals("S")){
+					
+					System.out.println("Pedido confirmado");
+					System.out.println("Productos escogidos");
+					String mensaje2 = "------------Su pedido ha sido confirmado.------------" + "\n";
+					System.out.print(mensaje2);
+					System.out.println("Pedido confirmado en la aplicación y notificación enviada al cliente."  + "\n");
+					
+				}
+				else {
 					System.out.println("Pedido cancelado, por favor realizar de nuevo el proceso");
-					break;
+						
+						}	
+					}
 				}
 			}
-		}
+	{
 	}
 }
 
