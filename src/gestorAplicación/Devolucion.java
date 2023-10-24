@@ -20,6 +20,7 @@ public class Devolucion extends ServiciosClientes{
 		count++;
 	}
 	
+	@Override
 	public String toString() {
 		String a = null;
 		if (this.getEstado() == "Pendiente") {

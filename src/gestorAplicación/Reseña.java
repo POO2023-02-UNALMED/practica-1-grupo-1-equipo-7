@@ -64,28 +64,7 @@ public class Reseña extends ServiciosClientes{
 				"'" + this.getReseña() + "'";
 	}
 	
-	public static void main (String[] arg) {
-		for(Reseña rsñ: Reseña.Recopilatorio) {
-			System.out.println(rsñ);
-			System.out.println("\n");
-		}
-		
-		String r = "Juan Lopez";
-		System.out.println(Empleado.existeEmpleado(r));
-		
-		Scanner rEQ=new Scanner(System.in);
-		String reEQ;
-		reEQ=rEQ.nextLine();
-		
-		r = reEQ;
-		
-		System.out.println(r);
-		
-		String s = "Tacos";
-		String t = "Hamburguesa";
-		
-		System.out.println(Plato.existePlato(s) + "\n" + Plato.existePlato(t));
-	}
+	
 	
 	
 }
