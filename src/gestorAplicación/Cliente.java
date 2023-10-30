@@ -125,8 +125,7 @@ public class Cliente extends Persona implements Serializable{
 		for (Plato plato : Plato.getPlatos().keySet()) {
 			for (Plato preferido : platoPreferido) {
 				ingredientesSimilares = Plato.getIngredientesSimilares(plato, preferido);
-				if ((int) ingredientesSimilares[0] >= 3 && !platoPreferido.contains(plato)
-						&& !platosRecomendados.contains(plato)) {
+				if ((int) ingredientesSimilares[0] >= 3 && !platoPreferido.contains(plato) && !platosRecomendados.contains(plato)) {
 					platosRecomendados.add(plato);
 					for (String ingrediente : plato.getIngredientes()) {
 						if (!ingredientes.contains(ingrediente) ) {

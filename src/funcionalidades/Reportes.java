@@ -127,7 +127,9 @@ import gestorAplicación.*;
 						else{
 							System.out.println("El plato preferido para el cliente es: ");
 							for(Plato plato : preferido){
-								System.out.println(plato.getNombre());
+								if(plato != null){
+									System.out.println(plato.getNombre());
+								}
 							}
 						}
 						System.out.println("-----------------------------------");

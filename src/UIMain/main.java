@@ -44,18 +44,7 @@ public class main {
 		new Mesa("Mesa siete", "Cuatro o más personas", "Sede: Sandiego");
 		new Mesa("Mesa tres", "Dos personas", "Sede: Envigado");
 
-		//Listas Manuel :D
-				new PedidoOnlinefisico(6253, 2, "Calle 2", " Pedido Fisico" );
-				new PedidoOnlineEnvio(4544, 1, "Calle 2", " Pedido de envio" );
-				new PedidoOnlinefisico(3948, 3, "Calle 2", " Pedido Fisico" );
-				new PedidoOnlineEnvio(1234, 1, "Calle 2", " Pedido de Envio" );
-				
-				new Pedido(null, "Calle 2", " Pedido Fisico", new Restaurante(), new Cliente("David Gonzales", 123), new Empleado("Jose", "Domiciliario", 20000, 4791));
-				new Pedido(null, "Calle 17 - 2", " Pedido de Envio", new Restaurante(), new Cliente("Andres Gutierres", 324), new Empleado("Daniel", "Domiciliario", 20000, 4791));
-				new Pedido(null, "Calle 22 - 1", " Pedido de Envio", new Restaurante(), new Cliente("Carlos Duque", 456), new Empleado("Jose", "Domiciliario", 20000, 4791));
-				new Pedido(null, "Calle 5 - 2", " Pedido Fisico", new Restaurante(), new Cliente("Carolina Leño", 145), new Empleado("Daniel", "Domiciliario", 20000, 4791));
-		
-		
+		//Listas Manuel :D		
 		// por ahora lo trabajaré así, es posible que use un enumerado, si tienen alguna
 		// recomendación lo agradecería :)
 		new Item("Tortilla", 0, 0.50, "01/01/2024", Inventario.obtenerInventarios().get(0));
@@ -146,6 +135,25 @@ public class main {
 		Plato tamales = new Plato("Tamales", ingredientesTamales, 7000);
 		Plato enchilada = new Plato("Enchiladas", ingredientesEnchiladas, 8000);
 		Plato pozol = new Plato("Pozol", ingredientesPozol, 9000);
+
+		ArrayList<Plato> platos1 = new ArrayList<>();
+        ArrayList<Plato> platos2 = new ArrayList<>();
+        ArrayList<Plato> platos3 = new ArrayList<>();
+        platos1.add(Plato.buscarPlato("Tacos"));
+        platos1.add(Plato.buscarPlato("Tostadas"));
+        platos2.add(Plato.buscarPlato("Sopes"));
+        platos2.add(Plato.buscarPlato("Enchiladas"));
+        platos3.add(Plato.buscarPlato("Tamales"));
+
+		new PedidoOnlinefisico(6253, 2, "Calle 2", " Pedido Fisico" );
+		new PedidoOnlineEnvio(4544, 1, "Calle 2", " Pedido de envio" );
+		new PedidoOnlinefisico(3948, 3, "Calle 2", " Pedido Fisico" );
+		new PedidoOnlineEnvio(1234, 1, "Calle 2", " Pedido de Envio" );
+				
+		new Pedido(platos1, "Calle 2", " Pedido Fisico", new Restaurante(), new Cliente("David Gonzales", 123), new Empleado("Jose", "Domiciliario", 20000, 4791));
+		new Pedido(platos1, "Calle 17 - 2", " Pedido de Envio", new Restaurante(), new Cliente("Andres Gutierres", 324), new Empleado("Daniel", "Domiciliario", 20000, 4791));
+		new Pedido(platos2, "Calle 22 - 1", " Pedido de Envio", new Restaurante(), new Cliente("Carlos Duque", 456), new Empleado("Jose", "Domiciliario", 20000, 4791));
+		new Pedido(platos3, "Calle 5 - 2", " Pedido Fisico", new Restaurante(), new Cliente("Carolina Leño", 145), new Empleado("Daniel", "Domiciliario", 20000, 4791));
 		
 
 	}
@@ -584,5 +592,6 @@ public class main {
 			}
 
 		}
-	}// este fue el del while 
+	}
+	// este fue el del while 
 
